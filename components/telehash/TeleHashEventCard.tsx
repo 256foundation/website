@@ -1,0 +1,74 @@
+import type { TeleHashEvent } from '@/types'
+
+interface TeleHashEventCardProps {
+  event: TeleHashEvent
+}
+
+export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
+  const isPlaceholder = !event.videoUrl || event.videoUrl.includes('PLACEHOLDER')
+
+  return (
+    <div className={`bg-[#111111] rounded-none overflow-hidden border ${event.blockFound ? 'border-[#7C3AED]/40' : 'border-[#1f1f1f]'}`}>
+      {/* Header */}
+      <div className="p-6 border-b border-[#1f1f1f]">
+        <div className="flex items-start justify-between gap-4 mb-4">
+          <div>
+            <h3 className="font-display font-bold text-white text-xl uppercase">
+              TeleHash {event.number}
+            </h3>
+            <time className="font-mono text-gray-500 text-sm">
+              {new Date(event.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+          </div>
+          {event.blockFound && (
+            <span className="shrink-0 inline-flex items-center px-3 py-1 rounded-none text-sm font-mono font-bold border text-[#00FF41] border-[#00FF41]/40 bg-[#00FF41]/10">
+              Block Found!
+            </span>
+          )}
+        </div>
+
+        {event.btcRaised !== undefined && (
+          <div className="flex items-center gap-2 mb-3">
+            <span className="font-display text-[#7C3AED] text-2xl font-bold">
+              {event.btcRaised} BTC
+            </span>
+            <span className="text-gray-500 text-sm">raised</span>
+          </div>
+        )}
+
+        {event.summary && (
+          <p className="text-gray-400 text-sm leading-relaxed">{event.summary}</p>
+        )}
+      </div>
+
+      {/* Video embed */}
+      {event.videoUrl && (
+        <div className="bg-[#0a0a0a]">
+          {isPlaceholder ? (
+            <div className="aspect-video flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-[#7C3AED] font-mono text-sm mb-2">&#9654; Event Video</div>
+                <div className="text-gray-600 text-xs">Video coming soon</div>
+              </div>
+            </div>
+          ) : (
+            <div className="aspect-video">
+              <iframe
+                src={event.videoUrl}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+                title={`TeleHash ${event.number}`}
+              />
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}

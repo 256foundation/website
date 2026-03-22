@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* System preference dark mode for all dark: utilities */
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+/* ── Brand design tokens ─────────────────────────────────────── */
+@theme {
+  /* Primary accent — purple replaces orange entirely */
+  --color-brand-purple:        #7C3AED;
+  --color-brand-purple-dark:   #6D28D9;
+  --color-brand-purple-light:  #5B21B6;
+
+  /* Terminal / status */
+  --color-brand-green:         #00FF41;
+
+  /* Surfaces — dark mode */
+  --color-brand-dark:          #0a0a0a;
+  --color-brand-surface:       #111111;
+  --color-brand-border:        #1f1f1f;
+
+  /* Surfaces — light mode */
+  --color-brand-light-bg:      #ffffff;
+  --color-brand-light-surface: #f5f5f5;
+  --color-brand-light-border:  #e5e5e5;
+
+  /* Fonts */
+  --font-display: var(--font-barlow-condensed), 'Barlow Condensed', sans-serif;
+  --font-mono:    var(--font-space-mono), ui-monospace, monospace;
+  --font-sans:    var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Font utility classes ────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ── Base styles ─────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #f0f0f0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #111111;
+  }
+}
+
+/* ── Scrollbar (dark theme) ──────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7C3AED;
+}
+
+/* ── Animations ──────────────────────────────────────────────── */
+@keyframes pcb-pulse {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.14; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(124, 58, 237, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+}
+
+.pcb-animated {
+  animation: pcb-pulse 4s ease-in-out infinite;
+}
+
+.countdown-separator {
+  animation: blink 1s step-end infinite;
+}
+
+.cursor-blink {
+  animation: cursor-blink 1.2s step-end infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease forwards;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s ease-in-out infinite;
+}
+
+/* ── Focus ring ──────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #7C3AED;
+  outline-offset: 2px;
+}
+
+/* ── Purple glow utilities ───────────────────────────────────── */
+.glow-purple {
+  box-shadow: 0 0 24px rgba(124, 58, 237, 0.15), 0 0 48px rgba(124, 58, 237, 0.08);
+}
+
+.glow-purple-sm {
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.2);
+}
+
+.glow-green {
+  text-shadow: 0 0 20px #00FF41;
+}
+
+/* ── Selection ───────────────────────────────────────────────── */
+::selection {
+  background: rgba(124, 58, 237, 0.2);
+  color: #7C3AED;
+}
+
+/* ── Logo utilities ──────────────────────────────────────────── */
+
+/* White silhouette — for dark backgrounds */
+.logo-invert {
+  filter: brightness(0) invert(1);
+}
+
+/* Metallic shimmer — echoes the logo's chrome/bevel effect */
+.text-metallic {
+  background: linear-gradient(160deg, #ffffff 0%, #a0a0a0 35%, #ffffff 55%, #707070 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Light mode overrides ────────────────────────────────────── */
+@media (prefers-color-scheme: light) {
+  ::-webkit-scrollbar-track {
+    background: #f5f5f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d4d4d4;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5B21B6;
+  }
+
+  :focus-visible {
+    outline-color: #5B21B6;
+  }
+
+  ::selection {
+    background: rgba(91, 33, 182, 0.2);
+    color: #5B21B6;
+  }
+}
