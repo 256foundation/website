@@ -8,9 +8,9 @@ interface SupporterShowcaseProps {
 }
 
 const tierConfig = {
-  1: { label: 'Block Founders', size: 'w-20 h-20 sm:w-24 sm:h-24' },
-  2: { label: 'Hash Champions', size: 'w-16 h-16 sm:w-20 sm:h-20' },
-  3: { label: 'Satoshi Friends', size: 'w-14 h-14 sm:w-16 sm:h-16' },
+  1: { label: 'Tier I', amount: '1 BTC', donateUrl: 'https://pay.zaprite.com/pl_gsOMgGygvA', size: 'w-20 h-20 sm:w-24 sm:h-24' },
+  2: { label: 'Tier II', amount: '0.1 BTC', donateUrl: 'https://pay.zaprite.com/pl_CgX4r675ED', size: 'w-16 h-16 sm:w-20 sm:h-20' },
+  3: { label: 'Tier III', amount: '0.01 BTC', donateUrl: 'https://pay.zaprite.com/pl_Bjf25F3NEA', size: 'w-14 h-14 sm:w-16 sm:h-16' },
 } as const
 
 export default function SupporterShowcase({ supporters }: SupporterShowcaseProps) {
@@ -39,9 +39,21 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
           if (tierSupporters.length === 0) return null
           return (
             <div key={tier}>
-              <h3 className="font-mono text-gray-500 text-xs uppercase tracking-widest mb-4">
-                {config.label}
-              </h3>
+              <div className="flex items-center gap-3 mb-4">
+                <h3 className="font-mono text-gray-400 text-xs uppercase tracking-widest">
+                  {config.label}
+                </h3>
+                <span className="font-mono text-gray-600 text-xs">{config.amount}</span>
+                <a
+                  href={config.donateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="font-mono text-[#7C3AED] text-xs hover:underline transition-colors ml-auto"
+                >
+                  Donate {config.amount} &rarr;
+                </a>
+              </div>
               <div className="flex flex-wrap gap-4">
                 {tierSupporters.map((s, i) => (
                   <a
