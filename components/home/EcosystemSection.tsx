@@ -1,29 +1,47 @@
 const projects = [
   {
+    name: 'Bitaxe',
+    abbr: 'BITAXE',
+    logo: '/ecosystem/bitaxe.png',
+    logoClass: 'grayscale group-hover:grayscale-0 transition-all duration-500',
+    url: 'https://bitaxe.org',
+    tagline: 'The open-source Bitcoin ASIC miner.',
+    mission:
+      'Bitaxe is the world\'s first fully open-source Bitcoin ASIC miner — open hardware, open firmware, open everything. Anyone can build one, modify it, or manufacture it. Bitaxe devices bring solo Bitcoin mining back to individuals with a device that fits in your hand.',
+    why: 'Bitaxe is the physical embodiment of what the 256 Foundation funds: open-source hardware that breaks the proprietary mining monopoly and puts ASIC mining back in the hands of individuals and hobbyists worldwide.',
+  },
+  {
     name: 'Open Source Miners United',
     abbr: 'OSMU',
     logo: '/ecosystem/osmu.png',
-    // Transparent PNG — grayscale until hover
     logoClass: 'grayscale group-hover:grayscale-0 transition-all duration-500',
     url: 'https://osmu.wiki',
     tagline: 'The open-source hardware & firmware community.',
     mission:
       'OSMU is a global community of developers and builders creating open-source Bitcoin mining hardware and software. Projects include Bitaxe, NerdAxe, Bitcrane, AxeOS, Piaxe, Qaxe, and more — fully open designs that anyone can build, modify, and improve.',
     why: 'OSMU represents exactly what the 256 Foundation exists to support: a decentralized, permissionless community that puts the tools of Bitcoin mining back in the hands of individuals. Bringing OSMU under our umbrella gives the community organizational infrastructure and funding pathways while keeping it fully community-led.',
-    tags: ['Hardware', 'Firmware', 'Community'],
   },
   {
     name: 'Hashrate Heatpunks',
     abbr: 'HEATPUNKS',
     logo: '/ecosystem/heatpunks.png',
-    // Transparent PNG — grayscale until hover
     logoClass: 'grayscale group-hover:grayscale-0 transition-all duration-500',
     url: 'https://heatpunks.org',
     tagline: 'Mining heat is a product, not a problem.',
     mission:
       'Hashrate Heatpunks unites the Bitcoin mining community with the heating sector — normalizing home and small-scale mining by pairing hashrate with heat recapture. They build tools, share knowledge, and grow the community of people running miners in homes, garages, and small businesses.',
     why: 'Distributed, home-based hashrate is one of the most powerful forces for Bitcoin decentralization. Heatpunks tackles the biggest barrier to home mining — wasted heat — by reframing it as a feature. This mission aligns directly with the open mining stack the 256 Foundation funds.',
-    tags: ['Home Mining', 'Heat Recapture', 'Decentralization'],
+  },
+  {
+    name: 'Jua Kali Miner',
+    abbr: 'JUA KALI',
+    logo: '/ecosystem/jua-kali.jpg',
+    logoClass: 'grayscale group-hover:grayscale-0 transition-all duration-500',
+    url: 'https://github.com/GridlessCompute/Jua-Kali-Miner',
+    tagline: 'Open-source mining for emerging markets.',
+    mission:
+      'Jua Kali (Swahili for "fierce sun") is an open-source Bitcoin miner designed for off-grid and emerging market conditions — solar-powered, low-cost, and built to run in environments where traditional mining infrastructure is inaccessible.',
+    why: 'Bitcoin\'s promise of permissionless money means nothing if the hardware to secure the network is only accessible to wealthy actors in developed markets. Jua Kali extends open-source mining to the rest of the world.',
   },
 ]
 
@@ -56,7 +74,7 @@ export default function EcosystemSection() {
       </div>
 
       {/* Project cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {projects.map((project) => (
           <a
             key={project.abbr}
@@ -70,11 +88,12 @@ export default function EcosystemSection() {
 
             <div className="flex gap-6 p-6">
               {/* Logo — left column */}
-              <div className="flex items-start justify-center shrink-0 w-28 pt-1">
+              <div className="flex items-start justify-center shrink-0 w-28 pt-1 bg-[#111111]">
                 <img
                   src={project.logo}
                   alt={project.name}
                   className={`w-28 h-auto object-contain transition-all duration-500 ${project.logoClass}`}
+                  style={{ background: 'transparent' }}
                 />
               </div>
 

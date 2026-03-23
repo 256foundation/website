@@ -6,11 +6,11 @@ import type { Supporter } from '@/types'
 // Tier 3 = "Satoshi Friends" — community donors
 export const supporters: Supporter[] = [
   // Tier 1 — Block Founders (5)
-  { name: 'Supporter One', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s1&backgroundColor=1f1f1f', link: '#', tier: 1 },
-  { name: 'Supporter Two', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s2&backgroundColor=1f1f1f', link: '#', tier: 1 },
-  { name: 'Supporter Three', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s3&backgroundColor=1f1f1f', link: '#', tier: 1 },
-  { name: 'Supporter Four', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s4&backgroundColor=1f1f1f', link: '#', tier: 1 },
-  { name: 'Supporter Five', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s5&backgroundColor=1f1f1f', link: '#', tier: 1 },
+  { name: 'Block #881423', image: '/supporters/tier1/881423.jpg', link: 'https://mempool.space/block/881423', tier: 1 },
+  { name: 'HRF', image: '/supporters/tier1/hrf.png', link: 'https://hrf.org', tier: 1 },
+  { name: 'OSMU', image: '/supporters/tier1/osmu.png', link: 'https://osmu.wiki', tier: 1 },
+  { name: 'OpenSats', image: '/supporters/tier1/opensats.png', link: 'https://opensats.org', tier: 1 },
+  { name: 'Proto', image: '/supporters/tier1/proto.png', link: '#', tier: 1 },
 
   // Tier 2 — Hash Champions (5)
   { name: 'Supporter Six', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s6&backgroundColor=1f1f1f', link: '#', tier: 2 },

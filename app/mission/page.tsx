@@ -75,8 +75,18 @@ export default function MissionPage() {
   return (
     <>
       {/* Hero */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
-        <div className="max-w-3xl">
+      <SectionWrapper className="border-b border-[#1f1f1f] relative overflow-hidden">
+        {/* Purple grid — right side, fades left */}
+        <div
+          className="absolute inset-y-0 right-0 w-1/2 pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(rgba(124,58,237,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.1) 1px, transparent 1px)`,
+            backgroundSize: '48px 48px',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.6) 100%)',
+            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.6) 100%)',
+          }}
+        />
+        <div className="max-w-3xl relative">
           <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
             Our Mission
           </p>
