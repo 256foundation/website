@@ -117,8 +117,8 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
         </div>
 
         {/* Podcast + Newsletter signup */}
-        <div className="space-y-4">
-          <h3 className="font-display font-bold text-white text-base mb-5 uppercase tracking-wider">POD256 Podcast</h3>
+        <div className="flex flex-col h-full gap-4">
+          <h3 className="font-display font-bold text-white text-base mb-1 uppercase tracking-wider">POD256 Podcast</h3>
           <div className="bg-[#111111] border border-[#1f1f1f] rounded-none p-6">
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
               The weekly 256 Foundation team podcast covering open-source mining developments,
@@ -132,19 +132,21 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
               href="https://www.pod256.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-[#7C3AED] text-sm hover:underline transition-colors inline-flex items-center gap-1"
+              className="font-mono text-[#7C3AED] text-sm hover:underline transition-colors inline-flex items-center gap-1 mb-4"
             >
               Listen to POD256 &rarr;
             </a>
+            <p className="text-gray-500 text-xs">
+              Available on{' '}
+              <a href="https://fountain.fm" target="_blank" rel="noopener noreferrer" className="text-[#7C3AED] hover:underline">Fountain</a>,{' '}
+              <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" className="text-[#7C3AED] hover:underline">Spotify</a>,{' '}
+              Apple Podcasts, and more.
+            </p>
           </div>
-          <p className="text-gray-500 text-xs px-1">
-            Available on{' '}
-            <a href="https://fountain.fm" target="_blank" rel="noopener noreferrer" className="text-[#7C3AED] hover:underline">Fountain</a>,{' '}
-            <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" className="text-[#7C3AED] hover:underline">Spotify</a>,{' '}
-            Apple Podcasts, and more.
-          </p>
 
-          <NewsletterSignup />
+          <div className="flex-1">
+            <NewsletterSignup />
+          </div>
         </div>
       </div>
     </div>

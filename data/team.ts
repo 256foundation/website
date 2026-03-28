@@ -5,7 +5,7 @@ export const founders: TeamMember[] = [
     name: 'Bitkite',
     handle: '@bitkite',
     role: 'Co-Founder',
-    bio: 'Co-founder of the 256 Foundation and a longtime advocate for open-source Bitcoin mining infrastructure. Bitkite brings deep expertise in Bitcoin protocol development and a conviction that the mining stack must be free and open for Bitcoin to remain decentralized.',
+    bio: 'Co-founder of Bitcoin Park — a community-supported campus in Nashville and Austin focused on grassroots freedom tech adoption — where he has spent years running world-class events at the intersection of Bitcoin, energy, and open-source technology. Bitkite brings a builder\'s conviction that Bitcoin\'s future depends on decentralized infrastructure accessible to everyone, not just institutions.',
     headshot: '/team/bitkite.jpg',
     links: {
       x: 'https://x.com/bitkite',
@@ -15,7 +15,7 @@ export const founders: TeamMember[] = [
     name: 'Econoalchemist',
     handle: '@econoalchemist',
     role: 'Co-Founder',
-    bio: 'Co-founder of the 256 Foundation and a prolific Bitcoin educator and researcher. Econoalchemist is known for producing comprehensive guides that demystify Bitcoin self-sovereignty, and brings that same mission of accessibility to the open-source mining ecosystem.',
+    bio: 'Bitcoin educator, technical writer, and co-host of the POD256 podcast. Econoalchemist has spent years producing comprehensive, free guides on Bitcoin self-custody, privacy, home mining, and censorship resistance — bridging deep technical knowledge with practical accessibility. He brings the same conviction that Bitcoin infrastructure must be open and sovereign to everything the 256 Foundation builds.',
     headshot: '/team/econoalchemist.jpg',
     links: {
       x: 'https://x.com/econoalchemist',
@@ -28,7 +28,7 @@ export const board: TeamMember[] = [
     name: 'Tyler Stevens',
     handle: '@tylerkstevens',
     role: 'Board Member',
-    bio: 'Board member of the 256 Foundation with a background in Bitcoin infrastructure and open-source development strategy. Tyler focuses on the foundation\'s operational and strategic direction.',
+    bio: 'Mechanical engineer, founder of Exergy, and author of the industry reference guide on Bitcoin mining heat reuse. Tyler founded the Hashrate Heatpunks community and has spent his career at the intersection of Bitcoin and energy infrastructure — from thermal engineering on the Vulcan rocket program to building hashrate heating systems for homes and businesses.',
     headshot: '/team/tyler-stevens.jpg',
     links: {
       x: 'https://x.com/tylerkstevens',
@@ -38,7 +38,7 @@ export const board: TeamMember[] = [
     name: 'Skot',
     handle: '@skot9000',
     role: 'Board Member & Lead Engineer, Ember One',
-    bio: 'Board member and the lead engineer behind Ember One, the 256 Foundation\'s open-source Bitcoin mining hashboard reference design. Skot brings decades of hardware engineering experience to the open-source mining hardware movement.',
+    bio: 'Electrical engineer with years of embedded systems experience, Skot instigated the Bitaxe project — the first open-source Bitcoin ASIC miner — and serves as lead engineer on the Ember One hashboard. He is one of the most hands-on forces in open-source Bitcoin mining hardware.',
     headshot: '/team/skot.jpg',
     links: {
       x: 'https://x.com/skot9000',
@@ -48,7 +48,7 @@ export const board: TeamMember[] = [
     name: 'Joe Wood',
     handle: '@JoeWoodCPA',
     role: 'Board Member',
-    bio: 'Board member of the 256 Foundation with experience in nonprofit operations, community building, and Bitcoin advocacy. Joe helps ensure the foundation stays true to its mission and values.',
+    bio: 'Licensed CPA with over sixteen years of experience across auditing, financial reporting, and accounting operations. Joe founded Satoshi Pacioli to bring that expertise to the Bitcoin industry, and serves as treasurer for both the Bitcoin Dev Kit Foundation and Bitcoin is Better. He brings rigorous financial oversight and deep Bitcoin conviction to the 256 Foundation board.',
     headshot: '/team/joe-wood.jpg',
     links: {
       x: 'https://x.com/JoeWoodCPA',

@@ -40,7 +40,7 @@ export default function NewsletterSignup() {
   }
 
   return (
-    <div className="bg-[#111111] border border-[#1f1f1f] rounded-none p-6 hover:border-[#7C3AED]/20 transition-colors">
+    <div className="h-68 bg-[#111111] border border-[#1f1f1f] rounded-none p-6 hover:border-[#7C3AED]/20 transition-colors">
       <div className="flex items-center gap-2 mb-3">
         <div className="w-1 h-3 bg-[#7C3AED]" />
         <span className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase">Newsletter</span>
