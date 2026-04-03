@@ -52,7 +52,7 @@ export default function DonatePage() {
           <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
             Donate
           </p>
-          <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
+          <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
             Fund the Open-Source Mining Revolution
           </h1>
           <p className="text-gray-400 text-lg leading-relaxed">
@@ -69,7 +69,7 @@ export default function DonatePage() {
           <div className="flex items-start gap-4">
             <div className="text-[#7C3AED] text-2xl shrink-0">&#9878;</div>
             <div>
-              <h3 className="font-display font-bold text-white text-base uppercase mb-2">
+              <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase mb-2">
                 501(c)(3) Nonprofit — Tax Deductible
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed">
@@ -84,7 +84,7 @@ export default function DonatePage() {
 
       {/* Donate money */}
       <SectionWrapper className="border-b border-[#1f1f1f]">
-        <h2 className="font-display font-bold text-white text-2xl sm:text-3xl uppercase mb-4">
+        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-4">
           Donate with Money
         </h2>
         <p className="text-gray-400 text-base leading-relaxed mb-6 max-w-2xl">
@@ -117,7 +117,7 @@ export default function DonatePage() {
 
       {/* Donate hashrate */}
       <SectionWrapper id="hashrate">
-        <h2 className="font-display font-bold text-white text-2xl sm:text-3xl uppercase mb-4">
+        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-4">
           Donate Hashrate
         </h2>
         <p className="text-gray-400 text-base leading-relaxed mb-3 max-w-2xl">
@@ -139,7 +139,7 @@ export default function DonatePage() {
                 {s.step}
               </span>
               <div>
-                <h3 className="font-display font-bold text-white text-sm uppercase mb-1">{s.title}</h3>
+                <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-1">{s.title}</h3>
                 {s.code && (
                   <code className="block bg-[#0a0a0a] border border-[#1f1f1f] rounded-none px-3 py-2 font-mono text-[#00FF41] text-sm my-2">
                     {s.code}

@@ -63,7 +63,7 @@ export default function GrantsPage() {
           <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
             Grants Program
           </p>
-          <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
+          <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
             Fund the Future of Open-Source Mining
           </h1>
           <p className="text-gray-400 text-lg leading-relaxed mb-8">
@@ -79,7 +79,7 @@ export default function GrantsPage() {
 
       {/* Grant types */}
       <SectionWrapper className="border-b border-[#1f1f1f]">
-        <h2 className="font-display font-bold text-white text-2xl sm:text-3xl uppercase mb-8">
+        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
           Grant Types
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -87,7 +87,7 @@ export default function GrantsPage() {
             <div className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-3">
               Core Pillar Grants
             </div>
-            <h3 className="font-display font-bold text-white text-lg uppercase mb-3">Foundation-Defined</h3>
+            <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Foundation-Defined</h3>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
               The foundation identifies critical missing pieces of the open-source mining stack,
               defines the scope and deliverables, and selects qualified developers to build them.
@@ -101,7 +101,7 @@ export default function GrantsPage() {
             <div className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-3">
               Open Rolling Grants
             </div>
-            <h3 className="font-display font-bold text-white text-lg uppercase mb-3">Community-Driven</h3>
+            <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Community-Driven</h3>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
               Any developer or researcher can submit a proposal for a project that advances the
               open-source Bitcoin mining ecosystem. We review applications on a rolling basis and
@@ -118,7 +118,7 @@ export default function GrantsPage() {
       <SectionWrapper className="border-b border-[#1f1f1f]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
-            <h2 className="font-display font-bold text-white text-xl uppercase mb-6">
+            <h2 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase mb-6">
               What We Fund
             </h2>
             <ul className="space-y-3">
@@ -131,7 +131,7 @@ export default function GrantsPage() {
             </ul>
           </div>
           <div>
-            <h2 className="font-display font-bold text-white text-xl uppercase mb-6">
+            <h2 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase mb-6">
               What We Don&apos;t Fund
             </h2>
             <ul className="space-y-3">
@@ -148,7 +148,7 @@ export default function GrantsPage() {
 
       {/* Process */}
       <SectionWrapper className="border-b border-[#1f1f1f]">
-        <h2 className="font-display font-bold text-white text-2xl sm:text-3xl uppercase mb-8">
+        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
           Application Process
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -157,7 +157,7 @@ export default function GrantsPage() {
               <div className="font-mono font-bold text-[#7C3AED] text-3xl mb-4 opacity-50">
                 {s.step}
               </div>
-              <h3 className="font-display font-bold text-white text-sm uppercase mb-2">{s.title}</h3>
+              <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-2">{s.title}</h3>
               <p className="text-gray-400 text-xs leading-relaxed">{s.description}</p>
             </div>
           ))}
@@ -167,7 +167,7 @@ export default function GrantsPage() {
       {/* CTA */}
       <SectionWrapper>
         <div className="text-center max-w-xl mx-auto">
-          <h2 className="font-display font-bold text-white text-2xl uppercase mb-4">
+          <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl uppercase mb-4">
             Ready to Apply?
           </h2>
           <p className="text-gray-400 text-sm leading-relaxed mb-8">
