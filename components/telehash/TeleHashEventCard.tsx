@@ -8,12 +8,12 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
   const isPlaceholder = !event.videoUrl || event.videoUrl.includes('PLACEHOLDER')
 
   return (
-    <div className={`bg-[#111111] rounded-none overflow-hidden border ${event.blockFound ? 'border-[#7C3AED]/40' : 'border-[#1f1f1f]'}`}>
+    <div className={`bg-gray-50 dark:bg-[#242424] rounded-none overflow-hidden border ${event.blockFound ? 'border-[#7C3AED]/40' : 'border-gray-200 dark:border-[#1f1f1f]'}`}>
       {/* Header */}
-      <div className="p-6 border-b border-[#1f1f1f]">
+      <div className="p-6 border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="flex items-start justify-between gap-4 mb-4">
           <div>
-            <h3 className="font-display font-bold text-white text-xl uppercase">
+            <h3 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase">
               TeleHash {event.number}
             </h3>
             <time className="font-mono text-gray-500 text-sm">
@@ -41,18 +41,18 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
         )}
 
         {event.summary && (
-          <p className="text-gray-400 text-sm leading-relaxed">{event.summary}</p>
+          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{event.summary}</p>
         )}
       </div>
 
       {/* Video embed */}
       {event.videoUrl && (
-        <div className="bg-[#0a0a0a]">
+        <div className="bg-white dark:bg-[#1a1a1a]">
           {isPlaceholder ? (
             <div className="aspect-video flex items-center justify-center">
               <div className="text-center">
                 <div className="text-[#7C3AED] font-mono text-sm mb-2">&#9654; Event Video</div>
-                <div className="text-gray-600 text-xs">Video coming soon</div>
+                <div className="text-gray-500 dark:text-gray-600 text-xs">Video coming soon</div>
               </div>
             </div>
           ) : (

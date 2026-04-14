@@ -16,6 +16,7 @@ import EcosystemSection from '@/components/home/EcosystemSection'
 import SupporterShowcase from '@/components/home/SupporterShowcase'
 import ContactForm from '@/components/home/ContactForm'
 import SectionHeader from '@/components/ui/SectionHeader'
+import DecorativeBg from '@/components/ui/DecorativeBg'
 
 export const revalidate = 3600
 
@@ -38,39 +39,40 @@ export default async function Home() {
         <DonateCards />
       </SectionWrapper>
 
-      <SectionWrapper className="border-t border-[#1f1f1f]">
+      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <WhySection />
       </SectionWrapper>
 
-      <SectionWrapper className="border-t border-[#1f1f1f]">
+      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <AllocationStats stats={siteStats} />
       </SectionWrapper>
 
-      <SectionWrapper className="border-t border-[#1f1f1f]">
+      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <BlocksFound stats={siteStats} videoUrl={firstEvent?.videoUrl} />
       </SectionWrapper>
 
-      <SectionWrapper id="updates" className="border-t border-[#1f1f1f]">
+      <SectionWrapper id="updates" className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <StayUpdated posts={posts} />
       </SectionWrapper>
 
-      <SectionWrapper className="border-t border-[#1f1f1f]">
+      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <ApplySection />
       </SectionWrapper>
 
-      <SectionWrapper className="border-t border-[#1f1f1f]">
+      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <CommunitySection />
       </SectionWrapper>
 
-      <SectionWrapper className="border-t border-[#1f1f1f]">
+      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <EcosystemSection />
       </SectionWrapper>
 
-      <SectionWrapper className="border-t border-[#1f1f1f]">
+      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <SupporterShowcase supporters={supporters} />
       </SectionWrapper>
 
-      <SectionWrapper id="contact" className="border-t border-[#1f1f1f]">
+      <SectionWrapper id="contact" decorative className="border-t border-gray-200 dark:border-[#1f1f1f]">
+        <DecorativeBg glowPosition="50% 100%" gridOpacity={0.05} />
         <SectionHeader
           title="Contact Us"
           subtitle="Have a question or want to get involved? We'd love to hear from you."

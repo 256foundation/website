@@ -25,19 +25,19 @@ export default function MilestoneTracker({ milestones }: Props) {
                       ? 'bg-[#7C3AED] border-[#7C3AED]'
                       : isActive
                         ? 'bg-transparent border-[#7C3AED] animate-pulse-ring'
-                        : 'bg-transparent border-gray-600',
+                        : 'bg-transparent border-gray-400 dark:border-gray-600',
                   ].join(' ')}
                 />
                 {/* Label */}
                 <div className="mt-3 text-center max-w-[100px]">
                   <p className={[
                     'font-mono text-xs leading-tight',
-                    isCompleted ? 'text-[#7C3AED]' : isActive ? 'text-white' : 'text-gray-500',
+                    isCompleted ? 'text-[#7C3AED]' : isActive ? 'text-gray-900 dark:text-white' : 'text-gray-500',
                   ].join(' ')}>
                     {milestone.label}
                   </p>
                   {milestone.date && (
-                    <p className="font-mono text-[10px] text-gray-600 mt-0.5">{milestone.date}</p>
+                    <p className="font-mono text-[10px] text-gray-500 dark:text-gray-600 mt-0.5">{milestone.date}</p>
                   )}
                 </div>
               </div>
@@ -48,7 +48,7 @@ export default function MilestoneTracker({ milestones }: Props) {
                   <div
                     className={[
                       'h-[2px] w-8 sm:w-12',
-                      isCompleted ? 'bg-[#7C3AED]' : 'bg-gray-700',
+                      isCompleted ? 'bg-[#7C3AED]' : 'bg-gray-300 dark:bg-gray-700',
                     ].join(' ')}
                   />
                 </div>

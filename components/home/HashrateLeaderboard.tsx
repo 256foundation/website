@@ -22,15 +22,15 @@ function getRankBadge(rank: number): string {
   if (rank === 1) return 'bg-yellow-500 text-black'
   if (rank === 2) return 'bg-gray-400 text-black'
   if (rank === 3) return 'bg-amber-700 text-white'
-  return 'bg-[#1f1f1f] text-gray-500'
+  return 'bg-gray-200 dark:bg-[#1f1f1f] text-gray-500'
 }
 
 function SkeletonRow() {
   return (
-    <tr className="border-b border-[#1f1f1f]">
-      <td className="px-4 py-3"><div className="h-5 w-5 bg-[#1f1f1f] rounded animate-pulse" /></td>
-      <td className="px-4 py-3"><div className="h-3 w-32 bg-[#1f1f1f] rounded animate-pulse" /></td>
-      <td className="px-4 py-3"><div className="h-4 w-20 bg-[#1f1f1f] rounded animate-pulse ml-auto" /></td>
+    <tr className="border-b border-gray-200 dark:border-[#1f1f1f]">
+      <td className="px-4 py-3"><div className="h-5 w-5 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse" /></td>
+      <td className="px-4 py-3"><div className="h-3 w-32 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse" /></td>
+      <td className="px-4 py-3"><div className="h-4 w-20 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse ml-auto" /></td>
     </tr>
   )
 }
@@ -65,7 +65,7 @@ export default function HashrateLeaderboard() {
 
   if (error) {
     return (
-      <div className="bg-[#111111] border border-[#1f1f1f] rounded-none p-6 text-center">
+      <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 text-center">
         <p className="text-gray-500 text-sm mb-2">Unable to load live hashrate data.</p>
         <a
           href="https://dash.256f.org"
@@ -80,10 +80,10 @@ export default function HashrateLeaderboard() {
   }
 
   return (
-    <div className="bg-[#111111] border border-[#1f1f1f] rounded-none overflow-hidden">
+    <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden">
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-[#1f1f1f]">
+          <tr className="border-b border-gray-200 dark:border-[#1f1f1f]">
             <th className="px-4 py-3 text-left font-mono text-gray-500 text-xs uppercase">#</th>
             <th className="px-4 py-3 text-left font-mono text-gray-500 text-xs uppercase">Worker</th>
             <th className="px-4 py-3 text-right font-mono text-gray-500 text-xs uppercase">Hashrate</th>
@@ -108,13 +108,13 @@ export default function HashrateLeaderboard() {
               const hr = w.hashrate ? formatHashrate(w.hashrate) : (w.hashrateStr ?? '\u2014')
               const rank = i + 1
               return (
-                <tr key={i} className="border-b border-[#1f1f1f] hover:bg-[#1a1a1a] transition-colors">
+                <tr key={i} className="border-b border-gray-200 dark:border-[#1f1f1f] hover:bg-white dark:hover:bg-[#1a1a1a] transition-colors">
                   <td className="px-4 py-3">
                     <span className={`inline-flex items-center justify-center w-6 h-6 rounded-none text-xs font-mono font-bold ${getRankBadge(rank)}`}>
                       {rank}
                     </span>
                   </td>
-                  <td className="px-4 py-3 font-mono text-gray-300 text-xs">{name}</td>
+                  <td className="px-4 py-3 font-mono text-gray-600 dark:text-gray-300 text-xs">{name}</td>
                   <td className="px-4 py-3 font-display font-bold text-[#00FF41] text-sm text-right">{hr}</td>
                 </tr>
               )

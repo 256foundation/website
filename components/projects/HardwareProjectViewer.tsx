@@ -7,7 +7,7 @@ interface HardwareProjectViewerProps {
 
 export default function HardwareProjectViewer({ modelPath, sections: _sections }: HardwareProjectViewerProps) {
   return (
-    <div className="relative bg-[#111111] border border-[#1f1f1f] rounded-none overflow-hidden">
+    <div className="relative bg-[#242424] border border-[#1f1f1f] rounded-none overflow-hidden">
       <div className="aspect-[16/9] flex items-center justify-center">
         <div className="text-center px-8">
           <div className="w-16 h-16 mx-auto mb-4 border-2 border-[#7C3AED]/30 rounded-none flex items-center justify-center">

@@ -47,8 +47,8 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
 
   if (!targetDate) {
     return (
-      <div className="bg-[#111111] border border-[#1f1f1f] rounded-none p-6 text-center">
-        <p className="font-mono text-gray-400 text-sm mb-2">No event currently scheduled.</p>
+      <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 text-center">
+        <p className="font-mono text-gray-600 dark:text-gray-400 text-sm mb-2">No event currently scheduled.</p>
         <p className="text-gray-500 text-xs">
           TeleHash events are announced via our{' '}
           <a
@@ -82,7 +82,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
           href="https://x.com/256FOUNDATION"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-mono text-white text-sm mt-2 block hover:text-[#7C3AED] transition-colors"
+          className="font-mono text-gray-900 dark:text-white text-sm mt-2 block hover:text-[#7C3AED] transition-colors"
         >
           Watch live on X &rarr;
         </a>
@@ -98,7 +98,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   ]
 
   return (
-    <div className="bg-[#111111] border border-[#7C3AED]/30 rounded-none p-6">
+    <div className="bg-gray-50 dark:bg-[#242424] border border-[#7C3AED]/30 rounded-none p-6">
       <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase text-center mb-6">
         Next TeleHash Event
       </p>
@@ -106,7 +106,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
         {blocks.map((b, i) => (
           <div key={b.label} className="flex items-center gap-2 sm:gap-4">
             <div className="text-center">
-              <div className="font-mono font-bold text-[#7C3AED] text-3xl sm:text-5xl w-16 sm:w-24 text-center bg-[#0a0a0a] border border-[#1f1f1f] rounded-none py-3">
+              <div className="font-mono font-bold text-[#7C3AED] text-3xl sm:text-5xl w-16 sm:w-24 text-center bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none py-3">
                 {pad(b.value)}
               </div>
               <div className="font-mono text-gray-500 text-xs mt-2">{b.label}</div>

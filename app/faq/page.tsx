@@ -1,6 +1,7 @@
 import { generatePageMetadata } from '@/lib/metadata'
 import { faqItems } from '@/data/faq'
 import SectionWrapper from '@/components/ui/SectionWrapper'
+import DecorativeBg from '@/components/ui/DecorativeBg'
 import type { FAQItem } from '@/types'
 
 export const metadata = generatePageMetadata({
@@ -41,13 +42,14 @@ export default function FAQPage() {
   return (
     <>
       {/* Hero */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
+      <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
+        <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="max-w-2xl">
           <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">FAQ</p>
-          <h1 className="font-display font-bold text-white text-3xl sm:text-4xl uppercase mb-6">
+          <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl uppercase mb-6">
             Frequently Asked Questions
           </h1>
-          <p className="text-gray-400 text-base leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
             Everything you need to know about the 256 Foundation, how we operate,
             and how to get involved in the open-source Bitcoin mining movement.
           </p>
@@ -61,9 +63,9 @@ export default function FAQPage() {
         const config = categoryConfig[category]
 
         return (
-          <SectionWrapper key={category} className="border-b border-[#1f1f1f]">
+          <SectionWrapper key={category} className="border-b border-gray-200 dark:border-[#1f1f1f]">
             <div className="max-w-3xl">
-              <h2 className="font-display font-bold text-white text-xl sm:text-2xl uppercase mb-1">
+              <h2 className="font-display font-bold text-gray-900 dark:text-white text-xl sm:text-2xl uppercase mb-1">
                 {config.label}
               </h2>
               <p className="text-gray-500 text-sm mb-8">{config.description}</p>
@@ -72,9 +74,9 @@ export default function FAQPage() {
                 {items.map((item, i) => (
                   <details
                     key={i}
-                    className="group bg-[#111111] border border-[#1f1f1f] rounded-none overflow-hidden [&[open]]:border-[#7C3AED]/30"
+                    className="group bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden [&[open]]:border-[#7C3AED]/30"
                   >
-                    <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-mono text-white text-sm font-bold hover:text-[#7C3AED] transition-colors list-none [&::-webkit-details-marker]:hidden group-open:text-[#7C3AED]">
+                    <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-mono text-gray-900 dark:text-white text-sm font-bold hover:text-[#7C3AED] transition-colors list-none [&::-webkit-details-marker]:hidden group-open:text-[#7C3AED]">
                       {item.question}
                       <svg
                         className="w-4 h-4 shrink-0 ml-4 transition-transform group-open:rotate-180 text-[#7C3AED]"
@@ -84,7 +86,7 @@ export default function FAQPage() {
                         <path d="M8 10.5L2.5 5 1 6.5l7 7 7-7L13.5 5z" />
                       </svg>
                     </summary>
-                    <div className="px-5 pb-4 pt-1 text-gray-400 text-sm leading-relaxed border-t border-[#1f1f1f]">
+                    <div className="px-5 pb-4 pt-1 text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-t border-gray-200 dark:border-[#1f1f1f]">
                       {item.answer}
                     </div>
                   </details>

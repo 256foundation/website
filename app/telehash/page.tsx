@@ -4,6 +4,7 @@ import SectionWrapper from '@/components/ui/SectionWrapper'
 import TeleHashEventCard from '@/components/telehash/TeleHashEventCard'
 import CountdownTimer from '@/components/telehash/CountdownTimer'
 import SubstackEmbed from '@/components/shared/SubstackEmbed'
+import DecorativeBg from '@/components/ui/DecorativeBg'
 
 export const metadata = generatePageMetadata({
   title: 'TeleHash',
@@ -41,20 +42,21 @@ export default function TeleHashPage() {
   return (
     <>
       {/* Hero */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
+      <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
+        <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="max-w-3xl">
           <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
             TeleHash
           </p>
-          <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
+          <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
             Mine for the Mission
           </h1>
-          <p className="text-gray-400 text-lg leading-relaxed mb-4">
+          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-4">
             TeleHash is the 256 Foundation&apos;s semi-annual fundraising event — an 8-hour
             livestream where the global Bitcoin mining community points their hashrate to our
             Hydrapool instance running in solo mining mode.
           </p>
-          <p className="text-gray-400 text-base leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
             If a block is found during the stream, all block reward proceeds go directly to the
             foundation to fund more open-source Bitcoin mining development. On our very first
             TeleHash, we found a block — raising the initial ~$300,000 that launched the organization.
@@ -63,30 +65,30 @@ export default function TeleHashPage() {
       </SectionWrapper>
 
       {/* Countdown */}
-      <SectionWrapper className="border-b border-[#1f1f1f]" tight>
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]" tight>
         <div className="max-w-2xl mx-auto">
           <CountdownTimer targetDate={nextEventDate} />
         </div>
       </SectionWrapper>
 
       {/* How to participate */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
-        <h2 className="font-display font-bold text-white text-2xl sm:text-3xl uppercase mb-8">
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
+        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
           How to Participate
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mb-6">
           {participationSteps.map((s) => (
-            <div key={s.step} className="bg-[#111111] border border-[#1f1f1f] rounded-none p-5">
+            <div key={s.step} className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-5">
               <div className="font-mono font-bold text-[#7C3AED] text-2xl opacity-40 mb-3">
                 {s.step}
               </div>
-              <h3 className="font-display font-bold text-white text-sm uppercase mb-2">{s.title}</h3>
+              <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-2">{s.title}</h3>
               {s.code && (
-                <code className="block bg-[#0a0a0a] border border-[#1f1f1f] rounded-none px-3 py-2 font-mono text-[#00FF41] text-xs mt-2 mb-2 break-all">
+                <code className="block bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-3 py-2 font-mono text-[#00FF41] text-xs mt-2 mb-2 break-all">
                   {s.code}
                 </code>
               )}
-              {s.note && <p className="text-gray-400 text-xs">{s.note}</p>}
+              {s.note && <p className="text-gray-600 dark:text-gray-400 text-xs">{s.note}</p>}
               {s.link && (
                 <a
                   href={s.link.href}
@@ -102,8 +104,8 @@ export default function TeleHashPage() {
       </SectionWrapper>
 
       {/* Past events */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
-        <h2 className="font-display font-bold text-white text-2xl sm:text-3xl uppercase mb-8">
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
+        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
           Past Events
         </h2>
         <div className="space-y-8">
@@ -116,10 +118,10 @@ export default function TeleHashPage() {
       {/* Stay updated */}
       <SectionWrapper>
         <div className="max-w-lg">
-          <h2 className="font-display font-bold text-white text-xl uppercase mb-4">
+          <h2 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase mb-4">
             Get Notified About the Next TeleHash
           </h2>
-          <p className="text-gray-400 text-sm mb-6">
+          <p className="text-gray-600 dark:text-gray-400 text-sm mb-6">
             Subscribe to the 256 Foundation newsletter or follow us on X to be the first to know
             when the next TeleHash event is announced.
           </p>

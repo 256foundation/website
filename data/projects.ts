@@ -64,6 +64,9 @@ export const pillarProjects: PillarProject[] = [
     githubUrl: 'https://github.com/256foundation/mujina',
     forumCategory: 'https://forum.256foundation.org/c/mujina',
     ogImage: '/og/og-mujina.png',
+    logo: {
+      character: '/projects/mujina-character.png',
+    },
     milestones: [
       { label: 'Core architecture designed', status: 'completed', date: '2024-05-01' },
       { label: 'Stratum V1/V2 support implemented', status: 'completed', date: '2024-09-01' },
@@ -154,6 +157,9 @@ export const pillarProjects: PillarProject[] = [
     githubUrl: 'https://github.com/256foundation/hydrapool',
     forumCategory: 'https://forum.256foundation.org/c/hydrapool',
     ogImage: '/og/og-hydrapool.png',
+    logo: {
+      icon: '/projects/hydrapool-logo.png',
+    },
     milestones: [
       { label: 'Core pool architecture designed', status: 'completed', date: '2024-04-01' },
       { label: 'Stratum V1 support and job management', status: 'completed', date: '2024-07-01' },

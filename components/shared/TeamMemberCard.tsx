@@ -26,7 +26,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
           <img
             src={member.headshot}
             alt={member.name}
-            className="w-14 h-14 rounded-full object-cover border border-[#1f1f1f] grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="w-14 h-14 rounded-full object-cover border border-gray-200 dark:border-[#1f1f1f] grayscale group-hover:grayscale-0 transition-all duration-300"
             onError={(e) => {
               const target = e.currentTarget
               target.style.display = 'none'
@@ -35,7 +35,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
             }}
           />
           <div
-            className="w-14 h-14 rounded-full bg-[#1f1f1f] border border-[#7C3AED]/30 items-center justify-center font-mono font-bold text-[#7C3AED] text-lg absolute inset-0"
+            className="w-14 h-14 rounded-full bg-gray-200 dark:bg-[#1f1f1f] border border-[#7C3AED]/30 items-center justify-center font-mono font-bold text-[#7C3AED] text-lg absolute inset-0"
             style={{ display: 'none' }}
           >
             {getInitials(member.name)}
@@ -44,15 +44,15 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
 
         {/* Name + role */}
         <div>
-          <h3 className="font-display font-bold text-white text-base uppercase">{member.name}</h3>
+          <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase">{member.name}</h3>
           {member.handle && (
             <p className="text-[#7C3AED] text-xs font-mono">{member.handle}</p>
           )}
-          <p className="text-gray-400 text-xs mt-0.5">{member.role}</p>
+          <p className="text-gray-600 dark:text-gray-400 text-xs mt-0.5">{member.role}</p>
         </div>
       </div>
 
-      <p className="text-gray-400 text-sm leading-relaxed">{member.bio}</p>
+      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{member.bio}</p>
     </>
   )
 
@@ -62,7 +62,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         href={profileUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group block bg-[#111111] border border-[#1f1f1f] rounded-none p-6 hover:border-[#7C3AED]/50 hover:shadow-[0_0_20px_rgba(124,58,237,0.1)] transition-all duration-200 cursor-pointer"
+        className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 hover:border-[#7C3AED]/50 hover:shadow-[0_0_20px_rgba(124,58,237,0.1)] transition-all duration-200 cursor-pointer"
       >
         {inner}
       </a>
@@ -70,7 +70,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
   }
 
   return (
-    <div className="group bg-[#111111] border border-[#1f1f1f] rounded-none p-6">
+    <div className="group bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
       {inner}
     </div>
   )

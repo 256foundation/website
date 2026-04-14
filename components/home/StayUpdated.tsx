@@ -16,14 +16,14 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
         <div className="w-1 h-4 bg-[#7C3AED]" />
         <span className="font-mono text-[#7C3AED] text-xs tracking-[0.2em] uppercase">Stay Updated</span>
       </div>
-      <h2 className="font-display font-bold text-white text-2xl sm:text-3xl mb-8 uppercase">
+      <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl mb-8 uppercase">
         News &amp; Updates
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Blog posts */}
         <div className="lg:col-span-2">
-          <h3 className="font-display font-bold text-white text-base mb-5 uppercase tracking-wider">Newsletter</h3>
+          <h3 className="font-display font-bold text-gray-900 dark:text-white text-base mb-5 uppercase tracking-wider">Newsletter</h3>
 
           {posts.length > 0 ? (
             <div className="mb-6 space-y-4">
@@ -33,7 +33,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                   href={featured.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block bg-[#111111] border border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:shadow-[0_0_24px_rgba(124,58,237,0.1)] transition-all duration-200"
+                  className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:shadow-[0_0_24px_rgba(124,58,237,0.1)] transition-all duration-200"
                 >
                   {featured.image && (
                     <div className="relative w-full h-48 overflow-hidden">
@@ -44,7 +44,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                         className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                         sizes="(max-width: 768px) 100vw, 66vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-[#242424] via-transparent to-transparent" />
                     </div>
                   )}
                   <div className="p-5">
@@ -53,11 +53,11 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                         {formatPostDate(featured.pubDate)}
                       </time>
                     )}
-                    <h4 className="font-display font-bold text-white text-xl uppercase leading-tight group-hover:text-[#7C3AED] transition-colors mb-2">
+                    <h4 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase leading-tight group-hover:text-[#7C3AED] transition-colors mb-2">
                       {featured.title}
                     </h4>
                     {featured.description && (
-                      <p className="text-gray-400 text-sm leading-relaxed line-clamp-2">
+                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-2">
                         {featured.description}
                       </p>
                     )}
@@ -74,7 +74,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                       href={post.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block bg-[#111111] border border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:shadow-[0_0_16px_rgba(124,58,237,0.08)] transition-all duration-200"
+                      className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:shadow-[0_0_16px_rgba(124,58,237,0.08)] transition-all duration-200"
                     >
                       {post.image && (
                         <div className="relative w-full h-32 overflow-hidden">
@@ -85,7 +85,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                             className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                             sizes="(max-width: 640px) 100vw, 33vw"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-[#242424] via-transparent to-transparent" />
                         </div>
                       )}
                       <div className="p-4">
@@ -94,7 +94,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                             {formatPostDate(post.pubDate)}
                           </time>
                         )}
-                        <h4 className="font-display font-bold text-white text-base uppercase leading-snug group-hover:text-[#7C3AED] transition-colors line-clamp-2">
+                        <h4 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase leading-snug group-hover:text-[#7C3AED] transition-colors line-clamp-2">
                           {post.title}
                         </h4>
                         {post.description && (
@@ -118,15 +118,15 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
 
         {/* Podcast + Newsletter signup */}
         <div className="flex flex-col h-full gap-4">
-          <h3 className="font-display font-bold text-white text-base mb-1 uppercase tracking-wider">POD256 Podcast</h3>
-          <div className="bg-[#111111] border border-[#1f1f1f] rounded-none p-6">
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+          <h3 className="font-display font-bold text-gray-900 dark:text-white text-base mb-1 uppercase tracking-wider">POD256 Podcast</h3>
+          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
               The weekly 256 Foundation team podcast covering open-source mining developments,
               project updates, and conversations with the builders shaping the future of Bitcoin mining.
             </p>
-            <div className="bg-[#0a0a0a] border border-[#1f1f1f] rounded-none px-3 py-2 mb-4">
+            <div className="bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-3 py-2 mb-4">
               <span className="font-mono text-[#00FF41] text-xs">NEXT LIVE:</span>
-              <span className="font-mono text-gray-400 text-xs ml-2">Check our Telegram for updates</span>
+              <span className="font-mono text-gray-600 dark:text-gray-400 text-xs ml-2">Check our Telegram for updates</span>
             </div>
             <a
               href="https://www.pod256.org"

@@ -75,7 +75,7 @@ export default function MissionPage() {
   return (
     <>
       {/* Hero */}
-      <SectionWrapper className="border-b border-[#1f1f1f] relative overflow-hidden">
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f] relative overflow-hidden">
         {/* Purple grid — right side, fades left */}
         <div
           className="absolute inset-y-0 right-0 w-1/2 pointer-events-none"
@@ -93,17 +93,17 @@ export default function MissionPage() {
           <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
             Build the Open-Source Bitcoin Mining Ecosystem
           </h1>
-          <p className="text-gray-400 text-lg leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
             The 256 Foundation raises money to fund developers building open-source Bitcoin mining
             hardware and software solutions — dismantling the proprietary mining empire that has
             centralized Bitcoin mining around closed-source hardware and software.
           </p>
-          <p className="text-gray-400 text-base leading-relaxed mb-6">
+          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-6">
             All Bitcoin miners, large and small, have been negatively affected by one large
             antagonistic hardware company who has blocked innovation, denied collaboration, and
             taken majority control over the hardware and software that keeps Bitcoin running.
           </p>
-          <p className="text-gray-400 text-base leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
             An open protocol should be accessible to anyone at all layers. The open-source
             Bitcoin mining stack we are building achieves this. We believe in free and open
             development and we pledge that every project from this foundation will always be made
@@ -113,7 +113,7 @@ export default function MissionPage() {
       </SectionWrapper>
 
       {/* Vision */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl">
           <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
             Our Vision
@@ -124,7 +124,7 @@ export default function MissionPage() {
               Bitcoin mining stack we are building achieves this.&rdquo;
             </p>
           </blockquote>
-          <div className="mt-8 space-y-4 text-gray-400 text-base leading-relaxed">
+          <div className="mt-8 space-y-4 text-gray-600 dark:text-gray-400 text-base leading-relaxed">
             <p>
               We provide the educational resources, tools, and support to demystify Bitcoin and
               freedom technology — empowering individuals to engage with and benefit from this
@@ -157,7 +157,7 @@ export default function MissionPage() {
       </SectionWrapper>
 
       {/* Values */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
           Our Values
         </p>
@@ -168,18 +168,18 @@ export default function MissionPage() {
           {values.map((v) => (
             <div
               key={v.title}
-              className="bg-[#111111] border border-[#1f1f1f] rounded-none p-6 hover:border-[#7C3AED]/30 transition-colors"
+              className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 hover:border-[#7C3AED]/30 transition-colors"
             >
               <div className="text-2xl mb-3">{v.icon}</div>
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase mb-2">{v.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{v.description}</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{v.description}</p>
             </div>
           ))}
         </div>
       </SectionWrapper>
 
       {/* Timeline */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
           History
         </p>
@@ -192,7 +192,7 @@ export default function MissionPage() {
       </SectionWrapper>
 
       {/* Founders */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
           Founders
         </p>

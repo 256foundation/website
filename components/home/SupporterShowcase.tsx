@@ -24,10 +24,10 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
         <div className="w-1 h-4 bg-[#7C3AED]" />
         <span className="font-mono text-[#7C3AED] text-xs tracking-[0.2em] uppercase">Our Supporters</span>
       </div>
-      <h2 className="font-display font-bold text-white text-2xl sm:text-3xl mb-2 uppercase">
+      <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl mb-2 uppercase">
         Community Backers
       </h2>
-      <p className="text-gray-400 text-sm mb-10">
+      <p className="text-gray-600 dark:text-gray-400 text-sm mb-10">
         The individuals and organizations fueling the open-source mining revolution.
       </p>
 
@@ -40,10 +40,10 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
           return (
             <div key={tier}>
               <div className="flex items-center gap-3 mb-4">
-                <h3 className="font-mono text-gray-400 text-xs uppercase tracking-widest">
+                <h3 className="font-mono text-gray-600 dark:text-gray-400 text-xs uppercase tracking-widest">
                   {config.label}
                 </h3>
-                <span className="font-mono text-gray-600 text-xs">{config.amount}</span>
+                <span className="font-mono text-gray-500 dark:text-gray-600 text-xs">{config.amount}</span>
                 <a
                   href={config.donateUrl}
                   target="_blank"
@@ -63,7 +63,7 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
                     rel="noopener noreferrer"
                     className="group flex flex-col items-center gap-2 text-center"
                   >
-                    <div className={`${config.size} relative overflow-hidden border border-[#1f1f1f] group-hover:border-[#7C3AED]/50 transition-colors duration-200`}>
+                    <div className={`${config.size} relative overflow-hidden border border-gray-200 dark:border-[#1f1f1f] group-hover:border-[#7C3AED]/50 transition-colors duration-200`}>
                       <img
                         src={s.image}
                         alt={s.name}
@@ -93,7 +93,7 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
       {/* Hashrate leaderboard */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h3 className="font-display font-bold text-white text-sm uppercase">
+          <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase">
             Live Hashrate Donors
           </h3>
           <a

@@ -1,10 +1,12 @@
 import Link from 'next/link'
+import DecorativeBg from '@/components/ui/DecorativeBg'
 
 export default function ApplySection() {
   return (
-    <div className="relative overflow-hidden rounded-none bg-[#111111]">
+    <div className="relative overflow-hidden rounded-none bg-gray-50 dark:bg-[#242424]">
       {/* Purple left accent bar */}
       <div className="absolute top-0 left-0 w-1 h-full bg-[#7C3AED]" />
+      <DecorativeBg glowPosition="100% 50%" glowOpacity={0.06} gridOpacity={0.06} vignette={false} />
 
       <div className="relative z-10 p-8 lg:p-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -15,10 +17,10 @@ export default function ApplySection() {
                 Open Rolling Grants
               </span>
             </div>
-            <h2 className="font-display font-bold text-white text-2xl sm:text-3xl lg:text-4xl leading-tight mb-4 max-w-2xl uppercase">
+            <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight mb-4 max-w-2xl uppercase">
               Building something for open-source Bitcoin mining?
             </h2>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-xl">
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xl">
               We fund developers and researchers working on open hardware, firmware, pool software,
               educational resources, and tooling. All funded work must be released under an
               approved open-source license.
@@ -34,7 +36,7 @@ export default function ApplySection() {
           <div className="lg:col-span-4 flex lg:justify-end">
             <Link
               href="/grants"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0a0a0a] font-mono font-bold text-base rounded-none hover:bg-gray-100 transition-colors duration-200 whitespace-nowrap"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#1a1a1a] font-mono font-bold text-base rounded-none hover:bg-gray-100 transition-colors duration-200 whitespace-nowrap"
             >
               Apply for a Grant
               <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">

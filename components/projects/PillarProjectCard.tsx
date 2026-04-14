@@ -13,9 +13,9 @@ export default function PillarProjectCard({ project }: Props) {
   const progress = Math.round((completedCount / totalCount) * 100)
 
   return (
-    <div className="group bg-[#111111] border border-[#1f1f1f] rounded-none overflow-hidden hover:border-[#7C3AED]/50 hover:shadow-[0_0_20px_rgba(124,58,237,0.15)] transition-all duration-300 flex flex-col">
+    <div className="group bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden hover:border-[#7C3AED]/50 hover:shadow-[0_0_20px_rgba(124,58,237,0.15)] transition-all duration-300 flex flex-col">
       {/* Top progress bar */}
-      <div className="h-px bg-[#1f1f1f] relative overflow-hidden">
+      <div className="h-px bg-gray-200 dark:bg-[#1f1f1f] relative overflow-hidden">
         <div
           className="absolute left-0 top-0 h-full bg-[#7C3AED] transition-all duration-700"
           style={{ width: `${progress}%` }}
@@ -26,10 +26,10 @@ export default function PillarProjectCard({ project }: Props) {
         <div className="flex items-start justify-between mb-4">
           <Badge status={project.status} />
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-gray-600">{completedCount}/{totalCount} milestones</span>
+            <span className="font-mono text-xs text-gray-500 dark:text-gray-600">{completedCount}/{totalCount} milestones</span>
             <ExternalLink
               href={project.githubUrl}
-              className="text-gray-600 hover:text-[#7C3AED] transition-colors"
+              className="text-gray-500 dark:text-gray-600 hover:text-[#7C3AED] transition-colors"
               aria-label="GitHub"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -39,22 +39,22 @@ export default function PillarProjectCard({ project }: Props) {
           </div>
         </div>
 
-        <h3 className="font-display text-xl text-white font-bold mb-1 group-hover:text-[#7C3AED] transition-colors uppercase">
+        <h3 className="font-display text-xl text-gray-900 dark:text-white font-bold mb-1 group-hover:text-[#7C3AED] transition-colors uppercase">
           {project.name}
         </h3>
         <p className="text-[#7C3AED]/70 text-xs font-mono mb-3 leading-tight">{project.tagline}</p>
         <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">{project.description}</p>
 
-        <div className="flex items-center gap-3 mt-auto pt-4 border-t border-[#1f1f1f]">
+        <div className="flex items-center gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-[#1f1f1f]">
           <Link
             href={`/projects/${project.slug}`}
-            className="flex-1 text-center bg-white text-[#0a0a0a] font-mono font-bold text-xs py-2.5 px-4 rounded-none hover:bg-gray-100 transition-colors"
+            className="flex-1 text-center bg-white text-[#1a1a1a] font-mono font-bold text-xs py-2.5 px-4 rounded-none hover:bg-gray-100 transition-colors"
           >
             View Project &rarr;
           </Link>
           <ExternalLink
             href={project.externalUrl}
-            className="px-3 py-2.5 border border-[#1f1f1f] text-gray-500 hover:text-[#7C3AED] hover:border-[#7C3AED]/40 transition-colors rounded-none"
+            className="px-3 py-2.5 border border-gray-200 dark:border-[#1f1f1f] text-gray-500 hover:text-[#7C3AED] hover:border-[#7C3AED]/40 transition-colors rounded-none"
             aria-label="Website"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

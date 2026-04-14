@@ -7,7 +7,7 @@ export default function WhySection() {
       <div className="lg:col-span-3 hidden lg:block">
         <div className="sticky top-24">
           <div
-            className="font-display font-extrabold text-[#1a1a1a] select-none leading-none uppercase"
+            className="font-display font-extrabold text-gray-200 dark:text-[#1a1a1a] select-none leading-none uppercase"
             style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1, opacity: 0.1 }}
           >
             WHY
@@ -22,11 +22,11 @@ export default function WhySection() {
           <span className="font-mono text-[#7C3AED] text-xs tracking-[0.2em] uppercase">Why We Exist</span>
         </div>
 
-        <h2 className="font-display font-bold text-white text-2xl sm:text-3xl lg:text-4xl leading-tight mb-8 max-w-2xl uppercase">
+        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight mb-8 max-w-2xl uppercase">
           An open protocol should be accessible to anyone at all layers.
         </h2>
 
-        <div className="space-y-4 text-gray-400 leading-relaxed max-w-2xl">
+        <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">
           <p>
             One large, antagonistic Bitcoin mining company has achieved near-total control over the
             hardware and software that keeps Bitcoin running. They have blocked innovation, denied
@@ -48,7 +48,7 @@ export default function WhySection() {
 
         <Link
           href="/mission"
-          className="mt-8 inline-flex items-center gap-2 font-mono text-sm text-gray-400 hover:text-[#7C3AED] transition-colors group"
+          className="mt-8 inline-flex items-center gap-2 font-mono text-sm text-gray-600 dark:text-gray-400 hover:text-[#7C3AED] transition-colors group"
         >
           Read Our Full Mission
           <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">

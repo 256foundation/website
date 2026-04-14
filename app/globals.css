@@ -14,8 +14,8 @@
   --color-brand-green:         #00FF41;
 
   /* Surfaces — dark mode */
-  --color-brand-dark:          #0a0a0a;
-  --color-brand-surface:       #111111;
+  --color-brand-dark:          #1a1a1a;
+  --color-brand-surface:       #242424;
   --color-brand-border:        #1f1f1f;
 
   /* Surfaces — light mode */
@@ -40,7 +40,7 @@ html {
 }
 
 body {
-  background-color: #0a0a0a;
+  background-color: #1a1a1a;
   color: #f0f0f0;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -50,7 +50,7 @@ body {
 @media (prefers-color-scheme: light) {
   body {
     background-color: #ffffff;
-    color: #111111;
+    color: #242424;
   }
 }
 
@@ -60,7 +60,7 @@ body {
   height: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #1a1a1a;
 }
 ::-webkit-scrollbar-thumb {
   background: #2a2a2a;

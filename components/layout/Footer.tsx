@@ -46,22 +46,22 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-[#1f1f1f] bg-[#0a0a0a]">
+    <footer className="border-t border-gray-200 dark:border-[#1f1f1f] bg-white dark:bg-[#1a1a1a]">
       {/* Purple accent line at top */}
       <div className="h-px bg-gradient-to-r from-transparent via-[#7C3AED]/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-10">
 
           {/* Brand column */}
           <div className="lg:col-span-4">
             <div className="mb-3">
               <Logo height={52} inverted />
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed mt-3 max-w-xs">
+            <p className="text-gray-500 dark:text-gray-500 text-sm leading-relaxed mt-3 max-w-xs">
               Building the open-source Bitcoin mining ecosystem.
             </p>
-            <p className="font-mono text-gray-700 text-xs mt-4">
+            <p className="font-mono text-gray-400 dark:text-gray-700 text-xs mt-4">
               A 501(c)(3) nonprofit organization
             </p>
 
@@ -74,7 +74,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-8 h-8 flex items-center justify-center border border-[#1f1f1f] rounded-sm text-gray-500 hover:text-[#7C3AED] hover:border-[#7C3AED]/40 transition-all duration-200"
+                  className="w-8 h-8 flex items-center justify-center border border-gray-200 dark:border-[#1f1f1f] rounded-sm text-gray-500 hover:text-[#7C3AED] hover:border-[#7C3AED]/40 transition-all duration-200"
                 >
                   {s.icon}
                 </a>
@@ -87,7 +87,7 @@ export default function Footer() {
 
           {/* Foundation links */}
           <div className="lg:col-span-3">
-            <h3 className="font-display font-bold text-white text-xs mb-5 uppercase tracking-[0.15em]">
+            <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em]">
               Foundation
             </h3>
             <ul className="space-y-3">
@@ -107,7 +107,7 @@ export default function Footer() {
 
           {/* Community links */}
           <div className="lg:col-span-3">
-            <h3 className="font-display font-bold text-white text-xs mb-5 uppercase tracking-[0.15em]">
+            <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em]">
               Community
             </h3>
             <ul className="space-y-3">
@@ -132,11 +132,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-[#1f1f1f] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="font-mono text-gray-700 text-xs">
+        <div className="mt-12 pt-6 border-t border-gray-200 dark:border-[#1f1f1f] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="font-mono text-gray-400 dark:text-gray-700 text-xs">
             &copy; 2024&ndash;{year} 256 Foundation. All rights reserved.
           </p>
-          <div className="flex items-center gap-1 font-mono text-xs text-gray-700">
+          <div className="flex items-center gap-1 font-mono text-xs text-gray-400 dark:text-gray-700">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00FF41]" style={{ boxShadow: '0 0 4px #00FF41' }} />
             <span>Open source. Always.</span>
           </div>

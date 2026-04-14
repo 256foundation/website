@@ -1,6 +1,7 @@
 import { generatePageMetadata } from '@/lib/metadata'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Button from '@/components/ui/Button'
+import DecorativeBg from '@/components/ui/DecorativeBg'
 
 export const metadata = generatePageMetadata({
   title: 'Grants',
@@ -58,7 +59,8 @@ export default function GrantsPage() {
   return (
     <>
       {/* Hero */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
+      <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
+        <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="max-w-3xl">
           <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
             Grants Program
@@ -66,7 +68,7 @@ export default function GrantsPage() {
           <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
             Fund the Future of Open-Source Mining
           </h1>
-          <p className="text-gray-400 text-lg leading-relaxed mb-8">
+          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8">
             The 256 Foundation provides grants to developers and researchers building open-source
             Bitcoin mining hardware and software. If you&apos;re working to dismantle the proprietary
             mining empire — we want to fund you.
@@ -78,17 +80,17 @@ export default function GrantsPage() {
       </SectionWrapper>
 
       {/* Grant types */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
           Grant Types
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-[#111111] border border-[#7C3AED]/30 rounded-none p-6">
+          <div className="bg-gray-50 dark:bg-[#242424] border border-[#7C3AED]/30 rounded-none p-6">
             <div className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-3">
               Core Pillar Grants
             </div>
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Foundation-Defined</h3>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
               The foundation identifies critical missing pieces of the open-source mining stack,
               defines the scope and deliverables, and selects qualified developers to build them.
               These are currently our four pillar projects: Ember One, Mujina, Libre Board, and Hydrapool.
@@ -97,12 +99,12 @@ export default function GrantsPage() {
               Currently Active
             </span>
           </div>
-          <div className="bg-[#111111] border border-[#1f1f1f] rounded-none p-6">
+          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
             <div className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-3">
               Open Rolling Grants
             </div>
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Community-Driven</h3>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
               Any developer or researcher can submit a proposal for a project that advances the
               open-source Bitcoin mining ecosystem. We review applications on a rolling basis and
               fund based on merit, alignment, and available capital.
@@ -115,7 +117,7 @@ export default function GrantsPage() {
       </SectionWrapper>
 
       {/* What we fund */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
             <h2 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase mb-6">
@@ -123,7 +125,7 @@ export default function GrantsPage() {
             </h2>
             <ul className="space-y-3">
               {whatWeFund.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-gray-400 text-sm">
+                <li key={item} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm">
                   <span className="text-[#00FF41] mt-0.5 shrink-0">&rarr;</span>
                   {item}
                 </li>
@@ -136,7 +138,7 @@ export default function GrantsPage() {
             </h2>
             <ul className="space-y-3">
               {whatWeDontFund.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-gray-400 text-sm">
+                <li key={item} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm">
                   <span className="text-red-500 mt-0.5 shrink-0">&times;</span>
                   {item}
                 </li>
@@ -147,18 +149,18 @@ export default function GrantsPage() {
       </SectionWrapper>
 
       {/* Process */}
-      <SectionWrapper className="border-b border-[#1f1f1f]">
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
           Application Process
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
-            <div key={s.step} className="bg-[#111111] border border-[#1f1f1f] rounded-none p-6">
+            <div key={s.step} className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
               <div className="font-mono font-bold text-[#7C3AED] text-3xl mb-4 opacity-50">
                 {s.step}
               </div>
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-2">{s.title}</h3>
-              <p className="text-gray-400 text-xs leading-relaxed">{s.description}</p>
+              <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">{s.description}</p>
             </div>
           ))}
         </div>
@@ -170,7 +172,7 @@ export default function GrantsPage() {
           <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl uppercase mb-4">
             Ready to Apply?
           </h2>
-          <p className="text-gray-400 text-sm leading-relaxed mb-8">
+          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-8">
             Submit your application and join the developers building the open-source future of Bitcoin mining.
           </p>
           <Button variant="primary" size="lg" href={typeformUrl} external={typeformUrl !== '#'}>
