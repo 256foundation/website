@@ -45,13 +45,13 @@ export default function ProjectsPage() {
   return (
     <main className="pt-16">
       {/* Hero */}
-      <section className="relative bg-[#0a0a0a] py-20 border-b border-[#1f1f1f] overflow-hidden">
+      <section className="relative bg-white dark:bg-[#1a1a1a] py-20 border-b border-gray-200 dark:border-[#1f1f1f] overflow-hidden">
         <PCBBackground opacity={0.06} animated />
         <SectionWrapper className="relative z-10 text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-4">
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white uppercase mb-4">
             Open-Source <span className="text-[#7C3AED]">Projects</span>
           </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             The 256 Foundation funds four pillar projects building a complete, open-source Bitcoin mining stack — from silicon to pool software.
           </p>
         </SectionWrapper>
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
       </SectionWrapper>
 
       {/* Ecosystem */}
-      <section className="bg-[#111111] py-16 border-y border-[#1f1f1f]">
+      <section className="bg-gray-50 dark:bg-[#242424] py-16 border-y border-gray-200 dark:border-[#1f1f1f]">
         <SectionWrapper>
           <SectionHeader
             title="Ecosystem"
@@ -91,7 +91,7 @@ export default function ProjectsPage() {
           title="Grant Log"
           subtitle="A public record of all grants funded by the 256 Foundation"
         />
-        <div className="bg-[#111111] border border-[#1f1f1f] rounded-none p-6">
+        <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
           <GrantLogTable grants={grantLog} />
         </div>
         <p className="mt-4 text-sm text-gray-500 font-mono">

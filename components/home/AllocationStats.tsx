@@ -35,10 +35,10 @@ export default function AllocationStats({ stats }: AllocationStatsProps) {
             className={[
               'py-6 pr-6',
               i === 0 ? 'pl-0' : 'pl-0 sm:pl-6',
-              i < 3 ? 'border-b sm:border-b-0 border-[#1f1f1f]' : '',
-              i === 0 ? 'sm:border-r border-[#1f1f1f]' : '',
-              i === 1 ? 'sm:border-r-0 lg:border-r border-[#1f1f1f]' : '',
-              i === 2 ? 'sm:border-r border-[#1f1f1f] sm:border-t lg:border-t-0' : '',
+              i < 3 ? 'border-b sm:border-b-0 border-gray-200 dark:border-[#1f1f1f]' : '',
+              i === 0 ? 'sm:border-r border-gray-200 dark:border-[#1f1f1f]' : '',
+              i === 1 ? 'sm:border-r-0 lg:border-r border-gray-200 dark:border-[#1f1f1f]' : '',
+              i === 2 ? 'sm:border-r border-gray-200 dark:border-[#1f1f1f] sm:border-t lg:border-t-0' : '',
               i === 3 ? 'sm:border-t lg:border-t-0' : '',
             ].filter(Boolean).join(' ')}
           >
@@ -62,7 +62,7 @@ export default function AllocationStats({ stats }: AllocationStatsProps) {
         ))}
       </div>
 
-      <div className="mt-10 pt-6 border-t border-[#1f1f1f] flex items-center gap-6">
+      <div className="mt-10 pt-6 border-t border-gray-200 dark:border-[#1f1f1f] flex items-center gap-6">
         <Link
           href="/projects"
           className="font-mono text-[#7C3AED] text-sm hover:underline transition-colors inline-flex items-center gap-2"
@@ -72,7 +72,7 @@ export default function AllocationStats({ stats }: AllocationStatsProps) {
             <path d="M2 7h10M8 3l4 4-4 4" />
           </svg>
         </Link>
-        <span className="text-gray-700 text-xs font-mono">100% passthrough to developers</span>
+        <span className="text-gray-400 dark:text-gray-700 text-xs font-mono">100% passthrough to developers</span>
       </div>
     </div>
   )

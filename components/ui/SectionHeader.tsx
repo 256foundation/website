@@ -25,11 +25,11 @@ export default function SectionHeader({
           </span>
         </div>
       )}
-      <h2 className="font-display font-bold text-white text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight uppercase">
+      <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight uppercase">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-gray-400 text-base leading-relaxed max-w-2xl">
+        <p className="mt-3 text-gray-600 dark:text-gray-400 text-base leading-relaxed max-w-2xl">
           {subtitle}
         </p>
       )}

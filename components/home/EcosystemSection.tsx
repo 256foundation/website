@@ -58,7 +58,7 @@ export default function EcosystemSection() {
           Community Projects Under Our Umbrella
         </h2>
         <div className="space-y-3">
-          <p className="text-gray-400 text-sm leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
             The 256 Foundation doesn&apos;t just fund development — it serves as a connective layer
             for the broader open-source Bitcoin mining ecosystem. We&apos;ve brought several community-led
             projects under our organizational umbrella so they have the infrastructure, visibility,
@@ -81,34 +81,34 @@ export default function EcosystemSection() {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block bg-[#111111] border border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:shadow-[0_0_24px_rgba(124,58,237,0.1)] transition-all duration-300"
+            className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:shadow-[0_0_24px_rgba(124,58,237,0.1)] transition-all duration-300"
           >
             {/* Top accent bar */}
-            <div className="h-0.5 w-full bg-[#1f1f1f] group-hover:bg-[#7C3AED]/60 transition-colors duration-300" />
+            <div className="h-0.5 w-full bg-gray-200 dark:bg-[#1f1f1f] group-hover:bg-[#7C3AED]/60 transition-colors duration-300" />
 
-            <div className="flex gap-6 p-6">
-              {/* Logo — left column */}
-              <div className="flex items-start justify-center shrink-0 w-28 pt-1 bg-[#111111]">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-6">
+              {/* Logo — top on mobile, left column on sm+ */}
+              <div className="flex items-center sm:items-start justify-start sm:justify-center shrink-0 sm:w-28 sm:pt-1">
                 <img
                   src={project.logo}
                   alt={project.name}
-                  className={`w-28 h-auto object-contain transition-all duration-500 ${project.logoClass}`}
+                  className={`w-16 h-16 sm:w-28 sm:h-auto object-contain transition-all duration-500 ${project.logoClass}`}
                   style={{ background: 'transparent' }}
                 />
               </div>
 
-              {/* Content — right column */}
+              {/* Content — full width on mobile, right column on sm+ */}
               <div className="flex-1 min-w-0">
                 {/* Title + arrow */}
                 <div className="flex items-start justify-between mb-1">
                   <div>
-                    <h3 className="font-display font-bold text-gray-100 text-lg uppercase leading-tight group-hover:text-[#7C3AED] transition-colors">
+                    <h3 className="font-display font-bold text-gray-800 dark:text-gray-100 text-lg uppercase leading-tight group-hover:text-[#7C3AED] transition-colors">
                       {project.name}
                     </h3>
                     <p className="font-mono text-[#7C3AED] text-xs mt-0.5">{project.tagline}</p>
                   </div>
                   <svg
-                    className="w-4 h-4 text-gray-600 group-hover:text-[#7C3AED] transition-colors mt-1 shrink-0 ml-3"
+                    className="w-4 h-4 text-gray-500 dark:text-gray-600 group-hover:text-[#7C3AED] transition-colors mt-1 shrink-0 ml-3"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -117,18 +117,18 @@ export default function EcosystemSection() {
                   </svg>
                 </div>
 
-                <div className="border-t border-[#1f1f1f] my-3" />
+                <div className="border-t border-gray-200 dark:border-[#1f1f1f] my-3" />
 
                 {/* Mission */}
                 <div className="mb-2">
-                  <span className="font-mono text-gray-600 text-xs uppercase tracking-widest block mb-1">Mission</span>
-                  <p className="text-gray-500 group-hover:text-gray-300 text-xs leading-relaxed transition-colors duration-200">{project.mission}</p>
+                  <span className="font-mono text-gray-500 dark:text-gray-600 text-xs uppercase tracking-widest block mb-1">Mission</span>
+                  <p className="text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300 text-xs leading-relaxed transition-colors duration-200">{project.mission}</p>
                 </div>
 
                 {/* Why we support it */}
                 <div className="mb-4">
-                  <span className="font-mono text-gray-600 text-xs uppercase tracking-widest block mb-1">Why We Support It</span>
-                  <p className="text-gray-600 group-hover:text-gray-400 text-xs leading-relaxed transition-colors duration-200">{project.why}</p>
+                  <span className="font-mono text-gray-500 dark:text-gray-600 text-xs uppercase tracking-widest block mb-1">Why We Support It</span>
+                  <p className="text-gray-500 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-400 text-xs leading-relaxed transition-colors duration-200">{project.why}</p>
                 </div>
 
               </div>

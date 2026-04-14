@@ -33,14 +33,14 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    'w-full bg-zinc-900 border border-[#2a2a2a] rounded-none px-4 py-3 text-gray-100 text-sm font-mono placeholder-gray-600 focus:outline-none focus:border-[#7C3AED] focus:ring-1 focus:ring-[#7C3AED]/30 transition-colors duration-200'
+    'w-full bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-[#2a2a2a] rounded-none px-4 py-3 text-gray-800 dark:text-gray-100 text-sm font-mono placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-[#7C3AED] focus:ring-1 focus:ring-[#7C3AED]/30 transition-colors duration-200'
 
   if (status === 'success') {
     return (
-      <div className="bg-[#111111] border border-[#00FF41]/30 rounded-none p-8 text-center">
+      <div className="bg-gray-50 dark:bg-[#242424] border border-[#00FF41]/30 rounded-none p-8 text-center">
         <div className="text-[#00FF41] text-2xl mb-3">&#10003;</div>
-        <h3 className="font-display font-bold text-white mb-2 uppercase">Message Received</h3>
-        <p className="text-gray-400 text-sm">
+        <h3 className="font-display font-bold text-gray-900 dark:text-white mb-2 uppercase">Message Received</h3>
+        <p className="text-gray-600 dark:text-gray-400 text-sm">
           Thanks for reaching out. We&apos;ll get back to you soon.
         </p>
         <button
@@ -57,7 +57,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4 max-w-2xl">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="name" className="block font-mono text-gray-400 text-xs mb-2 uppercase tracking-wide">
+          <label htmlFor="name" className="block font-mono text-gray-600 dark:text-gray-400 text-xs mb-2 uppercase tracking-wide">
             Name / Alias
           </label>
           <input
@@ -71,7 +71,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block font-mono text-gray-400 text-xs mb-2 uppercase tracking-wide">
+          <label htmlFor="email" className="block font-mono text-gray-600 dark:text-gray-400 text-xs mb-2 uppercase tracking-wide">
             Email
           </label>
           <input
@@ -86,7 +86,7 @@ export default function ContactForm() {
         </div>
       </div>
       <div>
-        <label htmlFor="message" className="block font-mono text-gray-400 text-xs mb-2 uppercase tracking-wide">
+        <label htmlFor="message" className="block font-mono text-gray-600 dark:text-gray-400 text-xs mb-2 uppercase tracking-wide">
           Message
         </label>
         <textarea

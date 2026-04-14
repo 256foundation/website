@@ -19,7 +19,7 @@ function AccordionItem({ item, onClose }: { item: NavItem; onClose: () => void }
       <Link
         href={item.href}
         onClick={onClose}
-        className="block px-4 py-3 text-gray-200 hover:text-[#7C3AED] font-display font-semibold text-sm uppercase border-b border-[#1f1f1f]"
+        className="block px-4 py-3 text-gray-700 dark:text-gray-200 hover:text-[#7C3AED] font-display font-semibold text-sm uppercase border-b border-gray-200 dark:border-[#1f1f1f]"
       >
         {item.label}
       </Link>
@@ -27,10 +27,10 @@ function AccordionItem({ item, onClose }: { item: NavItem; onClose: () => void }
   }
 
   return (
-    <div className="border-b border-[#1f1f1f]">
+    <div className="border-b border-gray-200 dark:border-[#1f1f1f]">
       <button
         onClick={() => setExpanded(!expanded)}
-        className="flex items-center justify-between w-full px-4 py-3 text-gray-200 hover:text-[#7C3AED] font-display font-semibold text-sm uppercase"
+        className="flex items-center justify-between w-full px-4 py-3 text-gray-700 dark:text-gray-200 hover:text-[#7C3AED] font-display font-semibold text-sm uppercase"
       >
         {item.label}
         <svg
@@ -42,7 +42,7 @@ function AccordionItem({ item, onClose }: { item: NavItem; onClose: () => void }
         </svg>
       </button>
       {expanded && (
-        <div className="bg-black/20 pb-1">
+        <div className="bg-black/5 dark:bg-black/20 pb-1">
           {item.children.map((child) =>
             child.external ? (
               <a
@@ -51,7 +51,7 @@ function AccordionItem({ item, onClose }: { item: NavItem; onClose: () => void }
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
-                className="block px-8 py-2.5 text-sm text-gray-400 hover:text-[#7C3AED] font-mono"
+                className="block px-8 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-[#7C3AED] font-mono"
               >
                 {child.label} &#8599;
               </a>
@@ -60,7 +60,7 @@ function AccordionItem({ item, onClose }: { item: NavItem; onClose: () => void }
                 key={child.href}
                 href={child.href}
                 onClick={onClose}
-                className="block px-8 py-2.5 text-sm text-gray-400 hover:text-[#7C3AED] font-mono"
+                className="block px-8 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-[#7C3AED] font-mono"
               >
                 {child.label}
               </Link>
@@ -86,15 +86,15 @@ export default function MobileNav({ items, isOpen, onClose }: MobileNavProps) {
       {/* Drawer */}
       <div
         className={[
-          'fixed top-0 right-0 h-full w-72 bg-[#0a0a0a] border-l border-[#1f1f1f] z-50 transform transition-transform duration-300 ease-in-out lg:hidden',
+          'fixed top-0 right-0 h-full w-72 bg-white dark:bg-[#1a1a1a] border-l border-gray-200 dark:border-[#1f1f1f] z-50 transform transition-transform duration-300 ease-in-out lg:hidden',
           isOpen ? 'translate-x-0' : 'translate-x-full',
         ].join(' ')}
       >
-        <div className="flex items-center justify-between px-4 py-4 border-b border-[#1f1f1f]">
+        <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200 dark:border-[#1f1f1f]">
           <Logo height={36} inverted />
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-white p-1"
+            className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-1"
             aria-label="Close menu"
           >
             <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">

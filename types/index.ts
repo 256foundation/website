@@ -44,6 +44,15 @@ export interface Milestone {
   description?: string
 }
 
+export interface ProjectLogo {
+  /** Wide/banner image (e.g. social card with text) */
+  banner?: string
+  /** Portrait or square character/mascot image */
+  character?: string
+  /** Square icon/logomark */
+  icon?: string
+}
+
 export interface PillarProject {
   slug: ProjectSlug
   type: ProjectType
@@ -58,6 +67,7 @@ export interface PillarProject {
   githubUrl: string
   forumCategory: string
   ogImage: string
+  logo?: ProjectLogo
   milestones: Milestone[]
   team: {
     leadEngineer: TeamMember

@@ -112,15 +112,15 @@ export default function CommunitySection() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {communities.map((c) => {
               const inner = (
-                <div className="group flex flex-col items-center text-center gap-3 p-5 bg-[#0d0d0d] border border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:bg-[#111111] transition-all duration-200 cursor-pointer h-full">
+                <div className="group flex flex-col items-center text-center gap-3 p-5 bg-gray-50 dark:bg-[#0d0d0d] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:bg-white dark:hover:bg-[#242424] transition-all duration-200 cursor-pointer h-full">
                   <div className="text-gray-500 group-hover:text-[#7C3AED] transition-colors">
                     {c.icon}
                   </div>
                   <div>
-                    <div className="font-mono font-bold text-gray-200 text-sm group-hover:text-[#7C3AED] transition-colors">
+                    <div className="font-mono font-bold text-gray-700 dark:text-gray-200 text-sm group-hover:text-[#7C3AED] transition-colors">
                       {c.label}
                     </div>
-                    <div className="text-gray-600 text-xs mt-0.5 leading-relaxed">{c.description}</div>
+                    <div className="text-gray-500 dark:text-gray-600 text-xs mt-0.5 leading-relaxed">{c.description}</div>
                   </div>
                 </div>
               )
