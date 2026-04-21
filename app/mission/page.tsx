@@ -80,14 +80,14 @@ export default function MissionPage() {
         <div
           className="absolute inset-y-0 right-0 w-1/2 pointer-events-none"
           style={{
-            backgroundImage: `linear-gradient(rgba(124,58,237,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(59,20,69,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59,20,69,0.1) 1px, transparent 1px)`,
             backgroundSize: '48px 48px',
             WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.6) 100%)',
             maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.6) 100%)',
           }}
         />
         <div className="max-w-3xl relative">
-          <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
+          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
             Our Mission
           </p>
           <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
@@ -115,10 +115,10 @@ export default function MissionPage() {
       {/* Vision */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl">
-          <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
+          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
             Our Vision
           </p>
-          <blockquote className="border-l-4 border-[#7C3AED] pl-6 py-2">
+          <blockquote className="border-l-4 border-[#3b1445] pl-6 py-2">
             <p className="font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-relaxed uppercase">
               &ldquo;An open protocol should be accessible to anyone at all layers — the open-source
               Bitcoin mining stack we are building achieves this.&rdquo;
@@ -137,7 +137,7 @@ export default function MissionPage() {
                 href="https://opensource.org/osd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#7C3AED] hover:underline"
+                className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
               >
                 OSI definition
               </a>{' '}
@@ -146,7 +146,7 @@ export default function MissionPage() {
                 href="https://www.oshwa.org/definition/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#7C3AED] hover:underline"
+                className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
               >
                 OSHWA definition
               </a>{' '}
@@ -158,7 +158,7 @@ export default function MissionPage() {
 
       {/* Values */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
+        <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
           Our Values
         </p>
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
@@ -168,7 +168,7 @@ export default function MissionPage() {
           {values.map((v) => (
             <div
               key={v.title}
-              className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 hover:border-[#7C3AED]/30 transition-colors"
+              className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors"
             >
               <div className="text-2xl mb-3">{v.icon}</div>
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase mb-2">{v.title}</h3>
@@ -180,7 +180,7 @@ export default function MissionPage() {
 
       {/* Timeline */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
+        <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
           History
         </p>
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
@@ -193,7 +193,7 @@ export default function MissionPage() {
 
       {/* Founders */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
+        <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
           Founders
         </p>
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
@@ -208,7 +208,7 @@ export default function MissionPage() {
 
       {/* Board */}
       <SectionWrapper>
-        <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
+        <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
           Board
         </p>
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">

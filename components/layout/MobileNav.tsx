@@ -19,7 +19,7 @@ function AccordionItem({ item, onClose }: { item: NavItem; onClose: () => void }
       <Link
         href={item.href}
         onClick={onClose}
-        className="block px-4 py-3 text-gray-700 dark:text-gray-200 hover:text-[#7C3AED] font-display font-semibold text-sm uppercase border-b border-gray-200 dark:border-[#1f1f1f]"
+        className="block px-4 py-3 text-gray-700 dark:text-gray-200 hover:text-[#3b1445] dark:hover:text-[#c084d8] font-display font-semibold text-sm uppercase border-b border-gray-200 dark:border-[#1f1f1f]"
       >
         {item.label}
       </Link>
@@ -30,7 +30,7 @@ function AccordionItem({ item, onClose }: { item: NavItem; onClose: () => void }
     <div className="border-b border-gray-200 dark:border-[#1f1f1f]">
       <button
         onClick={() => setExpanded(!expanded)}
-        className="flex items-center justify-between w-full px-4 py-3 text-gray-700 dark:text-gray-200 hover:text-[#7C3AED] font-display font-semibold text-sm uppercase"
+        className="flex items-center justify-between w-full px-4 py-3 text-gray-700 dark:text-gray-200 hover:text-[#3b1445] dark:hover:text-[#c084d8] font-display font-semibold text-sm uppercase"
       >
         {item.label}
         <svg
@@ -51,7 +51,7 @@ function AccordionItem({ item, onClose }: { item: NavItem; onClose: () => void }
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
-                className="block px-8 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-[#7C3AED] font-mono"
+                className="block px-8 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] font-mono"
               >
                 {child.label} &#8599;
               </a>
@@ -60,7 +60,7 @@ function AccordionItem({ item, onClose }: { item: NavItem; onClose: () => void }
                 key={child.href}
                 href={child.href}
                 onClick={onClose}
-                className="block px-8 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-[#7C3AED] font-mono"
+                className="block px-8 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] font-mono"
               >
                 {child.label}
               </Link>
@@ -111,7 +111,7 @@ export default function MobileNav({ items, isOpen, onClose }: MobileNavProps) {
             <a
               href="/donate"
               onClick={onClose}
-              className="block w-full text-center bg-[#7C3AED] text-white font-mono font-bold py-3 rounded-none hover:bg-[#6D28D9] transition-colors"
+              className="block w-full text-center bg-[#3b1445] text-white font-mono font-bold py-3 rounded-none hover:bg-[#2d0f36] transition-colors"
             >
               Donate
             </a>

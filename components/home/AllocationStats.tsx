@@ -5,6 +5,13 @@ interface AllocationStatsProps {
   stats: SiteStats
 }
 
+interface StatItem {
+  value: string
+  unit: string
+  label: string
+  isPurple: boolean
+}
+
 export default function AllocationStats({ stats }: AllocationStatsProps) {
   const usdFormatted = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -12,24 +19,24 @@ export default function AllocationStats({ stats }: AllocationStatsProps) {
     maximumFractionDigits: 0,
   }).format(stats.usdAllocated)
 
-  const items = [
-    { value: stats.btcAllocated.toFixed(1), unit: 'BTC', label: 'Allocated to Grantees', color: '#7C3AED' },
-    { value: usdFormatted.replace('$', ''), unit: 'USD', label: 'Dollar Equivalent', color: '#7C3AED' },
-    { value: String(stats.totalGrantees), unit: '', label: 'Active Grantees', color: '#7C3AED' },
-    { value: String(stats.blocksFound), unit: '', label: 'Blocks Found to Date', color: '#00FF41' },
+  const items: StatItem[] = [
+    { value: stats.btcAllocated.toFixed(1), unit: 'BTC', label: 'Allocated to Grantees', isPurple: true },
+    { value: usdFormatted.replace('$', ''), unit: 'USD', label: 'Dollar Equivalent', isPurple: true },
+    { value: String(stats.totalGrantees), unit: '', label: 'Active Grantees', isPurple: true },
+    { value: String(stats.blocksFound), unit: '', label: 'Blocks Found to Date', isPurple: false },
   ]
 
   return (
     <div>
       <div className="flex items-center gap-3 mb-10">
-        <div className="w-1 h-4 bg-[#7C3AED]" />
-        <span className="font-mono text-[#7C3AED] text-xs tracking-[0.2em] uppercase">
+        <div className="w-1 h-4 bg-[#3b1445]" />
+        <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
           Impact
         </span>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-        {items.map(({ value, unit, label, color }, i) => (
+        {items.map(({ value, unit, label, isPurple }, i) => (
           <div
             key={i}
             className={[
@@ -43,14 +50,11 @@ export default function AllocationStats({ stats }: AllocationStatsProps) {
             ].filter(Boolean).join(' ')}
           >
             <div className="mb-1 flex items-baseline gap-1.5 flex-wrap">
-              <span
-                className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-none tabular-nums"
-                style={{ color }}
-              >
+              <span className={`font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-none tabular-nums ${isPurple ? 'text-[#3b1445] dark:text-[#c084d8]' : 'text-[#00FF41]'}`}>
                 {value}
               </span>
               {unit && (
-                <span className="font-mono font-bold text-base" style={{ color, opacity: 0.5 }}>
+                <span className={`font-mono font-bold text-base opacity-50 ${isPurple ? 'text-[#3b1445] dark:text-[#c084d8]' : 'text-[#00FF41]'}`}>
                   {unit}
                 </span>
               )}
@@ -65,7 +69,7 @@ export default function AllocationStats({ stats }: AllocationStatsProps) {
       <div className="mt-10 pt-6 border-t border-gray-200 dark:border-[#1f1f1f] flex items-center gap-6">
         <Link
           href="/projects"
-          className="font-mono text-[#7C3AED] text-sm hover:underline transition-colors inline-flex items-center gap-2"
+          className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline transition-colors inline-flex items-center gap-2"
         >
           View All Funded Projects
           <svg className="w-3.5 h-3.5" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">

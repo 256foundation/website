@@ -13,8 +13,8 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-1 h-4 bg-[#7C3AED]" />
-        <span className="font-mono text-[#7C3AED] text-xs tracking-[0.2em] uppercase">Stay Updated</span>
+        <div className="w-1 h-4 bg-[#3b1445]" />
+        <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">Stay Updated</span>
       </div>
       <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl mb-8 uppercase">
         News &amp; Updates
@@ -33,7 +33,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                   href={featured.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:shadow-[0_0_24px_rgba(124,58,237,0.1)] transition-all duration-200"
+                  className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_24px_rgba(59,20,69,0.1)] transition-all duration-200"
                 >
                   {featured.image && (
                     <div className="relative w-full h-48 overflow-hidden">
@@ -49,11 +49,11 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                   )}
                   <div className="p-5">
                     {featured.pubDate && (
-                      <time className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase block mb-2">
+                      <time className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase block mb-2">
                         {formatPostDate(featured.pubDate)}
                       </time>
                     )}
-                    <h4 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase leading-tight group-hover:text-[#7C3AED] transition-colors mb-2">
+                    <h4 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase leading-tight group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors mb-2">
                       {featured.title}
                     </h4>
                     {featured.description && (
@@ -74,7 +74,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                       href={post.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:shadow-[0_0_16px_rgba(124,58,237,0.08)] transition-all duration-200"
+                      className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_16px_rgba(59,20,69,0.08)] transition-all duration-200"
                     >
                       {post.image && (
                         <div className="relative w-full h-32 overflow-hidden">
@@ -94,7 +94,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                             {formatPostDate(post.pubDate)}
                           </time>
                         )}
-                        <h4 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase leading-snug group-hover:text-[#7C3AED] transition-colors line-clamp-2">
+                        <h4 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase leading-snug group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors line-clamp-2">
                           {post.title}
                         </h4>
                         {post.description && (
@@ -132,14 +132,14 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
               href="https://www.pod256.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-[#7C3AED] text-sm hover:underline transition-colors inline-flex items-center gap-1 mb-4"
+              className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline transition-colors inline-flex items-center gap-1 mb-4"
             >
               Listen to POD256 &rarr;
             </a>
             <p className="text-gray-500 text-xs">
               Available on{' '}
-              <a href="https://fountain.fm" target="_blank" rel="noopener noreferrer" className="text-[#7C3AED] hover:underline">Fountain</a>,{' '}
-              <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" className="text-[#7C3AED] hover:underline">Spotify</a>,{' '}
+              <a href="https://fountain.fm" target="_blank" rel="noopener noreferrer" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Fountain</a>,{' '}
+              <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Spotify</a>,{' '}
               Apple Podcasts, and more.
             </p>
           </div>

@@ -62,7 +62,7 @@ export default function GrantsPage() {
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="max-w-3xl">
-          <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
+          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
             Grants Program
           </p>
           <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
@@ -85,8 +85,8 @@ export default function GrantsPage() {
           Grant Types
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-50 dark:bg-[#242424] border border-[#7C3AED]/30 rounded-none p-6">
-            <div className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-3">
+          <div className="bg-gray-50 dark:bg-[#242424] border border-[#3b1445]/50 dark:border-[#5c2070]/50 rounded-none p-6">
+            <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-3">
               Core Pillar Grants
             </div>
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Foundation-Defined</h3>
@@ -100,7 +100,7 @@ export default function GrantsPage() {
             </span>
           </div>
           <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
-            <div className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-3">
+            <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-3">
               Open Rolling Grants
             </div>
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Community-Driven</h3>
@@ -109,7 +109,7 @@ export default function GrantsPage() {
               open-source Bitcoin mining ecosystem. We review applications on a rolling basis and
               fund based on merit, alignment, and available capital.
             </p>
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-none text-xs font-mono border text-[#7C3AED] border-[#7C3AED]/40 bg-[#7C3AED]/10">
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-none text-xs font-mono border text-[#3b1445] dark:text-[#c084d8] border-[#3b1445]/50 dark:border-[#5c2070]/50 bg-[#3b1445]/15 dark:bg-[#5c2070]/20">
               Accepting Applications
             </span>
           </div>
@@ -156,7 +156,7 @@ export default function GrantsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
             <div key={s.step} className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
-              <div className="font-mono font-bold text-[#7C3AED] text-3xl mb-4 opacity-50">
+              <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-3xl mb-4 opacity-50">
                 {s.step}
               </div>
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-2">{s.title}</h3>

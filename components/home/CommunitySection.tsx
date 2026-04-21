@@ -94,8 +94,8 @@ export default function CommunitySection() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-10">
-        <div className="w-1 h-4 bg-[#7C3AED]" />
-        <span className="font-mono text-[#7C3AED] text-xs tracking-[0.2em] uppercase">Community</span>
+        <div className="w-1 h-4 bg-[#3b1445]" />
+        <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">Community</span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -112,12 +112,12 @@ export default function CommunitySection() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {communities.map((c) => {
               const inner = (
-                <div className="group flex flex-col items-center text-center gap-3 p-5 bg-gray-50 dark:bg-[#0d0d0d] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:bg-white dark:hover:bg-[#242424] transition-all duration-200 cursor-pointer h-full">
-                  <div className="text-gray-500 group-hover:text-[#7C3AED] transition-colors">
+                <div className="group flex flex-col items-center text-center gap-3 p-5 bg-gray-50 dark:bg-[#0d0d0d] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:bg-white dark:hover:bg-[#242424] transition-all duration-200 cursor-pointer h-full">
+                  <div className="text-gray-500 group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
                     {c.icon}
                   </div>
                   <div>
-                    <div className="font-mono font-bold text-gray-700 dark:text-gray-200 text-sm group-hover:text-[#7C3AED] transition-colors">
+                    <div className="font-mono font-bold text-gray-700 dark:text-gray-200 text-sm group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
                       {c.label}
                     </div>
                     <div className="text-gray-500 dark:text-gray-600 text-xs mt-0.5 leading-relaxed">{c.description}</div>

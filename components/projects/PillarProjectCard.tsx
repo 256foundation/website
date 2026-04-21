@@ -13,11 +13,11 @@ export default function PillarProjectCard({ project }: Props) {
   const progress = Math.round((completedCount / totalCount) * 100)
 
   return (
-    <div className="group bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden hover:border-[#7C3AED]/50 hover:shadow-[0_0_20px_rgba(124,58,237,0.15)] transition-all duration-300 flex flex-col">
+    <div className="group bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_20px_rgba(59,20,69,0.15)] transition-all duration-300 flex flex-col">
       {/* Top progress bar */}
       <div className="h-px bg-gray-200 dark:bg-[#1f1f1f] relative overflow-hidden">
         <div
-          className="absolute left-0 top-0 h-full bg-[#7C3AED] transition-all duration-700"
+          className="absolute left-0 top-0 h-full bg-[#3b1445] transition-all duration-700"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -29,7 +29,7 @@ export default function PillarProjectCard({ project }: Props) {
             <span className="font-mono text-xs text-gray-500 dark:text-gray-600">{completedCount}/{totalCount} milestones</span>
             <ExternalLink
               href={project.githubUrl}
-              className="text-gray-500 dark:text-gray-600 hover:text-[#7C3AED] transition-colors"
+              className="text-gray-500 dark:text-gray-600 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
               aria-label="GitHub"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -39,10 +39,10 @@ export default function PillarProjectCard({ project }: Props) {
           </div>
         </div>
 
-        <h3 className="font-display text-xl text-gray-900 dark:text-white font-bold mb-1 group-hover:text-[#7C3AED] transition-colors uppercase">
+        <h3 className="font-display text-xl text-gray-900 dark:text-white font-bold mb-1 group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors uppercase">
           {project.name}
         </h3>
-        <p className="text-[#7C3AED]/70 text-xs font-mono mb-3 leading-tight">{project.tagline}</p>
+        <p className="text-[#3b1445]/70 dark:text-[#c084d8]/70 text-xs font-mono mb-3 leading-tight">{project.tagline}</p>
         <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-1">{project.description}</p>
 
         <div className="flex items-center gap-3 mt-auto pt-4 border-t border-gray-200 dark:border-[#1f1f1f]">
@@ -54,7 +54,7 @@ export default function PillarProjectCard({ project }: Props) {
           </Link>
           <ExternalLink
             href={project.externalUrl}
-            className="px-3 py-2.5 border border-gray-200 dark:border-[#1f1f1f] text-gray-500 hover:text-[#7C3AED] hover:border-[#7C3AED]/40 transition-colors rounded-none"
+            className="px-3 py-2.5 border border-gray-200 dark:border-[#1f1f1f] text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] hover:border-[#3b1445]/40 dark:hover:border-[#5c2070]/40 transition-colors rounded-none"
             aria-label="Website"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

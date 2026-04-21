@@ -50,8 +50,8 @@ export default function EcosystemSection() {
     <div>
       {/* Header */}
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-1 h-4 bg-[#7C3AED]" />
-        <span className="font-mono text-[#7C3AED] text-xs tracking-[0.2em] uppercase">Ecosystem</span>
+        <div className="w-1 h-4 bg-[#3b1445]" />
+        <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">Ecosystem</span>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase leading-tight">
@@ -81,10 +81,10 @@ export default function EcosystemSection() {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#7C3AED]/50 hover:shadow-[0_0_24px_rgba(124,58,237,0.1)] transition-all duration-300"
+            className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_24px_rgba(59,20,69,0.1)] transition-all duration-300"
           >
             {/* Top accent bar */}
-            <div className="h-0.5 w-full bg-gray-200 dark:bg-[#1f1f1f] group-hover:bg-[#7C3AED]/60 transition-colors duration-300" />
+            <div className="h-0.5 w-full bg-gray-200 dark:bg-[#1f1f1f] group-hover:bg-[#3b1445]/60 transition-colors duration-300" />
 
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-6">
               {/* Logo — top on mobile, left column on sm+ */}
@@ -102,13 +102,13 @@ export default function EcosystemSection() {
                 {/* Title + arrow */}
                 <div className="flex items-start justify-between mb-1">
                   <div>
-                    <h3 className="font-display font-bold text-gray-800 dark:text-gray-100 text-lg uppercase leading-tight group-hover:text-[#7C3AED] transition-colors">
+                    <h3 className="font-display font-bold text-gray-800 dark:text-gray-100 text-lg uppercase leading-tight group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
                       {project.name}
                     </h3>
-                    <p className="font-mono text-[#7C3AED] text-xs mt-0.5">{project.tagline}</p>
+                    <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs mt-0.5">{project.tagline}</p>
                   </div>
                   <svg
-                    className="w-4 h-4 text-gray-500 dark:text-gray-600 group-hover:text-[#7C3AED] transition-colors mt-1 shrink-0 ml-3"
+                    className="w-4 h-4 text-gray-500 dark:text-gray-600 group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors mt-1 shrink-0 ml-3"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

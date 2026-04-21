@@ -41,7 +41,7 @@ export default function GrantLogTable({ grants }: Props) {
                   {categoryLabel(grant.category)}
                 </span>
               </td>
-              <td className="py-3 pr-4 text-[#7C3AED]">{grant.amountBTC} BTC</td>
+              <td className="py-3 pr-4 text-[#3b1445] dark:text-[#c084d8]">{grant.amountBTC} BTC</td>
               <td className="py-3 pr-4">
                 <Badge status={grant.status} />
               </td>
@@ -50,10 +50,10 @@ export default function GrantLogTable({ grants }: Props) {
           ))}
         </tbody>
         <tfoot>
-          <tr className="border-t border-[#7C3AED]">
+          <tr className="border-t border-[#3b1445]">
             <td className="pt-3 pr-4 text-gray-500 font-normal">Total</td>
             <td colSpan={2} />
-            <td className="pt-3 pr-4 text-[#7C3AED] font-bold">{totalBTC.toFixed(1)} BTC</td>
+            <td className="pt-3 pr-4 text-[#3b1445] dark:text-[#c084d8] font-bold">{totalBTC.toFixed(1)} BTC</td>
             <td colSpan={2} />
           </tr>
         </tfoot>

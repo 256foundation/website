@@ -21,9 +21,9 @@ const variantStyles: Record<Variant, string> = {
   primary:
     'bg-white text-[#1a1a1a] font-bold hover:bg-gray-100 border border-white hover:border-gray-100',
   secondary:
-    'bg-transparent text-[#7C3AED] font-bold border border-transparent hover:underline',
+    'bg-transparent text-[#3b1445] dark:text-[#c084d8] font-bold border border-transparent hover:underline',
   outlined:
-    'bg-transparent text-[#7C3AED] font-bold border border-[#7C3AED]/40 hover:border-[#7C3AED] hover:bg-[#7C3AED]/5',
+    'bg-transparent text-[#3b1445] dark:text-[#c084d8] font-bold border border-[#3b1445]/50 dark:border-[#5c2070]/50 hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5',
 }
 
 const sizeStyles: Record<Size, string> = {
@@ -45,7 +45,7 @@ export default function Button({
   type = 'button',
 }: ButtonProps) {
   const base =
-    'inline-flex items-center justify-center gap-2 rounded-none font-mono tracking-wide transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#7C3AED] focus-visible:outline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+    'inline-flex items-center justify-center gap-2 rounded-none font-mono tracking-wide transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#3b1445] focus-visible:outline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
 
   const classes = [base, variantStyles[variant], sizeStyles[size], className].join(' ')
 

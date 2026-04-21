@@ -36,7 +36,7 @@ export default function BlocksFound({ stats, videoUrl }: BlocksFoundProps) {
         </p>
         <Link
           href="/telehash"
-          className="font-mono text-[#7C3AED] text-sm hover:underline transition-colors inline-flex items-center gap-1"
+          className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline transition-colors inline-flex items-center gap-1"
         >
           Learn About TeleHash &rarr;
         </Link>
@@ -47,7 +47,7 @@ export default function BlocksFound({ stats, videoUrl }: BlocksFoundProps) {
         {isPlaceholder ? (
           <div className="aspect-video flex items-center justify-center bg-gray-50 dark:bg-[#242424]">
             <div className="text-center">
-              <div className="text-[#7C3AED] font-mono text-sm mb-2">&#9654; Block Find Video</div>
+              <div className="text-[#3b1445] dark:text-[#c084d8] font-mono text-sm mb-2">&#9654; Block Find Video</div>
               <div className="text-gray-500 text-xs">Video will be embedded here</div>
             </div>
           </div>

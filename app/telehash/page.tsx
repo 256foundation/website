@@ -45,7 +45,7 @@ export default function TeleHashPage() {
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="max-w-3xl">
-          <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
+          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
             TeleHash
           </p>
           <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
@@ -79,7 +79,7 @@ export default function TeleHashPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mb-6">
           {participationSteps.map((s) => (
             <div key={s.step} className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-5">
-              <div className="font-mono font-bold text-[#7C3AED] text-2xl opacity-40 mb-3">
+              <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-2xl opacity-40 mb-3">
                 {s.step}
               </div>
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-2">{s.title}</h3>
@@ -94,7 +94,7 @@ export default function TeleHashPage() {
                   href={s.link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-[#7C3AED] text-xs hover:underline mt-1 inline-block"
+                  className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline mt-1 inline-block"
                   dangerouslySetInnerHTML={{ __html: s.link.label }}
                 />
               )}

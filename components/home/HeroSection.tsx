@@ -17,7 +17,7 @@ export default function HeroSection() {
       <PCBBackground animated opacity={0.12} />
 
       {/* Subtle purple radial gradient overlay */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.12) 0%, transparent 60%)' }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(59,20,69,0.12) 0%, transparent 60%)' }} />
 
       {/* Vignette edges */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,white_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_40%,#1a1a1a_100%)] pointer-events-none" />
@@ -69,13 +69,13 @@ export default function HeroSection() {
           </Link>
           <Link
             href="/donate"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-[#7C3AED]/40 text-[#7C3AED] font-mono font-bold text-sm rounded-none hover:border-[#7C3AED] hover:bg-[#7C3AED]/5 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] font-mono font-bold text-sm rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-all duration-200"
           >
             Donate &rarr;
           </Link>
           <Link
             href="/projects"
-            className="font-mono text-gray-500 text-sm hover:text-[#7C3AED] transition-colors duration-200"
+            className="font-mono text-gray-500 text-sm hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors duration-200"
           >
             View Projects
           </Link>
@@ -84,18 +84,18 @@ export default function HeroSection() {
         {/* Bottom metrics strip */}
         <div className="border-t border-gray-200 dark:border-[#1f1f1f] pt-4 sm:pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
           {[
-            { value: `${siteStats.btcAllocated}`, unit: 'BTC', label: 'Deployed', color: '#7C3AED' },
-            { value: usdFormatted, unit: '', label: 'USD Equivalent', color: '#7C3AED' },
-            { value: String(siteStats.totalGrantees), unit: '', label: 'Active Projects', color: '#7C3AED' },
-            { value: String(siteStats.blocksFound), unit: '', label: 'Blocks Found', color: '#00FF41' },
-          ].map(({ value, unit, label, color }) => (
+            { value: `${siteStats.btcAllocated}`, unit: 'BTC', label: 'Deployed', isPurple: true },
+            { value: usdFormatted, unit: '', label: 'USD Equivalent', isPurple: true },
+            { value: String(siteStats.totalGrantees), unit: '', label: 'Active Projects', isPurple: true },
+            { value: String(siteStats.blocksFound), unit: '', label: 'Blocks Found', isPurple: false },
+          ].map(({ value, unit, label, isPurple }) => (
             <div key={label} className="group">
               <div className="flex items-baseline gap-1">
-                <span className="font-display font-bold text-2xl sm:text-3xl" style={{ color }}>
+                <span className={`font-display font-bold text-2xl sm:text-3xl ${isPurple ? 'text-[#3b1445] dark:text-[#c084d8]' : 'text-[#00FF41]'}`}>
                   {value}
                 </span>
                 {unit && (
-                  <span className="font-mono text-sm" style={{ color, opacity: 0.6 }}>
+                  <span className={`font-mono text-sm opacity-60 ${isPurple ? 'text-[#3b1445] dark:text-[#c084d8]' : 'text-[#00FF41]'}`}>
                     {unit}
                   </span>
                 )}

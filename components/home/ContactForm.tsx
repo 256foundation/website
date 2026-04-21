@@ -33,7 +33,7 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    'w-full bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-[#2a2a2a] rounded-none px-4 py-3 text-gray-800 dark:text-gray-100 text-sm font-mono placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-[#7C3AED] focus:ring-1 focus:ring-[#7C3AED]/30 transition-colors duration-200'
+    'w-full bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-[#2a2a2a] rounded-none px-4 py-3 text-gray-800 dark:text-gray-100 text-sm font-mono placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-[#3b1445] focus:ring-1 focus:ring-[#3b1445]/30 transition-colors duration-200'
 
   if (status === 'success') {
     return (
@@ -45,7 +45,7 @@ export default function ContactForm() {
         </p>
         <button
           onClick={() => setStatus('idle')}
-          className="mt-4 font-mono text-[#7C3AED] text-sm hover:underline"
+          className="mt-4 font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline"
         >
           Send another message
         </button>

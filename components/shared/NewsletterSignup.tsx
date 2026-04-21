@@ -40,10 +40,10 @@ export default function NewsletterSignup() {
   }
 
   return (
-    <div className="h-68 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 hover:border-[#7C3AED]/20 transition-colors">
+    <div className="h-68 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 hover:border-[#3b1445]/20 dark:hover:border-[#5c2070]/20 transition-colors">
       <div className="flex items-center gap-2 mb-3">
-        <div className="w-1 h-3 bg-[#7C3AED]" />
-        <span className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase">Newsletter</span>
+        <div className="w-1 h-3 bg-[#3b1445]" />
+        <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase">Newsletter</span>
       </div>
 
       <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
@@ -71,7 +71,7 @@ export default function NewsletterSignup() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email.com"
             disabled={status === 'loading'}
-            className="w-full bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#2a2a2a] rounded-none px-4 py-2.5 text-sm text-gray-900 dark:text-white font-mono placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-[#7C3AED] focus:ring-1 focus:ring-[#7C3AED]/30 disabled:opacity-50 transition-colors"
+            className="w-full bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#2a2a2a] rounded-none px-4 py-2.5 text-sm text-gray-900 dark:text-white font-mono placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-[#3b1445] focus:ring-1 focus:ring-[#3b1445]/30 disabled:opacity-50 transition-colors"
           />
           <button
             type="submit"
@@ -92,7 +92,7 @@ export default function NewsletterSignup() {
           href="https://256foundation.substack.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-500 hover:text-[#7C3AED] transition-colors"
+          className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
         >
           read on Substack &rarr;
         </a>

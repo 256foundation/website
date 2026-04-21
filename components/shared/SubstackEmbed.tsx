@@ -31,7 +31,7 @@ export default function SubstackEmbed() {
           href="https://256foundation.substack.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#7C3AED] hover:underline"
+          className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
         >
           subscribe directly on Substack &rarr;
         </a>

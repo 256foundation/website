@@ -19,8 +19,8 @@ export default function SectionHeader({
     <div className={['mb-12', alignClass, className].join(' ')}>
       {label && (
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-1 h-4 bg-[#7C3AED]" />
-          <span className="font-mono text-[#7C3AED] text-xs tracking-[0.2em] uppercase">
+          <div className="w-1 h-4 bg-[#3b1445]" />
+          <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
             {label}
           </span>
         </div>

@@ -6,9 +6,10 @@
 /* ── Brand design tokens ─────────────────────────────────────── */
 @theme {
   /* Primary accent — purple replaces orange entirely */
-  --color-brand-purple:        #7C3AED;
-  --color-brand-purple-dark:   #6D28D9;
-  --color-brand-purple-light:  #5B21B6;
+  --color-brand-purple:        #3b1445;
+  --color-brand-purple-dark:   #2d0f36;
+  --color-brand-purple-light:  #5c2070;
+  --color-brand-purple-glow:   #c084d8;
 
   /* Terminal / status */
   --color-brand-green:         #00FF41;
@@ -67,7 +68,7 @@ body {
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #7C3AED;
+  background: #3b1445;
 }
 
 /* ── Animations ──────────────────────────────────────────────── */
@@ -102,9 +103,9 @@ body {
 }
 
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
-  70% { box-shadow: 0 0 0 6px rgba(124, 58, 237, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(59, 20, 69, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(59, 20, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 20, 69, 0); }
 }
 
 .pcb-animated {
@@ -133,17 +134,17 @@ body {
 
 /* ── Focus ring ──────────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid #7C3AED;
+  outline: 2px solid #3b1445;
   outline-offset: 2px;
 }
 
 /* ── Purple glow utilities ───────────────────────────────────── */
 .glow-purple {
-  box-shadow: 0 0 24px rgba(124, 58, 237, 0.15), 0 0 48px rgba(124, 58, 237, 0.08);
+  box-shadow: 0 0 24px rgba(59, 20, 69, 0.25), 0 0 48px rgba(59, 20, 69, 0.15);
 }
 
 .glow-purple-sm {
-  box-shadow: 0 0 12px rgba(124, 58, 237, 0.2);
+  box-shadow: 0 0 12px rgba(59, 20, 69, 0.3);
 }
 
 .glow-green {
@@ -152,8 +153,8 @@ body {
 
 /* ── Selection ───────────────────────────────────────────────── */
 ::selection {
-  background: rgba(124, 58, 237, 0.2);
-  color: #7C3AED;
+  background: rgba(59, 20, 69, 0.2);
+  color: #3b1445;
 }
 
 /* ── Logo utilities ──────────────────────────────────────────── */
@@ -180,15 +181,15 @@ body {
     background: #d4d4d4;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #5B21B6;
+    background: #5c2070;
   }
 
   :focus-visible {
-    outline-color: #5B21B6;
+    outline-color: #5c2070;
   }
 
   ::selection {
-    background: rgba(91, 33, 182, 0.2);
-    color: #5B21B6;
+    background: rgba(59, 20, 69, 0.2);
+    color: #3b1445;
   }
 }

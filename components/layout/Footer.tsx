@@ -48,7 +48,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-gray-200 dark:border-[#1f1f1f] bg-white dark:bg-[#1a1a1a]">
       {/* Purple accent line at top */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[#7C3AED]/40 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[#3b1445]/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-10">
@@ -74,7 +74,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-8 h-8 flex items-center justify-center border border-gray-200 dark:border-[#1f1f1f] rounded-sm text-gray-500 hover:text-[#7C3AED] hover:border-[#7C3AED]/40 transition-all duration-200"
+                  className="w-8 h-8 flex items-center justify-center border border-gray-200 dark:border-[#1f1f1f] rounded-sm text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] hover:border-[#3b1445]/40 dark:hover:border-[#5c2070]/40 transition-all duration-200"
                 >
                   {s.icon}
                 </a>
@@ -95,9 +95,9 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-500 hover:text-[#7C3AED] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
+                    className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
                   >
-                    <span className="w-0 group-hover:w-3 h-px bg-[#7C3AED] transition-all duration-200 overflow-hidden" />
+                    <span className="w-0 group-hover:w-3 h-px bg-[#3b1445] transition-all duration-200 overflow-hidden" />
                     {link.label}
                   </Link>
                 </li>
@@ -117,9 +117,9 @@ export default function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-[#7C3AED] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
+                    className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
                   >
-                    <span className="w-0 group-hover:w-3 h-px bg-[#7C3AED] transition-all duration-200 overflow-hidden" />
+                    <span className="w-0 group-hover:w-3 h-px bg-[#3b1445] transition-all duration-200 overflow-hidden" />
                     {link.label}
                     <svg className="w-2.5 h-2.5 opacity-30 group-hover:opacity-60 transition-opacity" viewBox="0 0 10 10" fill="currentColor">
                       <path d="M8 1H5V0h5v5H9V2L4 7l-.707-.707L8 1zM0 9V4h1v4h4v1H0z" />

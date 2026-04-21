@@ -21,7 +21,7 @@ export default function Card({
       className={[
         'bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6',
         hover
-          ? 'transition-all duration-200 hover:border-[#7C3AED]/50 hover:shadow-[0_0_20px_rgba(124,58,237,0.15)] cursor-pointer'
+          ? 'transition-all duration-200 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_20px_rgba(59,20,69,0.15)] cursor-pointer'
           : '',
         className,
       ]

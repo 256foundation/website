@@ -51,7 +51,7 @@ export default function DonatePage() {
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="max-w-3xl">
-          <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">
+          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
             Donate
           </p>
           <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
@@ -67,9 +67,9 @@ export default function DonatePage() {
 
       {/* 501c3 info */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]" tight>
-        <div className="bg-gray-50 dark:bg-[#242424] border border-[#7C3AED]/20 rounded-none p-6 max-w-2xl">
+        <div className="bg-gray-50 dark:bg-[#242424] border border-[#3b1445]/40 dark:border-[#5c2070]/40 rounded-none p-6 max-w-2xl">
           <div className="flex items-start gap-4">
-            <div className="text-[#7C3AED] text-2xl shrink-0">&#9878;</div>
+            <div className="text-[#3b1445] dark:text-[#c084d8] text-2xl shrink-0">&#9878;</div>
             <div>
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase mb-2">
                 501(c)(3) Nonprofit — Tax Deductible
@@ -95,11 +95,11 @@ export default function DonatePage() {
         </p>
         <div className="flex flex-wrap gap-4 items-center mb-8">
           <div className="flex items-center gap-2 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-4 py-2">
-            <span className="text-[#7C3AED]">&#8383;</span>
+            <span className="text-[#3b1445] dark:text-[#c084d8]">&#8383;</span>
             <span className="font-mono text-gray-600 dark:text-gray-300 text-sm">Bitcoin On-Chain</span>
           </div>
           <div className="flex items-center gap-2 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-4 py-2">
-            <span className="text-[#7C3AED]">&#9889;</span>
+            <span className="text-[#3b1445] dark:text-[#c084d8]">&#9889;</span>
             <span className="font-mono text-gray-600 dark:text-gray-300 text-sm">Lightning Network</span>
           </div>
           <div className="flex items-center gap-2 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-4 py-2">
@@ -130,14 +130,14 @@ export default function DonatePage() {
         </p>
         <p className="text-gray-600 dark:text-gray-400 text-sm mb-8 max-w-2xl">
           You can donate hashrate any time — and during{' '}
-          <a href="/telehash" className="text-[#7C3AED] hover:underline">TeleHash events</a>,
+          <a href="/telehash" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">TeleHash events</a>,
           the entire community points hashrate together for a chance to find a block live on stream.
         </p>
 
         <div className="space-y-4 max-w-2xl mb-8">
           {hashrateSteps.map((s) => (
             <div key={s.step} className="flex gap-4 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-5">
-              <span className="font-mono font-bold text-[#7C3AED] text-lg opacity-50 shrink-0 w-8">
+              <span className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-lg opacity-50 shrink-0 w-8">
                 {s.step}
               </span>
               <div>
@@ -153,7 +153,7 @@ export default function DonatePage() {
                     href={s.link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-[#7C3AED] text-sm hover:underline mt-1 inline-block"
+                    className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline mt-1 inline-block"
                     dangerouslySetInnerHTML={{ __html: s.link.label }}
                   />
                 )}
@@ -167,13 +167,13 @@ export default function DonatePage() {
             href="https://dash.256f.org"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-5 py-2.5 bg-transparent text-[#7C3AED] font-mono font-bold text-sm rounded-none border border-[#7C3AED]/40 hover:border-[#7C3AED] hover:bg-[#7C3AED]/5 transition-all"
+            className="inline-flex items-center justify-center px-5 py-2.5 bg-transparent text-[#3b1445] dark:text-[#c084d8] font-mono font-bold text-sm rounded-none border border-[#3b1445]/50 dark:border-[#5c2070]/50 hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-all"
           >
             View HasHDash &rarr;
           </a>
           <a
             href="/telehash"
-            className="inline-flex items-center justify-center px-5 py-2.5 text-gray-600 dark:text-gray-300 font-mono text-sm rounded-none border border-gray-200 dark:border-[#1f1f1f] hover:border-[#7C3AED]/40 hover:text-[#7C3AED] transition-all"
+            className="inline-flex items-center justify-center px-5 py-2.5 text-gray-600 dark:text-gray-300 font-mono text-sm rounded-none border border-gray-200 dark:border-[#1f1f1f] hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-all"
           >
             Learn About TeleHash &rarr;
           </a>

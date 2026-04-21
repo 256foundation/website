@@ -55,7 +55,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
             href="https://256foundation.substack.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#7C3AED] hover:underline"
+            className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
           >
             newsletter
           </a>{' '}
@@ -64,7 +64,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
             href="https://x.com/256FOUNDATION"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#7C3AED] hover:underline"
+            className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
           >
             X account
           </a>
@@ -76,13 +76,13 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
 
   if (!timeLeft) {
     return (
-      <div className="bg-[#7C3AED]/10 border border-[#7C3AED]/40 rounded-none p-6 text-center">
-        <p className="font-mono font-bold text-[#7C3AED] text-lg">LIVE &mdash; Event In Progress!</p>
+      <div className="bg-[#3b1445]/10 dark:bg-[#5c2070]/20 border border-[#3b1445]/40 dark:border-[#5c2070]/40 rounded-none p-6 text-center">
+        <p className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-lg">LIVE &mdash; Event In Progress!</p>
         <a
           href="https://x.com/256FOUNDATION"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-mono text-gray-900 dark:text-white text-sm mt-2 block hover:text-[#7C3AED] transition-colors"
+          className="font-mono text-gray-900 dark:text-white text-sm mt-2 block hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
         >
           Watch live on X &rarr;
         </a>
@@ -98,21 +98,21 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   ]
 
   return (
-    <div className="bg-gray-50 dark:bg-[#242424] border border-[#7C3AED]/30 rounded-none p-6">
-      <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase text-center mb-6">
+    <div className="bg-gray-50 dark:bg-[#242424] border border-[#3b1445]/30 dark:border-[#5c2070]/30 rounded-none p-6">
+      <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase text-center mb-6">
         Next TeleHash Event
       </p>
       <div className="flex items-center justify-center gap-2 sm:gap-4">
         {blocks.map((b, i) => (
           <div key={b.label} className="flex items-center gap-2 sm:gap-4">
             <div className="text-center">
-              <div className="font-mono font-bold text-[#7C3AED] text-3xl sm:text-5xl w-16 sm:w-24 text-center bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none py-3">
+              <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-3xl sm:text-5xl w-16 sm:w-24 text-center bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none py-3">
                 {pad(b.value)}
               </div>
               <div className="font-mono text-gray-500 text-xs mt-2">{b.label}</div>
             </div>
             {i < blocks.length - 1 && (
-              <span className="font-mono font-bold text-[#7C3AED] text-3xl sm:text-5xl countdown-separator pb-4">
+              <span className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-3xl sm:text-5xl countdown-separator pb-4">
                 :
               </span>
             )}

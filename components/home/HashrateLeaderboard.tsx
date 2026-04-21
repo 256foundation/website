@@ -71,7 +71,7 @@ export default function HashrateLeaderboard() {
           href="https://dash.256f.org"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-mono text-[#7C3AED] text-sm hover:underline"
+          className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline"
         >
           View on HasHDash &rarr;
         </a>
@@ -96,7 +96,7 @@ export default function HashrateLeaderboard() {
             <tr>
               <td colSpan={3} className="px-4 py-6 text-center text-gray-500 text-sm">
                 No active miners. Be the first to{' '}
-                <a href="/donate#hashrate" className="text-[#7C3AED] hover:underline">
+                <a href="/donate#hashrate" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">
                   donate hashrate
                 </a>
                 !

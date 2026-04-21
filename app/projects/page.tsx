@@ -49,7 +49,7 @@ export default function ProjectsPage() {
         <PCBBackground opacity={0.06} animated />
         <SectionWrapper className="relative z-10 text-center">
           <h1 className="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white uppercase mb-4">
-            Open-Source <span className="text-[#7C3AED]">Projects</span>
+            Open-Source <span className="text-[#3b1445] dark:text-[#c084d8]">Projects</span>
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             The 256 Foundation funds four pillar projects building a complete, open-source Bitcoin mining stack — from silicon to pool software.
@@ -96,7 +96,7 @@ export default function ProjectsPage() {
         </div>
         <p className="mt-4 text-sm text-gray-500 font-mono">
           All grants are denominated and disbursed in Bitcoin.{' '}
-          <a href="/grants" className="text-[#7C3AED] hover:underline">Apply for a grant &rarr;</a>
+          <a href="/grants" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Apply for a grant &rarr;</a>
         </p>
       </SectionWrapper>
     </main>

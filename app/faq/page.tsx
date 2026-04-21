@@ -45,7 +45,7 @@ export default function FAQPage() {
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="max-w-2xl">
-          <p className="font-mono text-[#7C3AED] text-xs tracking-widest uppercase mb-4">FAQ</p>
+          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">FAQ</p>
           <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl uppercase mb-6">
             Frequently Asked Questions
           </h1>
@@ -74,12 +74,12 @@ export default function FAQPage() {
                 {items.map((item, i) => (
                   <details
                     key={i}
-                    className="group bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden [&[open]]:border-[#7C3AED]/30"
+                    className="group bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden [&[open]]:border-[#3b1445]/50 dark:[&[open]]:border-[#5c2070]/50"
                   >
-                    <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-mono text-gray-900 dark:text-white text-sm font-bold hover:text-[#7C3AED] transition-colors list-none [&::-webkit-details-marker]:hidden group-open:text-[#7C3AED]">
+                    <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-mono text-gray-900 dark:text-white text-sm font-bold hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors list-none [&::-webkit-details-marker]:hidden group-open:text-[#3b1445] dark:group-open:text-[#c084d8]">
                       {item.question}
                       <svg
-                        className="w-4 h-4 shrink-0 ml-4 transition-transform group-open:rotate-180 text-[#7C3AED]"
+                        className="w-4 h-4 shrink-0 ml-4 transition-transform group-open:rotate-180 text-[#3b1445] dark:text-[#c084d8]"
                         viewBox="0 0 16 16"
                         fill="currentColor"
                       >

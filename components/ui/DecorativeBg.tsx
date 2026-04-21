@@ -35,7 +35,7 @@ export default function DecorativeBg({
           aria-hidden="true"
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: `radial-gradient(ellipse at ${glowPosition}, rgba(124,58,237,${glowOpacity}) 0%, transparent 60%)`,
+            background: `radial-gradient(ellipse at ${glowPosition}, rgba(59,20,69,${glowOpacity}) 0%, transparent 60%)`,
           }}
         />
       )}

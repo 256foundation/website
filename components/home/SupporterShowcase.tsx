@@ -21,8 +21,8 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
   return (
     <div>
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-1 h-4 bg-[#7C3AED]" />
-        <span className="font-mono text-[#7C3AED] text-xs tracking-[0.2em] uppercase">Our Supporters</span>
+        <div className="w-1 h-4 bg-[#3b1445]" />
+        <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">Our Supporters</span>
       </div>
       <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl mb-2 uppercase">
         Community Backers
@@ -49,7 +49,7 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="font-mono text-[#7C3AED] text-xs hover:underline transition-colors ml-auto"
+                  className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline transition-colors ml-auto"
                 >
                   Donate {config.amount} &rarr;
                 </a>
@@ -63,7 +63,7 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
                     rel="noopener noreferrer"
                     className="group flex flex-col items-center gap-2 text-center"
                   >
-                    <div className={`${config.size} relative overflow-hidden border border-gray-200 dark:border-[#1f1f1f] group-hover:border-[#7C3AED]/50 transition-colors duration-200`}>
+                    <div className={`${config.size} relative overflow-hidden border border-gray-200 dark:border-[#1f1f1f] group-hover:border-[#3b1445]/50 dark:group-hover:border-[#5c2070]/50 transition-colors duration-200`}>
                       <img
                         src={s.image}
                         alt={s.name}
@@ -79,7 +79,7 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
                         }}
                       />
                     </div>
-                    <span className="font-mono text-gray-500 text-xs group-hover:text-[#7C3AED] transition-colors leading-tight max-w-[80px] break-words">
+                    <span className="font-mono text-gray-500 text-xs group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors leading-tight max-w-[80px] break-words">
                       {s.name}
                     </span>
                   </a>
@@ -100,7 +100,7 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
             href="https://dash.256f.org"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-[#7C3AED] text-xs hover:underline transition-colors"
+            className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline transition-colors"
           >
             View Full Dashboard &rarr;
           </a>

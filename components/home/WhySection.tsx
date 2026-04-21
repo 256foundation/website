@@ -18,8 +18,8 @@ export default function WhySection() {
       {/* Right: content */}
       <div className="lg:col-span-9">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-1 h-4 bg-[#7C3AED]" />
-          <span className="font-mono text-[#7C3AED] text-xs tracking-[0.2em] uppercase">Why We Exist</span>
+          <div className="w-1 h-4 bg-[#3b1445]" />
+          <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">Why We Exist</span>
         </div>
 
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight mb-8 max-w-2xl uppercase">
@@ -40,15 +40,15 @@ export default function WhySection() {
         </div>
 
         {/* Pull quote */}
-        <blockquote className="mt-8 pl-5 border-l-2 border-[#7C3AED]">
-          <p className="font-display font-bold text-[#7C3AED] text-base sm:text-lg leading-snug uppercase">
+        <blockquote className="mt-8 pl-5 border-l-2 border-[#3b1445]">
+          <p className="font-display font-bold text-[#3b1445] dark:text-[#c084d8] text-base sm:text-lg leading-snug uppercase">
             &ldquo;Every layer of Bitcoin infrastructure should be free and open.&rdquo;
           </p>
         </blockquote>
 
         <Link
           href="/mission"
-          className="mt-8 inline-flex items-center gap-2 font-mono text-sm text-gray-600 dark:text-gray-400 hover:text-[#7C3AED] transition-colors group"
+          className="mt-8 inline-flex items-center gap-2 font-mono text-sm text-gray-600 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors group"
         >
           Read Our Full Mission
           <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">

@@ -5,15 +5,15 @@ export default function ApplySection() {
   return (
     <div className="relative overflow-hidden rounded-none bg-gray-50 dark:bg-[#242424]">
       {/* Purple left accent bar */}
-      <div className="absolute top-0 left-0 w-1 h-full bg-[#7C3AED]" />
+      <div className="absolute top-0 left-0 w-1 h-full bg-[#3b1445]" />
       <DecorativeBg glowPosition="100% 50%" glowOpacity={0.06} gridOpacity={0.06} vignette={false} />
 
       <div className="relative z-10 p-8 lg:p-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-1 h-4 bg-[#7C3AED]" />
-              <span className="font-mono text-[#7C3AED] text-xs tracking-[0.2em] uppercase">
+              <div className="w-1 h-4 bg-[#3b1445]" />
+              <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
                 Open Rolling Grants
               </span>
             </div>
@@ -27,7 +27,7 @@ export default function ApplySection() {
             </p>
             <div className="flex flex-wrap gap-3 mt-4">
               {['Open Hardware', 'Firmware', 'Pool Software', 'Research', 'Education'].map((tag) => (
-                <span key={tag} className="font-mono text-xs px-2.5 py-1 border border-[#7C3AED]/20 text-[#7C3AED]/60 rounded-none">
+                <span key={tag} className="font-mono text-xs px-2.5 py-1 border border-[#3b1445]/40 dark:border-[#5c2070]/40 text-[#3b1445]/80 dark:text-[#c084d8]/60 rounded-none">
                   {tag}
                 </span>
               ))}

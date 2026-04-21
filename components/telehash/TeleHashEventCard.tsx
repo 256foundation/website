@@ -8,7 +8,7 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
   const isPlaceholder = !event.videoUrl || event.videoUrl.includes('PLACEHOLDER')
 
   return (
-    <div className={`bg-gray-50 dark:bg-[#242424] rounded-none overflow-hidden border ${event.blockFound ? 'border-[#7C3AED]/40' : 'border-gray-200 dark:border-[#1f1f1f]'}`}>
+    <div className={`bg-gray-50 dark:bg-[#242424] rounded-none overflow-hidden border ${event.blockFound ? 'border-[#3b1445]/40 dark:border-[#5c2070]/40' : 'border-gray-200 dark:border-[#1f1f1f]'}`}>
       {/* Header */}
       <div className="p-6 border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="flex items-start justify-between gap-4 mb-4">
@@ -33,7 +33,7 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
 
         {event.btcRaised !== undefined && (
           <div className="flex items-center gap-2 mb-3">
-            <span className="font-display text-[#7C3AED] text-2xl font-bold">
+            <span className="font-display text-[#3b1445] dark:text-[#c084d8] text-2xl font-bold">
               {event.btcRaised} BTC
             </span>
             <span className="text-gray-500 text-sm">raised</span>
@@ -51,7 +51,7 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
           {isPlaceholder ? (
             <div className="aspect-video flex items-center justify-center">
               <div className="text-center">
-                <div className="text-[#7C3AED] font-mono text-sm mb-2">&#9654; Event Video</div>
+                <div className="text-[#3b1445] dark:text-[#c084d8] font-mono text-sm mb-2">&#9654; Event Video</div>
                 <div className="text-gray-500 dark:text-gray-600 text-xs">Video coming soon</div>
               </div>
             </div>
