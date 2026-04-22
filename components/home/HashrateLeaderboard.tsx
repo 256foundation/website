@@ -73,7 +73,7 @@ export default function HashrateLeaderboard() {
           rel="noopener noreferrer"
           className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline"
         >
-          View on HasHDash &rarr;
+          View on Hashdash &rarr;
         </a>
       </div>
     )

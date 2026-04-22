@@ -126,7 +126,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
             </p>
             <div className="bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-3 py-2 mb-4">
               <span className="font-mono text-[#00FF41] text-xs">NEXT LIVE:</span>
-              <span className="font-mono text-gray-600 dark:text-gray-400 text-xs ml-2">Check our Telegram for updates</span>
+              <span className="font-mono text-gray-600 dark:text-gray-400 text-xs ml-2">Check our Group Chat for updates</span>
             </div>
             <a
               href="https://www.pod256.org"

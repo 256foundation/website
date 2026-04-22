@@ -50,7 +50,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
       <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 text-center">
         <p className="font-mono text-gray-600 dark:text-gray-400 text-sm mb-2">No event currently scheduled.</p>
         <p className="text-gray-500 text-xs">
-          TeleHash events are announced via our{' '}
+          Telehash events are announced via our{' '}
           <a
             href="https://256foundation.substack.com"
             target="_blank"
@@ -100,7 +100,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   return (
     <div className="bg-gray-50 dark:bg-[#242424] border border-[#3b1445]/30 dark:border-[#5c2070]/30 rounded-none p-6">
       <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase text-center mb-6">
-        Next TeleHash Event
+        Next Telehash Event
       </p>
       <div className="flex items-center justify-center gap-2 sm:gap-4">
         {blocks.map((b, i) => (

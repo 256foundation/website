@@ -14,7 +14,7 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
         <div className="flex items-start justify-between gap-4 mb-4">
           <div>
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase">
-              TeleHash {event.number}
+              Telehash {event.number}
             </h3>
             <time className="font-mono text-gray-500 text-sm">
               {new Date(event.date).toLocaleDateString('en-US', {
@@ -63,7 +63,7 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 loading="lazy"
-                title={`TeleHash ${event.number}`}
+                title={`Telehash ${event.number}`}
               />
             </div>
           )}

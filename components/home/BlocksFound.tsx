@@ -15,7 +15,7 @@ export default function BlocksFound({ stats, videoUrl }: BlocksFoundProps) {
       <div>
         <div className="flex items-center gap-3 mb-6">
           <div className="w-1 h-4 bg-[#00FF41]" />
-          <span className="font-mono text-[#00FF41] text-xs tracking-[0.2em] uppercase">TeleHash</span>
+          <span className="font-mono text-[#00FF41] text-xs tracking-[0.2em] uppercase">Telehash</span>
         </div>
         <div className="flex items-center gap-4 mb-4">
           <span
@@ -30,7 +30,7 @@ export default function BlocksFound({ stats, videoUrl }: BlocksFoundProps) {
           </div>
         </div>
         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 max-w-md">
-          On our very first TeleHash event &mdash; an 8-hour community livestream &mdash; miners around
+          On our very first Telehash event &mdash; an 8-hour community livestream &mdash; miners around
           the world pointed their hashrate to our pool. Against the odds, we found a block
           and raised the initial funding that launched the 256 Foundation.
         </p>
@@ -38,7 +38,7 @@ export default function BlocksFound({ stats, videoUrl }: BlocksFoundProps) {
           href="/telehash"
           className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline transition-colors inline-flex items-center gap-1"
         >
-          Learn About TeleHash &rarr;
+          Learn About Telehash &rarr;
         </Link>
       </div>
 
@@ -59,7 +59,7 @@ export default function BlocksFound({ stats, videoUrl }: BlocksFoundProps) {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               loading="lazy"
-              title="TeleHash 1 - Block Found"
+              title="Telehash 1 - Block Found"
             />
           </div>
         )}

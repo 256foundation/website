@@ -11,7 +11,7 @@ const communities = [
     ),
   },
   {
-    label: 'Telegram',
+    label: 'Group Chat',
     description: 'Real-time community chat',
     href: 'https://t.me/the256foundation',
     external: true,
@@ -67,7 +67,7 @@ const communities = [
     ),
   },
   {
-    label: 'TeleHash',
+    label: 'Telehash',
     description: 'Solo mining fundraiser events',
     href: '/telehash',
     external: false,
@@ -78,7 +78,7 @@ const communities = [
     ),
   },
   {
-    label: 'HasHDash',
+    label: 'Hashdash',
     description: 'Live pool & hashrate dashboard',
     href: 'https://dash.256f.org',
     external: true,

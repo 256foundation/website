@@ -22,7 +22,7 @@ const socialLinks = [
     ),
   },
   {
-    label: 'Telegram',
+    label: 'Group Chat',
     href: 'https://t.me/the256foundation',
     icon: (
       <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">

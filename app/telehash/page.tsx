@@ -7,9 +7,9 @@ import SubstackEmbed from '@/components/shared/SubstackEmbed'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 
 export const metadata = generatePageMetadata({
-  title: 'TeleHash',
+  title: 'Telehash',
   description:
-    'TeleHash is the 256 Foundation\'s semi-annual livestream fundraising event — point your hashrate to our pool for a chance to find a Bitcoin block live on stream.',
+    'Telehash is the 256 Foundation\'s semi-annual livestream fundraising event — point your hashrate to our pool for a chance to find a Bitcoin block live on stream.',
   path: '/telehash',
 })
 
@@ -38,7 +38,7 @@ const participationSteps = [
   },
 ]
 
-export default function TeleHashPage() {
+export default function TelehashPage() {
   return (
     <>
       {/* Hero */}
@@ -46,20 +46,20 @@ export default function TeleHashPage() {
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="max-w-3xl">
           <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-            TeleHash
+            Telehash
           </p>
           <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
             Mine for the Mission
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-4">
-            TeleHash is the 256 Foundation&apos;s semi-annual fundraising event — an 8-hour
+            Telehash is the 256 Foundation&apos;s semi-annual fundraising event — an 8-hour
             livestream where the global Bitcoin mining community points their hashrate to our
             Hydrapool instance running in solo mining mode.
           </p>
           <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
             If a block is found during the stream, all block reward proceeds go directly to the
             foundation to fund more open-source Bitcoin mining development. On our very first
-            TeleHash, we found a block — raising the initial ~$300,000 that launched the organization.
+            Telehash, we found a block — raising the initial ~$300,000 that launched the organization.
           </p>
         </div>
       </SectionWrapper>
@@ -119,11 +119,11 @@ export default function TeleHashPage() {
       <SectionWrapper>
         <div className="max-w-lg">
           <h2 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase mb-4">
-            Get Notified About the Next TeleHash
+            Get Notified About the Next Telehash
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-sm mb-6">
             Subscribe to the 256 Foundation newsletter or follow us on X to be the first to know
-            when the next TeleHash event is announced.
+            when the next Telehash event is announced.
           </p>
           <SubstackEmbed />
         </div>

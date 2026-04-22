@@ -27,7 +27,7 @@ const hashrateSteps = [
     title: 'Set your Worker name',
     code: 'your_npub.bitaxe-1',
     description:
-      'Replace "your_npub" with your Nostr public key or any identifier you choose. This is how your contribution shows up on HasHDash.',
+      'Replace "your_npub" with your Nostr public key or any identifier you choose. This is how your contribution shows up on Hashdash.',
   },
   {
     step: '04',
@@ -37,8 +37,8 @@ const hashrateSteps = [
   {
     step: '05',
     title: 'Verify your contribution',
-    description: 'Check that your miner appears on HasHDash within a few minutes.',
-    link: { label: 'Open HasHDash &rarr;', href: 'https://dash.256f.org' },
+    description: 'Check that your miner appears on Hashdash within a few minutes.',
+    link: { label: 'Open Hashdash &rarr;', href: 'https://dash.256f.org' },
   },
 ]
 
@@ -130,7 +130,7 @@ export default function DonatePage() {
         </p>
         <p className="text-gray-600 dark:text-gray-400 text-sm mb-8 max-w-2xl">
           You can donate hashrate any time — and during{' '}
-          <a href="/telehash" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">TeleHash events</a>,
+          <a href="/telehash" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Telehash events</a>,
           the entire community points hashrate together for a chance to find a block live on stream.
         </p>
 
@@ -169,13 +169,13 @@ export default function DonatePage() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-5 py-2.5 bg-transparent text-[#3b1445] dark:text-[#c084d8] font-mono font-bold text-sm rounded-none border border-[#3b1445]/50 dark:border-[#5c2070]/50 hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-all"
           >
-            View HasHDash &rarr;
+            View Hashdash &rarr;
           </a>
           <a
             href="/telehash"
             className="inline-flex items-center justify-center px-5 py-2.5 text-gray-600 dark:text-gray-300 font-mono text-sm rounded-none border border-gray-200 dark:border-[#1f1f1f] hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-all"
           >
-            Learn About TeleHash &rarr;
+            Learn About Telehash &rarr;
           </a>
         </div>
       </SectionWrapper>
