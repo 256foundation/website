@@ -41,7 +41,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                         src={featured.image}
                         alt={featured.title}
                         fill
-                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        className="object-cover transition-all duration-500"
                         sizes="(max-width: 768px) 100vw, 66vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-[#242424] via-transparent to-transparent" />
@@ -82,7 +82,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                             src={post.image}
                             alt={post.title}
                             fill
-                            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                            className="object-cover transition-all duration-500"
                             sizes="(max-width: 640px) 100vw, 33vw"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-[#242424] via-transparent to-transparent" />
