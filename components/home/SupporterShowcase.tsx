@@ -67,7 +67,7 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
                       <img
                         src={s.image}
                         alt={s.name}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                        className="w-full h-full object-cover transition-all duration-300"
                         onError={(e) => {
                           const el = e.target as HTMLImageElement
                           el.style.display = 'none'

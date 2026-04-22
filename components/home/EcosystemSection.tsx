@@ -3,7 +3,7 @@ const projects = [
     name: 'Bitaxe',
     abbr: 'BITAXE',
     logo: '/ecosystem/bitaxe.png',
-    logoClass: 'grayscale group-hover:grayscale-0 transition-all duration-500',
+    logoClass: 'transition-all duration-500',
     url: 'https://bitaxe.org',
     tagline: 'The first open-source Bitcoin ASIC miner.',
     mission:
@@ -14,7 +14,7 @@ const projects = [
     name: 'Open Source Miners United',
     abbr: 'OSMU',
     logo: '/ecosystem/osmu.png',
-    logoClass: 'grayscale group-hover:grayscale-0 transition-all duration-500',
+    logoClass: 'transition-all duration-500',
     url: 'https://osmu.wiki',
     tagline: 'The open-source hardware & firmware community.',
     mission:
@@ -25,7 +25,7 @@ const projects = [
     name: 'Hashrate Heatpunks',
     abbr: 'HEATPUNKS',
     logo: '/ecosystem/heatpunks.png',
-    logoClass: 'grayscale group-hover:grayscale-0 transition-all duration-500',
+    logoClass: 'transition-all duration-500',
     url: 'https://heatpunks.org',
     tagline: 'Mining heat is a product, not a problem.',
     mission:
@@ -36,7 +36,7 @@ const projects = [
     name: 'Jua Kali Miner',
     abbr: 'JUA KALI',
     logo: '/ecosystem/jua-kali.jpg',
-    logoClass: 'grayscale group-hover:grayscale-0 transition-all duration-500',
+    logoClass: 'transition-all duration-500',
     url: 'https://github.com/GridlessCompute/Jua-Kali-Miner',
     tagline: 'Open-source mining for direct DC power.',
     mission:
