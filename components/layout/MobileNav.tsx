@@ -86,11 +86,11 @@ export default function MobileNav({ items, isOpen, onClose }: MobileNavProps) {
       {/* Drawer */}
       <div
         className={[
-          'fixed top-0 right-0 h-full w-72 bg-white dark:bg-[#1a1a1a] border-l border-gray-200 dark:border-[#1f1f1f] z-50 transform transition-transform duration-300 ease-in-out lg:hidden',
+          'fixed top-0 right-0 h-full w-72 bg-white dark:bg-[#13091a] border-l border-gray-200 dark:border-[#3b1445]/30 z-50 transform transition-transform duration-300 ease-in-out lg:hidden',
           isOpen ? 'translate-x-0' : 'translate-x-full',
         ].join(' ')}
       >
-        <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200 dark:border-[#1f1f1f]">
+        <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200 dark:border-[#3b1445]/30">
           <Logo height={36} inverted />
           <button
             onClick={onClose}

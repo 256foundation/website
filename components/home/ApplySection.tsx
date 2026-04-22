@@ -3,7 +3,7 @@ import DecorativeBg from '@/components/ui/DecorativeBg'
 
 export default function ApplySection() {
   return (
-    <div className="relative overflow-hidden rounded-none bg-gray-50 dark:bg-[#242424]">
+    <div className="relative overflow-hidden rounded-none bg-[#f8f2fc] dark:bg-[#1e1028]">
       {/* Purple left accent bar */}
       <div className="absolute top-0 left-0 w-1 h-full bg-[#3b1445]" />
       <DecorativeBg glowPosition="100% 50%" glowOpacity={0.06} gridOpacity={0.06} vignette={false} />
@@ -36,7 +36,7 @@ export default function ApplySection() {
           <div className="lg:col-span-4 flex lg:justify-end">
             <Link
               href="/grants"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#1a1a1a] font-mono font-bold text-base rounded-none hover:bg-gray-100 transition-colors duration-200 whitespace-nowrap"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#3b1445] text-white font-mono font-bold text-base rounded-none hover:bg-[#2d0f36] transition-colors duration-200 whitespace-nowrap"
             >
               Apply for a Grant
               <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">

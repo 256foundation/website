@@ -16,8 +16,8 @@ export default function HeroSection() {
       {/* PCB pattern */}
       <PCBBackground animated opacity={0.12} />
 
-      {/* Subtle purple radial gradient overlay */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(59,20,69,0.12) 0%, transparent 60%)' }} />
+      {/* Purple radial gradient overlay */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(59,20,69,0.18) 0%, transparent 65%)' }} />
 
       {/* Vignette edges */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,white_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_40%,#1a1a1a_100%)] pointer-events-none" />
@@ -82,14 +82,14 @@ export default function HeroSection() {
         </div>
 
         {/* Bottom metrics strip */}
-        <div className="border-t border-gray-200 dark:border-[#1f1f1f] pt-4 sm:pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+        <div className="border-t border-[#3b1445]/20 dark:border-[#5c2070]/30 pt-4 sm:pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
           {[
             { value: `${siteStats.btcAllocated}`, unit: 'BTC', label: 'Deployed', isPurple: true },
             { value: usdFormatted, unit: '', label: 'USD Equivalent', isPurple: true },
             { value: String(siteStats.totalGrantees), unit: '', label: 'Active Projects', isPurple: true },
             { value: String(siteStats.blocksFound), unit: '', label: 'Blocks Found', isPurple: false },
           ].map(({ value, unit, label, isPurple }) => (
-            <div key={label} className="group">
+            <div key={label} className="group px-3 py-2 bg-[#3b1445]/5 dark:bg-[#3b1445]/10 hover:bg-[#3b1445]/10 dark:hover:bg-[#3b1445]/20 transition-colors duration-200">
               <div className="flex items-baseline gap-1">
                 <span className={`font-display font-bold text-2xl sm:text-3xl ${isPurple ? 'text-[#3b1445] dark:text-[#c084d8]' : 'text-[#00FF41]'}`}>
                   {value}

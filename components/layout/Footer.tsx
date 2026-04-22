@@ -46,9 +46,9 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-gray-200 dark:border-[#1f1f1f] bg-white dark:bg-[#1a1a1a]">
+    <footer className="border-t border-gray-200 dark:border-[#3b1445]/25 bg-white dark:bg-[#13091a]">
       {/* Purple accent line at top */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[#3b1445]/40 to-transparent" />
+      <div className="h-[2px] bg-gradient-to-r from-transparent via-[#5c2070] to-transparent dark:via-[#3b1445]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-12 gap-10">
@@ -87,7 +87,8 @@ export default function Footer() {
 
           {/* Foundation links */}
           <div className="lg:col-span-3">
-            <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em]">
+            <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
+              <span className="w-1 h-3 bg-[#3b1445] dark:bg-[#5c2070] inline-block flex-shrink-0" />
               Foundation
             </h3>
             <ul className="space-y-3">
@@ -107,7 +108,8 @@ export default function Footer() {
 
           {/* Community links */}
           <div className="lg:col-span-3">
-            <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em]">
+            <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
+              <span className="w-1 h-3 bg-[#3b1445] dark:bg-[#5c2070] inline-block flex-shrink-0" />
               Community
             </h3>
             <ul className="space-y-3">
@@ -132,7 +134,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-gray-200 dark:border-[#1f1f1f] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="mt-12 pt-6 border-t border-gray-200 dark:border-[#3b1445]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="font-mono text-gray-400 dark:text-gray-700 text-xs">
             &copy; 2024&ndash;{year} 256 Foundation. All rights reserved.
           </p>

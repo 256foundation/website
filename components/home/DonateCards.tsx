@@ -10,14 +10,14 @@ export default function DonateCards() {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 dark:bg-[#1f1f1f]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 dark:bg-[#3b1445]/30">
         {/* Panel A -- Money */}
-        <div className="bg-gray-50 dark:bg-[#242424] p-8 lg:p-10 group hover:shadow-[0_0_20px_rgba(59,20,69,0.15)] transition-all duration-300 relative overflow-hidden">
+        <div className="bg-white dark:bg-[#1e1028] p-8 lg:p-10 group hover:shadow-[0_0_28px_rgba(59,20,69,0.2)] dark:hover:shadow-[0_0_28px_rgba(192,132,216,0.12)] transition-all duration-300 relative overflow-hidden">
           {/* Corner bracket decoration */}
-          <div className="absolute top-0 right-0 w-16 h-[2px] bg-[#3b1445]/30 group-hover:bg-[#3b1445]/60 transition-colors" />
-          <div className="absolute top-0 right-0 w-[2px] h-16 bg-[#3b1445]/30 group-hover:bg-[#3b1445]/60 transition-colors" />
+          <div className="absolute top-0 right-0 w-16 h-[2px] bg-[#3b1445]/40 group-hover:bg-[#3b1445] dark:bg-[#5c2070]/50 dark:group-hover:bg-[#c084d8]/80 transition-colors duration-300" />
+          <div className="absolute top-0 right-0 w-[2px] h-16 bg-[#3b1445]/40 group-hover:bg-[#3b1445] dark:bg-[#5c2070]/50 dark:group-hover:bg-[#c084d8]/80 transition-colors duration-300" />
 
-          <div className="font-mono text-[#3b1445]/60 dark:text-[#c084d8]/60 text-6xl font-bold leading-none mb-6 select-none">
+          <div className="font-mono text-[#3b1445]/50 dark:text-[#c084d8]/40 text-6xl font-bold leading-none mb-6 select-none group-hover:text-[#3b1445]/80 dark:group-hover:text-[#c084d8]/70 transition-colors duration-300">
             &#8383;
           </div>
           <h3 className="font-display font-bold text-gray-900 dark:text-white text-xl mb-3 uppercase">
@@ -43,12 +43,12 @@ export default function DonateCards() {
         </div>
 
         {/* Panel B -- Hashrate */}
-        <div className="bg-gray-50 dark:bg-[#242424] p-8 lg:p-10 group hover:shadow-[0_0_20px_rgba(59,20,69,0.15)] transition-all duration-300 relative overflow-hidden">
+        <div className="bg-white dark:bg-[#1e1028] p-8 lg:p-10 group hover:shadow-[0_0_28px_rgba(59,20,69,0.2)] dark:hover:shadow-[0_0_28px_rgba(192,132,216,0.12)] transition-all duration-300 relative overflow-hidden">
           {/* Corner bracket decoration */}
-          <div className="absolute top-0 right-0 w-16 h-[2px] bg-[#3b1445]/30 group-hover:bg-[#3b1445]/60 transition-colors" />
-          <div className="absolute top-0 right-0 w-[2px] h-16 bg-[#3b1445]/30 group-hover:bg-[#3b1445]/60 transition-colors" />
+          <div className="absolute top-0 right-0 w-16 h-[2px] bg-[#3b1445]/40 group-hover:bg-[#3b1445] dark:bg-[#5c2070]/50 dark:group-hover:bg-[#c084d8]/80 transition-colors duration-300" />
+          <div className="absolute top-0 right-0 w-[2px] h-16 bg-[#3b1445]/40 group-hover:bg-[#3b1445] dark:bg-[#5c2070]/50 dark:group-hover:bg-[#c084d8]/80 transition-colors duration-300" />
 
-          <div className="font-mono text-[#3b1445]/20 dark:text-[#c084d8]/20 text-6xl font-bold leading-none mb-6 select-none">
+          <div className="font-mono text-[#3b1445]/30 dark:text-[#c084d8]/25 text-6xl font-bold leading-none mb-6 select-none group-hover:text-[#3b1445]/60 dark:group-hover:text-[#c084d8]/50 transition-colors duration-300">
             &#9889;
           </div>
           <h3 className="font-display font-bold text-gray-900 dark:text-white text-xl mb-3 uppercase">

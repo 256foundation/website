@@ -39,11 +39,11 @@ export default function NavDropdown({ item }: NavDropdownProps) {
       </button>
 
       {open && (
-        <div className="absolute top-full left-0 mt-1 w-52 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none shadow-xl shadow-black/10 dark:shadow-black/50 z-50 py-1">
+        <div className="absolute top-full left-0 mt-1 w-52 bg-gray-50 dark:bg-[#1e1028] border border-gray-200 dark:border-[#3b1445]/30 rounded-none shadow-xl shadow-black/10 dark:shadow-black/60 z-50 py-1">
           {item.children?.map((child) => (
             <div key={child.href}>
               {child.divider && (
-                <div className="mx-4 my-1 border-t border-gray-200 dark:border-[#1f1f1f]" />
+                <div className="mx-4 my-1 border-t border-gray-200 dark:border-[#3b1445]/20" />
               )}
               {child.external ? (
                 <a
@@ -52,7 +52,7 @@ export default function NavDropdown({ item }: NavDropdownProps) {
                   rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
                   className={[
-                    'block px-4 py-2.5 text-sm font-mono transition-colors duration-150 border-l-2 border-transparent hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-white dark:hover:bg-[#1a1a1a]',
+                    'block px-4 py-2.5 text-sm font-mono transition-colors duration-150 border-l-2 border-transparent hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-white dark:hover:bg-[#13091a]',
                     child.divider
                       ? 'text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'
                       : 'text-gray-600 dark:text-gray-300 hover:text-[#3b1445] dark:hover:text-[#c084d8]',
@@ -65,7 +65,7 @@ export default function NavDropdown({ item }: NavDropdownProps) {
                   href={child.href}
                   onClick={() => setOpen(false)}
                   className={[
-                    'block px-4 py-2.5 text-sm font-mono transition-colors duration-150 border-l-2 border-transparent hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-white dark:hover:bg-[#1a1a1a]',
+                    'block px-4 py-2.5 text-sm font-mono transition-colors duration-150 border-l-2 border-transparent hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-white dark:hover:bg-[#13091a]',
                     child.divider
                       ? 'text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'
                       : 'text-gray-600 dark:text-gray-300 hover:text-[#3b1445] dark:hover:text-[#c084d8]',

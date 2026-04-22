@@ -20,14 +20,14 @@ export default function Header() {
   return (
     <>
       {/* Top purple accent line */}
-      <div className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-[#3b1445]" />
+      <div className="fixed top-0 left-0 right-0 z-50 h-[3px] bg-gradient-to-r from-[#2d0f36] via-[#5c2070] to-[#2d0f36]" />
 
       <header
         className={[
-          'fixed top-0.5 left-0 right-0 z-40 transition-all duration-300',
+          'fixed top-[3px] left-0 right-0 z-40 transition-all duration-300',
           scrolled
-            ? 'bg-white/95 dark:bg-[#1a1a1a]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#1f1f1f]'
-            : 'bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm border-b border-transparent',
+            ? 'bg-white/95 dark:bg-[#13091a]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#3b1445]/30'
+            : 'bg-white/80 dark:bg-[#13091a]/80 backdrop-blur-sm border-b border-transparent',
         ].join(' ')}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,7 +69,7 @@ export default function Header() {
               </a>
               <Link
                 href="/donate"
-                className="hidden lg:inline-flex items-center justify-center px-5 py-2 bg-white text-[#1a1a1a] font-mono font-bold text-sm rounded-none hover:bg-gray-100 transition-colors duration-200"
+                className="hidden lg:inline-flex items-center justify-center px-5 py-2 bg-[#3b1445] text-white font-mono font-bold text-sm rounded-none hover:bg-[#2d0f36] transition-colors duration-200"
               >
                 Donate
               </Link>

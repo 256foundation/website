@@ -40,7 +40,7 @@ export default function WhySection() {
         </div>
 
         {/* Pull quote */}
-        <blockquote className="mt-8 pl-5 border-l-2 border-[#3b1445]">
+        <blockquote className="mt-8 pl-5 border-l-4 border-[#3b1445] dark:border-[#5c2070] bg-[#3b1445]/5 dark:bg-[#3b1445]/10 py-3">
           <p className="font-display font-bold text-[#3b1445] dark:text-[#c084d8] text-base sm:text-lg leading-snug uppercase">
             &ldquo;Every layer of Bitcoin infrastructure should be free and open.&rdquo;
           </p>
