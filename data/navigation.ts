@@ -18,7 +18,6 @@ export const topNav: NavItem[] = [
     label: 'Community',
     href: '#',
     children: [
-      { label: 'Forum', href: 'https://forum.256foundation.org', external: true },
       { label: 'Telegram', href: 'https://t.me/the256foundation', external: true },
       { label: 'Newsletter', href: 'https://256foundation.substack.com', external: true },
       { label: 'POD256', href: 'https://www.pod256.org', external: true },
