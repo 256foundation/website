@@ -9,17 +9,17 @@ interface SupporterShowcaseProps {
 
 const tierConfig = {
   1: {
-    label: 'Block Founders',
+    label: 'Tier 1',
     imgSize: 'w-28 h-28 sm:w-36 sm:h-36',
     gridCols: 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-5',
   },
   2: {
-    label: 'Hash Champions',
+    label: 'Tier 2',
     imgSize: 'w-20 h-20 sm:w-24 sm:h-24',
     gridCols: 'grid-cols-3 sm:grid-cols-4 lg:grid-cols-5',
   },
   3: {
-    label: 'Satoshi Friends',
+    label: 'Tier 3',
     imgSize: 'w-14 h-14 sm:w-16 sm:h-16',
     gridCols: 'grid-cols-4 sm:grid-cols-5 lg:grid-cols-7',
   },
