@@ -35,7 +35,7 @@ export const topNav: NavItem[] = [
       { label: 'Bitaxe', href: 'https://bitaxe.org', external: true },
       { label: 'OSMU', href: 'https://osmu.wiki', external: true },
       { label: 'Hashrate Heatpunks', href: 'https://heatpunks.org', external: true },
-      { label: 'Jua Kali Miner', href: 'https://github.com/GridlessCompute/Jua-Kali-Miner', external: true },
+      { label: 'Jua Kali', href: 'https://github.com/GridlessCompute/Jua-Kali-Miner', external: true },
     ],
   },
 ]
