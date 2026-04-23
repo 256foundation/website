@@ -60,7 +60,7 @@ export default function GrantsPage() {
     <>
       {/* Hero */}
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
+        <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
         <div className="max-w-3xl">
           <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
             Grants Program
