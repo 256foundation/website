@@ -54,10 +54,10 @@ function SkeletonRow() {
     <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-[#1f1f1f]">
       <div className="h-5 w-5 bg-gray-200 dark:bg-[#1f1f1f] rounded-none animate-pulse flex-shrink-0" />
       <div className="w-7 h-7 bg-gray-200 dark:bg-[#1f1f1f] rounded-full animate-pulse flex-shrink-0" />
-      <div className="h-3 w-44 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
-      <div className="flex-1 h-2 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse" />
-      <div className="h-4 w-16 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
-      <div className="h-3 w-8 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
+      <div className="h-3 flex-1 sm:flex-none sm:w-44 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse" />
+      <div className="hidden sm:block flex-1 h-2 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse" />
+      <div className="h-4 w-16 sm:w-20 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
+      <div className="hidden sm:block h-3 w-8 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
     </div>
   )
 }
@@ -159,24 +159,24 @@ export default function HashrateLeaderboard() {
                 {/* Avatar */}
                 <Avatar src={w.picture} name={w.displayName} />
 
-                {/* Identity */}
+                {/* Identity — flex-1 on mobile, fixed width on sm+ */}
                 {w.isNpub ? (
                   <a
                     href={`https://primal.net/p/${w.identity}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-44 truncate hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
+                    className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-1 sm:flex-none sm:w-44 min-w-0 truncate hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
                   >
                     {w.displayName}
                   </a>
                 ) : (
-                  <span className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-44 truncate">
+                  <span className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-1 sm:flex-none sm:w-44 min-w-0 truncate">
                     {w.displayName}
                   </span>
                 )}
 
-                {/* Relative bar */}
-                <div className="flex-1 h-1.5 bg-gray-200 dark:bg-[#2a2a2a] rounded-none overflow-hidden">
+                {/* Relative bar — hidden on mobile */}
+                <div className="hidden sm:block flex-1 h-1.5 bg-gray-200 dark:bg-[#2a2a2a] rounded-none overflow-hidden">
                   <div
                     className="h-full bg-[#00FF41]/60 rounded-none transition-all duration-700"
                     style={{ width: `${pct}%` }}
@@ -184,12 +184,12 @@ export default function HashrateLeaderboard() {
                 </div>
 
                 {/* Hashrate */}
-                <span className="font-display font-bold text-[#00FF41] text-xs flex-shrink-0 w-20 text-right">
+                <span className="font-display font-bold text-[#00FF41] text-xs flex-shrink-0 w-16 sm:w-20 text-right">
                   {formatHashrate(w.hashrate)}
                 </span>
 
-                {/* Percentage */}
-                <span className="font-mono text-gray-400 dark:text-gray-600 text-xs flex-shrink-0 w-8 text-right">
+                {/* Percentage — hidden on mobile */}
+                <span className="hidden sm:inline font-mono text-gray-400 dark:text-gray-600 text-xs flex-shrink-0 w-8 text-right">
                   {pct}%
                 </span>
               </div>
