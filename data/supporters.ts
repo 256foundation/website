@@ -1,6 +1,5 @@
 import type { Supporter } from '@/types'
 
-// TODO: Replace placeholder images and links with real supporter data
 // Tier 1 display label: "Block Founders"  — top-tier donors
 // Tier 2 display label: "Hash Champions"  — mid-tier donors
 // Tier 3 display label: "Satoshi Friends" — community donors
@@ -13,18 +12,18 @@ export const supporters: Supporter[] = [
   { name: 'Proto', image: '/supporters/tier1/proto.png', link: '#', tier: 1 },
 
   // Tier 2 — Hash Champions
-  { name: 'Supporter Six', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s6&backgroundColor=1f1f1f', link: '#', tier: 2 },
-  { name: 'Supporter Seven', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s7&backgroundColor=1f1f1f', link: '#', tier: 2 },
-  { name: 'Supporter Eight', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s8&backgroundColor=1f1f1f', link: '#', tier: 2 },
-  { name: 'Supporter Nine', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s9&backgroundColor=1f1f1f', link: '#', tier: 2 },
-  { name: 'Supporter Ten', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s10&backgroundColor=1f1f1f', link: '#', tier: 2 },
+  { name: 'Foundry', image: '/supporters/tier2/Foundry.png', link: 'https://foundrydigital.com', tier: 2 },
+  { name: 'Heatbit', image: '/supporters/tier2/Heatbit.png', link: 'https://heatbit.com', tier: 2 },
+  { name: 'Anonymous', image: '/supporters/tier2/anonymous-001.png', link: '#', tier: 2 },
+  { name: 'Anonymous', image: '/supporters/tier2/anonymous-002.png', link: '#', tier: 2 },
+  { name: 'Anonymous', image: '/supporters/tier2/anonymous-003.png', link: '#', tier: 2 },
 
   // Tier 3 — Satoshi Friends
-  { name: 'Supporter Eleven', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s11&backgroundColor=1f1f1f', link: '#', tier: 3 },
-  { name: 'Supporter Twelve', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s12&backgroundColor=1f1f1f', link: '#', tier: 3 },
-  { name: 'Supporter Thirteen', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s13&backgroundColor=1f1f1f', link: '#', tier: 3 },
-  { name: 'Supporter Fourteen', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s14&backgroundColor=1f1f1f', link: '#', tier: 3 },
-  { name: 'Supporter Fifteen', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s15&backgroundColor=1f1f1f', link: '#', tier: 3 },
-  { name: 'Supporter Sixteen', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s16&backgroundColor=1f1f1f', link: '#', tier: 3 },
-  { name: 'Supporter Seventeen', image: 'https://api.dicebear.com/7.x/shapes/svg?seed=s17&backgroundColor=1f1f1f', link: '#', tier: 3 },
+  { name: 'Bitkite', image: '/supporters/tier3/bitkite.png', link: '#', tier: 3 },
+  { name: 'Econoalchemist', image: '/supporters/tier3/econoalchemist.png', link: 'https://econoalchemist.com', tier: 3 },
+  { name: 'Exergy', image: '/supporters/tier3/exergy.png', link: '#', tier: 3 },
+  { name: 'SoloBlock', image: '/supporters/tier3/soloblock.png', link: '#', tier: 3 },
+  { name: 'Anonymous', image: '/supporters/tier3/anonymous-004.png', link: '#', tier: 3 },
+  { name: 'Anonymous', image: '/supporters/tier3/anonymous-005.png', link: '#', tier: 3 },
+  { name: 'Anonymous', image: '/supporters/tier3/anonymous-006.png', link: '#', tier: 3 },
 ]
