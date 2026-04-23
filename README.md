@@ -42,7 +42,7 @@ Official website for the [256 Foundation](https://256foundation.org), a 501(c)(3
 - **App Router** — all pages use Next.js 15 App Router with server components by default
 - **Tailwind CSS v4** — CSS-first config via `@theme` and `@custom-variant` in `globals.css` (no `tailwind.config.js`)
 - **Dark mode** — driven by `@media (prefers-color-scheme: dark)` OS preference, not a toggle; Tailwind `dark:` prefix maps to this media query
-- **Static-first** — most pages are statically generated at build time; only the contact API and HasHDash proxy are server-rendered on demand
+- **Static-first** — most pages are statically generated at build time; only the contact API and Hashdash proxy are server-rendered on demand
 
 ---
 
@@ -66,7 +66,7 @@ website-256F/
 │   │   └── [slug]/page.tsx     # /projects/[slug] (individual project)
 │   └── api/
 │       ├── contact/route.ts    # Contact form → Resend email
-│       ├── hashdash/route.ts   # Proxy for HasHDash worker API
+│       ├── hashdash/route.ts   # Proxy for Hashdash worker API
 │       └── posts/route.ts      # Substack RSS feed proxy
 │
 ├── components/
@@ -201,12 +201,12 @@ RESEND_API_KEY=re_...
 CONTACT_EMAIL=hello@256foundation.org
 EMAIL_FROM=noreply@256foundation.org
 
-# HasHDash API (proxy for pool worker data)
+# Hashdash API (proxy for pool worker data)
 HASHDASH_API_URL=https://dash.256f.org/api/workers
 HASHDASH_API_KEY=
 ```
 
-> **Note:** The site builds and runs without any env vars — pages fall back gracefully (donation buttons link to `#`, grant form links to `#`, analytics is skipped). Only the contact form and HasHDash widget require API keys to function.
+> **Note:** The site builds and runs without any env vars — pages fall back gracefully (donation buttons link to `#`, grant form links to `#`, analytics is skipped). Only the contact form and Hashdash widget require API keys to function.
 
 ---
 
@@ -267,7 +267,7 @@ Community dropdown:
   • Telegram           → https://t.me/the256foundation    (external)
   • Newsletter         → https://256foundation.substack.com (external)
   • POD256             → https://www.pod256.org           (external)
-  • HasHDash           → https://dash.256f.org            (external)
+  • Hashdash           → https://dash.256f.org            (external)
   • TeleHash           → /telehash
   • X / Twitter        → https://x.com/256FOUNDATION      (external)
   • Nostr              → https://primal.net/p/nprofile1... (external)
@@ -278,7 +278,7 @@ Community dropdown:
 ```
 Foundation links:    Home · Mission · Projects · Grants · Donate · TeleHash · FAQ
 
-Community links:     Forum · Telegram · GitHub · HasHDash · POD256 · Newsletter
+Community links:     Forum · Telegram · GitHub · Hashdash · POD256 · Newsletter
                      (all external)
 
 Social icons:        X  GitHub  Telegram  Nostr
@@ -305,8 +305,8 @@ Social icons:        X  GitHub  Telegram  Nostr
 | Service | URL | Used In |
 |---------|-----|---------|
 | Hydrapool (mining pool) | `stratum+tcp://pool.256foundation.org:3333` | `/donate`, `/telehash` |
-| HasHDash (pool dashboard) | `https://dash.256f.org` | Footer, donate, nav |
-| HasHDash API | `https://dash.256f.org/api/workers` | `/api/hashdash` proxy |
+| Hashdash (pool dashboard) | `https://dash.256f.org` | Footer, donate, nav |
+| Hashdash API | `https://dash.256f.org/api/workers` | `/api/hashdash` proxy |
 
 ### Community Platforms
 | Platform | URL |
@@ -713,7 +713,7 @@ All nav links for the header dropdowns and footer are defined here. Add/remove/r
 | Route | Method | Description | Auth |
 |-------|--------|-------------|------|
 | `/api/contact` | POST | Submits contact form via Resend email | None (rate limited by Vercel) |
-| `/api/hashdash` | GET | Proxies HasHDash worker data | `HASHDASH_API_KEY` header |
+| `/api/hashdash` | GET | Proxies Hashdash worker data | `HASHDASH_API_KEY` header |
 | `/api/posts` | GET | Returns parsed Substack RSS feed (3 posts) | None |
 
 ---

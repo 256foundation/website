@@ -3,8 +3,8 @@ import { faqItems } from '@/data/faq'
 
 // Curated selection: one from each key conversion moment
 const SELECTED = [
-  'What is the 256 Foundation?',
-  'What is the 100% passthrough policy?',
+  'What does the 256 Foundation do?',
+  'How much of my donation goes towards open-source contributors?',
   'Who can apply for a grant?',
   'How can I donate to the 256 Foundation?',
 ]
@@ -52,8 +52,10 @@ export default function FAQSection() {
                 <path d="M8 10.5L2.5 5 1 6.5l7 7 7-7L13.5 5z" />
               </svg>
             </summary>
-            <div className="px-5 pb-4 pt-1 text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-t border-gray-200 dark:border-[#1f1f1f]">
-              {item.answer}
+            <div className="px-5 pb-4 pt-1 text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-t border-gray-200 dark:border-[#1f1f1f] space-y-3">
+              {item.answer.split('\n\n').map((para, j) => (
+                <p key={j}>{para}</p>
+              ))}
             </div>
           </details>
         ))}

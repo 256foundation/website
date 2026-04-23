@@ -192,7 +192,7 @@ Nav links in Barlow Condensed Uppercase. Logo left, nav right, Donate CTA far ri
 - Forum → `https://forum.256foundation.org` (external)
 - Telegram → `https://t.me/the256foundation` (external)
 - GitHub → `https://github.com/256foundation` (external)
-- HasHDash → `https://dash.256f.org` (external)
+- Hashdash → `https://dash.256f.org` (external)
 - TeleHash → `/telehash`
 - POD256 → `https://www.pod256.org` (external)
 - Newsletter → `https://256foundation.substack.com` (external)
@@ -205,7 +205,7 @@ Functional and clean — not a design showcase. Four-column grid (collapses on m
 
 **Col 1:** Logo + tagline ("Building the open-source Bitcoin mining ecosystem.") + 501(c)(3) notice + social icons (X, GitHub, Telegram, Nostr)
 **Col 2:** Foundation links — Mission, Projects, Grants, Donate, TeleHash, FAQ
-**Col 3:** Community links — Forum, Telegram, GitHub, HasHDash, POD256, Newsletter
+**Col 3:** Community links — Forum, Telegram, GitHub, Hashdash, POD256, Newsletter
 **Col 4:** (merge with Col 1 on smaller grids)
 
 Copyright: `© 2024–[year] 256 Foundation. All rights reserved.`
@@ -497,7 +497,7 @@ Both hardware and software project pages include a compelling explanation of why
 3. **Donate with Hashrate** (`id="hashrate"`) — explanation of hashrate donation concept, step-by-step pool setup instructions:
    - Pool URL: `stratum+tcp://pool.256foundation.org:3333`
    - Worker name: `your_npub.bitaxe-1`
-   - Link to HasHDash for verification
+   - Link to Hashdash for verification
    - Link to TeleHash page
 
 ---
@@ -576,7 +576,7 @@ OG images: default branded 1200×630 for generic pages; custom per project sub-p
 | Zaprite | Financial donations | External link button |
 | Typeform | Grant applications | External link, new tab |
 | Substack | Recent posts | RSS fetch, revalidate 3600s, 3 post cards |
-| HasHDash API | Live hashrate leaderboard | Client-side polling every 60s via `/api/hashdash` proxy |
+| Hashdash API | Live hashrate leaderboard | Client-side polling every 60s via `/api/hashdash` proxy |
 | Contact email | Form submissions | `/api/contact` + Resend |
 | Umami | Analytics | Script tag in root layout |
 
@@ -672,7 +672,7 @@ Target file size: under 5MB per model after optimization. If larger, use Draco c
 - [ ] TeleHash event dates (past events 1–3, and upcoming if scheduled)
 - [ ] Pillar project milestone data (current status for all 4 projects)
 - [ ] Financial supporter list (name, headshot/logo, link, tier)
-- [ ] HasHDash API documentation (endpoints, auth if any)
+- [ ] Hashdash API documentation (endpoints, auth if any)
 - [ ] Allocation totals (BTC/USD deployed to date)
 - [ ] Embedded video URL for TeleHash block find (YouTube)
 - [ ] FAQ answers authored by foundation team

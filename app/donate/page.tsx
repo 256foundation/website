@@ -13,31 +13,25 @@ export const metadata = generatePageMetadata({
 const hashrateSteps = [
   {
     step: '01',
-    title: 'Open your miner\'s configuration panel',
-    description: 'Access your mining hardware\'s web interface or configuration file.',
+    title: 'Set your Pool URL',
+    code: 'stratum+tcp://pool.256foundation.org:3333',
   },
   {
     step: '02',
-    title: 'Set the Pool URL',
-    code: 'stratum+tcp://pool.256foundation.org:3333',
-    description: 'Enter this as your primary pool address.',
+    title: 'Set your Stratum Username',
+    code: 'username.workername',
+    description:
+      'Username and workername can be anything. Use a website URL, X handle, or Nostr npub — your profile pic or favicon will show up on the leaderboard.',
   },
   {
     step: '03',
-    title: 'Set your Worker name',
-    code: 'your_npub.bitaxe-1',
-    description:
-      'Replace "your_npub" with your Nostr public key or any identifier you choose. This is how your contribution shows up on Hashdash.',
-  },
-  {
-    step: '04',
     title: 'Save and restart your miner',
     description: 'Apply your settings and allow your miner to connect to the pool.',
   },
   {
-    step: '05',
-    title: 'Verify your contribution',
-    description: 'Check that your miner appears on Hashdash within a few minutes.',
+    step: '04',
+    title: 'Monitor your contribution',
+    description: 'Your miner appears on the live leaderboard at dash.256f.org within a few minutes.',
     link: { label: 'Open Hashdash &rarr;', href: 'https://dash.256f.org' },
   },
 ]
@@ -58,9 +52,8 @@ export default function DonatePage() {
             Fund the Open-Source Mining Revolution
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-            The 256 Foundation is a 100% passthrough nonprofit. Every dollar you donate goes
-            directly to the developers building the open-source Bitcoin mining stack. Nothing is
-            taken for overhead or administration.
+            The 256 Foundation is a 100% passthrough nonprofit. Every dollar or sat you donate goes
+            directly to the developers and project managers building the open-source Bitcoin mining stack.
           </p>
         </div>
       </SectionWrapper>
@@ -143,7 +136,7 @@ export default function DonatePage() {
               <div>
                 <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-1">{s.title}</h3>
                 {s.code && (
-                  <code className="block bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-3 py-2 font-mono text-[#00FF41] text-sm my-2 overflow-x-auto whitespace-nowrap">
+                  <code className="block bg-[#2d0f36] border border-[#5c2070]/50 rounded-none px-3 py-2 font-mono text-[#00FF41] text-sm my-2 overflow-x-auto whitespace-nowrap">
                     {s.code}
                   </code>
                 )}

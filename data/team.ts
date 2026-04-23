@@ -14,7 +14,7 @@ export const founders: TeamMember[] = [
   {
     name: 'Econoalchemist',
     handle: '@econoalchemist',
-    role: 'Co-Founder',
+    role: 'Co-Founder & Project Manager',
     bio: 'Bitcoin educator, technical writer, and co-host of the POD256 podcast. Econoalchemist has spent years producing comprehensive, free guides on Bitcoin self-custody, privacy, home mining, and censorship resistance — bridging deep technical knowledge with practical accessibility. He brings the same conviction that Bitcoin infrastructure must be open and sovereign to everything the 256 Foundation builds.',
     headshot: '/team/econoalchemist.jpg',
     links: {

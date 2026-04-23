@@ -2,9 +2,20 @@ import Link from 'next/link'
 import { pillarProjects } from '@/data/projects'
 import { forumTopicUrl, timeAgo } from '@/lib/discourse'
 import type { ForumTopic } from '@/lib/discourse'
+import type { GitHubEvent } from '@/lib/github'
+
+const eventTypeLabel: Record<string, string> = {
+  PushEvent: 'push',
+  PullRequestEvent: 'PR',
+  PullRequestReviewEvent: 'review',
+  IssuesEvent: 'issue',
+  ReleaseEvent: 'release',
+  CreateEvent: 'create',
+}
 
 interface ProjectsSectionProps {
   forumTopics: ForumTopic[]
+  orgEvents?: GitHubEvent[]
 }
 
 const typeConfig: Record<string, { label: string; color: string }> = {
@@ -12,7 +23,7 @@ const typeConfig: Record<string, { label: string; color: string }> = {
   software: { label: 'Software', color: 'text-[#c084d8] border-[#c084d8]/40' },
 }
 
-export default function ProjectsSection({ forumTopics }: ProjectsSectionProps) {
+export default function ProjectsSection({ forumTopics, orgEvents = [] }: ProjectsSectionProps) {
   return (
     <div>
       {/* Section header */}
@@ -150,6 +161,64 @@ export default function ProjectsSection({ forumTopics }: ProjectsSectionProps) {
           </div>
         </div>
       )}
+
+      {/* GitHub org activity strip — always rendered, fallback if API empty */}
+      <div className="border border-t-0 border-gray-200 dark:border-[#1f1f1f] bg-gray-50 dark:bg-[#0a0a0a]">
+          {/* Strip header */}
+          <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200 dark:border-[#1f1f1f]">
+            <div className="flex items-center gap-2">
+              <span
+                className="w-1.5 h-1.5 rounded-full bg-[#00FF41]"
+                style={{ boxShadow: '0 0 6px #00FF41' }}
+              />
+              <span className="font-mono text-gray-600 dark:text-gray-400 text-xs uppercase tracking-widest">
+                Live GitHub Activity
+              </span>
+            </div>
+            <a
+              href="https://github.com/256foundation"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline transition-colors"
+            >
+              View org →
+            </a>
+          </div>
+
+          {/* Event rows */}
+          <div className="divide-y divide-gray-100 dark:divide-[#141414]">
+            {orgEvents.length === 0 ? (
+              <div className="px-5 py-3">
+                <span className="font-mono text-gray-400 dark:text-gray-600 text-xs">
+                  No recent activity — <a href="https://github.com/256foundation" target="_blank" rel="noopener noreferrer" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">view on GitHub →</a>
+                </span>
+              </div>
+            ) : (
+              orgEvents.map((event) => (
+                <a
+                  key={event.id}
+                  href={event.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-5 py-2.5 hover:bg-white dark:hover:bg-[#111] transition-colors group"
+                >
+                  <span className="font-mono text-[9px] uppercase tracking-widest px-1.5 py-0.5 border border-[#3b1445]/30 dark:border-[#5c2070]/40 text-[#3b1445] dark:text-[#c084d8] shrink-0">
+                    {eventTypeLabel[event.type] ?? event.type}
+                  </span>
+                  <span className="font-mono text-gray-400 dark:text-gray-600 text-xs shrink-0">
+                    {event.repo}
+                  </span>
+                  <span className="flex-1 font-mono text-gray-700 dark:text-gray-300 text-xs truncate group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors min-w-0">
+                    {event.description}
+                  </span>
+                  <span className="font-mono text-gray-400 dark:text-gray-600 text-xs whitespace-nowrap shrink-0 w-14 text-right">
+                    {timeAgo(event.createdAt)}
+                  </span>
+                </a>
+              ))
+            )}
+          </div>
+        </div>
     </div>
   )
 }

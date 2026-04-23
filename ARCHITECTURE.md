@@ -8,7 +8,7 @@
 
 A content-driven nonprofit website built with **Next.js 15 (App Router)**, **TypeScript**, and **Tailwind CSS v4**. Deployed to a self-hosted Proxmox LXC container as a standard Node.js process. All content is managed via static TypeScript data files in the repository — no CMS or database required.
 
-The site has one live external data dependency (HasHDash hashrate feed) and one server-side periodic data fetch (Substack RSS). Everything else is static at build time.
+The site has one live external data dependency (Hashdash hashrate feed) and one server-side periodic data fetch (Substack RSS). Everything else is static at build time.
 
 **Key complexity:** Hardware project pages (`/projects/ember-one`, `/projects/libre-board`) feature Apple-style scroll-driven 3D model assembly using Three.js + GSAP. Software project pages (`/projects/mujina`, `/projects/hydrapool`) feature animated hash stream canvas backgrounds.
 
@@ -21,7 +21,7 @@ The site has one live external data dependency (HasHDash hashrate feed) and one 
 │                          Browser (Client)                           │
 │                                                                     │
 │  ┌──────────────┐  ┌────────────────┐  ┌────────────────────────┐   │
-│  │  Next.js     │  │  HasHDash      │  │  3D Scroll / Hash      │   │
+│  │  Next.js     │  │  Hashdash      │  │  3D Scroll / Hash      │   │
 │  │  Pages (RSC) │  │  Leaderboard   │  │  Stream Canvas         │   │
 │  │              │  │  (polls proxy) │  │  (Three.js / Canvas)   │   │
 │  └──────┬───────┘  └───────┬────────┘  └───────────┬────────────┘   │
@@ -92,7 +92,7 @@ The site has one live external data dependency (HasHDash hashrate feed) and one 
 | `/sitemap.xml` | Generated at build | Next.js `app/sitemap.ts` |
 | `/robots.txt` | Generated at build | Next.js `app/robots.ts` |
 
-**HasHDash live feed:** The `HashrateLeaderboard` component is a Client Component that polls `/api/hashdash` every 60 seconds. The API route proxies to `dash.256f.org` server-side — prevents CORS issues and allows auth header injection via `HASHDASH_API_KEY` env var.
+**Hashdash live feed:** The `HashrateLeaderboard` component is a Client Component that polls `/api/hashdash` every 60 seconds. The API route proxies to `dash.256f.org` server-side — prevents CORS issues and allows auth header injection via `HASHDASH_API_KEY` env var.
 
 **Substack RSS:** Fetched server-side with `{ next: { revalidate: 3600 } }`. Parsed with `fast-xml-parser`. URL: `https://256foundation.substack.com/feed`.
 
@@ -192,7 +192,7 @@ website-256F/
 │   │   ├── contact/
 │   │   │   └── route.ts                  # POST: contact form → Resend email
 │   │   └── hashdash/
-│   │       └── route.ts                  # GET: proxy to HasHDash API (force-dynamic)
+│   │       └── route.ts                  # GET: proxy to Hashdash API (force-dynamic)
 │   ├── sitemap.ts
 │   └── robots.ts
 │
@@ -574,7 +574,7 @@ Each `page.tsx` exports `metadata` via `generatePageMetadata()`. Project sub-pag
 | **Typeform** | `href={process.env.NEXT_PUBLIC_TYPEFORM_URL}` button, new tab | `/grants` |
 | **Substack RSS** | `fetch(rssUrl, { next: { revalidate: 3600 } })` + `fast-xml-parser` | Home page (server) |
 | **Substack embed** | Script-based widget in `SubstackEmbed.tsx` (client, lazy) | Home + TeleHash |
-| **HasHDash API** | Client polls `/api/hashdash` every 60s | Home `HashrateLeaderboard` |
+| **Hashdash API** | Client polls `/api/hashdash` every 60s | Home `HashrateLeaderboard` |
 | **YouTube embed** | `<iframe loading="lazy" aspect-video>` | TeleHash page, BlocksFound |
 | **Umami** | `<Script strategy="afterInteractive">`, production only | Root layout |
 | **Three.js (R3F)** | Client-only, dynamic import with `ssr: false` | Hardware project pages |
@@ -590,7 +590,7 @@ Each `page.tsx` exports `metadata` via `generatePageMetadata()`. Project sub-pag
 **Rationale:** Team is developer-comfortable, content changes infrequently, zero operational overhead, type safety on all content, no external service dependency.
 **Trade-off:** Non-developers cannot update content without a code change + deploy.
 
-### ADR-2: Server-Side HasHDash Proxy
+### ADR-2: Server-Side Hashdash Proxy
 **Decision:** `GET /api/hashdash` proxies to `dash.256f.org` rather than direct browser fetch.
 **Rationale:** Prevents CORS issues; allows auth header injection via env var; single place to update when API docs arrive; can add server-side caching later.
 
@@ -709,7 +709,7 @@ CONTACT_EMAIL=
 EMAIL_FROM=
 RESEND_API_KEY=
 
-# HasHDash proxy
+# Hashdash proxy
 HASHDASH_API_URL=
 HASHDASH_API_KEY=
 
@@ -735,7 +735,7 @@ NEXT_PUBLIC_SITE_URL=https://256foundation.org
 | Three.js SSR errors | `dynamic(() => import(...), { ssr: false })` on all R3F components |
 | Three.js bundle size (~300KB) | Dynamic import ensures it only loads on the 2 hardware project pages |
 | Canvas performance on low-end devices | Hash stream capped at 30fps; off-screen columns skip; `prefers-reduced-motion` disables it |
-| HasHDash API shape unknown | Proxy route isolates frontend from API changes; `HashrateLeaderboard` has graceful error state |
+| Hashdash API shape unknown | Proxy route isolates frontend from API changes; `HashrateLeaderboard` has graceful error state |
 | Substack RSS structure changes | `lib/substack.ts` isolates parsing; single function to update |
 | Content stubs at launch | All data files have realistic placeholder stubs; site builds and deploys |
 | Purple contrast on dark bg | `#7C3AED` on `#0a0a0a` passes WCAG AA for large text; check small text with contrast tool |

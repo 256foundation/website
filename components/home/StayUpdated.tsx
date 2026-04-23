@@ -122,10 +122,17 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
               The weekly 256 Foundation team podcast covering open-source mining developments,
               project updates, and conversations with the builders shaping the future of Bitcoin mining.
             </p>
-            <div className="bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-3 py-2 mb-4">
-              <span className="font-mono text-[#00FF41] text-xs">NEXT LIVE:</span>
-              <span className="font-mono text-gray-600 dark:text-gray-400 text-xs ml-2">Check our Group Chat for updates</span>
-            </div>
+            <a
+              href="https://forum.256foundation.org/upcoming-events/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-3 py-2 mb-4 hover:border-[#3b1445]/40 dark:hover:border-[#5c2070]/40 transition-colors group"
+            >
+              <div>
+                <span className="font-mono text-[#00FF41] text-xs">NEXT LIVE:</span>
+                <span className="font-mono text-gray-600 dark:text-gray-400 text-xs ml-2">Events Calendar →</span>
+              </div>
+            </a>
             <a
               href="https://www.pod256.org"
               target="_blank"

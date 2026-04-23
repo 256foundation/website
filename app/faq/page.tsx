@@ -86,8 +86,10 @@ export default function FAQPage() {
                         <path d="M8 10.5L2.5 5 1 6.5l7 7 7-7L13.5 5z" />
                       </svg>
                     </summary>
-                    <div className="px-5 pb-4 pt-1 text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-t border-gray-200 dark:border-[#1f1f1f]">
-                      {item.answer}
+                    <div className="px-5 pb-4 pt-1 text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-t border-gray-200 dark:border-[#1f1f1f] space-y-3">
+                      {item.answer.split('\n\n').map((para, j) => (
+                        <p key={j}>{para}</p>
+                      ))}
                     </div>
                   </details>
                 ))}

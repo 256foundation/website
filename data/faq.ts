@@ -4,9 +4,9 @@ export const faqItems: FAQItem[] = [
   // ── About the Foundation ─────────────────────────────────────
   {
     category: 'foundation',
-    question: 'What is the 256 Foundation?',
+    question: 'What does the 256 Foundation do?',
     answer:
-      'The 256 Foundation is a 501(c)(3) nonprofit organization that raises money to fund developers building open-source Bitcoin mining hardware and software. Our mission is to build the open-source Bitcoin mining ecosystem and dismantle the proprietary mining empire that has centralized Bitcoin mining around closed-source hardware and software.',
+      '256 Foundation (EIN: 99-1662333) is a 501(c)(3) public charity which funds free and open-source Bitcoin mining related initiatives and provides education resources to demystify Bitcoin and freedom tech.\n\nWe believe Bitcoin mining has become dangerously centralized in several aspects: hardware and firmware centralization controlled by one Chinese company with ~90% market dominance, mining pool centralization with ~90% of global hashrate controlled by four mining pool operators and their proxies, and mining reward centralization with ~40% of bitcoin mining rewards going to a single custodian. Our mission is to dismantle the proprietary mining empire and that starts with open-sourcing the whole Bitcoin mining stack. Our first four grant initiatives were for a standardized open-source hashboard, an open-source control board, open-source firmware, and an open-source one-click deployable mining pool. The development will not stop until Bitcoin mining is free and open.',
   },
   {
     category: 'foundation',
@@ -16,35 +16,28 @@ export const faqItems: FAQItem[] = [
   },
   {
     category: 'foundation',
-    question: 'What is the foundation\'s legal status?',
+    question: 'How much of my donation goes towards open-source contributors?',
     answer:
-      'The 256 Foundation is a fully approved 501(c)(3) nonprofit organization. All qualifying donations are tax-deductible to the extent permitted by law.',
+      '100% of the donations made to the General Fund go to support the individuals working directly on the open-source Bitcoin mining related initiatives. There is no cut taken for administrative costs nor for board members.',
   },
   {
     category: 'foundation',
-    question: 'How does the foundation decide what to fund?',
-    answer:
-      'The foundation focuses on two types of grants: Core Pillar Grants, where the foundation defines the scope and deliverables for critical infrastructure projects and selects developers to build them; and Open Rolling Grants, where developers and researchers can submit their own proposals for projects that advance the open-source Bitcoin mining ecosystem.',
-  },
-  {
-    category: 'foundation',
-    question: 'What is the 100% passthrough policy?',
-    answer:
-      'The 256 Foundation operates as a 100% passthrough organization, meaning every dollar donated goes directly to the developers and projects we fund. We do not take a percentage for overhead or administrative costs.',
+    question: 'What is the best way to communicate with 256 Foundation?',
+    answer: 'Email is the best way to reach us: admin@256foundation.org',
   },
 
   // ── Donations ─────────────────────────────────────────────────
   {
     category: 'donations',
-    question: 'How can I donate to the 256 Foundation?',
+    question: 'Are donations tax deductible?',
     answer:
-      'You can donate in two ways: financially (Bitcoin on-chain, Lightning, or credit/debit card via our Zaprite donation page) or by donating your mining hashrate (point your Bitcoin miner to our Hydrapool instance at pool.256foundation.org:3333).',
+      'Yes, all donations to the 256 Foundation are tax-deductible as allowed by law. Our Tax ID number is 99-1662333. No products or services are exchanged in return for donations. We recommend consulting with a tax professional to determine the exact deductibility of your contribution and to ensure compliance with all relevant laws and guidelines.',
   },
   {
     category: 'donations',
-    question: 'Is my donation tax-deductible?',
+    question: 'How can I donate to the 256 Foundation?',
     answer:
-      'Yes. The 256 Foundation is a fully approved 501(c)(3) nonprofit organization. Qualifying financial donations are tax-deductible to the extent permitted by US law. Please consult your tax advisor for specifics.',
+      'You can donate in two ways: financially (Bitcoin on-chain, Lightning, or credit/debit card via our Zaprite donation page) or by donating your mining hashrate (point your Bitcoin miner to our Hydrapool instance at pool.256foundation.org:3333).',
   },
   {
     category: 'donations',
@@ -56,21 +49,39 @@ export const faqItems: FAQItem[] = [
     category: 'donations',
     question: 'What is a hashrate donation?',
     answer:
-      'A hashrate donation means pointing your Bitcoin mining hardware to the foundation\'s Hydrapool mining pool instance (pool.256foundation.org:3333). Your miner contributes to the pool\'s total hashrate, and in the event a Bitcoin block is found, all of the block reward goes directly to the foundation. You can monitor your contribution in real time on HasHDash (dash.256f.org).',
+      'A hashrate donation means pointing your Bitcoin mining hardware to the foundation\'s Hydrapool mining pool instance (pool.256foundation.org:3333). Your miner contributes to the pool\'s total hashrate, and in the event a Bitcoin block is found, all of the block reward goes directly to the foundation. You can monitor your contribution in real time on Hashdash (dash.256f.org).',
   },
   {
     category: 'donations',
     question: 'What is TeleHash and how does it relate to donations?',
     answer:
-      'TeleHash is the 256 Foundation\'s semi-annual fundraising event — an 8-hour livestream where we run our Hydrapool instance in solo mining mode and invite the global community to point their hashrate to our pool. The first TeleHash event resulted in finding a Bitcoin block, raising the initial ~$300,000 that funded the four core pillar grants.',
+      'TeleHash is the 256 Foundation\'s semi-annual fundraising event — an 8-hour livestream where we run our Hydrapool instance in solo mining mode and invite the global community to point their hashrate to our pool. The first TeleHash event resulted in finding a Bitcoin block, raising the initial BTC that seeded the four core pillar grants.',
   },
 
   // ── Grants ────────────────────────────────────────────────────
   {
     category: 'grants',
+    question: 'How are funds distributed?',
+    answer:
+      'Donations to the General Fund are disbursed to grant recipients periodically by the board of directors, typically in 6, 9, or 12 month cycles per project. Open application periods are announced on social media and on the POD256 podcast, applicants are evaluated and qualified candidates are interviewed to ensure grants are awarded to individuals who will make the biggest impact. Grant recipients are awarded fair-market value for the work they agree to contribute. You can find a list of current grant recipients by following the project links provided on the Grants page.',
+  },
+  {
+    category: 'grants',
+    question: 'Are grant awards given in bitcoin or fiat?',
+    answer:
+      'Grant awards are given to recipients based on their preferred method, either bitcoin or fiat. We accept donations in fiat or bitcoin. For security reasons, the exact dollar (or sat) amounts awarded to individual recipients are kept confidential. In accordance with IRS requirements, annual tax disclosures are available for public inspection.',
+  },
+  {
+    category: 'grants',
+    question: 'Can I receive a grant as a nym?',
+    answer:
+      'The 256 Foundation respects your privacy and ability to operate as a nym. At the same time, as a 501(c)(3) public charity, the 256 Foundation is obligated to file taxes. This means taxpayer information will be required from grant recipients. To balance your privacy with the foundation\'s obligations, one solution is for you to start a Wyoming LLC so you can share that entity\'s information instead of your personal taxpayer information.',
+  },
+  {
+    category: 'grants',
     question: 'Who can apply for a grant?',
     answer:
-      'Any developer, hardware engineer, or researcher working on open-source Bitcoin mining hardware or software can apply for an open rolling grant. All funded projects must be released under a recognized open-source license (OSI for software, OSHWA for hardware).',
+      'Any developer, hardware engineer, or researcher working on open-source Bitcoin mining hardware or software can apply for an Open Grant. We accept applications at any time — applications are reviewed when a grant cycle opens. All funded projects must be released under a recognized open-source license (OSI for software, OSHWA for hardware).',
   },
   {
     category: 'grants',
@@ -80,15 +91,15 @@ export const faqItems: FAQItem[] = [
   },
   {
     category: 'grants',
-    question: 'What is the difference between a Core Pillar Grant and an Open Rolling Grant?',
+    question: 'What is the difference between a Core Pillar Grant and an Open Grant?',
     answer:
-      'Core Pillar Grants are grants where the foundation identifies a critical missing piece of infrastructure, defines the scope and deliverables, and selects qualified developers to build it. Open Rolling Grants are community-driven: developers submit their own project proposals for review and funding.',
+      'Core Pillar Grants are grants where the foundation identifies a critical missing piece of infrastructure, defines the scope and deliverables, and selects qualified developers to build it. Open Grants are community-driven: developers submit their own project proposals, which are reviewed and funded during grant cycles.',
   },
   {
     category: 'grants',
     question: 'How does the grant application process work?',
     answer:
-      'Submit your application through our Typeform application page. Include your project description, technical approach, requested funding amount, timeline, milestone plan, and links to your relevant prior work. Applications are reviewed by the foundation board on a rolling basis.',
+      'Submit your application through our Typeform application page at any time. Include your project description, technical approach, requested funding amount, timeline, milestone plan, and links to your relevant prior work. The foundation board reviews applications when a grant cycle opens.',
   },
 
   // ── Projects & Ecosystem ──────────────────────────────────────

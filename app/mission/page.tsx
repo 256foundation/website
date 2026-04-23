@@ -2,7 +2,6 @@ import { generatePageMetadata } from '@/lib/metadata'
 import { founders, board } from '@/data/team'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import TeamMemberCard from '@/components/shared/TeamMemberCard'
-import Timeline from '@/components/shared/Timeline'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 
 export const metadata = generatePageMetadata({
@@ -11,39 +10,6 @@ export const metadata = generatePageMetadata({
     'The 256 Foundation exists to build the open-source Bitcoin mining ecosystem — funding developers who are dismantling the proprietary mining empire.',
   path: '/mission',
 })
-
-const timelineItems = [
-  {
-    date: 'February 2024',
-    title: '256 Foundation Founded',
-    description:
-      'Co-founded by @bitkite and @econoalchemist with a mission to build the open-source Bitcoin mining ecosystem.',
-  },
-  {
-    date: 'June 2024',
-    title: 'First TeleHash Event',
-    description:
-      'Inaugural 8-hour livestream fundraising event. The global community pointed hashrate to our Hydrapool instance and — against the odds — we found a Bitcoin block, raising the initial BTC that seeded the foundation.',
-  },
-  {
-    date: 'July 2024',
-    title: 'Four Pillar Grants Launched',
-    description:
-      'The foundation launched its four core pillar grants: Ember One, Mujina, Libre Board, and Hydrapool — funding the open-source Bitcoin mining stack from silicon to pool software.',
-  },
-  {
-    date: 'December 2024',
-    title: 'TeleHash II',
-    description:
-      'Second TeleHash event brought together an even larger community of hashrate supporters from around the world.',
-  },
-  {
-    date: 'June 2025',
-    title: 'TeleHash III',
-    description:
-      'Third TeleHash event continued to grow the foundation\'s community and advance the open-source mining movement.',
-  },
-]
 
 const values = [
   {
@@ -167,19 +133,6 @@ export default function MissionPage() {
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{v.description}</p>
             </div>
           ))}
-        </div>
-      </SectionWrapper>
-
-      {/* Timeline */}
-      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-          History
-        </p>
-        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
-          Foundation Timeline
-        </h2>
-        <div className="max-w-2xl">
-          <Timeline items={timelineItems} />
         </div>
       </SectionWrapper>
 

@@ -1,5 +1,6 @@
 import { fetchSubstackPosts } from '@/lib/substack'
 import { fetchForumTopics } from '@/lib/discourse'
+import { fetchOrgEvents } from '@/lib/github'
 import { generatePageMetadata } from '@/lib/metadata'
 import { siteStats } from '@/data/stats'
 import { supporters } from '@/data/supporters'
@@ -31,9 +32,10 @@ export const metadata = generatePageMetadata({
 })
 
 export default async function Home() {
-  const [posts, forumTopics] = await Promise.all([
+  const [posts, forumTopics, orgEvents] = await Promise.all([
     fetchSubstackPosts(3),
     fetchForumTopics(6),
+    fetchOrgEvents('256foundation', 8),
   ])
   const firstEvent = teleHashEvents.find((e) => e.blockFound)
 
@@ -54,7 +56,7 @@ export default async function Home() {
       </SectionWrapper>
 
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <ProjectsSection forumTopics={forumTopics} />
+        <ProjectsSection forumTopics={forumTopics} orgEvents={orgEvents} />
       </SectionWrapper>
 
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">

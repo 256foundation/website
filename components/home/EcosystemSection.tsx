@@ -33,7 +33,7 @@ const projects = [
     why: 'Distributed, utility-based hashrate is one of the most powerful forces for Bitcoin decentralization. Heatpunks tackle the biggest barriers to home mining — wasted heat & profitability — by reframing it as a feature.',
   },
   {
-    name: 'Jua Kali Miner',
+    name: 'Jua Kali',
     abbr: 'JUA KALI',
     logo: '/ecosystem/jua-kali.jpg',
     logoClass: 'transition-all duration-500',

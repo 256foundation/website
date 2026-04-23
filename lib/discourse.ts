@@ -5,6 +5,8 @@ export interface ForumTopic {
   postsCount: number
   replyCount: number
   lastPostedAt: string
+  imageUrl: string | null
+  excerpt: string | null
 }
 
 const FORUM_BASE = 'https://forum.256foundation.org'
@@ -20,12 +22,7 @@ export async function fetchForumTopics(count = 6): Promise<ForumTopic[]> {
     const topics: unknown[] = data?.topic_list?.topics ?? []
 
     return (topics as Record<string, unknown>[])
-      .filter(
-        (t) =>
-          !t.pinned &&
-          !t.pinned_globally &&
-          !(t.slug as string).includes('about-the-'),
-      )
+      .filter(() => true)
       .slice(0, count)
       .map((t) => ({
         id: t.id as number,
@@ -34,6 +31,39 @@ export async function fetchForumTopics(count = 6): Promise<ForumTopic[]> {
         postsCount: t.posts_count as number,
         replyCount: t.reply_count as number,
         lastPostedAt: t.last_posted_at as string,
+        imageUrl: (t.image_url as string | null) ?? null,
+        excerpt: (t.excerpt as string | null) ?? null,
+      }))
+  } catch {
+    return []
+  }
+}
+
+export async function fetchProjectForumTopics(
+  categoryApiUrl: string,
+  count = 4,
+): Promise<ForumTopic[]> {
+  try {
+    const res = await fetch(categoryApiUrl, {
+      next: { revalidate: 3600 },
+      headers: { Accept: 'application/json' },
+    })
+    if (!res.ok) return []
+    const data = await res.json()
+    const topics: unknown[] = data?.topic_list?.topics ?? []
+
+    return (topics as Record<string, unknown>[])
+      .filter(() => true)
+      .slice(0, count)
+      .map((t) => ({
+        id: t.id as number,
+        title: t.title as string,
+        slug: t.slug as string,
+        postsCount: t.posts_count as number,
+        replyCount: t.reply_count as number,
+        lastPostedAt: t.last_posted_at as string,
+        imageUrl: (t.image_url as string | null) ?? null,
+        excerpt: (t.excerpt as string | null) ?? null,
       }))
   } catch {
     return []

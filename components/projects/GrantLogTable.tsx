@@ -16,8 +16,6 @@ function categoryLabel(cat: Grant['category']) {
 }
 
 export default function GrantLogTable({ grants }: Props) {
-  const totalBTC = grants.reduce((sum, g) => sum + g.amountBTC, 0)
-
   return (
     <div className="overflow-x-auto">
       <table className="w-full font-mono text-sm">
@@ -26,9 +24,10 @@ export default function GrantLogTable({ grants }: Props) {
             <th className="pb-3 pr-4 font-normal text-xs uppercase">Project</th>
             <th className="pb-3 pr-4 font-normal text-xs uppercase">Grantee</th>
             <th className="pb-3 pr-4 font-normal text-xs uppercase">Category</th>
-            <th className="pb-3 pr-4 font-normal text-xs uppercase">Amount</th>
-            <th className="pb-3 pr-4 font-normal text-xs uppercase">Status</th>
-            <th className="pb-3 font-normal text-xs uppercase">Date</th>
+            <th className="pb-3 pr-4 font-normal text-xs uppercase">License</th>
+            <th className="pb-3 pr-4 font-normal text-xs uppercase">Duration</th>
+            <th className="pb-3 pr-4 font-normal text-xs uppercase">Start Date</th>
+            <th className="pb-3 font-normal text-xs uppercase">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -41,22 +40,23 @@ export default function GrantLogTable({ grants }: Props) {
                   {categoryLabel(grant.category)}
                 </span>
               </td>
-              <td className="py-3 pr-4 text-[#3b1445] dark:text-[#c084d8]">{grant.amountBTC} BTC</td>
               <td className="py-3 pr-4">
+                {grant.license ? (
+                  <span className="text-xs px-2 py-0.5 rounded-none bg-[#3b1445]/10 dark:bg-[#5c2070]/20 border border-[#3b1445]/30 dark:border-[#5c2070]/40 text-[#3b1445] dark:text-[#c084d8]">
+                    {grant.license}
+                  </span>
+                ) : (
+                  <span className="text-gray-400">—</span>
+                )}
+              </td>
+              <td className="py-3 pr-4 text-gray-600 dark:text-gray-400">{grant.duration ?? '—'}</td>
+              <td className="py-3 pr-4 text-gray-500">{grant.startDate ?? grant.dateFunded}</td>
+              <td className="py-3">
                 <Badge status={grant.status} />
               </td>
-              <td className="py-3 text-gray-500">{grant.dateFunded}</td>
             </tr>
           ))}
         </tbody>
-        <tfoot>
-          <tr className="border-t border-[#3b1445]">
-            <td className="pt-3 pr-4 text-gray-500 font-normal">Total</td>
-            <td colSpan={2} />
-            <td className="pt-3 pr-4 text-[#3b1445] dark:text-[#c084d8] font-bold">{totalBTC.toFixed(1)} BTC</td>
-            <td colSpan={2} />
-          </tr>
-        </tfoot>
       </table>
     </div>
   )

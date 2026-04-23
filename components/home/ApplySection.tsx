@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 
 export default function ApplySection() {
@@ -14,7 +13,7 @@ export default function ApplySection() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-1 h-4 bg-[#3b1445]" />
               <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
-                Open Rolling Grants
+                Open Grants
               </span>
             </div>
             <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight mb-4 max-w-2xl uppercase">
@@ -34,15 +33,17 @@ export default function ApplySection() {
             </div>
           </div>
           <div className="lg:col-span-4 flex lg:justify-end">
-            <Link
-              href="/grants"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#3b1445] text-white font-mono font-bold text-base rounded-none hover:bg-[#2d0f36] transition-colors duration-200 whitespace-nowrap"
+            <a
+              href="https://form.typeform.com/to/M7j8L2SE"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#3b1445] text-white font-mono font-bold text-base rounded-none hover:bg-[#2d0f36] transition-all duration-200 whitespace-nowrap shadow-[0_0_20px_rgba(59,20,69,0.35)] hover:shadow-[0_0_28px_rgba(59,20,69,0.5)]"
             >
               Apply for a Grant
               <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 <path d="M4 10h12M12 5l5 5-5 5" />
               </svg>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

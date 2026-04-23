@@ -52,6 +52,16 @@ export interface ProjectLogo {
   icon?: string
 }
 
+export interface KeySpec {
+  label: string
+  value: string
+}
+
+export interface TechFeatureGroup {
+  category: string
+  items: string[]
+}
+
 export interface PillarProject {
   slug: ProjectSlug
   type: ProjectType
@@ -61,10 +71,13 @@ export interface PillarProject {
   whyCoreGrant: string
   whyNecessary: string
   technicalDetails: string
+  keySpecs?: KeySpec[]
+  techFeatures?: TechFeatureGroup[]
   status: 'active' | 'completed' | 'paused'
   externalUrl: string
   githubUrl: string
   forumCategory: string
+  forumCategoryApiUrl: string
   ogImage: string
   logo?: ProjectLogo
   milestones: Milestone[]
@@ -90,6 +103,9 @@ export interface Grant {
   amountBTC: number
   status: 'active' | 'completed'
   dateFunded: string
+  startDate?: string
+  duration?: string
+  license?: string
   description?: string
 }
 
@@ -99,8 +115,10 @@ export interface TeleHashEvent {
   date: string
   blockFound: boolean
   btcRaised?: number
+  blockUrl?: string
   videoUrl?: string
   summary?: string
+  photos?: string[]   // paths relative to /public, e.g. '/telehash/th3-01.jpg'
 }
 
 // ── FAQ ───────────────────────────────────────────────────────

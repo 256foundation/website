@@ -1,12 +1,16 @@
 import { generatePageMetadata } from '@/lib/metadata'
 import { pillarProjects } from '@/data/projects'
 import { grantLog } from '@/data/grants'
+import { fetchRepoMeta, fetchOrgRepos } from '@/lib/github'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import SectionHeader from '@/components/ui/SectionHeader'
 import PCBBackground from '@/components/ui/PCBBackground'
 import PillarProjectCard from '@/components/projects/PillarProjectCard'
 import EcosystemCard from '@/components/projects/EcosystemCard'
 import GrantLogTable from '@/components/projects/GrantLogTable'
+import OrgReposSection from '@/components/projects/OrgReposSection'
+
+export const revalidate = 3600
 
 export const metadata = generatePageMetadata({
   title: 'Projects',
@@ -16,32 +20,37 @@ export const metadata = generatePageMetadata({
 
 const ecosystemProjects = [
   {
-    name: 'osmu.wiki',
-    description: 'The open-source mining wiki — community-maintained documentation hub for open-source Bitcoin mining hardware and software.',
-    url: 'https://osmu.wiki',
-    tags: ['documentation', 'community', 'wiki'],
-  },
-  {
-    name: 'Heatpunks',
-    description: 'Bitcoin miner heat recapture — turning mining heat into home heating. Practical guides, builds, and community for hashrate heaters.',
-    url: 'https://heatpunks.org',
-    tags: ['heat recapture', 'DIY', 'hardware'],
-  },
-  {
     name: 'Bitaxe',
-    description: 'Open-source Bitcoin miner by Skot. The Bitaxe project proved that open mining hardware is viable — a direct inspiration for the 256 Foundation.',
-    url: 'https://github.com/skot/bitaxe',
-    tags: ['open hardware', 'ASIC', 'ESP32'],
+    description: 'The world\'s first fully open-source Bitcoin ASIC miner — open hardware, open firmware, open everything. Anyone can build one, modify it, or manufacture it. The direct inspiration for the 256 Foundation.',
+    url: 'https://bitaxe.org',
+    tags: ['open hardware', 'ASIC', 'firmware'],
   },
   {
-    name: 'Public Pool',
-    description: 'Fully open-source solo Bitcoin mining pool — no registration, no fees, just you and the network.',
-    url: 'https://web.public-pool.io',
-    tags: ['mining pool', 'open-source', 'solo'],
+    name: 'Open Source Miners United',
+    description: 'A global community of developers and builders creating open-source Bitcoin mining hardware and software — including Bitaxe, NerdAxe, AxeOS, Piaxe, and more. Fully open designs that anyone can build, change, and improve.',
+    url: 'https://osmu.wiki',
+    tags: ['community', 'hardware', 'firmware'],
+  },
+  {
+    name: 'Hashrate Heatpunks',
+    description: 'Marrying the Bitcoin mining and heating sectors to accelerate adoption of hashrate heating — building the standards, education, and infrastructure to bring mining back to homes and businesses.',
+    url: 'https://heatpunks.org',
+    tags: ['heat reuse', 'home mining', 'energy'],
+  },
+  {
+    name: 'Jua Kali',
+    description: 'An open-source project that runs Bitcoin ASIC hashboards directly from DC power sources like solar panels and batteries — no AC grid required. Unlocking stranded energy for Bitcoin mining worldwide.',
+    url: 'https://github.com/GridlessCompute/Jua-Kali-Miner',
+    tags: ['solar', 'off-grid', 'DC power'],
   },
 ]
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const [repoMetas, orgRepos] = await Promise.all([
+    Promise.all(pillarProjects.map(p => fetchRepoMeta(p.githubUrl))),
+    fetchOrgRepos('256foundation'),
+  ])
+
   return (
     <main>
       {/* Hero */}
@@ -53,7 +62,7 @@ export default function ProjectsPage() {
             Open-Source <span className="text-[#3b1445] dark:text-[#c084d8]">Projects</span>
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-            The 256 Foundation funds four pillar projects building a complete, open-source Bitcoin mining stack — from silicon to pool software.
+            The 256 Foundation defines and funds four core pillar projects building a complete, open-source Bitcoin mining stack. We may also fund additional open grants as the ecosystem grows. This page is a log of all funded projects.
           </p>
         </SectionWrapper>
       </section>
@@ -65,8 +74,8 @@ export default function ProjectsPage() {
           subtitle="Core funded projects building the open Bitcoin mining stack"
         />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {pillarProjects.map(project => (
-            <PillarProjectCard key={project.slug} project={project} />
+          {pillarProjects.map((project, i) => (
+            <PillarProjectCard key={project.slug} project={project} repoMeta={repoMetas[i]} />
           ))}
         </div>
       </SectionWrapper>
@@ -76,7 +85,7 @@ export default function ProjectsPage() {
         <SectionWrapper>
           <SectionHeader
             title="Ecosystem"
-            subtitle="Related open-source projects and community resources we support and recommend"
+            subtitle="The 256 Foundation is the parent organization for the following open-source projects and communities. They operate independently but are part of the foundation's broader mission to decentralize Bitcoin mining."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {ecosystemProjects.map(p => (
@@ -100,6 +109,9 @@ export default function ProjectsPage() {
           <a href="/grants" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Apply for a grant &rarr;</a>
         </p>
       </SectionWrapper>
+
+      {/* All org repos — live from GitHub API */}
+      <OrgReposSection repos={orgRepos} />
     </main>
   )
 }

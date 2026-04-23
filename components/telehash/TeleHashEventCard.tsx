@@ -1,4 +1,5 @@
 import type { TeleHashEvent } from '@/types'
+import PhotoCarousel from './PhotoCarousel'
 
 interface TeleHashEventCardProps {
   event: TeleHashEvent
@@ -17,7 +18,7 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
               Telehash {event.number}
             </h3>
             <time className="font-mono text-gray-500 text-sm">
-              {new Date(event.date).toLocaleDateString('en-US', {
+              {new Date(event.date + 'T12:00:00').toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
@@ -33,10 +34,21 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
 
         {event.btcRaised !== undefined && (
           <div className="flex items-center gap-2 mb-3">
-            <span className="font-display text-[#3b1445] dark:text-[#c084d8] text-2xl font-bold">
-              {event.btcRaised} BTC
-            </span>
-            <span className="text-gray-500 text-sm">raised</span>
+            {event.blockUrl ? (
+              <a
+                href={event.blockUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-display text-[#3b1445] dark:text-[#c084d8] text-2xl font-bold hover:underline"
+              >
+                {event.btcRaised} BTC
+              </a>
+            ) : (
+              <span className="font-display text-[#3b1445] dark:text-[#c084d8] text-2xl font-bold">
+                {event.btcRaised} BTC
+              </span>
+            )}
+            <span className="text-gray-500 text-sm">block reward</span>
           </div>
         )}
 
@@ -44,6 +56,11 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{event.summary}</p>
         )}
       </div>
+
+      {/* Photo carousel */}
+      {event.photos && event.photos.length > 0 && (
+        <PhotoCarousel photos={event.photos} eventName={`Telehash ${event.number}`} />
+      )}
 
       {/* Video embed */}
       {event.videoUrl && (

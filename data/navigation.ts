@@ -20,6 +20,7 @@ export const topNav: NavItem[] = [
     href: '#',
     children: [
       { label: 'Telehash', href: '/telehash' },
+      { label: 'Events Calendar', href: 'https://forum.256foundation.org/upcoming-events/', external: true },
       { label: 'Hashdash', href: 'https://dash.256f.org', external: true },
       { label: 'POD256', href: 'https://www.pod256.org', external: true },
       { label: 'NEWS256', href: 'https://256foundation.substack.com', external: true },
@@ -41,7 +42,6 @@ export const topNav: NavItem[] = [
 ]
 
 export const footerFoundationLinks: NavItem[] = [
-  { label: 'Home', href: '/' },
   { label: 'Mission', href: '/mission' },
   { label: 'Projects', href: '/projects' },
   { label: 'Grants', href: '/grants' },
@@ -51,10 +51,13 @@ export const footerFoundationLinks: NavItem[] = [
 ]
 
 export const footerCommunityLinks: NavItem[] = [
-  { label: 'Forum', href: 'https://forum.256foundation.org', external: false },
+  { label: 'Forum', href: 'https://forum.256foundation.org', external: true },
+  { label: 'Events Calendar', href: 'https://forum.256foundation.org/upcoming-events/', external: true },
   { label: 'Group Chat', href: 'https://t.me/the256foundation', external: true },
   { label: 'GitHub', href: 'https://github.com/256foundation', external: true },
   { label: 'Hashdash', href: 'https://dash.256f.org', external: true },
   { label: 'POD256', href: 'https://www.pod256.org', external: true },
   { label: 'NEWS256', href: 'https://256foundation.substack.com', external: true },
+  { label: 'X / Twitter', href: 'https://x.com/256FOUNDATION', external: true },
+  { label: 'Nostr', href: 'https://primal.net/p/nprofile1qqsqhk42dz0exfcsln4yqmdkjys0nvd7dqndgacpsa7w7pt7njq2uuss2u9cq', external: true },
 ]

@@ -21,7 +21,7 @@ const steps = [
     step: '02',
     title: 'Foundation Review',
     description:
-      'The 256 Foundation board reviews all applications on a rolling basis. We evaluate technical merit, alignment with the open-source mining mission, and the team\'s ability to execute.',
+      'The 256 Foundation board reviews applications when a grant cycle opens. We evaluate technical merit, alignment with the open-source mining mission, and the team\'s ability to execute.',
   },
   {
     step: '03',
@@ -43,7 +43,7 @@ const whatWeFund = [
   'Mining pool software and infrastructure',
   'Education and documentation resources',
   'Tools and libraries that advance the open-source mining ecosystem',
-  'Research advancing Bitcoin mining decentralization',
+  'Other projects aligned with the open-source Bitcoin mining mission',
 ]
 
 const whatWeDontFund = [
@@ -81,9 +81,12 @@ export default function GrantsPage() {
 
       {/* Grant types */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
+        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-4">
           Grant Types
         </h2>
+        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-2xl mb-8">
+          256 Foundation grants are long-term support initiatives with continued funding — not one-time payments or touch-and-go projects. We commit to sustained collaboration with developers over the full grant period.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-gray-50 dark:bg-[#242424] border border-[#3b1445]/50 dark:border-[#5c2070]/50 rounded-none p-6">
             <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-3">
@@ -101,13 +104,13 @@ export default function GrantsPage() {
           </div>
           <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
             <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-3">
-              Open Rolling Grants
+              Open Grants
             </div>
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Community-Driven</h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
               Any developer or researcher can submit a proposal for a project that advances the
-              open-source Bitcoin mining ecosystem. We review applications on a rolling basis and
-              fund based on merit, alignment, and available capital.
+              open-source Bitcoin mining ecosystem. We accept applications at any time and review
+              them when a grant cycle opens.
             </p>
             <span className="inline-flex items-center px-2.5 py-0.5 rounded-none text-xs font-mono border text-[#3b1445] dark:text-[#c084d8] border-[#3b1445]/50 dark:border-[#5c2070]/50 bg-[#3b1445]/15 dark:bg-[#5c2070]/20">
               Accepting Applications
@@ -150,9 +153,22 @@ export default function GrantsPage() {
 
       {/* Process */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
-          Application Process
-        </h2>
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
+          <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase">
+            Application Process
+          </h2>
+          <a
+            href="https://forum.256foundation.org/upcoming-events/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors whitespace-nowrap"
+          >
+            <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+            </svg>
+            Events calendar for upcoming grant Q&amp;A calls →
+          </a>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
             <div key={s.step} className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">

@@ -3,12 +3,17 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { pillarProjects } from '@/data/projects'
 import { generatePageMetadata } from '@/lib/metadata'
+import { fetchProjectForumTopics } from '@/lib/discourse'
+import { fetchRepoMeta, fetchRecentCommits } from '@/lib/github'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Badge from '@/components/ui/Badge'
 import ExternalLink from '@/components/ui/ExternalLink'
 import PCBBackground from '@/components/ui/PCBBackground'
-import MilestoneTracker from '@/components/projects/MilestoneTracker'
 import ProjectTeamSection from '@/components/projects/ProjectTeamSection'
+import ProjectForumSection from '@/components/projects/ProjectForumSection'
+import GitHubActivitySection from '@/components/projects/GitHubActivitySection'
+
+export const revalidate = 3600
 
 export async function generateStaticParams() {
   return pillarProjects.map(p => ({ slug: p.slug }))
@@ -35,6 +40,12 @@ export default async function ProjectPage({ params }: Props) {
   const project = pillarProjects.find(p => p.slug === slug)
   if (!project) notFound()
 
+  const [forumTopics, repoMeta, recentCommits] = await Promise.all([
+    fetchProjectForumTopics(project.forumCategoryApiUrl, 4),
+    fetchRepoMeta(project.githubUrl),
+    fetchRecentCommits(project.githubUrl, 6),
+  ])
+
   return (
     <main>
       {/* Hero */}
@@ -54,15 +65,6 @@ export default async function ProjectPage({ params }: Props) {
               <p className="text-[#3b1445] dark:text-[#c084d8] font-mono text-lg mb-4">{project.tagline}</p>
               <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mb-8">{project.description}</p>
               <div className="flex flex-wrap gap-3">
-                <ExternalLink
-                  href={project.externalUrl}
-                  className="inline-flex items-center gap-2 bg-white text-[#1a1a1a] font-mono font-bold px-5 py-2.5 rounded-none hover:bg-gray-100 transition-colors"
-                >
-                  Visit {project.name}
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </ExternalLink>
                 <ExternalLink
                   href={project.githubUrl}
                   className="inline-flex items-center gap-2 border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] font-mono px-5 py-2.5 rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-colors"
@@ -148,31 +150,86 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* Technical details */}
       <SectionWrapper>
-        <div className="max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white uppercase mb-4">
-            Technical <span className="text-[#00FF41]">Details</span>
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{project.technicalDetails}</p>
-        </div>
+        <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white uppercase mb-4">
+          Technical <span className="text-[#00FF41]">Details</span>
+        </h2>
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mb-10">{project.technicalDetails}</p>
+
+        {/* Key specs grid */}
+        {project.keySpecs && project.keySpecs.length > 0 && (
+          <div className="mb-10">
+            <p className="font-mono text-gray-400 dark:text-gray-600 text-[11px] tracking-widest uppercase mb-4">
+              Key Specifications
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {project.keySpecs.map((spec) => (
+                <div
+                  key={spec.label}
+                  className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-4 hover:border-[#3b1445]/40 dark:hover:border-[#5c2070]/40 transition-colors"
+                >
+                  <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-base leading-tight mb-1.5">
+                    {spec.value}
+                  </div>
+                  <div className="font-mono text-gray-400 dark:text-gray-600 text-[10px] uppercase tracking-widest">
+                    {spec.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Tech feature columns */}
+        {project.techFeatures && project.techFeatures.length > 0 && (
+          <div>
+            <p className="font-mono text-gray-400 dark:text-gray-600 text-[11px] tracking-widest uppercase mb-4">
+              Features &amp; Compatibility
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {project.techFeatures.map((group) => (
+                <div key={group.category} className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-5">
+                  <h3 className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs uppercase tracking-widest mb-3 pb-2 border-b border-gray-200 dark:border-[#1f1f1f]">
+                    {group.category}
+                  </h3>
+                  <ul className="space-y-2">
+                    {group.items.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                        <span className="text-[#00FF41] mt-0.5 shrink-0 text-xs">→</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </SectionWrapper>
 
-      {/* Milestones */}
-      <section className="bg-gray-50 dark:bg-[#242424] border-y border-gray-200 dark:border-[#1f1f1f]">
-        <SectionWrapper>
-          <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white uppercase mb-8">
-            <span className="text-[#3b1445] dark:text-[#c084d8]">Milestones</span>
-          </h2>
-          <div className="max-w-4xl overflow-x-auto">
-            <MilestoneTracker milestones={project.milestones} />
-          </div>
-        </SectionWrapper>
-      </section>
+      {/* Community Discussions */}
+      <ProjectForumSection topics={forumTopics} categoryUrl={project.forumCategory} />
+
+      {/* GitHub Activity */}
+      <GitHubActivitySection commits={recentCommits} meta={repoMeta} githubUrl={project.githubUrl} />
 
       {/* Team */}
       <SectionWrapper>
-        <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white uppercase mb-8">
-          Project <span className="text-[#3b1445] dark:text-[#c084d8]">Team</span>
-        </h2>
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
+          <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white uppercase">
+            Project <span className="text-[#3b1445] dark:text-[#c084d8]">Team</span>
+          </h2>
+          <a
+            href="https://forum.256foundation.org/upcoming-events/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono text-xs text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
+          >
+            <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+            </svg>
+            Check the events calendar for developer office hours →
+          </a>
+        </div>
         <ProjectTeamSection team={project.team} />
       </SectionWrapper>
     </main>

@@ -16,10 +16,10 @@ export default function ContactForm() {
     setStatus('submitting')
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://formspree.io/f/xkndjepy', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
+        headers: { 'Accept': 'application/json' },
+        body: new URLSearchParams({ name, _replyto: email, message }),
       })
 
       if (!res.ok) throw new Error('Failed')

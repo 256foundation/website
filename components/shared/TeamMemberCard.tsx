@@ -26,7 +26,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
           <img
             src={member.headshot}
             alt={member.name}
-            className="w-14 h-14 rounded-full object-cover border border-gray-200 dark:border-[#1f1f1f] grayscale group-hover:grayscale-0 transition-all duration-300"
+            className="w-14 h-14 rounded-full object-cover border border-gray-200 dark:border-[#1f1f1f] transition-all duration-300"
             onError={(e) => {
               const target = e.currentTarget
               target.style.display = 'none'

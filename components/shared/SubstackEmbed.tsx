@@ -26,14 +26,13 @@ export default function SubstackEmbed() {
     <div className="min-h-[120px]">
       <div ref={ref} />
       <p className="text-gray-500 text-xs mt-3">
-        Or{' '}
         <a
           href="https://256foundation.substack.com"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
         >
-          subscribe directly on Substack &rarr;
+          Or follow along on Substack &rarr;
         </a>
       </p>
     </div>
