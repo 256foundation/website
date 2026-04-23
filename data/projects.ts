@@ -19,6 +19,9 @@ export const pillarProjects: PillarProject[] = [
     githubUrl: 'https://github.com/256foundation/ember-one',
     forumCategory: 'https://forum.256foundation.org/c/ember-one',
     ogImage: '/og/og-ember-one.png',
+    logo: {
+      icon: '/projects/ember-one-hashboard.png',
+    },
     milestones: [
       { label: 'Project specification finalized', status: 'completed', date: '2024-06-01' },
       { label: 'Lead engineer onboarded (Skot)', status: 'completed', date: '2024-07-01' },
