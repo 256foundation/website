@@ -4,13 +4,6 @@ import Logo from '@/components/ui/Logo'
 import { siteStats } from '@/data/stats'
 
 export default function HeroSection() {
-  const usdFormatted = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    notation: 'compact',
-    maximumFractionDigits: 0,
-  }).format(siteStats.usdAllocated)
-
   return (
     <section className="relative min-h-screen flex flex-col justify-center sm:justify-end overflow-hidden bg-white dark:bg-[#1a1a1a]">
       {/* PCB pattern */}
@@ -82,10 +75,9 @@ export default function HeroSection() {
         </div>
 
         {/* Bottom metrics strip */}
-        <div className="border-t border-[#3b1445]/20 dark:border-[#5c2070]/30 pt-4 sm:pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+        <div className="border-t border-[#3b1445]/20 dark:border-[#5c2070]/30 pt-4 sm:pt-6 grid grid-cols-3 gap-4 sm:gap-6">
           {[
-            { value: `${siteStats.btcAllocated}`, unit: 'BTC', label: 'Deployed', isPurple: true },
-            { value: usdFormatted, unit: '', label: 'USD Equivalent', isPurple: true },
+            { value: `${siteStats.btcRaised}`, unit: 'BTC', label: 'Raised', isPurple: true },
             { value: String(siteStats.totalGrantees), unit: '', label: 'Active Projects', isPurple: true },
             { value: String(siteStats.blocksFound), unit: '', label: 'Blocks Found', isPurple: false },
           ].map(({ value, unit, label, isPurple }) => (

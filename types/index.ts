@@ -9,8 +9,7 @@ export interface NavItem {
 
 // ── Site stats ────────────────────────────────────────────────
 export interface SiteStats {
-  btcAllocated: number
-  usdAllocated: number
+  btcRaised: number
   blocksFound: number
   totalGrantees: number
 }

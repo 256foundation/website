@@ -13,15 +13,8 @@ interface StatItem {
 }
 
 export default function AllocationStats({ stats }: AllocationStatsProps) {
-  const usdFormatted = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  }).format(stats.usdAllocated)
-
   const items: StatItem[] = [
-    { value: stats.btcAllocated.toFixed(1), unit: 'BTC', label: 'Allocated to Grantees', isPurple: true },
-    { value: usdFormatted.replace('$', ''), unit: 'USD', label: 'Dollar Equivalent', isPurple: true },
+    { value: stats.btcRaised.toFixed(2), unit: 'BTC', label: 'Raised', isPurple: true },
     { value: String(stats.totalGrantees), unit: '', label: 'Active Grantees', isPurple: true },
     { value: String(stats.blocksFound), unit: '', label: 'Blocks Found to Date', isPurple: false },
   ]
@@ -35,18 +28,14 @@ export default function AllocationStats({ stats }: AllocationStatsProps) {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3">
         {items.map(({ value, unit, label, isPurple }, i) => (
           <div
             key={i}
             className={[
               'py-6 pr-6',
               i === 0 ? 'pl-0' : 'pl-0 sm:pl-6',
-              i < 3 ? 'border-b sm:border-b-0 border-gray-200 dark:border-[#1f1f1f]' : '',
-              i === 0 ? 'sm:border-r border-gray-200 dark:border-[#1f1f1f]' : '',
-              i === 1 ? 'sm:border-r-0 lg:border-r border-gray-200 dark:border-[#1f1f1f]' : '',
-              i === 2 ? 'sm:border-r border-gray-200 dark:border-[#1f1f1f] sm:border-t lg:border-t-0' : '',
-              i === 3 ? 'sm:border-t lg:border-t-0' : '',
+              i < 2 ? 'border-b sm:border-b-0 sm:border-r border-gray-200 dark:border-[#1f1f1f]' : '',
             ].filter(Boolean).join(' ')}
           >
             <div className="mb-1 flex items-baseline gap-1.5 flex-wrap">

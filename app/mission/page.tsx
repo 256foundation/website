@@ -23,13 +23,13 @@ const timelineItems = [
     date: 'June 2024',
     title: 'First TeleHash Event',
     description:
-      'Inaugural 8-hour livestream fundraising event. The global community pointed hashrate to our Hydrapool instance and — against the odds — we found a Bitcoin block, raising ~$300,000 to seed the foundation.',
+      'Inaugural 8-hour livestream fundraising event. The global community pointed hashrate to our Hydrapool instance and — against the odds — we found a Bitcoin block, raising the initial BTC that seeded the foundation.',
   },
   {
     date: 'July 2024',
     title: 'Four Pillar Grants Launched',
     description:
-      'The foundation deployed its initial capital by launching the four core pillar grants: Ember One, Mujina, Libre Board, and Hydrapool.',
+      'The foundation launched its four core pillar grants: Ember One, Mujina, Libre Board, and Hydrapool — funding the open-source Bitcoin mining stack from silicon to pool software.',
   },
   {
     date: 'December 2024',
