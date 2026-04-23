@@ -33,15 +33,17 @@ export default function DonateCards() {
             <span className="w-1.5 h-1.5 rounded-full bg-[#00FF41]" />
             Tax deductible &middot; BTC + Lightning + Credit Card
           </div>
-          <Link
-            href="/donate"
+          <a
+            href="https://pay.zaprite.com/pl_ZRWeSGjRWG"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#1a1a1a] font-mono font-bold text-sm rounded-none hover:bg-gray-100 transition-colors duration-200"
           >
             Donate Now
             <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M3 8h10M9 4l4 4-4 4" />
             </svg>
-          </Link>
+          </a>
         </div>
 
         {/* Panel B -- Hashrate */}
