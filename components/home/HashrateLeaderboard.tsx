@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 
 interface Worker {
   identity: string
+  displayName: string
   hashrate: number
   isNpub: boolean
 }
@@ -29,10 +30,6 @@ function getRankBadge(rank: number): string {
   return 'bg-gray-200 dark:bg-[#1f1f1f] text-gray-500'
 }
 
-function truncateIdentity(identity: string): string {
-  if (!identity.startsWith('npub1')) return identity
-  return `${identity.slice(0, 9)}...${identity.slice(-4)}`
-}
 
 function SkeletonRow() {
   return (
@@ -142,7 +139,7 @@ export default function HashrateLeaderboard() {
 
                 {/* Identity */}
                 <span className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-28 truncate">
-                  {truncateIdentity(w.identity)}
+                  {w.displayName}
                 </span>
 
                 {/* Relative bar */}
