@@ -44,25 +44,33 @@ export default function HeroSection() {
         </p>
 
         {/* Stack layer chips */}
-        <div className="flex flex-wrap gap-2 mb-6 sm:mb-10">
-          {[
-            { label: 'Firmware', href: '/projects/mujina', type: 'software' },
-            { label: 'Hashboard', href: '/projects/ember-one', type: 'hardware' },
-            { label: 'Control Board', href: '/projects/libre-board', type: 'hardware' },
-            { label: 'Pool', href: '/projects/hydrapool', type: 'software' },
-          ].map(({ label, href, type }) => (
-            <Link
-              key={href}
-              href={href}
-              className={`font-mono text-xs px-3 py-1.5 border transition-all duration-200 ${
-                type === 'hardware'
-                  ? 'border-[#00FF41]/50 text-[#00FF41] hover:border-[#00FF41] hover:bg-[#00FF41]/10'
-                  : 'border-[#3b1445]/60 dark:border-[#5c2070]/60 text-[#3b1445] dark:text-[#c084d8] hover:border-[#3b1445] dark:hover:border-[#c084d8] hover:bg-[#3b1445]/5 dark:hover:bg-[#c084d8]/5'
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
+        <div className="mb-6 sm:mb-10">
+          <p className="font-mono text-gray-400 dark:text-gray-600 text-[11px] tracking-widest uppercase mb-3">
+            &rarr; Core Projects
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {[
+              { label: 'Firmware', href: '/projects/mujina', type: 'software' },
+              { label: 'Hashboard', href: '/projects/ember-one', type: 'hardware' },
+              { label: 'Control Board', href: '/projects/libre-board', type: 'hardware' },
+              { label: 'Pool', href: '/projects/hydrapool', type: 'software' },
+            ].map(({ label, href, type }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 border transition-all duration-200 group ${
+                  type === 'hardware'
+                    ? 'border-[#00FF41]/50 text-[#00FF41] hover:border-[#00FF41] hover:bg-[#00FF41]/10'
+                    : 'border-[#3b1445]/60 dark:border-[#5c2070]/60 text-[#3b1445] dark:text-[#c084d8] hover:border-[#3b1445] dark:hover:border-[#c084d8] hover:bg-[#3b1445]/5 dark:hover:bg-[#c084d8]/5'
+                }`}
+              >
+                {label}
+                <svg className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <path d="M2 6h8M7 3l3 3-3 3" />
+                </svg>
+              </Link>
+            ))}
+          </div>
         </div>
 
         {/* Sub-copy */}
