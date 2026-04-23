@@ -9,7 +9,7 @@ export const supporters: Supporter[] = [
   { name: 'HRF', image: '/supporters/tier1/hrf.png', link: 'https://hrf.org', tier: 1 },
   { name: 'OSMU', image: '/supporters/tier1/osmu.png', link: 'https://osmu.wiki', tier: 1 },
   { name: 'OpenSats', image: '/supporters/tier1/opensats.png', link: 'https://opensats.org', tier: 1 },
-  { name: 'Proto', image: '/supporters/tier1/proto.png', link: '#', tier: 1 },
+  { name: 'Proto', image: '/supporters/tier1/proto.png', link: 'https://proto.xyz', tier: 1 },
 
   // Tier 2 — Hash Champions
   { name: 'Foundry', image: '/supporters/tier2/Foundry.png', link: 'https://foundrydigital.com', tier: 2 },
@@ -19,10 +19,10 @@ export const supporters: Supporter[] = [
   { name: 'Anonymous', image: '/supporters/tier2/anonymous-003.png', link: '#', tier: 2 },
 
   // Tier 3 — Satoshi Friends
-  { name: 'Bitkite', image: '/supporters/tier3/bitkite.png', link: '#', tier: 3 },
+  { name: 'Bitkite', image: '/supporters/tier3/bitkite.png', link: 'https://x.com/bitkite', tier: 3 },
   { name: 'Econoalchemist', image: '/supporters/tier3/econoalchemist.png', link: 'https://econoalchemist.com', tier: 3 },
-  { name: 'Exergy', image: '/supporters/tier3/exergy.png', link: '#', tier: 3 },
-  { name: 'SoloBlock', image: '/supporters/tier3/soloblock.png', link: '#', tier: 3 },
+  { name: 'Exergy', image: '/supporters/tier3/exergy.png', link: 'https://exergyheat.com', tier: 3 },
+  { name: 'SoloBlock', image: '/supporters/tier3/soloblock.png', link: 'https://soloblock.io', tier: 3 },
   { name: 'Anonymous', image: '/supporters/tier3/anonymous-004.png', link: '#', tier: 3 },
   { name: 'Anonymous', image: '/supporters/tier3/anonymous-005.png', link: '#', tier: 3 },
   { name: 'Anonymous', image: '/supporters/tier3/anonymous-006.png', link: '#', tier: 3 },
