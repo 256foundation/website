@@ -138,9 +138,20 @@ export default function HashrateLeaderboard() {
                 </span>
 
                 {/* Identity */}
-                <span className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-28 truncate">
-                  {w.displayName}
-                </span>
+                {w.isNpub ? (
+                  <a
+                    href={`https://primal.net/p/${w.identity}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-28 truncate hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
+                  >
+                    {w.displayName}
+                  </a>
+                ) : (
+                  <span className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-28 truncate">
+                    {w.displayName}
+                  </span>
+                )}
 
                 {/* Relative bar */}
                 <div className="flex-1 h-1.5 bg-gray-200 dark:bg-[#2a2a2a] rounded-none overflow-hidden">
