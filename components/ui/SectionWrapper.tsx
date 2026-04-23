@@ -22,7 +22,7 @@ export default function SectionWrapper({
       className={[
         'w-full',
         tight ? 'py-10 lg:py-16' : 'py-16 lg:py-24',
-        decorative ? 'relative overflow-hidden' : '',
+        decorative ? 'relative overflow-hidden isolate' : '',
         className,
       ].filter(Boolean).join(' ')}
     >

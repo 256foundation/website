@@ -3,7 +3,7 @@ import DecorativeBg from '@/components/ui/DecorativeBg'
 
 export default function ApplySection() {
   return (
-    <div className="relative overflow-hidden rounded-none bg-[#f8f2fc] dark:bg-[#1e1028]">
+    <div className="relative overflow-hidden isolate rounded-none bg-[#f8f2fc] dark:bg-[#1e1028]">
       {/* Purple left accent bar */}
       <div className="absolute top-0 left-0 w-1 h-full bg-[#3b1445]" />
       <DecorativeBg glowPosition="100% 50%" glowOpacity={0.06} gridOpacity={0.06} vignette={false} />

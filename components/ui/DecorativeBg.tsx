@@ -28,12 +28,12 @@ export default function DecorativeBg({
   return (
     <>
       {grid && (
-        <PCBBackground opacity={gridOpacity} animated={false} className={className} />
+        <PCBBackground opacity={gridOpacity} animated={false} className={`-z-10 ${className}`} />
       )}
       {glow && (
         <div
           aria-hidden="true"
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0 pointer-events-none -z-10"
           style={{
             background: `radial-gradient(ellipse at ${glowPosition}, rgba(59,20,69,${glowOpacity}) 0%, transparent 60%)`,
           }}
@@ -42,7 +42,7 @@ export default function DecorativeBg({
       {vignette && (
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,white_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_40%,#1a1a1a_100%)] pointer-events-none"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,white_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_40%,#1a1a1a_100%)] pointer-events-none -z-10"
         />
       )}
     </>
