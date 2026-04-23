@@ -7,8 +7,8 @@ export default function WhySection() {
       <div className="lg:col-span-3 hidden lg:block">
         <div className="sticky top-24">
           <div
-            className="font-display font-extrabold text-gray-200 dark:text-[#1a1a1a] select-none leading-none uppercase"
-            style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1, opacity: 0.1 }}
+            className="font-display font-extrabold text-gray-500 dark:text-white select-none leading-none uppercase"
+            style={{ fontSize: 'clamp(4rem, 8vw, 7rem)', lineHeight: 1, opacity: 0.15 }}
           >
             WHY
           </div>

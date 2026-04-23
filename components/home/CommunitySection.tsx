@@ -120,7 +120,7 @@ export default function CommunitySection() {
                     <div className="font-mono font-bold text-gray-700 dark:text-gray-200 text-sm group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
                       {c.label}
                     </div>
-                    <div className="text-gray-500 dark:text-gray-600 text-xs mt-0.5 leading-relaxed">{c.description}</div>
+                    <div className="text-gray-500 dark:text-gray-400 text-xs mt-0.5 leading-relaxed">{c.description}</div>
                   </div>
                 </div>
               )

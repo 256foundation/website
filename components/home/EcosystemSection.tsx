@@ -121,14 +121,14 @@ export default function EcosystemSection() {
 
                 {/* Mission */}
                 <div className="mb-2">
-                  <span className="font-mono text-gray-500 dark:text-gray-600 text-xs uppercase tracking-widest block mb-1">Mission</span>
+                  <span className="font-mono text-gray-500 dark:text-gray-500 text-xs uppercase tracking-widest block mb-1">Mission</span>
                   <p className="text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300 text-xs leading-relaxed transition-colors duration-200">{project.mission}</p>
                 </div>
 
                 {/* Why we support it */}
                 <div className="mb-4">
-                  <span className="font-mono text-gray-500 dark:text-gray-600 text-xs uppercase tracking-widest block mb-1">Why We Support It</span>
-                  <p className="text-gray-500 dark:text-gray-600 group-hover:text-gray-600 dark:group-hover:text-gray-400 text-xs leading-relaxed transition-colors duration-200">{project.why}</p>
+                  <span className="font-mono text-gray-500 dark:text-gray-500 text-xs uppercase tracking-widest block mb-1">Why We Support It</span>
+                  <p className="text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 text-xs leading-relaxed transition-colors duration-200">{project.why}</p>
                 </div>
 
               </div>

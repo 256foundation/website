@@ -100,7 +100,7 @@ export default function HeroSection() {
                   </span>
                 )}
               </div>
-              <div className="font-mono text-gray-500 dark:text-gray-600 text-xs uppercase tracking-widest mt-0.5">
+              <div className="font-mono text-gray-500 dark:text-gray-400 text-xs uppercase tracking-widest mt-0.5">
                 {label}
               </div>
             </div>

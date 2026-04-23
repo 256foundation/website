@@ -26,10 +26,10 @@ export default function PillarProjectCard({ project }: Props) {
         <div className="flex items-start justify-between mb-4">
           <Badge status={project.status} />
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-gray-500 dark:text-gray-600">{completedCount}/{totalCount} milestones</span>
+            <span className="font-mono text-xs text-gray-500 dark:text-gray-400">{completedCount}/{totalCount} milestones</span>
             <ExternalLink
               href={project.githubUrl}
-              className="text-gray-500 dark:text-gray-600 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
+              className="text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
               aria-label="GitHub"
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

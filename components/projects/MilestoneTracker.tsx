@@ -37,7 +37,7 @@ export default function MilestoneTracker({ milestones }: Props) {
                     {milestone.label}
                   </p>
                   {milestone.date && (
-                    <p className="font-mono text-[10px] text-gray-500 dark:text-gray-600 mt-0.5">{milestone.date}</p>
+                    <p className="font-mono text-[10px] text-gray-500 dark:text-gray-400 mt-0.5">{milestone.date}</p>
                   )}
                 </div>
               </div>

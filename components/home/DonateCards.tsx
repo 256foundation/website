@@ -29,7 +29,7 @@ export default function DonateCards() {
             Bitcoin on-chain, Lightning, or credit card via Zaprite. 100% passthrough &mdash; every
             satoshi goes directly to developers. Tax-deductible 501(c)(3).
           </p>
-          <div className="flex items-center gap-2 text-xs font-mono text-gray-500 dark:text-gray-600 mb-8">
+          <div className="flex items-center gap-2 text-xs font-mono text-gray-500 dark:text-gray-400 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00FF41]" />
             Tax deductible &middot; BTC + Lightning + Credit Card
           </div>
@@ -60,7 +60,7 @@ export default function DonateCards() {
             Point your Bitcoin miner at our Hydrapool instance. If we find a block, all proceeds
             go to the foundation. Every hash counts toward open-source mining.
           </p>
-          <div className="flex items-center gap-2 text-xs font-mono text-gray-500 dark:text-gray-600 mb-8">
+          <div className="flex items-center gap-2 text-xs font-mono text-gray-500 dark:text-gray-400 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-[#3b1445]" />
             No registration &middot; Works with any ASIC &middot; Stratum V1/V2
           </div>
