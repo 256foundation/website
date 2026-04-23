@@ -69,8 +69,6 @@ export default function Header() {
               </a>
               <a
                 href="https://forum.256foundation.org"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="hidden lg:inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-[#3f3f3f] text-gray-700 dark:text-gray-200 font-mono text-sm rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:text-gray-900 dark:hover:text-white hover:bg-[#3b1445]/10 transition-all duration-200"
               >
                 <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

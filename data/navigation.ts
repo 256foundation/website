@@ -51,7 +51,7 @@ export const footerFoundationLinks: NavItem[] = [
 ]
 
 export const footerCommunityLinks: NavItem[] = [
-  { label: 'Forum', href: 'https://forum.256foundation.org', external: true },
+  { label: 'Forum', href: 'https://forum.256foundation.org', external: false },
   { label: 'Group Chat', href: 'https://t.me/the256foundation', external: true },
   { label: 'GitHub', href: 'https://github.com/256foundation', external: true },
   { label: 'Hashdash', href: 'https://dash.256f.org', external: true },
