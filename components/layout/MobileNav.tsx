@@ -51,9 +51,12 @@ function AccordionItem({ item, onClose }: { item: NavItem; onClose: () => void }
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
-                className="block px-8 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] font-mono"
+                className="flex items-center justify-between px-8 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] font-mono"
               >
-                {child.label} &#8599;
+                {child.label}
+                <svg className="w-3 h-3 opacity-50 flex-shrink-0 ml-2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 12 12">
+                  <path d="M5 2H2v8h8V7M7 1h4v4M10 1L5.5 5.5" />
+                </svg>
               </a>
             ) : (
               <Link
