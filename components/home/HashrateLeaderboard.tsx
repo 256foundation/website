@@ -54,7 +54,7 @@ function SkeletonRow() {
     <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-[#1f1f1f]">
       <div className="h-5 w-5 bg-gray-200 dark:bg-[#1f1f1f] rounded-none animate-pulse flex-shrink-0" />
       <div className="w-7 h-7 bg-gray-200 dark:bg-[#1f1f1f] rounded-full animate-pulse flex-shrink-0" />
-      <div className="h-3 w-24 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
+      <div className="h-3 w-44 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
       <div className="flex-1 h-2 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse" />
       <div className="h-4 w-16 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
       <div className="h-3 w-8 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
@@ -165,12 +165,12 @@ export default function HashrateLeaderboard() {
                     href={`https://primal.net/p/${w.identity}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-24 truncate hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
+                    className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-44 truncate hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
                   >
                     {w.displayName}
                   </a>
                 ) : (
-                  <span className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-24 truncate">
+                  <span className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-44 truncate">
                     {w.displayName}
                   </span>
                 )}
