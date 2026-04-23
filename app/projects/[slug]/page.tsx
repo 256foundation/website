@@ -40,6 +40,7 @@ export default async function ProjectPage({ params }: Props) {
       {/* Hero */}
       <section className="relative bg-white dark:bg-[#1a1a1a] py-20 border-b border-gray-200 dark:border-[#1f1f1f] overflow-hidden">
         <PCBBackground opacity={0.06} animated />
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.08) 0%, transparent 60%)' }} />
         <SectionWrapper className="relative z-10">
           <div className={project.logo?.character || project.logo?.icon ? 'flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-16' : ''}>
             {/* Text content */}

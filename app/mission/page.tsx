@@ -3,6 +3,7 @@ import { founders, board } from '@/data/team'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import TeamMemberCard from '@/components/shared/TeamMemberCard'
 import Timeline from '@/components/shared/Timeline'
+import DecorativeBg from '@/components/ui/DecorativeBg'
 
 export const metadata = generatePageMetadata({
   title: 'Mission',
@@ -75,18 +76,9 @@ export default function MissionPage() {
   return (
     <>
       {/* Hero */}
-      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f] relative overflow-hidden">
-        {/* Purple grid — right side, fades left */}
-        <div
-          className="absolute inset-y-0 right-0 w-1/2 pointer-events-none"
-          style={{
-            backgroundImage: `linear-gradient(rgba(59,20,69,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59,20,69,0.1) 1px, transparent 1px)`,
-            backgroundSize: '48px 48px',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.6) 100%)',
-            maskImage: 'linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.6) 100%)',
-          }}
-        />
-        <div className="max-w-3xl relative">
+      <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
+        <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
+        <div className="max-w-3xl relative z-10">
           <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
             Our Mission
           </p>

@@ -47,6 +47,7 @@ export default function ProjectsPage() {
       {/* Hero */}
       <section className="relative bg-white dark:bg-[#1a1a1a] py-20 border-b border-gray-200 dark:border-[#1f1f1f] overflow-hidden">
         <PCBBackground opacity={0.06} animated />
+        <div aria-hidden="true" className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.08) 0%, transparent 60%)' }} />
         <SectionWrapper className="relative z-10 text-center">
           <h1 className="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white uppercase mb-4">
             Open-Source <span className="text-[#3b1445] dark:text-[#c084d8]">Projects</span>
