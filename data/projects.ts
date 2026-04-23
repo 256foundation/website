@@ -115,6 +115,9 @@ export const pillarProjects: PillarProject[] = [
     githubUrl: 'https://github.com/256foundation/libre-board',
     forumCategory: 'https://forum.256foundation.org/c/libre-board',
     ogImage: '/og/og-libre-board.png',
+    logo: {
+      icon: '/projects/libre-board.png',
+    },
     milestones: [
       { label: 'Hardware requirements specification', status: 'completed', date: '2024-06-01' },
       { label: 'Initial board design and schematic', status: 'completed', date: '2024-11-01' },
