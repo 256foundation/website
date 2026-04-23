@@ -1,4 +1,5 @@
 import { fetchSubstackPosts } from '@/lib/substack'
+import { fetchForumTopics } from '@/lib/discourse'
 import { generatePageMetadata } from '@/lib/metadata'
 import { siteStats } from '@/data/stats'
 import { supporters } from '@/data/supporters'
@@ -8,12 +9,14 @@ import HeroSection from '@/components/home/HeroSection'
 import DonateCards from '@/components/home/DonateCards'
 import WhySection from '@/components/home/WhySection'
 import AllocationStats from '@/components/home/AllocationStats'
+import ProjectsSection from '@/components/home/ProjectsSection'
 import BlocksFound from '@/components/home/BlocksFound'
 import StayUpdated from '@/components/home/StayUpdated'
 import ApplySection from '@/components/home/ApplySection'
 import CommunitySection from '@/components/home/CommunitySection'
 import EcosystemSection from '@/components/home/EcosystemSection'
 import SupporterShowcase from '@/components/home/SupporterShowcase'
+import FAQSection from '@/components/home/FAQSection'
 import ContactForm from '@/components/home/ContactForm'
 import SectionHeader from '@/components/ui/SectionHeader'
 import DecorativeBg from '@/components/ui/DecorativeBg'
@@ -28,7 +31,10 @@ export const metadata = generatePageMetadata({
 })
 
 export default async function Home() {
-  const posts = await fetchSubstackPosts(3)
+  const [posts, forumTopics] = await Promise.all([
+    fetchSubstackPosts(3),
+    fetchForumTopics(6),
+  ])
   const firstEvent = teleHashEvents.find((e) => e.blockFound)
 
   return (
@@ -45,6 +51,10 @@ export default async function Home() {
 
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <AllocationStats stats={siteStats} />
+      </SectionWrapper>
+
+      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
+        <ProjectsSection forumTopics={forumTopics} />
       </SectionWrapper>
 
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
@@ -69,6 +79,10 @@ export default async function Home() {
 
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <SupporterShowcase supporters={supporters} />
+      </SectionWrapper>
+
+      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
+        <FAQSection />
       </SectionWrapper>
 
       <SectionWrapper id="contact" decorative className="border-t border-gray-200 dark:border-[#1f1f1f]">
