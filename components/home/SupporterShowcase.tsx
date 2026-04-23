@@ -89,7 +89,7 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
                         }}
                       />
                     </div>
-                    <span className="font-mono text-gray-500 text-xs group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors leading-tight max-w-[100px] break-words">
+                    <span className="font-mono text-gray-500 text-xs group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors leading-tight max-w-[120px] whitespace-nowrap overflow-hidden text-ellipsis">
                       {s.name}
                     </span>
                   </a>
