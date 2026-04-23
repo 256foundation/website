@@ -60,7 +60,8 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
               <iframe
                 src={event.videoUrl}
                 className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 loading="lazy"
                 title={`Telehash ${event.number}`}

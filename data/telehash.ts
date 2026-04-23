@@ -6,7 +6,7 @@ export const teleHashEvents: TeleHashEvent[] = [
     date: '2024-06-01', // TODO: Replace with real date
     blockFound: true,
     btcRaised: 3.0,
-    videoUrl: 'https://www.youtube.com/embed/PLACEHOLDER_BLOCK_VIDEO', // TODO: Replace with real video URL
+    videoUrl: 'https://player.vimeo.com/video/1185734750?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1',
     summary:
       'The inaugural TeleHash event was a landmark moment for the 256 Foundation. Over 8 hours of livestreaming, the global mining community rallied behind the foundation, pointing their hashrate to our Hydrapool instance. Against the odds, we found a Bitcoin block — raising the initial ~$300,000 USD that seeded the four core pillar grants.',
   },
