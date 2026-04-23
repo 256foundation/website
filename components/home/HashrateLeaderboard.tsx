@@ -7,6 +7,7 @@ interface Worker {
   displayName: string
   hashrate: number
   isNpub: boolean
+  picture?: string | null
 }
 
 interface LeaderboardData {
@@ -31,11 +32,29 @@ function getRankBadge(rank: number): string {
 }
 
 
+function Avatar({ src, name }: { src?: string | null; name: string }) {
+  const initial = name.slice(0, 1).toUpperCase()
+  return (
+    <div className="w-7 h-7 rounded-full flex-shrink-0 overflow-hidden bg-[#3b1445]/20 border border-[#3b1445]/30 flex items-center justify-center relative">
+      <span className="font-mono text-[10px] text-[#c084d8] select-none">{initial}</span>
+      {src && (
+        <img
+          src={src}
+          alt={name}
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => { e.currentTarget.style.display = 'none' }}
+        />
+      )}
+    </div>
+  )
+}
+
 function SkeletonRow() {
   return (
     <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-[#1f1f1f]">
       <div className="h-5 w-5 bg-gray-200 dark:bg-[#1f1f1f] rounded-none animate-pulse flex-shrink-0" />
-      <div className="h-3 w-28 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
+      <div className="w-7 h-7 bg-gray-200 dark:bg-[#1f1f1f] rounded-full animate-pulse flex-shrink-0" />
+      <div className="h-3 w-24 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
       <div className="flex-1 h-2 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse" />
       <div className="h-4 w-16 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
       <div className="h-3 w-8 bg-gray-200 dark:bg-[#1f1f1f] rounded animate-pulse flex-shrink-0" />
@@ -137,18 +156,21 @@ export default function HashrateLeaderboard() {
                   {rank}
                 </span>
 
+                {/* Avatar */}
+                <Avatar src={w.picture} name={w.displayName} />
+
                 {/* Identity */}
                 {w.isNpub ? (
                   <a
                     href={`https://primal.net/p/${w.identity}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-28 truncate hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
+                    className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-24 truncate hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
                   >
                     {w.displayName}
                   </a>
                 ) : (
-                  <span className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-28 truncate">
+                  <span className="font-mono text-gray-700 dark:text-gray-300 text-xs flex-shrink-0 w-24 truncate">
                     {w.displayName}
                   </span>
                 )}

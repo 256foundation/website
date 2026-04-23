@@ -28,13 +28,17 @@ function npubToHex(npub: string): string {
 }
 
 // ─── Profile cache (10-min TTL) ───────────────────────────────────────────────
-interface CacheEntry { name: string; ts: number }
+interface CacheEntry { name: string; picture?: string; ts: number }
 const profileCache = new Map<string, CacheEntry>()
 const CACHE_TTL = 10 * 60 * 1000
 
-async function resolveNostrName(npub: string): Promise<string> {
+interface NostrProfile { name: string; picture?: string }
+
+async function resolveNostrProfile(npub: string): Promise<NostrProfile> {
   const cached = profileCache.get(npub)
-  if (cached && Date.now() - cached.ts < CACHE_TTL) return cached.name
+  if (cached && Date.now() - cached.ts < CACHE_TTL) {
+    return { name: cached.name, picture: cached.picture }
+  }
 
   try {
     const hex = npubToHex(npub)
@@ -50,15 +54,20 @@ async function resolveNostrName(npub: string): Promise<string> {
     const meta = events.find(e => e.kind === 0)
     if (!meta) throw new Error('No kind:0 event')
 
-    const profile = JSON.parse(meta.content) as { name?: string; display_name?: string }
+    const profile = JSON.parse(meta.content) as {
+      name?: string
+      display_name?: string
+      picture?: string
+    }
     const name = profile.display_name?.trim() || profile.name?.trim() || ''
     if (!name) throw new Error('Empty profile name')
+    const picture = profile.picture?.trim() || undefined
 
-    profileCache.set(npub, { name, ts: Date.now() })
-    return name
+    profileCache.set(npub, { name, picture, ts: Date.now() })
+    return { name, picture }
   } catch {
     // Fall back to truncated npub on any failure
-    return `${npub.slice(0, 9)}...${npub.slice(-4)}`
+    return { name: `${npub.slice(0, 9)}...${npub.slice(-4)}` }
   }
 }
 
@@ -95,10 +104,13 @@ export async function GET() {
     })).sort((a, b) => b.hashrate - a.hashrate)
 
     const workers = await Promise.all(
-      raw.map(async (w) => ({
-        ...w,
-        displayName: w.isNpub ? await resolveNostrName(w.identity) : w.identity,
-      }))
+      raw.map(async (w) => {
+        if (w.isNpub) {
+          const profile = await resolveNostrProfile(w.identity)
+          return { ...w, displayName: profile.name, picture: profile.picture ?? null }
+        }
+        return { ...w, displayName: w.identity, picture: null }
+      })
     )
 
     const totalHashrate = parseFloat(totalData.data.result[0]?.value[1] ?? '0')
