@@ -40,7 +40,7 @@ export default function NewsletterSignup() {
   }
 
   return (
-    <div className="h-68 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 hover:border-[#3b1445]/20 dark:hover:border-[#5c2070]/20 transition-colors">
+    <div className="flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 hover:border-[#3b1445]/20 dark:hover:border-[#5c2070]/20 transition-colors">
       <div className="flex items-center gap-2 mb-3">
         <div className="w-1 h-3 bg-[#3b1445]" />
         <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase">Newsletter</span>
@@ -86,7 +86,7 @@ export default function NewsletterSignup() {
         </form>
       )}
 
-      <p className="text-gray-500 dark:text-gray-600 text-xs mt-3">
+      <p className="text-gray-500 dark:text-gray-600 text-xs mt-auto pt-3">
         Or{' '}
         <a
           href="https://256foundation.substack.com"
