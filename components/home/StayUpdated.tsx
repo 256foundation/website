@@ -26,17 +26,17 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
           <h3 className="font-display font-bold text-gray-900 dark:text-white text-base mb-5 uppercase tracking-wider">Newsletter</h3>
 
           {posts.length > 0 ? (
-            <div className="mb-6 space-y-4">
+            <div className="mb-6 flex flex-col gap-4">
               {/* Featured post — large */}
               {featured && (
                 <a
                   href={featured.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_24px_rgba(59,20,69,0.1)] transition-all duration-200"
+                  className="group flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_24px_rgba(59,20,69,0.1)] transition-all duration-200"
                 >
                   {featured.image && (
-                    <div className="relative w-full h-48 overflow-hidden">
+                    <div className="relative w-full h-48 flex-shrink-0 overflow-hidden">
                       <Image
                         src={featured.image}
                         alt={featured.title}
@@ -47,7 +47,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-[#242424] via-transparent to-transparent" />
                     </div>
                   )}
-                  <div className="p-5">
+                  <div className="p-5 flex-1 flex flex-col">
                     {featured.pubDate && (
                       <time className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase block mb-2">
                         {formatPostDate(featured.pubDate)}
@@ -57,7 +57,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                       {featured.title}
                     </h4>
                     {featured.description && (
-                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-2">
+                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed line-clamp-2 mt-auto">
                         {featured.description}
                       </p>
                     )}
@@ -65,19 +65,19 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                 </a>
               )}
 
-              {/* Remaining posts — smaller row */}
+              {/* Remaining posts — equal-height row */}
               {rest.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
                   {rest.map((post, i) => (
                     <a
                       key={i}
                       href={post.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_16px_rgba(59,20,69,0.08)] transition-all duration-200"
+                      className="group flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_16px_rgba(59,20,69,0.08)] transition-all duration-200"
                     >
                       {post.image && (
-                        <div className="relative w-full h-32 overflow-hidden">
+                        <div className="relative w-full h-32 flex-shrink-0 overflow-hidden">
                           <Image
                             src={post.image}
                             alt={post.title}
@@ -88,7 +88,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-[#242424] via-transparent to-transparent" />
                         </div>
                       )}
-                      <div className="p-4">
+                      <div className="p-4 flex-1 flex flex-col">
                         {post.pubDate && (
                           <time className="font-mono text-gray-500 text-xs block mb-1">
                             {formatPostDate(post.pubDate)}
@@ -98,7 +98,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                           {post.title}
                         </h4>
                         {post.description && (
-                          <p className="text-gray-500 text-xs mt-1.5 leading-relaxed line-clamp-2">
+                          <p className="text-gray-500 text-xs mt-auto pt-1.5 leading-relaxed line-clamp-2">
                             {post.description}
                           </p>
                         )}
