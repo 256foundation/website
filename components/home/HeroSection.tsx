@@ -39,9 +39,31 @@ export default function HeroSection() {
         </div>
 
         {/* Tagline */}
-        <p className="font-display font-extrabold text-gray-900 dark:text-white text-3xl sm:text-5xl lg:text-6xl xl:text-7xl uppercase leading-none max-w-3xl mb-4 sm:mb-6">
+        <p className="font-display font-extrabold text-gray-900 dark:text-white text-3xl sm:text-5xl lg:text-6xl xl:text-7xl uppercase leading-none max-w-3xl mb-5 sm:mb-8">
           Building the open-source Bitcoin mining stack.
         </p>
+
+        {/* Stack layer chips */}
+        <div className="flex flex-wrap gap-2 mb-6 sm:mb-10">
+          {[
+            { label: 'Firmware', href: '/projects/mujina', type: 'software' },
+            { label: 'Hashboard', href: '/projects/ember-one', type: 'hardware' },
+            { label: 'Control Board', href: '/projects/libre-board', type: 'hardware' },
+            { label: 'Pool', href: '/projects/hydrapool', type: 'software' },
+          ].map(({ label, href, type }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`font-mono text-xs px-3 py-1.5 border transition-all duration-200 ${
+                type === 'hardware'
+                  ? 'border-[#00FF41]/50 text-[#00FF41] hover:border-[#00FF41] hover:bg-[#00FF41]/10'
+                  : 'border-[#3b1445]/60 dark:border-[#5c2070]/60 text-[#3b1445] dark:text-[#c084d8] hover:border-[#3b1445] dark:hover:border-[#c084d8] hover:bg-[#3b1445]/5 dark:hover:bg-[#c084d8]/5'
+              }`}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
 
         {/* Sub-copy */}
         <p className="text-gray-500 text-sm leading-relaxed max-w-md mb-6 sm:mb-12">
@@ -53,7 +75,7 @@ export default function HeroSection() {
         <div className="flex flex-wrap items-center gap-4 mb-8 sm:mb-16">
           <Link
             href="/mission"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#1a1a1a] font-mono font-bold text-sm rounded-none hover:bg-gray-100 transition-colors duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] dark:bg-white text-white dark:text-[#1a1a1a] font-mono font-bold text-sm rounded-none hover:bg-[#333] dark:hover:bg-gray-100 transition-colors duration-200"
           >
             Our Mission
             <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
@@ -65,12 +87,6 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 px-6 py-3 border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] font-mono font-bold text-sm rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-all duration-200"
           >
             Donate &rarr;
-          </Link>
-          <Link
-            href="/projects"
-            className="font-mono text-gray-500 text-sm hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors duration-200"
-          >
-            View Projects
           </Link>
         </div>
 
