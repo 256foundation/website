@@ -26,14 +26,16 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
           <h3 className="font-display font-bold text-gray-900 dark:text-white text-base mb-5 uppercase tracking-wider">Newsletter</h3>
 
           {posts.length > 0 ? (
-            <div className="mb-6 flex flex-col gap-4">
-              {/* Featured post — large */}
+            // Single unified grid — featured spans both columns, smaller posts each take one.
+            // One gap value controls ALL spacing (horizontal and vertical) so it always forms a perfect + at any width.
+            <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Featured post — spans full width on sm+ */}
               {featured && (
                 <a
                   href={featured.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_24px_rgba(59,20,69,0.1)] transition-all duration-200"
+                  className="group sm:col-span-2 flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_24px_rgba(59,20,69,0.1)] transition-all duration-200"
                 >
                   {featured.image && (
                     <div className="relative w-full h-48 flex-shrink-0 overflow-hidden">
@@ -42,7 +44,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                         alt={featured.title}
                         fill
                         className="object-cover transition-all duration-500"
-                        sizes="(max-width: 768px) 100vw, 66vw"
+                        sizes="(max-width: 640px) 100vw, 66vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-[#242424] via-transparent to-transparent" />
                     </div>
@@ -65,48 +67,44 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
                 </a>
               )}
 
-              {/* Remaining posts — equal-height row */}
-              {rest.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
-                  {rest.map((post, i) => (
-                    <a
-                      key={i}
-                      href={post.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_16px_rgba(59,20,69,0.08)] transition-all duration-200"
-                    >
-                      {post.image && (
-                        <div className="relative w-full h-32 flex-shrink-0 overflow-hidden">
-                          <Image
-                            src={post.image}
-                            alt={post.title}
-                            fill
-                            className="object-cover transition-all duration-500"
-                            sizes="(max-width: 640px) 100vw, 33vw"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-[#242424] via-transparent to-transparent" />
-                        </div>
-                      )}
-                      <div className="p-4 flex-1 flex flex-col">
-                        {post.pubDate && (
-                          <time className="font-mono text-gray-500 text-xs block mb-1">
-                            {formatPostDate(post.pubDate)}
-                          </time>
-                        )}
-                        <h4 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase leading-snug group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors line-clamp-2">
-                          {post.title}
-                        </h4>
-                        {post.description && (
-                          <p className="text-gray-500 text-xs mt-auto pt-1.5 leading-relaxed line-clamp-2">
-                            {post.description}
-                          </p>
-                        )}
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              )}
+              {/* Remaining posts — one per column, equal height enforced by the shared grid row */}
+              {rest.map((post, i) => (
+                <a
+                  key={i}
+                  href={post.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_16px_rgba(59,20,69,0.08)] transition-all duration-200"
+                >
+                  {post.image && (
+                    <div className="relative w-full h-32 flex-shrink-0 overflow-hidden">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-all duration-500"
+                        sizes="(max-width: 640px) 100vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-[#242424] via-transparent to-transparent" />
+                    </div>
+                  )}
+                  <div className="p-4 flex-1 flex flex-col">
+                    {post.pubDate && (
+                      <time className="font-mono text-gray-500 text-xs block mb-1">
+                        {formatPostDate(post.pubDate)}
+                      </time>
+                    )}
+                    <h4 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase leading-snug group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors line-clamp-2">
+                      {post.title}
+                    </h4>
+                    {post.description && (
+                      <p className="text-gray-500 text-xs mt-auto pt-1.5 leading-relaxed line-clamp-2">
+                        {post.description}
+                      </p>
+                    )}
+                  </div>
+                </a>
+              ))}
             </div>
           ) : (
             <p className="text-gray-500 text-sm mb-6">
