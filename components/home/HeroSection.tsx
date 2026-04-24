@@ -52,17 +52,28 @@ export default function HeroSection() {
             {[
               { label: 'Firmware', href: '/projects/mujina', type: 'software' },
               { label: 'Pool', href: '/projects/hydrapool', type: 'software' },
-              { label: 'Hashboard', href: '/projects/ember-one', type: 'hardware' },
-              { label: 'Control Board', href: '/projects/libre-board', type: 'hardware' },
             ].map(({ label, href, type }) => (
               <Link
                 key={href}
                 href={href}
-                className={`inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 border transition-all duration-200 group ${
-                  type === 'hardware'
-                    ? 'border-[#00FF41] text-[#00FF41] hover:bg-[#00FF41]/15'
-                    : 'border-[#3b1445] dark:border-[#c084d8] text-[#3b1445] dark:text-[#c084d8] hover:bg-[#3b1445]/8 dark:hover:bg-[#c084d8]/10'
-                }`}
+                className="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 border transition-all duration-200 group border-[#3b1445] dark:border-[#c084d8] text-[#3b1445] dark:text-[#c084d8] hover:bg-[#3b1445]/8 dark:hover:bg-[#c084d8]/10"
+              >
+                {label}
+                <svg className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                  <path d="M2 6h8M7 3l3 3-3 3" />
+                </svg>
+              </Link>
+            ))}
+            {/* Force hardware chips onto their own row on mobile */}
+            <div className="basis-full sm:hidden" aria-hidden="true" />
+            {[
+              { label: 'Hashboard', href: '/projects/ember-one' },
+              { label: 'Control Board', href: '/projects/libre-board' },
+            ].map(({ label, href }) => (
+              <Link
+                key={href}
+                href={href}
+                className="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 border transition-all duration-200 group border-[#00FF41] text-[#00FF41] hover:bg-[#00FF41]/15"
               >
                 {label}
                 <svg className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
