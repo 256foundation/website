@@ -136,7 +136,7 @@ export default function DonatePage() {
               <div>
                 <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-1">{s.title}</h3>
                 {s.code && (
-                  <code className="block bg-[#2d0f36] border border-[#5c2070]/50 rounded-none px-3 py-2 font-mono text-[#00FF41] text-sm my-2 overflow-x-auto whitespace-nowrap">
+                  <code className="block bg-[#2d0f36] border border-[#5c2070]/50 rounded-none px-3 py-2 font-mono text-[#00FF41] text-xs my-2 break-all">
                     {s.code}
                   </code>
                 )}
