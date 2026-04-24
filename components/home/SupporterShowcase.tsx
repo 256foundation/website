@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import type { Supporter } from '@/types'
 import HashrateLeaderboard from './HashrateLeaderboard'
 
@@ -105,17 +106,15 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
         <p className="text-gray-500 dark:text-gray-400 text-sm">
           Want your logo here? Support the open-source Bitcoin mining stack.
         </p>
-        <a
-          href={ZAPRITE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/donate"
           className="inline-flex items-center gap-2 px-6 py-3 bg-[#3b1445] text-white font-mono font-bold text-sm rounded-none hover:bg-[#2d0f36] transition-colors whitespace-nowrap"
         >
           Become a Supporter
           <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M3 8h10M9 4l4 4-4 4" />
           </svg>
-        </a>
+        </Link>
       </div>
 
       {/* Hashrate leaderboard */}
