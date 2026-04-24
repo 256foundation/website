@@ -77,10 +77,16 @@ export default function Header() {
                 Forum
               </a>
               <Link
+                href="/#contact"
+                className="hidden lg:inline-flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-[#3f3f3f] text-gray-700 dark:text-gray-200 font-mono text-sm rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:text-gray-900 dark:hover:text-white hover:bg-[#3b1445]/10 transition-all duration-200"
+              >
+                Contact
+              </Link>
+              <Link
                 href="/donate"
                 className="hidden lg:inline-flex items-center justify-center px-5 py-2 bg-[#3b1445] text-white font-mono font-bold text-sm rounded-none hover:bg-[#2d0f36] transition-colors duration-200"
               >
-                Donate
+                ⚡ Donate
               </Link>
 
               {/* Mobile hamburger */}
