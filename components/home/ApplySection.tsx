@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 
 export default function ApplySection() {
@@ -33,17 +34,15 @@ export default function ApplySection() {
             </div>
           </div>
           <div className="lg:col-span-4 flex lg:justify-end">
-            <a
-              href="https://form.typeform.com/to/M7j8L2SE"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/grants"
               className="inline-flex items-center gap-3 px-8 py-4 bg-[#3b1445] text-white font-mono font-bold text-base rounded-none hover:bg-[#2d0f36] transition-all duration-200 whitespace-nowrap shadow-[0_0_20px_rgba(59,20,69,0.35)] hover:shadow-[0_0_28px_rgba(59,20,69,0.5)]"
             >
               Apply for a Grant
               <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 <path d="M4 10h12M12 5l5 5-5 5" />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
