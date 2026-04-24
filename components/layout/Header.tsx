@@ -84,7 +84,7 @@ export default function Header() {
               </Link>
               <Link
                 href="/donate"
-                className="hidden lg:inline-flex items-center justify-center px-5 py-2 bg-[#3b1445] text-white font-mono font-bold text-sm rounded-none hover:bg-[#2d0f36] transition-colors duration-200"
+                className="hidden lg:inline-flex items-center justify-center gap-1.5 px-5 py-2 bg-[#3b1445] text-white font-mono font-bold text-sm rounded-none hover:bg-[#2d0f36] transition-colors duration-200 whitespace-nowrap"
               >
                 ⚡ Donate
               </Link>
