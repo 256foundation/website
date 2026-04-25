@@ -43,6 +43,18 @@ const ecosystemProjects = [
     url: 'https://github.com/GridlessCompute/Jua-Kali-Miner',
     tags: ['solar', 'off-grid', 'DC power'],
   },
+  {
+    name: 'ASIC-rs',
+    description: 'An open-source Rust library for communicating with Bitcoin mining ASICs. It standardizes the low-level protocol interface so firmware developers can build miner software without reverse-engineering proprietary hardware layers.',
+    url: 'https://docs.rs/asic-rs/latest/asic_rs/index.html',
+    tags: ['Rust', 'library', 'firmware'],
+  },
+  {
+    name: 'HashScope',
+    description: 'An open-source Bitcoin mining analysis platform that sits transparently between miners and pools, capturing every Stratum v1 message in real time — providing a complete picture of how mining pools actually behave.',
+    url: 'https://github.com/256foundation/HashScope',
+    tags: ['analysis', 'Stratum v1', 'pool testing'],
+  },
 ]
 
 export default async function ProjectsPage() {
