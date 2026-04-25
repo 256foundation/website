@@ -176,7 +176,6 @@ export default function EcosystemSection() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
                     className="inline-flex items-center gap-1.5 font-mono text-xs px-3 py-1.5 border border-gray-300 dark:border-[#3f3f3f] text-gray-600 dark:text-gray-400 rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-all duration-200"
                   >
                     <svg viewBox="0 0 24 24" className="w-3 h-3" fill="currentColor" aria-hidden="true">
