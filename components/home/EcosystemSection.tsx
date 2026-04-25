@@ -70,6 +70,19 @@ const projects: EcosystemProject[] = [
       'ASIC-rs is an open-source Rust library that provides a standardized interface for communicating with Bitcoin mining ASICs. It abstracts the low-level protocol details so firmware developers can build miner software without reverse-engineering proprietary hardware communication layers.',
     why: 'One of the critical missing pieces in the open mining stack is a well-documented, openly licensed library for speaking to ASICs. ASIC-rs fills that gap — enabling Mujina and future open firmware projects to communicate with ASICs without depending on closed or undocumented implementations.',
   },
+  {
+    name: 'HashScope',
+    abbr: 'HASHSCOPE',
+    logoDark: '/ecosystem/Hashscope_square_dark.png',
+    logoLight: '/ecosystem/Hashscope_square_light.png',
+    logoClass: 'transition-all duration-500',
+    url: 'https://github.com/256foundation/HashScope',
+    githubUrl: 'https://github.com/256foundation/HashScope',
+    tagline: 'Open-source Bitcoin mining protocol analyzer and pool testing platform.',
+    mission:
+      'HashScope is an open-source Bitcoin mining analysis platform that sits transparently between miners and pools, capturing every Stratum v1 message in real time. It parses JSON-RPC traffic, tracks sessions, and distributes share events to a scalable agent fleet via Nostr — providing a complete picture of how mining pools behave under real conditions.',
+    why: 'You cannot improve what you cannot measure. HashScope gives the open-source mining community a dedicated tool for auditing pool behavior, testing firmware interactions, and exposing protocol-level issues — without depending on proprietary observability tools. That kind of transparency is foundational to a healthier, more accountable mining ecosystem.',
+  },
 ]
 
 export default function EcosystemSection() {
