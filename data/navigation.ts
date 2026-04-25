@@ -16,6 +16,18 @@ export const topNav: NavItem[] = [
     ],
   },
   {
+    label: 'Ecosystem',
+    href: '#',
+    children: [
+      { label: 'Bitaxe', href: 'https://bitaxe.org', external: true },
+      { label: 'OSMU', href: 'https://osmu.wiki', external: true },
+      { label: 'Hashrate Heatpunks', href: 'https://heatpunks.org', external: true },
+      { label: 'Jua Kali', href: 'https://github.com/GridlessCompute/Jua-Kali-Miner', external: true },
+      { label: 'ASIC-rs', href: 'https://docs.rs/asic-rs/latest/asic_rs/index.html', external: true },
+      { label: 'HashScope', href: 'https://github.com/256foundation/HashScope', external: true },
+    ],
+  },
+  {
     label: 'Community',
     href: '#',
     children: [
@@ -27,18 +39,6 @@ export const topNav: NavItem[] = [
       { label: 'Nostr', href: 'https://primal.net/p/nprofile1qqsqhk42dz0exfcsln4yqmdkjys0nvd7dqndgacpsa7w7pt7njq2uuss2u9cq', external: true },
       { label: 'Hashdash', href: 'https://dash.256f.org', external: true },
       { label: 'Telehash', href: '/telehash' },
-    ],
-  },
-  {
-    label: 'Ecosystem',
-    href: '#',
-    children: [
-      { label: 'Bitaxe', href: 'https://bitaxe.org', external: true },
-      { label: 'OSMU', href: 'https://osmu.wiki', external: true },
-      { label: 'Hashrate Heatpunks', href: 'https://heatpunks.org', external: true },
-      { label: 'Jua Kali', href: 'https://github.com/GridlessCompute/Jua-Kali-Miner', external: true },
-      { label: 'ASIC-rs', href: 'https://docs.rs/asic-rs/latest/asic_rs/index.html', external: true },
-      { label: 'HashScope', href: 'https://github.com/256foundation/HashScope', external: true },
     ],
   },
 ]
