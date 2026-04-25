@@ -32,9 +32,9 @@ export default function HeroSection() {
         {/* Logo + CTA: side-by-side on desktop, stacked (logo → buttons → heading) on mobile */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 lg:mb-8 gap-4 lg:gap-8">
           <h1>
-            {/* Square logo on mobile/tablet, horizontal on lg+ */}
-            <Logo variant="square" height={160} inverted className="lg:hidden rounded-xl" />
-            <Logo height={180} inverted className="hidden lg:block max-w-[520px] !rounded-xl" />
+            {/* Horizontal logo at compact height on mobile/tablet, full size on lg+ */}
+            <Logo height={130} inverted className="lg:hidden" />
+            <Logo height={180} inverted className="hidden lg:block" />
           </h1>
 
           {/* CTA buttons — right of logo on desktop, below logo on mobile */}
