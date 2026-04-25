@@ -5,7 +5,7 @@ import { siteStats } from '@/data/stats'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center sm:justify-end overflow-hidden bg-white dark:bg-[#1a1a1a]">
+    <section className="relative flex flex-col justify-start overflow-hidden bg-white dark:bg-[#1a1a1a]">
       {/* PCB pattern */}
       <PCBBackground animated opacity={0.12} />
 
@@ -16,7 +16,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,white_100%)] dark:bg-[radial-gradient(ellipse_at_center,transparent_40%,#1a1a1a_100%)] pointer-events-none" />
 
       {/* Main content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-8 sm:pb-16 pt-4 sm:pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-8 sm:pb-16 pt-16 lg:pt-24">
         {/* Status bar */}
         <div className="flex items-center gap-3 mb-5 sm:mb-12">
           <span className="inline-block w-2 h-2 rounded-full bg-[#00FF41]" style={{ boxShadow: '0 0 8px #00FF41' }} />
