@@ -45,8 +45,8 @@ const communities = [
     ),
   },
   {
-    label: 'NEWS256',
-    description: 'Foundation updates on Substack',
+    label: 'Newsletter',
+    description: 'Assembling Freedom Newsletter on Substack',
     href: 'https://256foundation.substack.com',
     external: true,
     icon: (
