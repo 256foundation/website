@@ -109,30 +109,6 @@ export default function HeroSection() {
           it &mdash; open hardware, firmware, and pool software that anyone can use, audit, and build upon.
         </p>
 
-        {/* Bottom metrics strip */}
-        <div className="border-t border-[#3b1445]/20 dark:border-[#5c2070]/30 pt-4 sm:pt-6 grid grid-cols-3 gap-4 sm:gap-6">
-          {[
-            { value: `${siteStats.btcRaised}`, unit: 'BTC', label: 'Raised', isPurple: true },
-            { value: String(siteStats.totalGrantees), unit: '', label: 'Active Projects', isPurple: true },
-            { value: String(siteStats.blocksFound), unit: '', label: 'Blocks Found', isPurple: false },
-          ].map(({ value, unit, label, isPurple }) => (
-            <div key={label} className="group px-3 py-2 bg-[#3b1445]/5 dark:bg-[#3b1445]/10 hover:bg-[#3b1445]/10 dark:hover:bg-[#3b1445]/20 transition-colors duration-200">
-              <div className="flex items-baseline gap-1">
-                <span className={`font-display font-bold text-2xl sm:text-3xl ${isPurple ? 'text-[#3b1445] dark:text-[#c084d8]' : 'text-[#00FF41]'}`}>
-                  {value}
-                </span>
-                {unit && (
-                  <span className={`font-mono text-sm opacity-60 ${isPurple ? 'text-[#3b1445] dark:text-[#c084d8]' : 'text-[#00FF41]'}`}>
-                    {unit}
-                  </span>
-                )}
-              </div>
-              <div className="font-mono text-gray-500 dark:text-gray-400 text-xs uppercase tracking-widest mt-0.5">
-                {label}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )
