@@ -1,4 +1,18 @@
-const projects = [
+type EcosystemProject = {
+  name: string
+  abbr: string
+  logo?: string
+  logoDark?: string
+  logoLight?: string
+  logoClass: string
+  url: string
+  githubUrl?: string
+  tagline: string
+  mission: string
+  why: string
+}
+
+const projects: EcosystemProject[] = [
   {
     name: 'Bitaxe',
     abbr: 'BITAXE',
@@ -42,6 +56,19 @@ const projects = [
     mission:
       'Jua Kali — Kiswahili for "hot sun," used in Kenya to mean blue-collar, hard-working craftsmanship — is an open-source project that runs Bitcoin ASIC hashboards directly from DC power sources like solar panels and batteries, no AC grid required.',
     why: 'Most of the world lacks reliable grid power. Jua Kali unlocks stranded energy for Bitcoin mining — enabling off-grid communities to participate in securing the network using direct solar or battery power.',
+  },
+  {
+    name: 'ASIC-rs',
+    abbr: 'ASIC-RS',
+    logoDark: '/ecosystem/ASIC_RS_square_dark.png',
+    logoLight: '/ecosystem/ASIC_RS_square_light.png',
+    logoClass: 'transition-all duration-500',
+    url: 'https://docs.rs/asic-rs/latest/asic_rs/index.html',
+    githubUrl: 'https://github.com/256foundation/asic-rs',
+    tagline: 'Open-source Rust library for Bitcoin ASIC communication.',
+    mission:
+      'ASIC-rs is an open-source Rust library that provides a standardized interface for communicating with Bitcoin mining ASICs. It abstracts the low-level protocol details so firmware developers can build miner software without reverse-engineering proprietary hardware communication layers.',
+    why: 'One of the critical missing pieces in the open mining stack is a well-documented, openly licensed library for speaking to ASICs. ASIC-rs fills that gap — enabling Mujina and future open firmware projects to communicate with ASICs without depending on closed or undocumented implementations.',
   },
 ]
 
@@ -89,12 +116,24 @@ export default function EcosystemSection() {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-6">
               {/* Logo — top on mobile, left column on sm+ */}
               <div className="flex items-center sm:items-start justify-start sm:justify-center shrink-0 sm:w-28 sm:pt-1">
-                <img
-                  src={project.logo}
-                  alt={project.name}
-                  className={`w-16 h-16 sm:w-28 sm:h-auto object-contain transition-all duration-500 ${project.logoClass}`}
-                  style={{ background: 'transparent' }}
-                />
+                {project.logoDark && project.logoLight ? (
+                  <picture className={project.logoClass}>
+                    <source media="(prefers-color-scheme: dark)" srcSet={project.logoDark} />
+                    <img
+                      src={project.logoLight}
+                      alt={project.name}
+                      className="w-16 h-16 sm:w-28 sm:h-auto object-contain"
+                      style={{ background: 'transparent' }}
+                    />
+                  </picture>
+                ) : (
+                  <img
+                    src={project.logo}
+                    alt={project.name}
+                    className={`w-16 h-16 sm:w-28 sm:h-auto object-contain transition-all duration-500 ${project.logoClass}`}
+                    style={{ background: 'transparent' }}
+                  />
+                )}
               </div>
 
               {/* Content — full width on mobile, right column on sm+ */}
@@ -131,6 +170,21 @@ export default function EcosystemSection() {
                   <p className="text-gray-500 dark:text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 text-xs leading-relaxed transition-colors duration-200">{project.why}</p>
                 </div>
 
+                {/* GitHub link (only for projects with a separate repo URL) */}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1.5 font-mono text-xs px-3 py-1.5 border border-gray-300 dark:border-[#3f3f3f] text-gray-600 dark:text-gray-400 rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-all duration-200"
+                  >
+                    <svg viewBox="0 0 24 24" className="w-3 h-3" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                    </svg>
+                    GitHub
+                  </a>
+                )}
               </div>
             </div>
           </a>

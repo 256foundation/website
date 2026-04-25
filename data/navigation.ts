@@ -37,6 +37,7 @@ export const topNav: NavItem[] = [
       { label: 'OSMU', href: 'https://osmu.wiki', external: true },
       { label: 'Hashrate Heatpunks', href: 'https://heatpunks.org', external: true },
       { label: 'Jua Kali', href: 'https://github.com/GridlessCompute/Jua-Kali-Miner', external: true },
+      { label: 'ASIC-rs', href: 'https://docs.rs/asic-rs/latest/asic_rs/index.html', external: true },
     ],
   },
 ]
