@@ -76,6 +76,8 @@ export default async function ProjectPage({ params }: Props) {
                 </ExternalLink>
                 <a
                   href={project.forumCategory}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 border border-gray-200 dark:border-[#1f1f1f] text-gray-600 dark:text-gray-300 font-mono px-5 py-2.5 rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
                 >
                   Forum
