@@ -100,8 +100,7 @@ website-256F/
 │   │   ├── HardwareProjectViewer.tsx
 │   │   ├── EcosystemCard.tsx
 │   │   ├── ProjectForumSection.tsx     # Per-project Discourse category topics
-│   │   ├── GitHubActivitySection.tsx   # Per-project GitHub repo activity feed
-│   │   └── OrgReposSection.tsx         # Live grid of all 256foundation org repos
+│   │   └── GitHubActivitySection.tsx   # Per-project GitHub repo activity feed
 │   ├── shared/                 # Cross-page shared components
 │   │   ├── TeamMemberCard.tsx
 │   │   ├── Timeline.tsx
@@ -475,7 +474,7 @@ Configured in `next.config.ts` for `next/image` optimization. Required on all ho
 |-------|------|-------------|
 | `/` | Home | Hero, donate CTAs, why section, stats, blocks found, forum + GitHub activity, FAQ, supporters, contact form |
 | `/mission` | Mission | Foundation story, team, timeline, values |
-| `/projects` | Projects | Pillar project cards with live GitHub stats, grant log, live org repo grid |
+| `/projects` | Projects | Grant log, pillar project cards with live GitHub stats, ecosystem projects, GitHub org stats CTA |
 | `/projects/ember-one` | Ember One | Project detail with live forum topics and GitHub activity |
 | `/projects/mujina` | Mujina | Project detail |
 | `/projects/libre-board` | Libre Board | Project detail |
@@ -488,7 +487,7 @@ Configured in `next.config.ts` for `next/image` optimization. Required on all ho
 ### Top Navigation
 
 ```
-Logo (→ /)     Home     Mission     Grants     Projects ▾     Community ▾     Ecosystem ▾     [GitHub]  [Forum]  [Donate]
+Logo (→ /)     Home     Mission     Grants     Projects ▾     Ecosystem ▾     Community ▾     [GitHub]  [Forum]  [Donate]
 
 Projects dropdown:
   • Ember One          → /projects/ember-one
@@ -498,22 +497,23 @@ Projects dropdown:
   ─────────────────
   • Funded Project Log → /projects
 
-Community dropdown:
-  • Forum              → https://forum.256foundation.org  (external)
-  • Events Calendar    → https://forum.256foundation.org/upcoming-events/ (external)
-  • Telegram           → https://t.me/the256foundation    (external)
-  • X / Twitter        → https://x.com/256FOUNDATION      (external)
-  • Nostr              → https://primal.net/p/nprofile1... (external)
-  • POD256             → https://www.pod256.org           (external)
-  • NEWS256            → https://256foundation.substack.com (external)
-  • TeleHash           → /telehash
-  • Hashdash           → https://dash.256f.org            (external)
-
 Ecosystem dropdown:
-  • Bitaxe             → https://bitaxe.org               (external)
-  • OSMU               → https://osmu.wiki                (external)
-  • Heatpunks          → https://heatpunks.org            (external)
-  • Jua Kali           → https://juakali.io               (external)
+  • Bitaxe             → https://bitaxe.org                                    (external)
+  • OSMU               → https://osmu.wiki                                     (external)
+  • Hashrate Heatpunks → https://heatpunks.org                                 (external)
+  • Jua Kali           → https://github.com/GridlessCompute/Jua-Kali-Miner     (external)
+  • ASIC-rs            → https://docs.rs/asic-rs/latest/asic_rs/index.html     (external)
+  • HashScope          → https://github.com/256foundation/HashScope             (external)
+
+Community dropdown:
+  • Forum              → https://forum.256foundation.org        (external)
+  • Group Chat         → https://t.me/the256foundation          (external)
+  • Newsletter         → https://256foundation.substack.com     (external)
+  • POD256             → https://www.pod256.org                 (external)
+  • X / Twitter        → https://x.com/256FOUNDATION            (external)
+  • Nostr              → https://primal.net/p/nprofile1...      (external)
+  • Hashdash           → https://dash.256f.org                  (external)
+  • Telehash           → /telehash
 ```
 
 ### Responsive Behavior
@@ -555,7 +555,8 @@ Ecosystem dropdown:
 | Endpoint | Used In |
 |----------|---------|
 | `https://api.github.com/repos/256foundation/{repo}` | Live stars/forks/issues on project cards |
-| `https://api.github.com/orgs/256foundation/repos` | Live org repo grid on `/projects` |
+| `https://api.github.com/orgs/256foundation` | Org stats (repo count, followers) for `/projects` CTA |
+| `https://api.github.com/orgs/256foundation/repos` | Total star count aggregated for `/projects` CTA |
 | `https://api.github.com/orgs/256foundation/events` | GitHub activity strip on home page |
 | `https://api.github.com/repos/{owner}/{repo}/events` | Per-project GitHub activity on project pages |
 
@@ -580,6 +581,8 @@ GitHub API is called unauthenticated by default (60 req/hr limit). Set `GITHUB_T
 | Mujina | `github.com/256foundation/mujina` |
 | Libre Board | `github.com/256foundation/libre-board` |
 | Hydrapool | `github.com/256foundation/hydrapool` |
+| ASIC-rs | `github.com/256foundation/asic-rs` |
+| HashScope | `github.com/256foundation/HashScope` |
 
 ### Third-party Content
 | Service | Purpose |
@@ -709,6 +712,12 @@ Set `nextEventDate` to an ISO date string and fill in `nextEventDetails` in `dat
 
 ### Update donation/grant form links
 Set `NEXT_PUBLIC_ZAPRITE_URL` and `NEXT_PUBLIC_TYPEFORM_URL` in `.env.local` or Vercel environment variables.
+
+### Add an ecosystem project
+1. Add logo(s) to `public/ecosystem/` — for dark/light variants name them `<Project>_square_dark.png` and `<Project>_square_light.png`
+2. Add an entry to the `projects` array in `components/home/EcosystemSection.tsx` (use `logoDark`/`logoLight` for dual-logo projects, `logo` for single-image)
+3. Add an entry to the `ecosystemProjects` array in `app/projects/page.tsx`
+4. Add the link to the Ecosystem children array in `data/navigation.ts`
 
 ### Update mining pool address
 Search for `pool.256foundation.org` — it appears as static strings in `app/donate/page.tsx` and `app/telehash/page.tsx`.
