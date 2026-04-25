@@ -15,7 +15,7 @@ export const teleHashEvents: TeleHashEvent[] = [
     number: 2,
     date: '2025-05-05',
     blockFound: false,
-    summary: 'The second TeleHash marked a milestone for the foundation\'s hardware work — it was the first time a working version of Ember One hashed to the competition. Seeing the open-source ASIC board contribute real hashrate live on stream was proof that the core pillar projects were moving from concept to reality.',
+    summary: 'The second TeleHash was a landmark moment for the foundation. Just one month into the first grant round for each core project, the team already had working prototypes in hand — an early Ember One hashboard hashing live to an early Hydrapool instance, both built and running in parallel with active development. Each of the four core projects — Ember One, Mujina, Libre Board, and Hydrapool — was explained in depth during the livestream, with all grants now funded and all projects in active development. Seeing open-source hardware and pool software contribute real hashrate on stream, only weeks into their first grant cycles, was proof that the foundation\'s model was working.',
   },
   {
     number: 3,
