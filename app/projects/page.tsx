@@ -79,6 +79,21 @@ export default async function ProjectsPage() {
         </SectionWrapper>
       </section>
 
+      {/* Grant log */}
+      <SectionWrapper id="log">
+        <SectionHeader
+          title="Grant Log"
+          subtitle="A public record of all grants funded by the 256 Foundation"
+        />
+        <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
+          <GrantLogTable grants={grantLog} />
+        </div>
+        <p className="mt-4 text-sm text-gray-500 font-mono">
+          All grants are denominated and disbursed in Bitcoin.{' '}
+          <a href="/grants" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Apply for a grant &rarr;</a>
+        </p>
+      </SectionWrapper>
+
       {/* Pillar projects */}
       <SectionWrapper>
         <SectionHeader
@@ -106,21 +121,6 @@ export default async function ProjectsPage() {
           </div>
         </SectionWrapper>
       </section>
-
-      {/* Grant log */}
-      <SectionWrapper id="log">
-        <SectionHeader
-          title="Grant Log"
-          subtitle="A public record of all grants funded by the 256 Foundation"
-        />
-        <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
-          <GrantLogTable grants={grantLog} />
-        </div>
-        <p className="mt-4 text-sm text-gray-500 font-mono">
-          All grants are denominated and disbursed in Bitcoin.{' '}
-          <a href="/grants" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Apply for a grant &rarr;</a>
-        </p>
-      </SectionWrapper>
 
       {/* All org repos — live from GitHub API */}
       <OrgReposSection repos={orgRepos} />
