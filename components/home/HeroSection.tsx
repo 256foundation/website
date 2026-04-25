@@ -29,13 +29,32 @@ export default function HeroSection() {
           </span>
         </div>
 
-        {/* Logo -- main hero anchor */}
-        <div className="mb-4 sm:mb-8">
+        {/* Logo + CTA: side-by-side on desktop, stacked (logo → buttons → heading) on mobile */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-8 gap-4 sm:gap-8">
           <h1>
             {/* Square logo on mobile, horizontal on sm+ */}
             <Logo variant="square" height={160} inverted className="sm:hidden rounded-xl" />
             <Logo height={180} inverted className="hidden sm:block max-w-[520px] !rounded-xl" />
           </h1>
+
+          {/* CTA buttons — right of logo on desktop, below logo on mobile */}
+          <div className="flex flex-wrap items-center gap-4 shrink-0">
+            <Link
+              href="/mission"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] dark:bg-white text-white dark:text-[#1a1a1a] font-mono font-bold text-sm rounded-none hover:bg-[#333] dark:hover:bg-gray-100 transition-colors duration-200"
+            >
+              Our Mission
+              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+            <Link
+              href="/donate"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] font-mono font-bold text-sm rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-all duration-200"
+            >
+              Donate &rarr;
+            </Link>
+          </div>
         </div>
 
         {/* Tagline */}
@@ -89,25 +108,6 @@ export default function HeroSection() {
           One company controls Bitcoin&apos;s mining infrastructure. We fund developers dismantling
           it &mdash; open hardware, firmware, and pool software that anyone can use, audit, and build upon.
         </p>
-
-        {/* CTA row */}
-        <div className="flex flex-wrap items-center gap-4 mb-8 sm:mb-16">
-          <Link
-            href="/mission"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] dark:bg-white text-white dark:text-[#1a1a1a] font-mono font-bold text-sm rounded-none hover:bg-[#333] dark:hover:bg-gray-100 transition-colors duration-200"
-          >
-            Our Mission
-            <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
-          <Link
-            href="/donate"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] font-mono font-bold text-sm rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-all duration-200"
-          >
-            Donate &rarr;
-          </Link>
-        </div>
 
         {/* Bottom metrics strip */}
         <div className="border-t border-[#3b1445]/20 dark:border-[#5c2070]/30 pt-4 sm:pt-6 grid grid-cols-3 gap-4 sm:gap-6">
