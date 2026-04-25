@@ -10,7 +10,7 @@ Official website for the [256 Foundation](https://256foundation.org), a 501(c)(3
 2. [Project Structure](#project-structure)
 3. [Getting Started](#getting-started)
 4. [Environment Variables](#environment-variables)
-5. [Deployment](#deployment)
+5. [Deployment](#deployment) — Vercel · Proxmox (LXC + Nginx + PM2) · Coolify · Netlify · Railway
 6. [Site Architecture — Pages & Navigation](#site-architecture--pages--navigation)
 7. [External Integrations & Links](#external-integrations--links)
 8. [Design System](#design-system)
@@ -212,16 +212,252 @@ The Hashdash leaderboard now calls the **Prometheus API** at `pool.256foundation
 
 ## Deployment
 
-The site is deployed on **Vercel** using the default Next.js preset — no `vercel.json` is required.
+Three hosting paths are documented below: **Vercel** (easiest), **self-hosted Proxmox** (full control), and **other platform hosts** (Coolify, Netlify, Railway).
 
-### Deploying
+---
 
-1. Push to `main` → Vercel auto-deploys
-2. Pull requests get preview deployments automatically
+### Option 1 — Vercel (recommended for simplicity)
+
+No config file needed. Vercel detects Next.js automatically.
+
+1. Push repo to GitHub
+2. Import the repo at [vercel.com/new](https://vercel.com/new)
+3. Add environment variables under **Project → Settings → Environment Variables** (see [Environment Variables](#environment-variables))
+4. Deploy — every push to `main` triggers a production deploy; PRs get preview URLs automatically
+
+**Custom domain:** add it under **Project → Settings → Domains**. Vercel provisions an SSL certificate automatically.
+
+---
+
+### Option 2 — Self-hosted on Proxmox
+
+Run the site on your own Proxmox server using a lightweight LXC container and Nginx as a reverse proxy.
+
+#### 2a. Create the LXC container
+
+In the Proxmox web UI or shell:
+
+```bash
+# Download Ubuntu 22.04 template if not already present
+pveam download local ubuntu-22.04-standard_22.04-1_amd64.tar.zst
+
+# Create the container (adjust storage, cores, memory as needed)
+pct create 200 local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst \
+  --hostname website-256f \
+  --cores 2 \
+  --memory 1024 \
+  --swap 512 \
+  --net0 name=eth0,bridge=vmbr0,ip=dhcp \
+  --storage local-lvm \
+  --rootfs local-lvm:8 \
+  --unprivileged 1 \
+  --start 1
+```
+
+SSH into the container:
+
+```bash
+pct enter 200
+```
+
+#### 2b. Install Node.js and PM2
+
+```bash
+apt update && apt upgrade -y
+apt install -y curl git build-essential
+
+# Install Node.js 20 LTS via NodeSource
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+apt install -y nodejs
+
+# Install PM2 globally (process manager — keeps the app alive and restarts on crash)
+npm install -g pm2
+```
+
+Verify:
+
+```bash
+node -v   # should be v20.x
+npm -v
+pm2 -v
+```
+
+#### 2c. Clone and build the site
+
+```bash
+# Create a dedicated user (optional but recommended)
+useradd -m -s /bin/bash website
+su - website
+
+# Clone the repo
+git clone https://github.com/tylerkstevens/website-256F.git
+cd website-256F
+
+# Install dependencies
+npm install
+
+# Create the env file
+cp .env.example .env.local
+nano .env.local   # fill in your values (see Environment Variables section)
+
+# Build for production
+npm run build
+```
+
+#### 2d. Start with PM2
+
+```bash
+# Start the Next.js production server on port 3000
+pm2 start npm --name "website-256f" -- start
+
+# Save the process list so it survives reboots
+pm2 save
+
+# Set PM2 to start on system boot
+pm2 startup
+# → copy and run the command PM2 prints
+```
+
+Check it's running:
+
+```bash
+pm2 status
+pm2 logs website-256f
+```
+
+The site is now running at `http://<container-ip>:3000`. Next, put Nginx in front of it.
+
+#### 2e. Install and configure Nginx
+
+```bash
+apt install -y nginx
+```
+
+Create the site config:
+
+```bash
+nano /etc/nginx/sites-available/256foundation
+```
+
+Paste:
+
+```nginx
+server {
+    listen 80;
+    server_name 256foundation.org www.256foundation.org;
+
+    # Security headers
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-Content-Type-Options "nosniff";
+    add_header Referrer-Policy "strict-origin-when-cross-origin";
+
+    # Proxy to Next.js
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    # Cache Next.js static assets aggressively
+    location /_next/static/ {
+        proxy_pass http://127.0.0.1:3000;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    location /public/ {
+        proxy_pass http://127.0.0.1:3000;
+        add_header Cache-Control "public, max-age=86400";
+    }
+}
+```
+
+Enable the site and reload:
+
+```bash
+ln -s /etc/nginx/sites-available/256foundation /etc/nginx/sites-enabled/
+nginx -t   # verify config is valid
+systemctl reload nginx
+```
+
+#### 2f. SSL with Certbot (Let's Encrypt)
+
+```bash
+apt install -y certbot python3-certbot-nginx
+certbot --nginx -d 256foundation.org -d www.256foundation.org
+```
+
+Certbot edits your Nginx config to redirect HTTP → HTTPS and auto-renews the certificate.
+
+#### 2g. Updating the site
+
+To pull new changes and rebuild:
+
+```bash
+cd ~/website-256F
+git pull origin main
+npm install          # only needed if package.json changed
+npm run build
+pm2 restart website-256f
+```
+
+Optionally script this as a deploy hook or cron job.
+
+#### 2h. Proxmox networking tips
+
+- Assign the container a **static IP** in `pct set 200 --net0 name=eth0,bridge=vmbr0,ip=192.168.1.x/24,gw=192.168.1.1`
+- Point your domain's A record to your Proxmox host's **public IP**
+- Forward ports 80 and 443 from your router/firewall to the container IP
+- If you run multiple containers, put Nginx **Proxy Manager** in its own LXC and use it to route by hostname — it has a GUI for managing SSL certs across containers
+
+---
+
+### Option 3 — Platform hosts (Coolify, Netlify, Railway)
+
+#### Coolify (self-hosted PaaS — runs on Proxmox too)
+
+[Coolify](https://coolify.io) is an open-source Heroku alternative you can run inside its own Proxmox LXC. It handles builds, deployments, SSL, and environment variables through a web UI — no manual Nginx config.
+
+```bash
+# Install Coolify on a fresh Ubuntu server / LXC
+curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash
+```
+
+Once running at `http://<server-ip>:8000`:
+
+1. Add your GitHub repo as a **New Resource → Application**
+2. Select **Nixpacks** (auto-detects Next.js) or **Dockerfile** if you add one
+3. Set environment variables in the Coolify UI
+4. Assign a domain — Coolify provisions SSL via Let's Encrypt automatically
+5. Push to `main` → Coolify auto-deploys via webhook
+
+#### Netlify
+
+1. Connect your GitHub repo at [app.netlify.com](https://app.netlify.com)
+2. Build command: `npm run build`
+3. Publish directory: `.next`
+4. Install the **Netlify Next.js Runtime** plugin (added automatically when it detects Next.js)
+5. Add environment variables under **Site Settings → Environment Variables**
+
+> **Note:** Netlify supports Next.js App Router and ISR but may lag behind the latest Next.js releases. Verify your Next.js version is in their [supported versions list](https://docs.netlify.com/frameworks/next-js/overview/).
+
+#### Railway
+
+1. New project → **Deploy from GitHub repo**
+2. Railway auto-detects Next.js — no config needed
+3. Add environment variables in the Railway dashboard
+4. Set a custom domain under **Settings → Networking**
+
+---
 
 ### Remote Image Domains
 
-Configured in `next.config.ts` for `next/image` optimization:
+Configured in `next.config.ts` for `next/image` optimization. Required on all hosting platforms:
 
 | Domain | Used For |
 |--------|---------|
