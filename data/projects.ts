@@ -11,9 +11,9 @@ export const pillarProjects: PillarProject[] = [
     whyCoreGrant:
       'The 256 Foundation identified the absence of any open-source Bitcoin mining hashboard design as a critical gap in the ecosystem. Without an open hardware foundation, every other layer of the mining stack remains dependent on closed, proprietary hardware. Ember One fills this gap by creating a reference design that is freely available under an open hardware license.',
     whyNecessary:
-      'A single hardware company has maintained near-total control over Bitcoin mining hashboard designs for years, blocking innovation and preventing the development of a competitive, diverse hardware ecosystem. Ember One disrupts this by providing a fully documented, OSHWA-compliant reference design that anyone can manufacture, modify, or build upon — democratizing access to mining hardware at the most fundamental level.',
+      'A single hardware company has maintained near-total control over Bitcoin mining hashboard designs for years, blocking innovation and preventing the development of a competitive, diverse hardware ecosystem. Ember One disrupts this by providing a fully documented, CERN-OHL-S-2.0 licensed reference design that anyone can manufacture, modify, or build upon — democratizing access to mining hardware at the most fundamental level.',
     technicalDetails:
-      'Ember One 00 is built around the Bitmain BM1362 ASIC, with an open PCB layout, full bill of materials, and firmware interface specification published under an OSHWA-compliant open hardware license. The board draws approximately 100W at 12–24V DC input, communicates via USB-C, and integrates onboard temperature sensors for thermal management. Its standardized 125×125mm form factor and 6-month release cadence make it a stable, iterative foundation for the open mining stack. Natively compatible with Libre Board and Mujina firmware.',
+      'Ember One 00 is built around the Bitmain BM1362 ASIC, with an open PCB layout, full bill of materials, and firmware interface specification published under the CERN-OHL-S-2.0 open hardware license. The board draws approximately 100W at 12–24V DC input, communicates via USB-C, and integrates onboard temperature sensors for thermal management. Its standardized 125×125mm form factor and 6-month release cadence make it a stable, iterative foundation for the open mining stack. Natively compatible with Libre Board and Mujina firmware.',
     keySpecs: [
       { label: 'Power', value: '~100W' },
       { label: 'Input Voltage', value: '12–24V DC' },
@@ -21,7 +21,7 @@ export const pillarProjects: PillarProject[] = [
       { label: 'Current ASIC', value: 'BM1362 (v00)' },
       { label: 'Data Interface', value: 'USB-C' },
       { label: 'Temp Sensors', value: 'Integrated' },
-      { label: 'License', value: 'OSHWA' },
+      { label: 'License', value: 'CERN-OHL-S-2.0' },
       { label: 'Release Cycle', value: '6 months' },
     ],
     techFeatures: [
