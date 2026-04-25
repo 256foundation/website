@@ -64,11 +64,10 @@ const projects: EcosystemProject[] = [
     logoLight: '/ecosystem/ASIC_RS_square_light.png',
     logoClass: 'transition-all duration-500',
     url: 'https://docs.rs/asic-rs/latest/asic_rs/index.html',
-    githubUrl: 'https://github.com/256foundation/asic-rs',
     tagline: 'Open-source Rust library for Bitcoin ASIC communication.',
     mission:
-      'ASIC-rs is an open-source Rust library that provides a standardized interface for communicating with Bitcoin mining ASICs. It abstracts the low-level protocol details so firmware developers can build miner software without reverse-engineering proprietary hardware communication layers.',
-    why: 'One of the critical missing pieces in the open mining stack is a well-documented, openly licensed library for speaking to ASICs. ASIC-rs fills that gap — enabling Mujina and future open firmware projects to communicate with ASICs without depending on closed or undocumented implementations.',
+      'ASIC-rs is an open-source Rust library for communicating with Bitcoin mining ASICs. It standardizes the low-level protocol interface so firmware developers can build miner software without reverse-engineering proprietary hardware layers.',
+    why: 'A well-documented, openly licensed library for speaking to ASICs is a critical missing piece in the open mining stack. ASIC-rs fills that gap — enabling Mujina and future open firmware projects to run without closed dependencies.',
   },
   {
     name: 'HashScope',
@@ -77,11 +76,10 @@ const projects: EcosystemProject[] = [
     logoLight: '/ecosystem/Hashscope_square_light.png',
     logoClass: 'transition-all duration-500',
     url: 'https://github.com/256foundation/HashScope',
-    githubUrl: 'https://github.com/256foundation/HashScope',
     tagline: 'Open-source Bitcoin mining protocol analyzer and pool testing platform.',
     mission:
-      'HashScope is an open-source Bitcoin mining analysis platform that sits transparently between miners and pools, capturing every Stratum v1 message in real time. It parses JSON-RPC traffic, tracks sessions, and distributes share events to a scalable agent fleet via Nostr — providing a complete picture of how mining pools behave under real conditions.',
-    why: 'You cannot improve what you cannot measure. HashScope gives the open-source mining community a dedicated tool for auditing pool behavior, testing firmware interactions, and exposing protocol-level issues — without depending on proprietary observability tools. That kind of transparency is foundational to a healthier, more accountable mining ecosystem.',
+      'HashScope sits transparently between miners and pools, capturing every Stratum v1 message in real time. It parses JSON-RPC traffic, tracks sessions, and distributes share events to a scalable agent fleet via Nostr — providing a complete picture of how mining pools actually behave.',
+    why: 'You cannot improve what you cannot measure. HashScope gives the open-source mining community a dedicated tool for auditing pool behavior and exposing protocol-level issues — without depending on proprietary observability software.',
   },
 ]
 
