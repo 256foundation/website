@@ -184,6 +184,43 @@ export async function fetchOrgRepos(org: string): Promise<GitHubOrgRepo[]> {
   }
 }
 
+export interface GitHubOrgStats {
+  repoCount: number
+  totalStars: number
+  followers: number
+}
+
+export async function fetchOrgStats(org: string): Promise<GitHubOrgStats> {
+  try {
+    const headers = buildHeaders()
+    const [orgRes, reposRes] = await Promise.all([
+      fetch(`https://api.github.com/orgs/${org}`, { ...REVALIDATE, headers }),
+      fetch(`https://api.github.com/orgs/${org}/repos?sort=updated&per_page=100&type=public`, { ...REVALIDATE, headers }),
+    ])
+
+    let repoCount = 0
+    let followers = 0
+    let totalStars = 0
+
+    if (orgRes.ok) {
+      const orgData = await orgRes.json() as Record<string, unknown>
+      repoCount = (orgData.public_repos as number) ?? 0
+      followers = (orgData.followers as number) ?? 0
+    }
+
+    if (reposRes.ok) {
+      const repos = await reposRes.json() as Record<string, unknown>[]
+      totalStars = repos
+        .filter(r => !r.fork)
+        .reduce((sum, r) => sum + ((r.stargazers_count as number) ?? 0), 0)
+    }
+
+    return { repoCount, totalStars, followers }
+  } catch {
+    return { repoCount: 0, totalStars: 0, followers: 0 }
+  }
+}
+
 export async function fetchRecentCommits(githubUrl: string, count = 6): Promise<GitHubCommit[]> {
   const ownerRepo = parseOwnerRepo(githubUrl)
   if (!ownerRepo) return []
