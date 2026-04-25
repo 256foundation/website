@@ -12,7 +12,7 @@ export const topNav: NavItem[] = [
       { label: 'Mujina', href: '/projects/mujina' },
       { label: 'Libre Board', href: '/projects/libre-board' },
       { label: 'Hydrapool', href: '/projects/hydrapool' },
-      { label: 'Funded Project Log', href: '/projects#log', divider: true },
+      { label: 'Funded Project Log', href: '/projects', divider: true },
     ],
   },
   {
