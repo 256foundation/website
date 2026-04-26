@@ -17,18 +17,28 @@ export default function PhotoCarousel({ photos, eventName }: PhotoCarouselProps)
 
   return (
     <div className="bg-black select-none">
-      {/* Main image */}
+      {/* Main image — only render current ± 1 to avoid loading every photo
+          on mount. Adjacent slides preload so prev/next feels instant. */}
       <div className="relative aspect-video overflow-hidden">
-        {photos.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt={`${eventName} photo ${i + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
-              i === index ? 'opacity-100' : 'opacity-0 pointer-events-none'
-            }`}
-          />
-        ))}
+        {photos.map((src, i) => {
+          const distance = Math.min(
+            Math.abs(i - index),
+            photos.length - Math.abs(i - index),
+          )
+          if (distance > 1) return null
+          return (
+            <img
+              key={src}
+              src={src}
+              alt={`${eventName} photo ${i + 1}`}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                i === index ? 'opacity-100' : 'opacity-0 pointer-events-none'
+              }`}
+            />
+          )
+        })}
 
         {/* Prev / Next buttons */}
         {photos.length > 1 && (
