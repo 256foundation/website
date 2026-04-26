@@ -8,7 +8,8 @@ interface MetadataProps {
 }
 
 const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://256foundation.org'
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://256foundation.org')
 
 export function generatePageMetadata({
   title,
