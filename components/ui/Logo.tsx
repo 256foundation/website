@@ -56,6 +56,7 @@ export default function Logo({
   const aspectRatio = asset.width / asset.height
   const renderedWidth = Math.round(height * aspectRatio)
   const rounding = variant === 'circular' ? '' : 'rounded-md'
+  const isPriority = priority ?? height >= 80
 
   return (
     // Outer className (e.g. "hidden sm:block") controls visibility of the whole unit.
@@ -75,7 +76,10 @@ export default function Logo({
         height={asset.height}
         className={rounding}
         style={{ height: `${height}px`, width: `${renderedWidth}px`, display: 'block' }}
-        loading={priority ?? height >= 80 ? 'eager' : 'lazy'}
+        loading={isPriority ? 'eager' : 'lazy'}
+        // fetchpriority is the browser-level signal that complements loading="eager"
+        // and meaningfully boosts LCP for the hero logo.
+        fetchPriority={isPriority ? 'high' : 'auto'}
         decoding="async"
       />
     </picture>

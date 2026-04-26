@@ -2,14 +2,21 @@ interface PCBBackgroundProps {
   opacity?: number
   animated?: boolean
   className?: string
+  /**
+   * Optional pattern ID. SVG `<defs>` IDs only need to be unique within a
+   * single SVG, so the default works fine even if multiple PCBBackgrounds
+   * render on the same page. Override only if a parent needs to reference
+   * the pattern from outside the SVG.
+   */
+  patternId?: string
 }
 
 export default function PCBBackground({
   opacity = 0.06,
   animated = false,
   className = '',
+  patternId = 'pcb-pattern',
 }: PCBBackgroundProps) {
-  const patternId = `pcb-${Math.random().toString(36).slice(2, 7)}`
 
   return (
     <div

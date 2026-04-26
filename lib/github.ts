@@ -90,9 +90,12 @@ export interface GitHubEvent {
 
 export async function fetchOrgEvents(org: string, count = 8): Promise<GitHubEvent[]> {
   try {
+    // Match the home page's revalidate (3600). The page-level revalidate
+    // already caps how often the data fetcher runs, so a shorter value here
+    // is wasted — it would never actually run more often than 1 hour.
     const res = await fetch(
       `https://api.github.com/orgs/${org}/events?per_page=30`,
-      { next: { revalidate: 300 }, headers: buildHeaders() },
+      { ...REVALIDATE, headers: buildHeaders() },
     )
     if (!res.ok) return []
     const data = await res.json() as Record<string, unknown>[]

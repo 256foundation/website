@@ -47,6 +47,7 @@ async function resolveNostrProfile(npub: string): Promise<NostrProfile> {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(['user_profile', { pubkey: hex }]),
       cache: 'no-store',
+      signal: AbortSignal.timeout(3000),
     })
     if (!res.ok) throw new Error(`Primal ${res.status}`)
 
@@ -84,10 +85,18 @@ interface PrometheusResponse {
 // ─── Route handler ────────────────────────────────────────────────────────────
 export async function GET() {
   try {
+    // 5-second timeout per upstream call — fail fast instead of holding the
+    // serverless function open until the platform timeout kills it.
+    const poolFetch = (q: string) =>
+      fetch(`${POOL_BASE}?query=${q}`, {
+        cache: 'no-store',
+        signal: AbortSignal.timeout(5000),
+      })
+
     const [topRes, totalRes, countRes] = await Promise.all([
-      fetch(`${POOL_BASE}?query=topk(5,sum by(btcaddress)(rate(worker_shares_valid_total[5m])))`, { cache: 'no-store' }),
-      fetch(`${POOL_BASE}?query=sum(rate(worker_shares_valid_total[5m]))`, { cache: 'no-store' }),
-      fetch(`${POOL_BASE}?query=count(sum by(btcaddress)(rate(worker_shares_valid_total[5m])))`, { cache: 'no-store' }),
+      poolFetch('topk(5,sum by(btcaddress)(rate(worker_shares_valid_total[5m])))'),
+      poolFetch('sum(rate(worker_shares_valid_total[5m]))'),
+      poolFetch('count(sum by(btcaddress)(rate(worker_shares_valid_total[5m])))'),
     ])
 
     if (!topRes.ok || !totalRes.ok || !countRes.ok) throw new Error('Pool query failed')
