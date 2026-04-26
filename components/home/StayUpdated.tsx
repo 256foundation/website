@@ -145,7 +145,7 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
               Available on{' '}
               <a href="https://fountain.fm" target="_blank" rel="noopener noreferrer" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Fountain</a>,{' '}
               <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Spotify</a>,{' '}
-              Apple Podcasts, and more.
+              <a href="https://podcasts.apple.com/us/podcast/pod256-bitcoin-mining-freedom-tech-and-awesome-tangents/id1657814571" target="_blank" rel="noopener noreferrer" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Apple Podcasts</a>, and more.
             </p>
           </div>
 
