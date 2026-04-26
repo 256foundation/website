@@ -21,7 +21,7 @@ export function generatePageMetadata({
   const fullTitle = path === '/' ? `256 Foundation` : `${title} | 256 Foundation`
 
   return {
-    title: fullTitle,
+    title: { absolute: fullTitle },
     description,
     openGraph: {
       title: fullTitle,
