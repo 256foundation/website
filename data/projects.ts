@@ -57,7 +57,6 @@ export const pillarProjects: PillarProject[] = [
     githubUrl: 'https://github.com/256foundation/emberone00-pcb',
     forumCategory: 'https://forum.256foundation.org/c/ember-one',
     forumCategoryApiUrl: 'https://forum.256foundation.org/c/ember-one/5.json',
-    ogImage: '/og/og-ember-one.png',
     logo: {
       icon: '/projects/ember-one-hashboard.png',
     },
@@ -143,7 +142,6 @@ export const pillarProjects: PillarProject[] = [
     githubUrl: 'https://github.com/256foundation/mujina',
     forumCategory: 'https://forum.256foundation.org/c/mujina',
     forumCategoryApiUrl: 'https://forum.256foundation.org/c/mujina/7.json',
-    ogImage: '/og/og-mujina.png',
     logo: {
       character: '/projects/mujina-character.png',
     },
@@ -236,7 +234,6 @@ export const pillarProjects: PillarProject[] = [
     githubUrl: 'https://github.com/256foundation/libre-board',
     forumCategory: 'https://forum.256foundation.org/c/libre-board',
     forumCategoryApiUrl: 'https://forum.256foundation.org/c/fibre-board/6.json',
-    ogImage: '/og/og-libre-board.png',
     logo: {
       icon: '/projects/libre-board.png',
     },
@@ -325,7 +322,6 @@ export const pillarProjects: PillarProject[] = [
     githubUrl: 'https://github.com/256foundation/hydrapool',
     forumCategory: 'https://forum.256foundation.org/c/hydrapool',
     forumCategoryApiUrl: 'https://forum.256foundation.org/c/hydrapool/8.json',
-    ogImage: '/og/og-hydrapool.png',
     logo: {
       icon: '/projects/hydrapool-logo.png',
     },

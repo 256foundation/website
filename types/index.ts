@@ -78,7 +78,7 @@ export interface PillarProject {
   githubUrl: string
   forumCategory: string
   forumCategoryApiUrl: string
-  ogImage: string
+  ogImage?: string
   logo?: ProjectLogo
   milestones: Milestone[]
   team: {

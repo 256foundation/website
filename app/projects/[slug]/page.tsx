@@ -31,7 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: project.name,
     description: project.tagline,
     path: `/projects/${project.slug}`,
-    ogImage: project.ogImage,
   })
 }
 
