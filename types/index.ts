@@ -136,3 +136,15 @@ export interface SubstackPost {
   description?: string
   image?: string
 }
+
+// ── Newsroom ──────────────────────────────────────────────────
+export interface NewsroomPost {
+  slug: string
+  title: string
+  date: string
+  author: string
+  category: 'announcement' | 'mission' | 'industry' | 'partner'
+  excerpt: string
+  coverImage?: string
+  ogImage?: string
+}

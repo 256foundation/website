@@ -1,4 +1,5 @@
 import { fetchSubstackPosts } from '@/lib/substack'
+import { getLatestPost } from '@/lib/newsroom'
 import { fetchForumTopics } from '@/lib/discourse'
 import { fetchOrgEvents } from '@/lib/github'
 import { generatePageMetadata } from '@/lib/metadata'
@@ -37,6 +38,7 @@ export default async function Home() {
     fetchForumTopics(6),
     fetchOrgEvents('256foundation', 8),
   ])
+  const latestNewsroomPost = getLatestPost()
   const firstEvent = teleHashEvents.find((e) => e.blockFound)
 
   return (
@@ -64,7 +66,7 @@ export default async function Home() {
       </SectionWrapper>
 
       <SectionWrapper id="updates" className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <StayUpdated posts={posts} />
+        <StayUpdated posts={posts} latestNewsroomPost={latestNewsroomPost} />
       </SectionWrapper>
 
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">

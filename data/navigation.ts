@@ -39,6 +39,7 @@ export const topNav: NavItem[] = [
       { label: 'Nostr', href: 'https://primal.net/p/nprofile1qqsqhk42dz0exfcsln4yqmdkjys0nvd7dqndgacpsa7w7pt7njq2uuss2u9cq', external: true },
       { label: 'Hashdash', href: 'https://dash.256f.org', external: true },
       { label: 'Telehash', href: '/telehash' },
+      { label: 'Newsroom', href: '/newsroom' },
     ],
   },
 ]
@@ -50,6 +51,7 @@ export const footerFoundationLinks: NavItem[] = [
   { label: 'Donate', href: '/donate' },
   { label: 'Telehash', href: '/telehash' },
   { label: 'FAQ', href: '/faq' },
+  { label: 'Newsroom', href: '/newsroom' },
 ]
 
 export const footerCommunityLinks: NavItem[] = [

@@ -1,13 +1,16 @@
 import Image from 'next/image'
-import type { SubstackPost } from '@/types'
+import Link from 'next/link'
+import type { SubstackPost, NewsroomPost } from '@/types'
 import NewsletterSignup from '@/components/shared/NewsletterSignup'
 import { formatPostDate } from '@/lib/substack'
+import { formatPostDate as formatNewsroomDate } from '@/lib/newsroom'
 
 interface StayUpdatedProps {
   posts: SubstackPost[]
+  latestNewsroomPost?: NewsroomPost | null
 }
 
-export default function StayUpdated({ posts }: StayUpdatedProps) {
+export default function StayUpdated({ posts, latestNewsroomPost }: StayUpdatedProps) {
   const [featured, ...rest] = posts
 
   return (
@@ -23,6 +26,30 @@ export default function StayUpdated({ posts }: StayUpdatedProps) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Blog posts */}
         <div className="lg:col-span-2">
+          {/* Latest newsroom post */}
+          {latestNewsroomPost && (
+            <div className="mb-6">
+              <h3 className="font-display font-bold text-gray-900 dark:text-white text-base mb-3 uppercase tracking-wider">Latest Announcement</h3>
+              <Link
+                href={`/newsroom/${latestNewsroomPost.slug}`}
+                className="group flex items-start gap-4 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-4 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_16px_rgba(59,20,69,0.08)] transition-all duration-200"
+              >
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs uppercase tracking-widest">Newsroom</span>
+                    <span className="text-gray-300 dark:text-gray-600 text-xs">·</span>
+                    <time className="font-mono text-gray-400 text-xs">{formatNewsroomDate(latestNewsroomPost.date)}</time>
+                  </div>
+                  <h4 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase leading-snug group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors line-clamp-2 mb-1">
+                    {latestNewsroomPost.title}
+                  </h4>
+                  <p className="text-gray-500 text-xs leading-relaxed line-clamp-1">{latestNewsroomPost.excerpt}</p>
+                </div>
+                <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs shrink-0 group-hover:underline mt-0.5">Read →</span>
+              </Link>
+            </div>
+          )}
+
           <h3 className="font-display font-bold text-gray-900 dark:text-white text-base mb-5 uppercase tracking-wider">Newsletter</h3>
 
           {posts.length > 0 ? (

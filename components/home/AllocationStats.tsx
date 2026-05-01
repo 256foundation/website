@@ -14,8 +14,8 @@ interface StatItem {
 
 export default function AllocationStats({ stats }: AllocationStatsProps) {
   const items: StatItem[] = [
-    { value: stats.btcRaised.toFixed(2), unit: 'BTC', label: 'Raised', isPurple: true },
-    { value: String(stats.totalGrantees), unit: '', label: 'Active Grantees', isPurple: true },
+    { value: stats.btcRaised.toFixed(3), unit: 'BTC', label: 'Raised', isPurple: true },
+    { value: '$584k', unit: '', label: 'Allocated', isPurple: true },
     { value: String(stats.blocksFound), unit: '', label: 'Blocks Found to Date', isPurple: false },
   ]
 

@@ -1,7 +1,7 @@
 import type { SiteStats } from '@/types'
 
 export const siteStats: SiteStats = {
-  btcRaised: 6.87,
+  btcRaised: 7.208,
   blocksFound: 1,
   totalGrantees: 4,
 }
