@@ -10,6 +10,7 @@ export const supporters: Supporter[] = [
   { name: 'OSMU', image: '/supporters/tier1/osmu.png', link: 'https://osmu.wiki', tier: 1 },
   { name: 'OpenSats', image: '/supporters/tier1/opensats.png', link: 'https://opensats.org', tier: 1 },
   { name: 'Proto', image: '/supporters/tier1/proto.png', link: 'https://proto.xyz', tier: 1 },
+  { name: 'MARA Foundation', image: '/supporters/tier1/MF.png', link: 'https://foundation.mara.com', tier: 1 },
 
   // Tier 2 — Hash Champions
   { name: 'Foundry', image: '/supporters/tier2/Foundry.png', link: 'https://foundrydigital.com', tier: 2 },
