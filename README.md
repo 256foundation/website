@@ -29,6 +29,8 @@ Official website for the [256 Foundation](https://256foundation.org), a 501(c)(3
 | Language | TypeScript | ^5.x |
 | Styling | Tailwind CSS v4 | ^4.x |
 | XML Parsing | fast-xml-parser (Substack feed) | ^5.x |
+| MDX Rendering | next-mdx-remote (Newsroom posts) | ^5.x |
+| Frontmatter Parsing | gray-matter (Newsroom posts) | ^4.x |
 | Analytics | Umami (self-hosted, optional) | — |
 
 **Key architectural decisions:**
@@ -55,6 +57,9 @@ website-256F/
 │   ├── grants/page.tsx         # /grants
 │   ├── faq/page.tsx            # /faq
 │   ├── telehash/page.tsx       # /telehash
+│   ├── newsroom/
+│   │   ├── page.tsx            # /newsroom — post list (force-static)
+│   │   └── [slug]/page.tsx     # /newsroom/[slug] — MDX post detail (generateStaticParams)
 │   ├── projects/
 │   │   ├── page.tsx            # /projects — all projects + live org repos
 │   │   └── [slug]/page.tsx     # /projects/[slug] — individual project (ISR)
@@ -93,6 +98,9 @@ website-256F/
 │   │   ├── SupporterShowcase.tsx
 │   │   ├── HashrateLeaderboard.tsx  # Live Prometheus hashrate data
 │   │   └── ContactForm.tsx     # Formspree-powered contact form
+│   ├── newsroom/               # Newsroom components
+│   │   ├── PostCard.tsx        # Card for post list (cover image, category, date, title, excerpt)
+│   │   └── PostBody.tsx        # MDXRemote wrapper — renders MDX content with .newsroom-body styles
 │   ├── projects/               # Project detail components
 │   │   ├── PillarProjectCard.tsx       # Card with live GitHub stars/forks/issues
 │   │   ├── MilestoneTracker.tsx
@@ -121,8 +129,12 @@ website-256F/
 │   ├── telehash.ts             # TeleHash event history, next event, photos
 │   └── faq.ts                  # FAQ entries by category
 │
+├── content/
+│   └── newsroom/               # MDX posts for the Newsroom — one file per article ([slug].mdx)
+│
 ├── lib/
 │   ├── metadata.ts             # SEO metadata generation helper
+│   ├── newsroom.ts             # Newsroom helpers — getAllPosts, getPostBySlug, getLatestPost, formatPostDate
 │   ├── substack.ts             # Substack RSS fetch + parse
 │   ├── discourse.ts            # Discourse forum API — latest topics + per-category topics
 │   └── github.ts               # GitHub REST API — repo meta, org repos, org events
@@ -136,6 +148,7 @@ website-256F/
 │   ├── team/                   # Team headshots
 │   ├── supporters/             # Supporter tier logos (tier1/, tier2/, tier3/)
 │   ├── ecosystem/              # Ecosystem partner logos
+│   ├── newsroom/               # Newsroom article images, organized by post slug
 │   ├── telehash/               # TeleHash event photos (th3-*.jpg, etc.)
 │   ├── og/                     # Open Graph images
 │   └── models/                 # 3D model assets
@@ -483,11 +496,13 @@ Configured in `next.config.ts` for `next/image` optimization. Required on all ho
 | `/donate` | Donate | BTC/Lightning/card + hashrate donation with participation steps |
 | `/telehash` | TeleHash | Countdown, participation guide, event history with photo carousels |
 | `/faq` | FAQ | Categorized Q&A accordion (sourced from old site + expanded) |
+| `/newsroom` | Newsroom | List of org-authored MDX posts (announcements, mission, industry) |
+| `/newsroom/[slug]` | Post Detail | Full article rendered from MDX with cover image and article body |
 
 ### Top Navigation
 
 ```
-Logo (→ /)     Home     Mission     Grants     Projects ▾     Ecosystem ▾     Community ▾     [GitHub]  [Forum]  [Donate]
+Logo (→ /)     Home     Mission     Grants     Newsroom     Projects ▾     Ecosystem ▾     Community ▾     [GitHub]  [Forum]  [Donate]
 
 Projects dropdown:
   • Ember One          → /projects/ember-one
@@ -680,6 +695,25 @@ Grant recipient log with grantee, category, BTC amount, status, dates, license, 
 ### `data/supporters.ts`
 Supporter logos by tier (1, 2, 3) with name, image path, and link.
 
+### `content/newsroom/`
+MDX files for org-authored articles. Each file is `[slug].mdx` with frontmatter:
+
+```mdx
+---
+title: "Post Title"
+date: "2026-05-01"          # ISO date — controls sort order and display
+author: "256 Foundation"
+category: "announcement"    # announcement | mission | industry | partner
+excerpt: "One-sentence summary shown on the list page and in the home page card."
+coverImage: "/newsroom/[post-slug]/banner.png"   # optional — shown at top of post
+ogImage: "/newsroom/[post-slug]/og.png"          # optional — used for social share OG image
+---
+
+Article body in Markdown...
+```
+
+Parsed by `lib/newsroom.ts` at build time. Posts are sorted newest-first. The most recent post is surfaced on the home page in the StayUpdated section.
+
 ---
 
 ## API Routes
@@ -695,6 +729,13 @@ The contact form (`components/home/ContactForm.tsx`) posts **directly to Formspr
 ---
 
 ## Content Updates
+
+### Add a Newsroom post
+1. Create a new MDX file in `content/newsroom/[slug].mdx` with required frontmatter (title, date, author, category, excerpt)
+2. Drop any article images into `public/newsroom/[slug]/` and reference them in the MDX body using standard Markdown image syntax: `![alt text](/newsroom/[slug]/image.png)`
+3. Optionally set `coverImage` (displayed at top of post) and `ogImage` (social share preview) in frontmatter
+4. The post appears automatically on `/newsroom`, at `/newsroom/[slug]`, and if it's the newest post it surfaces on the home page in the StayUpdated section — no code changes needed
+5. Redeploy (or wait for ISR) to publish — all newsroom routes are statically generated via `generateStaticParams`
 
 ### Add a TeleHash event
 Add an entry to `teleHashEvents[]` in `data/telehash.ts`. For photos, drop images into `public/telehash/` and add the paths to the `photos[]` array on the event object.
