@@ -4,6 +4,7 @@ import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import AnnouncementBanner from '@/components/layout/AnnouncementBanner'
 
 const barlowCondensed = Barlow_Condensed({
   weight: ['600', '700', '800'],
@@ -57,7 +58,10 @@ export default function RootLayout({
     <html lang="en" className={`${barlowCondensed.variable} ${spaceMono.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col bg-white dark:bg-[#1a1a1a] text-gray-800 dark:text-gray-100 font-sans antialiased">
         <Header />
-        <main className="flex-1 pt-16">{children}</main>
+        <main className="flex-1 pt-16">
+          <AnnouncementBanner />
+          {children}
+        </main>
         <Footer />
 
         {process.env.NODE_ENV === 'production' && umamiId && umamiUrl && (
