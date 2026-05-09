@@ -50,22 +50,26 @@ export default function AnnouncementBanner() {
         <div className="flex items-center justify-between gap-3 h-10">
 
           {/* Left: badge + message (clickable) */}
-          <LinkOrA className="flex items-center gap-3 flex-1 min-w-0 group">
+          <LinkOrA className="flex items-center gap-3 flex-1 min-w-0 overflow-hidden group">
             {/* Badge */}
             <span className="font-mono text-[10px] uppercase tracking-widest text-[#00FF41] border border-[#00FF41] px-1.5 py-0.5 shrink-0 leading-none">
               {label}
             </span>
 
-            {/* Message */}
-            <span className="font-mono text-xs text-white truncate group-hover:text-[#c084d8] transition-colors">
-              {message}
+            {/* Message — static on desktop, scrolling ticker on mobile */}
+            <span className="overflow-hidden flex-1 min-w-0">
+              <span className="banner-marquee font-mono text-xs text-white whitespace-nowrap group-hover:text-[#c084d8] transition-colors">
+                {message}
+                {/* Duplicate for seamless mobile loop — hidden on sm+ */}
+                <span className="ml-16 sm:hidden" aria-hidden="true">{message}</span>
+              </span>
             </span>
           </LinkOrA>
 
           {/* Right: "View Event →" + dismiss */}
           <div className="flex items-center gap-3 shrink-0">
             <LinkOrA className="font-mono text-xs text-[#c084d8] hover:text-white transition-colors hidden sm:block whitespace-nowrap">
-              View Event →
+              View Fundraising Event →
             </LinkOrA>
 
             <button

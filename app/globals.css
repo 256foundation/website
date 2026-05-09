@@ -191,6 +191,19 @@ body {
   background-clip: text;
 }
 
+/* ── Announcement banner marquee (mobile only) ───────────────── */
+@keyframes banner-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 639px) {
+  .banner-marquee {
+    display: inline-block;
+    animation: banner-marquee 12s linear infinite;
+  }
+}
+
 /* ── Newsroom article body ───────────────────────────────────── */
 .newsroom-body img { width: 100%; height: auto; display: block; margin: 1.5rem 0; border: 1px solid #e5e5e5; }
 .newsroom-body p { margin-bottom: 1.25rem; }
