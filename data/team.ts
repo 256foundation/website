@@ -38,7 +38,7 @@ export const board: TeamMember[] = [
     name: 'Skot',
     handle: '@skot9000',
     role: 'Board Member & Lead Engineer, Ember One',
-    bio: 'Electrical engineer with years of embedded systems experience, Skot instigated the Bitaxe project — the first open-source Bitcoin ASIC miner — and serves as lead engineer on the Ember One hashboard. He is one of the most hands-on forces in open-source Bitcoin mining hardware.',
+    bio: 'Electrical engineer with years of embedded systems experience, Skot instigated the Bitaxe project — the first open-source Bitcoin ASIC miner — and serves as lead engineer on the Ember One hash board. He is one of the most hands-on forces in open-source Bitcoin mining hardware.',
     headshot: '/team/skot.jpg',
     links: {
       x: 'https://x.com/skot9000',

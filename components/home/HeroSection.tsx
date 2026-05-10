@@ -86,7 +86,7 @@ export default function HeroSection() {
             {/* Force hardware chips onto their own row on mobile */}
             <div className="basis-full sm:hidden" aria-hidden="true" />
             {[
-              { label: 'Hashboard', href: '/projects/ember-one' },
+              { label: 'Hash Board', href: '/projects/ember-one' },
               { label: 'Control Board', href: '/projects/libre-board' },
             ].map(({ label, href }) => (
               <Link

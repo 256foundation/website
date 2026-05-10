@@ -38,7 +38,7 @@ const ecosystemProjects = [
   },
   {
     name: 'Jua Kali',
-    description: 'An open-source project that runs Bitcoin ASIC hashboards directly from DC power sources like solar panels and batteries — no AC grid required. Unlocking stranded energy for Bitcoin mining worldwide.',
+    description: 'An open-source project that runs Bitcoin ASIC hash boards directly from DC power sources like solar panels and batteries — no AC grid required. Unlocking stranded energy for Bitcoin mining worldwide.',
     url: 'https://github.com/GridlessCompute/Jua-Kali-Miner',
     tags: ['solar', 'off-grid', 'DC power'],
   },

@@ -54,7 +54,7 @@ const projects: EcosystemProject[] = [
     url: 'https://github.com/GridlessCompute/Jua-Kali-Miner',
     tagline: 'Open-source mining for direct DC power.',
     mission:
-      'Jua Kali — Kiswahili for "hot sun," used in Kenya to mean blue-collar, hard-working craftsmanship — is an open-source project that runs Bitcoin ASIC hashboards directly from DC power sources like solar panels and batteries, no AC grid required.',
+      'Jua Kali — Kiswahili for "hot sun," used in Kenya to mean blue-collar, hard-working craftsmanship — is an open-source project that runs Bitcoin ASIC hash boards directly from DC power sources like solar panels and batteries, no AC grid required.',
     why: 'Most of the world lacks reliable grid power. Jua Kali unlocks stranded energy for Bitcoin mining — enabling off-grid communities to participate in securing the network using direct solar or battery power.',
   },
   {

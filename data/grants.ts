@@ -12,7 +12,7 @@ export const grantLog: Grant[] = [
     startDate: '2024-07-01',
     duration: '6 months',
     license: 'CERN-OHL-S',
-    description: 'Open-source Bitcoin mining hashboard reference design',
+    description: 'Open-source Bitcoin mining hash board reference design',
   },
   {
     name: 'Mujina',

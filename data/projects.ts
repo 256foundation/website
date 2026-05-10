@@ -5,13 +5,13 @@ export const pillarProjects: PillarProject[] = [
     slug: 'ember-one',
     type: 'hardware',
     name: 'Ember One',
-    tagline: 'Open-source Bitcoin mining hashboard reference design',
+    tagline: 'Open-source Bitcoin mining hash board reference design',
     description:
-      'Ember One is a fully open-source hardware reference design for a Bitcoin mining hashboard. It provides the foundational blueprint that individual miners, researchers, and companies can build upon — breaking the dependency on proprietary designs.',
+      'Ember One is a fully open-source hardware reference design for a Bitcoin mining hash board. It provides the foundational blueprint that individual miners, researchers, and companies can build upon — breaking the dependency on proprietary designs.',
     whyCoreGrant:
-      'The 256 Foundation identified the absence of any open-source Bitcoin mining hashboard design as a critical gap in the ecosystem. Without an open hardware foundation, every other layer of the mining stack remains dependent on closed, proprietary hardware. Ember One fills this gap by creating a reference design that is freely available under an open hardware license.',
+      'The 256 Foundation identified the absence of any open-source Bitcoin mining hash board design as a critical gap in the ecosystem. Without an open hardware foundation, every other layer of the mining stack remains dependent on closed, proprietary hardware. Ember One fills this gap by creating a reference design that is freely available under an open hardware license.',
     whyNecessary:
-      'A single hardware company has maintained near-total control over Bitcoin mining hashboard designs for years, blocking innovation and preventing the development of a competitive, diverse hardware ecosystem. Ember One disrupts this by providing a fully documented, CERN-OHL-S-2.0 licensed reference design that anyone can manufacture, modify, or build upon — democratizing access to mining hardware at the most fundamental level.',
+      'A single hardware company has maintained near-total control over Bitcoin mining hash board designs for years, blocking innovation and preventing the development of a competitive, diverse hardware ecosystem. Ember One disrupts this by providing a fully documented, CERN-OHL-S-2.0 licensed reference design that anyone can manufacture, modify, or build upon — democratizing access to mining hardware at the most fundamental level.',
     technicalDetails:
       'Ember One 00 is built around the Bitmain BM1362 ASIC, with an open PCB layout, full bill of materials, and firmware interface specification published under the CERN-OHL-S-2.0 open hardware license. The board draws approximately 100W at 12–24V DC input, communicates via USB-C, and integrates onboard temperature sensors for thermal management. Its standardized 125×125mm form factor and 6-month release cadence make it a stable, iterative foundation for the open mining stack. Natively compatible with Libre Board and Mujina firmware.',
     keySpecs: [
@@ -119,7 +119,7 @@ export const pillarProjects: PillarProject[] = [
       {
         category: 'Hardware Compatibility',
         items: [
-          'Ember One hashboard (native)',
+          'Ember One hash board (native)',
           'Libre Board (native)',
           'Antminer drivers',
           'Whatsminer drivers',
@@ -180,9 +180,9 @@ export const pillarProjects: PillarProject[] = [
     description:
       'Libre Board is an open-source hardware control board for Bitcoin miners, designed to run Mujina firmware and Linux-based tools. It enables hardware hackers to build custom mining setups — from standard pool mining to hashrate heating and solar-powered mining.',
     whyCoreGrant:
-      'A miner control board is the brain of any Bitcoin mining operation, handling the connection between the hashboard, power supply, network, and user interface. All existing control boards are proprietary black boxes. Libre Board provides an open, hackable alternative that enables an entirely new class of mining applications.',
+      'A miner control board is the brain of any Bitcoin mining operation, handling the connection between the hash board, power supply, network, and user interface. All existing control boards are proprietary black boxes. Libre Board provides an open, hackable alternative that enables an entirely new class of mining applications.',
     whyNecessary:
-      'Open control board hardware is the bridge between open firmware (Mujina) and open hashboard hardware (Ember One). Without it, even an open firmware runs on a closed hardware stack. Libre Board completes the open-source mining stack, enabling use cases like hashrate heating integration, solar mining controllers, Home Assistant integration, and fully custom mining appliances.',
+      'Open control board hardware is the bridge between open firmware (Mujina) and open hash board hardware (Ember One). Without it, even an open firmware runs on a closed hardware stack. Libre Board completes the open-source mining stack, enabling use cases like hashrate heating integration, solar mining controllers, Home Assistant integration, and fully custom mining appliances.',
     technicalDetails:
       'Libre Board is an SBC-form-factor control board running full Linux, licensed under CERN-OHL-S. It accepts 12–24V DC input and exposes a comprehensive I/O set: USB hub, Ethernet, HDMI, NVME, WiFi, MIPI (touchscreen), RPi 40-pin header, fan connectors, and two 100-pin compute module connectors. The dual 100-pin CM design supports swappable compute modules across architectures including Raspberry Pi CM5, RISC-V, and ARM — making it adaptable as compute technology evolves. Out of the box it runs Mujina firmware, but its full Linux environment also supports Bitcoin full node operation, a Stratum server, Home Assistant, and any custom Linux application.',
     keySpecs: [

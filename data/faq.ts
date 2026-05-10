@@ -6,7 +6,7 @@ export const faqItems: FAQItem[] = [
     category: 'foundation',
     question: 'What does the 256 Foundation do?',
     answer:
-      '256 Foundation (EIN: 99-1662333) is a 501(c)(3) public charity which funds free and open-source Bitcoin mining related initiatives and provides education resources to demystify Bitcoin and freedom tech.\n\nWe believe Bitcoin mining has become dangerously centralized in several aspects: hardware and firmware centralization controlled by one Chinese company with ~90% market dominance, mining pool centralization with ~90% of global hashrate controlled by four mining pool operators and their proxies, and mining reward centralization with ~40% of bitcoin mining rewards going to a single custodian. Our mission is to dismantle the proprietary mining empire and that starts with open-sourcing the whole Bitcoin mining stack. Our first four grant initiatives were for a standardized open-source hashboard, an open-source control board, open-source firmware, and an open-source one-click deployable mining pool. The development will not stop until Bitcoin mining is free and open.',
+      '256 Foundation (EIN: 99-1662333) is a 501(c)(3) public charity which funds free and open-source Bitcoin mining related initiatives and provides education resources to demystify Bitcoin and freedom tech.\n\nWe believe Bitcoin mining has become dangerously centralized in several aspects: hardware and firmware centralization controlled by one Chinese company with ~90% market dominance, mining pool centralization with ~90% of global hashrate controlled by four mining pool operators and their proxies, and mining reward centralization with ~40% of bitcoin mining rewards going to a single custodian. Our mission is to dismantle the proprietary mining empire and that starts with open-sourcing the whole Bitcoin mining stack. Our first four grant initiatives were for a standardized open-source hash board, an open-source control board, open-source firmware, and an open-source one-click deployable mining pool. The development will not stop until Bitcoin mining is free and open.',
   },
   {
     category: 'foundation',
@@ -107,13 +107,13 @@ export const faqItems: FAQItem[] = [
     category: 'projects',
     question: 'What are the four pillar projects?',
     answer:
-      'The four pillar projects are: Ember One (open-source mining hashboard hardware), Mujina (open-source mining firmware), Libre Board (open-source miner control board hardware), and Hydrapool (open-source mining pool software). Together they form a complete open-source Bitcoin mining stack.',
+      'The four pillar projects are: Ember One (open-source mining hash board hardware), Mujina (open-source mining firmware), Libre Board (open-source miner control board hardware), and Hydrapool (open-source mining pool software). Together they form a complete open-source Bitcoin mining stack.',
   },
   {
     category: 'projects',
     question: 'How do the four pillar projects relate to each other?',
     answer:
-      'They are designed as complementary layers of the same stack: Ember One provides the hashboard (the compute layer), Libre Board provides the control board that connects the hashboard to the network, Mujina runs on Libre Board and manages the mining operation, and Hydrapool provides the pool that the miner connects to. Any combination can be used independently, but together they form a fully open-source mining system.',
+      'They are designed as complementary layers of the same stack: Ember One provides the hash board (the compute layer), Libre Board provides the control board that connects the hash board to the network, Mujina runs on Libre Board and manages the mining operation, and Hydrapool provides the pool that the miner connects to. Any combination can be used independently, but together they form a fully open-source mining system.',
   },
   {
     category: 'projects',

@@ -15,13 +15,13 @@ export const teleHashEvents: TeleHashEvent[] = [
     number: 2,
     date: '2025-05-05',
     blockFound: false,
-    summary: 'The second TeleHash was a landmark moment for the foundation. Just one month into the first grant round for each core project, the team already had working prototypes in hand — an early Ember One hashboard hashing live to an early Hydrapool instance, both built and running in parallel with active development. Each of the four core projects — Ember One, Mujina, Libre Board, and Hydrapool — was explained in depth during the livestream, with all grants now funded and all projects in active development. Seeing open-source hardware and pool software contribute real hashrate on stream, only weeks into their first grant cycles, was proof that the foundation\'s model was working.',
+    summary: 'The second TeleHash was a landmark moment for the foundation. Just one month into the first grant round for each core project, the team already had working prototypes in hand — an early Ember One hash board hashing live to an early Hydrapool instance, both built and running in parallel with active development. Each of the four core projects — Ember One, Mujina, Libre Board, and Hydrapool — was explained in depth during the livestream, with all grants now funded and all projects in active development. Seeing open-source hardware and pool software contribute real hashrate on stream, only weeks into their first grant cycles, was proof that the foundation\'s model was working.',
   },
   {
     number: 3,
     date: '2026-01-21',
     blockFound: false,
-    summary: 'TeleHash #3 was the most significant event yet — the first time all four core pillar projects ran together in a single working system. Ember One hashboards driven by Libre Board, running Mujina firmware, pointed at a self-hosted Hydrapool instance. Lead developers were up until 1am the night before getting everything stable. For the event, the team built a test bench kit using water cooling blocks from CryoByte Labs, converting the mining rig into a sous vide heater. They cooked a steak live on stream, using Mujina firmware to dynamically adjust mining power output and hold a temperature probe at exactly 101°F. The demo made it undeniably real: open-source mining hardware doing useful work in the world.',
+    summary: 'TeleHash #3 was the most significant event yet — the first time all four core pillar projects ran together in a single working system. Ember One hash boards driven by Libre Board, running Mujina firmware, pointed at a self-hosted Hydrapool instance. Lead developers were up until 1am the night before getting everything stable. For the event, the team built a test bench kit using water cooling blocks from CryoByte Labs, converting the mining rig into a sous vide heater. They cooked a steak live on stream, using Mujina firmware to dynamically adjust mining power output and hold a temperature probe at exactly 101°F. The demo made it undeniably real: open-source mining hardware doing useful work in the world.',
     photos: [
       '/telehash/image-1776972467999.jpg',
       '/telehash/image-1776972484026.jpg',
