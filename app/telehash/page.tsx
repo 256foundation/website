@@ -119,12 +119,12 @@ export default function TelehashPage() {
                 RSVP on Meetup →
               </a>
               <a
-                href="https://forum.256foundation.org/upcoming-events/"
+                href="https://dash.256f.org"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-gray-200 dark:border-[#1f1f1f] text-gray-600 dark:text-gray-400 font-mono text-sm px-5 py-2.5 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
               >
-                See all events →
+                View Hashdash →
               </a>
               <a
                 href="https://x.com/256FOUNDATION"
