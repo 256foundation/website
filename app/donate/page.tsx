@@ -117,9 +117,6 @@ export default function DonatePage() {
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-2">
           Send Bitcoin Directly
         </h2>
-        <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-[10px] tracking-widest uppercase mb-6">
-          No KYC &nbsp;·&nbsp; No Fees &nbsp;·&nbsp; Non-Custodial
-        </p>
         <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-8 max-w-2xl">
           Prefer to send Bitcoin without a payment processor? Use the addresses below to donate
           on-chain or via Lightning — directly to the foundation, with no middleman.
