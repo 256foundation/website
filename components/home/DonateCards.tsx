@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS } from '@/data/donate'
 
 export default function DonateCards() {
   return (
@@ -44,6 +45,12 @@ export default function DonateCards() {
               <path d="M3 8h10M9 4l4 4-4 4" />
             </svg>
           </a>
+          <Link
+            href="/donate#direct"
+            className="font-mono text-xs text-[#3b1445] dark:text-[#c084d8] hover:underline mt-4 block"
+          >
+            Or send Bitcoin directly →
+          </Link>
         </div>
 
         {/* Panel B -- Hashrate */}

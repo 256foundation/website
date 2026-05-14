@@ -2,6 +2,8 @@ import { generatePageMetadata } from '@/lib/metadata'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Button from '@/components/ui/Button'
 import DecorativeBg from '@/components/ui/DecorativeBg'
+import CopyButton from '@/components/ui/CopyButton'
+import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS } from '@/data/donate'
 
 export const metadata = generatePageMetadata({
   title: 'Donate',
@@ -108,6 +110,56 @@ export default function DonatePage() {
         >
           Donate Now via Zaprite
         </Button>
+      </SectionWrapper>
+
+      {/* Send Bitcoin Directly */}
+      <SectionWrapper id="direct" className="border-b border-gray-200 dark:border-[#1f1f1f]">
+        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-2">
+          Send Bitcoin Directly
+        </h2>
+        <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-[10px] tracking-widest uppercase mb-6">
+          No KYC &nbsp;·&nbsp; No Fees &nbsp;·&nbsp; Non-Custodial
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-8 max-w-2xl">
+          Prefer to send Bitcoin without a payment processor? Use the addresses below to donate
+          on-chain or via Lightning — directly to the foundation, with no middleman.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+          {/* Bitcoin On-Chain */}
+          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-[#3b1445] dark:text-[#c084d8] text-lg">&#8383;</span>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                Bitcoin On-Chain
+              </span>
+            </div>
+            <p className="text-gray-500 dark:text-gray-400 text-xs mb-3">
+              Send from any Bitcoin wallet
+            </p>
+            <code className="block bg-[#2d0f36] border border-[#5c2070]/50 rounded-none px-3 py-2 font-mono text-[#00FF41] text-xs mb-3 break-all">
+              {BITCOIN_ADDRESS}
+            </code>
+            <CopyButton value={BITCOIN_ADDRESS} />
+          </div>
+
+          {/* Lightning */}
+          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-[#3b1445] dark:text-[#c084d8] text-lg">&#9889;</span>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                Lightning Address
+              </span>
+            </div>
+            <p className="text-gray-500 dark:text-gray-400 text-xs mb-3">
+              Instant, near-zero fee payments
+            </p>
+            <code className="block bg-[#2d0f36] border border-[#5c2070]/50 rounded-none px-3 py-2 font-mono text-[#00FF41] text-xs mb-3 break-all">
+              {LIGHTNING_ADDRESS}
+            </code>
+            <CopyButton value={LIGHTNING_ADDRESS} />
+          </div>
+        </div>
       </SectionWrapper>
 
       {/* Donate hashrate */}
