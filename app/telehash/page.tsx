@@ -1,5 +1,5 @@
 import { generatePageMetadata } from '@/lib/metadata'
-import { teleHashEvents, nextEventDate, nextEventDetails } from '@/data/telehash'
+import { teleHashEvents, nextEventDate, nextEventEndDate, nextEventDetails } from '@/data/telehash'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import TeleHashEventCard from '@/components/telehash/TeleHashEventCard'
 import CountdownTimer from '@/components/telehash/CountdownTimer'
@@ -107,7 +107,7 @@ export default function TelehashPage() {
               </div>
             </div>
           )}
-          <CountdownTimer targetDate={nextEventDate} />
+          <CountdownTimer targetDate={nextEventDate} endDate={nextEventEndDate} />
           {nextEventDate && (
             <div className="mt-4 flex flex-wrap gap-3">
               <a

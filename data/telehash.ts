@@ -35,6 +35,9 @@ export const teleHashEvents: TeleHashEvent[] = [
 // Set to an ISO date string when the next TeleHash is scheduled, or null if not yet announced
 export const nextEventDate: string | null = '2026-05-19T13:00:00-05:00'
 
+// Set to the event end time — countdown auto-transitions to "concluded" after this
+export const nextEventEndDate: string | null = '2026-05-19T19:30:00-05:00'
+
 export const nextEventDetails = {
   name: 'Telehash #4',
   displayDate: 'May 19, 2026',
