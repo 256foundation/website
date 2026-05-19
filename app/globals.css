@@ -191,6 +191,14 @@ body {
   background-clip: text;
 }
 
+/* ── TeleHash extension overlay ─────────────────────────────── */
+/* The TeleHash Chrome extension injects a fixed topbar at z-index INT32_MAX.
+   Since the 256 Foundation website is designed to work alongside this extension,
+   we lower the overlay so the site's own header/nav remain accessible. */
+#telehashTopbar {
+  z-index: 1 !important;
+}
+
 /* ── Announcement banner marquee (mobile only) ───────────────── */
 @keyframes banner-marquee {
   from { transform: translateX(0); }
