@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import NavDropdown from './NavDropdown'
 import MobileNav from './MobileNav'
+import TelehashExtensionDetector from './TelehashExtensionDetector'
 import { topNav } from '@/data/navigation'
 import Logo from '@/components/ui/Logo'
 
@@ -19,16 +20,22 @@ export default function Header() {
 
   return (
     <>
-      {/* Top purple accent line */}
-      <div className="fixed top-0 left-0 right-0 z-[2147483647] h-[3px] bg-gradient-to-r from-[#2d0f36] via-[#5c2070] to-[#2d0f36]" />
+      <TelehashExtensionDetector />
+
+      {/* Top purple accent line — shifts below extension overlay when installed */}
+      <div
+        className="fixed left-0 right-0 z-[2147483647] h-[3px] bg-gradient-to-r from-[#2d0f36] via-[#5c2070] to-[#2d0f36]"
+        style={{ top: 'var(--ext-offset)' }}
+      />
 
       <header
         className={[
-          'fixed top-[3px] left-0 right-0 z-[2147483647] transition-all duration-300',
+          'fixed left-0 right-0 z-[2147483647] transition-all duration-300',
           scrolled
             ? 'bg-white/95 dark:bg-[#13091a]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#3b1445]/30'
             : 'bg-white/80 dark:bg-[#13091a]/80 backdrop-blur-sm border-b border-transparent',
         ].join(' ')}
+        style={{ top: 'calc(3px + var(--ext-offset))' }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">

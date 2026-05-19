@@ -58,7 +58,7 @@ export default function RootLayout({
     <html lang="en" className={`${barlowCondensed.variable} ${spaceMono.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col bg-white dark:bg-[#1a1a1a] text-gray-800 dark:text-gray-100 font-sans antialiased">
         <Header />
-        <main className="flex-1 pt-16">
+        <main className="flex-1 site-main">
           <AnnouncementBanner />
           {children}
         </main>

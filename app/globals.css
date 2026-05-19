@@ -191,12 +191,19 @@ body {
   background-clip: text;
 }
 
-/* ── TeleHash extension overlay ─────────────────────────────── */
-/* The TeleHash Chrome extension injects a fixed topbar at z-index INT32_MAX.
-   Since the 256 Foundation website is designed to work alongside this extension,
-   we lower the overlay so the site's own header/nav remain accessible. */
-#telehashTopbar {
-  z-index: 1 !important;
+/* ── TeleHash extension coexistence ──────────────────────────── */
+/* The TeleHash Chrome extension injects a fixed 115px topbar at z-index INT32_MAX.
+   --ext-offset is set to 0px by default; TelehashExtensionDetector.tsx sets it
+   to 115px at runtime when the extension is detected. All fixed site elements
+   (accent line, header) read this var so they shift below the extension overlay
+   while leaving the layout completely unchanged for users without the extension. */
+:root {
+  --ext-offset: 0px;
+}
+
+/* main padding: 4rem (h-16 header) + extension offset */
+.site-main {
+  padding-top: calc(4rem + var(--ext-offset));
 }
 
 /* ── Announcement banner marquee (mobile only) ───────────────── */
