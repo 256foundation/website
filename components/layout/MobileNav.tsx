@@ -81,7 +81,7 @@ export default function MobileNav({ items, isOpen, onClose }: MobileNavProps) {
       {/* Backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/60 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/60 z-[2147483646] lg:hidden"
           onClick={onClose}
         />
       )}
@@ -89,7 +89,7 @@ export default function MobileNav({ items, isOpen, onClose }: MobileNavProps) {
       {/* Drawer */}
       <div
         className={[
-          'fixed top-0 right-0 h-full w-72 bg-white dark:bg-[#13091a] border-l border-gray-200 dark:border-[#3b1445]/30 z-50 transform transition-transform duration-300 ease-in-out lg:hidden',
+          'fixed top-0 right-0 h-full w-72 bg-white dark:bg-[#13091a] border-l border-gray-200 dark:border-[#3b1445]/30 z-[2147483647] transform transition-transform duration-300 ease-in-out lg:hidden',
           isOpen ? 'translate-x-0' : 'translate-x-full',
         ].join(' ')}
       >

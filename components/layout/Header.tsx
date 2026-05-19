@@ -20,11 +20,11 @@ export default function Header() {
   return (
     <>
       {/* Top purple accent line */}
-      <div className="fixed top-0 left-0 right-0 z-50 h-[3px] bg-gradient-to-r from-[#2d0f36] via-[#5c2070] to-[#2d0f36]" />
+      <div className="fixed top-0 left-0 right-0 z-[2147483647] h-[3px] bg-gradient-to-r from-[#2d0f36] via-[#5c2070] to-[#2d0f36]" />
 
       <header
         className={[
-          'fixed top-[3px] left-0 right-0 z-40 transition-all duration-300',
+          'fixed top-[3px] left-0 right-0 z-[2147483646] transition-all duration-300',
           scrolled
             ? 'bg-white/95 dark:bg-[#13091a]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#3b1445]/30'
             : 'bg-white/80 dark:bg-[#13091a]/80 backdrop-blur-sm border-b border-transparent',
