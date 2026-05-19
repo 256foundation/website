@@ -201,9 +201,11 @@ body {
   --ext-offset: 0px;
 }
 
-/* main padding: 4rem (h-16 header) + extension offset */
+/* main padding: just the fixed header height (4rem).
+   When the TeleHash extension is active it adds its own body margin-top (115px),
+   so the body is already shifted — we must NOT add --ext-offset here again. */
 .site-main {
-  padding-top: calc(4rem + var(--ext-offset));
+  padding-top: 4rem;
 }
 
 /* ── Announcement banner marquee (mobile only) ───────────────── */
