@@ -1,8 +1,17 @@
-import type { TeleHashEvent } from '@/types'
+import type { TeleHashEvent, TeleHashLeaderboardEntry } from '@/types'
 import PhotoCarousel from './PhotoCarousel'
 
 interface TeleHashEventCardProps {
   event: TeleHashEvent
+}
+
+function formatContributor(entry: TeleHashLeaderboardEntry): string {
+  if (entry.name) return entry.name
+  const u = entry.user
+  if (u.startsWith('npub') || u.startsWith('bc1')) {
+    return u.slice(0, 12) + '…'
+  }
+  return u
 }
 
 export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
@@ -85,6 +94,75 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
               />
             </div>
           )}
+        </div>
+      )}
+
+      {/* Event stats */}
+      {event.stats && (
+        <div className="p-6 border-t border-gray-200 dark:border-[#1f1f1f]">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500 mb-4">Event Stats</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { label: 'Peak Hashrate',   value: event.stats.peakHashrate },
+              { label: 'Avg Hashrate',    value: event.stats.avgHashrate },
+              { label: 'Total Work',      value: event.stats.totalHashes },
+              { label: 'Unique Workers',  value: event.stats.uniqueWorkers.toLocaleString() },
+              { label: 'Unique Users',    value: event.stats.uniqueUsers.toLocaleString() },
+              { label: 'Accepted Shares', value: event.stats.acceptedShares.toLocaleString() },
+              { label: 'Reject Rate',     value: event.stats.rejectRate },
+              { label: 'Best Share',      value: event.stats.bestShare },
+            ].map((s) => (
+              <div key={s.label} className="bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] p-3">
+                <div className="font-mono text-[10px] uppercase tracking-widest text-gray-500 mb-1">{s.label}</div>
+                <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-sm">{s.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Contributor leaderboard */}
+      {event.leaderboard && event.leaderboard.length > 0 && (
+        <div className="p-6 border-t border-gray-200 dark:border-[#1f1f1f]">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500 mb-4">Top Contributors</p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs font-mono">
+              <thead>
+                <tr className="border-b border-gray-200 dark:border-[#1f1f1f]">
+                  <th className="text-left py-2 pr-4 font-normal text-gray-500 uppercase tracking-wider w-8">#</th>
+                  <th className="text-left py-2 pr-4 font-normal text-gray-500 uppercase tracking-wider">Contributor</th>
+                  <th className="text-right py-2 pr-4 font-normal text-gray-500 uppercase tracking-wider">Hashes</th>
+                  <th className="text-right py-2 font-normal text-gray-500 uppercase tracking-wider">Share</th>
+                </tr>
+              </thead>
+              <tbody>
+                {event.leaderboard.map((entry, i) => (
+                  <tr
+                    key={entry.rank}
+                    className={`border-b border-gray-100 dark:border-[#1a1a1a] ${i % 2 === 0 ? '' : 'bg-gray-50/60 dark:bg-[#1a1a1a]/60'}`}
+                  >
+                    <td className="py-1.5 pr-4 text-gray-400">{entry.rank}</td>
+                    <td className="py-1.5 pr-4 text-gray-700 dark:text-gray-300 max-w-[180px] truncate">
+                      {formatContributor(entry)}
+                    </td>
+                    <td className="py-1.5 pr-4 text-right text-[#3b1445] dark:text-[#c084d8]">{entry.hashes}</td>
+                    <td className="py-1.5 text-right text-gray-600 dark:text-gray-400">{entry.share}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="font-mono text-[10px] text-gray-400 mt-3">
+            {event.leaderboard.length} unique contributors ·{' '}
+            <a
+              href="https://dash.256f.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
+            >
+              Full stats via Hashdash →
+            </a>
+          </p>
         </div>
       )}
     </div>

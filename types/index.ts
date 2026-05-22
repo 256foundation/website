@@ -110,6 +110,25 @@ export interface Grant {
 }
 
 // ── TeleHash ──────────────────────────────────────────────────
+export interface TeleHashEventStats {
+  peakHashrate: string
+  avgHashrate: string
+  totalHashes: string
+  uniqueWorkers: number
+  uniqueUsers: number
+  acceptedShares: number
+  rejectRate: string
+  bestShare: string
+}
+
+export interface TeleHashLeaderboardEntry {
+  rank: number
+  user: string    // npub, @handle, or plain name
+  name?: string   // resolved display name (from Nostr profile, if known)
+  hashes: string  // human-readable e.g. "22.67 ZH"
+  share: string   // "73.60%"
+}
+
 export interface TeleHashEvent {
   number: number
   date: string
@@ -119,6 +138,8 @@ export interface TeleHashEvent {
   videoUrl?: string
   summary?: string
   photos?: string[]   // paths relative to /public, e.g. '/telehash/th3-01.jpg'
+  stats?: TeleHashEventStats
+  leaderboard?: TeleHashLeaderboardEntry[]
 }
 
 // ── FAQ ───────────────────────────────────────────────────────

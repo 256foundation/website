@@ -21,10 +21,4 @@ export interface Announcement {
  *   Hide banner     → set to null
  *   Auto-expire     → set `expiresAt` to the event end date/time
  */
-export const activeAnnouncement: Announcement | null = {
-  id: 'telehash-4-2026-05-19',
-  label: 'EVENT',
-  message: 'TeleHash #4 — May 19 · Bitcoin Park Austin',
-  href: '/telehash',
-  expiresAt: '2026-05-19T23:59:00-05:00',
-}
+export const activeAnnouncement: Announcement | null = null
