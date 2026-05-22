@@ -1,17 +1,9 @@
-import type { TeleHashEvent, TeleHashLeaderboardEntry } from '@/types'
+import type { TeleHashEvent } from '@/types'
 import PhotoCarousel from './PhotoCarousel'
+import LeaderboardTable from './LeaderboardTable'
 
 interface TeleHashEventCardProps {
   event: TeleHashEvent
-}
-
-function formatContributor(entry: TeleHashLeaderboardEntry): string {
-  if (entry.name) return entry.name
-  const u = entry.user
-  if (u.startsWith('npub') || u.startsWith('bc1')) {
-    return u.slice(0, 12) + '…'
-  }
-  return u
 }
 
 export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
@@ -121,48 +113,10 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
         </div>
       )}
 
-      {/* Contributor leaderboard */}
+      {/* Contributor leaderboard — collapsible */}
       {event.leaderboard && event.leaderboard.length > 0 && (
         <div className="p-6 border-t border-gray-200 dark:border-[#1f1f1f]">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500 mb-4">Top Contributors</p>
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs font-mono">
-              <thead>
-                <tr className="border-b border-gray-200 dark:border-[#1f1f1f]">
-                  <th className="text-left py-2 pr-4 font-normal text-gray-500 uppercase tracking-wider w-8">#</th>
-                  <th className="text-left py-2 pr-4 font-normal text-gray-500 uppercase tracking-wider">Contributor</th>
-                  <th className="text-right py-2 pr-4 font-normal text-gray-500 uppercase tracking-wider">Hashes</th>
-                  <th className="text-right py-2 font-normal text-gray-500 uppercase tracking-wider">Share</th>
-                </tr>
-              </thead>
-              <tbody>
-                {event.leaderboard.map((entry, i) => (
-                  <tr
-                    key={entry.rank}
-                    className={`border-b border-gray-100 dark:border-[#1a1a1a] ${i % 2 === 0 ? '' : 'bg-gray-50/60 dark:bg-[#1a1a1a]/60'}`}
-                  >
-                    <td className="py-1.5 pr-4 text-gray-400">{entry.rank}</td>
-                    <td className="py-1.5 pr-4 text-gray-700 dark:text-gray-300 max-w-[180px] truncate">
-                      {formatContributor(entry)}
-                    </td>
-                    <td className="py-1.5 pr-4 text-right text-[#3b1445] dark:text-[#c084d8]">{entry.hashes}</td>
-                    <td className="py-1.5 text-right text-gray-600 dark:text-gray-400">{entry.share}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="font-mono text-[10px] text-gray-400 mt-3">
-            {event.leaderboard.length} unique contributors ·{' '}
-            <a
-              href="https://dash.256f.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
-            >
-              Full stats via Hashdash →
-            </a>
-          </p>
+          <LeaderboardTable entries={event.leaderboard} />
         </div>
       )}
     </div>

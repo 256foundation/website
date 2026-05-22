@@ -34,7 +34,6 @@ export const teleHashEvents: TeleHashEvent[] = [
     number: 4,
     date: '2026-05-19',
     blockFound: false,
-    videoUrl: 'PLACEHOLDER',
     summary:
       'TeleHash #4 was our biggest event yet — held live at Bitcoin Park Austin on May 19, 2026. No solo block was found, but the community connected a peak of 2.49 EH/s to Hydrapool and contributed ~30.81 ZH of total work over the 6.5-hour event. The Hashdash dashboard was stress-tested live with thousands of concurrent users, hitting 32.7 req/s at peak and prompting real-time caching fixes in the first 30 minutes — a true live QA session with the best possible audience. The event featured project updates on all four core pillar projects and welcomed representatives from major mining companies who shared what they most need from an open-source mining stack. 59 unique contributors and 2,231 workers from around the world participated.',
     stats: {
