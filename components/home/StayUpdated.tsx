@@ -146,7 +146,7 @@ export default function StayUpdated({ posts, latestNewsroomPost }: StayUpdatedPr
           <h3 className="font-display font-bold text-gray-900 dark:text-white text-base mb-1 uppercase tracking-wider">POD256 Podcast</h3>
           <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-              The weekly 256 Foundation team podcast covering open-source mining developments,
+              The 256 Foundation team podcast covering open-source mining developments,
               project updates, and conversations with the builders shaping the future of Bitcoin mining.
             </p>
             <a

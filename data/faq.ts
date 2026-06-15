@@ -63,7 +63,7 @@ export const faqItems: FAQItem[] = [
     category: 'grants',
     question: 'How are funds distributed?',
     answer:
-      'Donations to the General Fund are disbursed to grant recipients periodically by the board of directors, typically in 6, 9, or 12 month cycles per project. Open application periods are announced on social media and on the POD256 podcast, applicants are evaluated and qualified candidates are interviewed to ensure grants are awarded to individuals who will make the biggest impact. Grant recipients are awarded fair-market value for the work they agree to contribute. You can find a list of current grant recipients by following the project links provided on the Grants page.',
+      'Donations to the General Fund are currently prioritized toward the four core pillar projects — Ember One, Mujina, Libre Board, and Hydrapool. These are foundation-defined initiatives we are fully committed to funding. When excess funding is available beyond those commitments, the board opens grant cycles for community-submitted projects. During active cycles, recipients are selected through an evaluation and interview process and awarded fair-market value for their work. You can find a record of all funded projects on the Projects page.',
   },
   {
     category: 'grants',
@@ -81,7 +81,7 @@ export const faqItems: FAQItem[] = [
     category: 'grants',
     question: 'Who can apply for a grant?',
     answer:
-      'Any developer, hardware engineer, or researcher working on open-source Bitcoin mining hardware or software can apply for an Open Grant. We accept applications at any time — applications are reviewed when a grant cycle opens. All funded projects must be released under a recognized open-source license (OSI for software, OSHWA for hardware).',
+      'Open grant applications are currently closed. The 256 Foundation is focused on funding and facilitating our four core pillar projects, which we consider the essential building blocks for open-source Bitcoin mining hardware and software. When funding allows beyond those commitments, we open grant cycles for community developers and researchers. Any developer, hardware engineer, or researcher working on open-source Bitcoin mining can apply during an open cycle. All funded projects must be released under a recognized open-source license (OSI for software, OSHWA for hardware). Follow POD256, our newsletter, or social channels to be notified when the next cycle opens.',
   },
   {
     category: 'grants',
@@ -99,7 +99,7 @@ export const faqItems: FAQItem[] = [
     category: 'grants',
     question: 'How does the grant application process work?',
     answer:
-      'Submit your application through our Typeform application page at any time. Include your project description, technical approach, requested funding amount, timeline, milestone plan, and links to your relevant prior work. The foundation board reviews applications when a grant cycle opens.',
+      'Open grant applications are not currently being accepted. When a grant cycle opens, applicants submit a proposal including project description, technical approach, requested funding amount, timeline, milestone plan, and links to relevant prior work. The foundation board reviews submissions and interviews qualified candidates. Approved grantees work with the foundation to finalize scope, milestones, and payment structure, and all funded work is developed in public under an approved open-source license. Follow our channels to be notified when the next cycle opens.',
   },
 
   // ── Projects & Ecosystem ──────────────────────────────────────

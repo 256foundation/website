@@ -6,7 +6,7 @@ import DecorativeBg from '@/components/ui/DecorativeBg'
 export const metadata = generatePageMetadata({
   title: 'Grants',
   description:
-    'Apply for a 256 Foundation grant to fund your open-source Bitcoin mining hardware or software project.',
+    'The 256 Foundation funds open-source Bitcoin mining hardware and software. Our four core pillar projects are active. Open grant cycles open when funding allows.',
   path: '/grants',
 })
 
@@ -54,8 +54,6 @@ const whatWeDontFund = [
 ]
 
 export default function GrantsPage() {
-  const typeformUrl = process.env.NEXT_PUBLIC_TYPEFORM_URL ?? '#'
-
   return (
     <>
       {/* Hero */}
@@ -66,16 +64,20 @@ export default function GrantsPage() {
             Grants Program
           </p>
           <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
-            Fund the Future of Open-Source Mining
+            Funding Open-Source Mining
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-8">
-            The 256 Foundation provides grants to developers and researchers building open-source
-            Bitcoin mining hardware and software. If you&apos;re working to dismantle the proprietary
-            mining empire — we want to fund you.
+          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
+            The 256 Foundation is committed to funding open-source Bitcoin mining hardware and software.
+            Our four core pillar projects — Ember One, Mujina, Libre Board, and Hydrapool — are
+            foundation-defined initiatives we&apos;re fully dedicated to. When funding allows beyond
+            those commitments, we open grant cycles for the broader community.
           </p>
-          <Button variant="primary" size="lg" href={typeformUrl} external={typeformUrl !== '#'}>
-            Apply for a Grant
-          </Button>
+          <div className="inline-flex items-center gap-3 px-4 py-3 border border-yellow-500/40 bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 font-mono text-sm">
+            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+            </svg>
+            Open grant applications are currently closed. Follow our channels to be notified when the next cycle opens.
+          </div>
         </div>
       </SectionWrapper>
 
@@ -95,8 +97,9 @@ export default function GrantsPage() {
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Foundation-Defined</h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
               The foundation identifies critical missing pieces of the open-source mining stack,
-              defines the scope and deliverables, and selects qualified developers to build them.
-              These are currently our four pillar projects: Ember One, Mujina, Libre Board, and Hydrapool.
+              defines the scope and deliverables, and commits to funding qualified developers to build them.
+              These four projects — Ember One, Mujina, Libre Board, and Hydrapool — are our top priority.
+              They are not traditional grants; they are dedicated foundation projects.
             </p>
             <span className="inline-flex items-center px-2.5 py-0.5 rounded-none text-xs font-mono border text-[#00FF41] border-[#00FF41]/40 bg-[#00FF41]/10">
               Currently Active
@@ -109,11 +112,11 @@ export default function GrantsPage() {
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Community-Driven</h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
               Any developer or researcher can submit a proposal for a project that advances the
-              open-source Bitcoin mining ecosystem. We accept applications at any time and review
-              them when a grant cycle opens.
+              open-source Bitcoin mining ecosystem. Open grant cycles launch when funding is available
+              beyond our core pillar commitments. Follow our channels to know when the next cycle opens.
             </p>
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-none text-xs font-mono border text-[#3b1445] dark:text-[#c084d8] border-[#3b1445]/50 dark:border-[#5c2070]/50 bg-[#3b1445]/15 dark:bg-[#5c2070]/20">
-              Accepting Applications
+            <span className="inline-flex items-center px-2.5 py-0.5 rounded-none text-xs font-mono border text-yellow-600 dark:text-yellow-400 border-yellow-500/40 bg-yellow-500/10">
+              Cycle Closed
             </span>
           </div>
         </div>
@@ -153,21 +156,16 @@ export default function GrantsPage() {
 
       {/* Process */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
           <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase">
             Application Process
           </h2>
-          <a
-            href="https://forum.256foundation.org/upcoming-events/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors whitespace-nowrap"
-          >
-            <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-            </svg>
-            Events calendar for upcoming grant Q&amp;A calls →
-          </a>
+        </div>
+        <div className="flex items-start gap-3 px-4 py-3 mb-8 border border-yellow-500/40 bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 font-mono text-xs">
+          <svg className="w-4 h-4 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+          </svg>
+          The open grant cycle is currently closed. The steps below describe how the process works when a cycle is active. Follow our channels to be notified when the next cycle opens.
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
@@ -182,18 +180,35 @@ export default function GrantsPage() {
         </div>
       </SectionWrapper>
 
-      {/* CTA */}
+      {/* Stay Informed CTA */}
       <SectionWrapper>
         <div className="text-center max-w-xl mx-auto">
           <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl uppercase mb-4">
-            Ready to Apply?
+            Stay Informed
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-8">
-            Submit your application and join the developers building the open-source future of Bitcoin mining.
+            Open grant cycles will be announced on the POD256 podcast, our newsletter, and social channels.
+            Follow along so you don&apos;t miss the next round.
           </p>
-          <Button variant="primary" size="lg" href={typeformUrl} external={typeformUrl !== '#'}>
-            Apply for a Grant
-          </Button>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button variant="primary" size="lg" href="https://256foundation.substack.com" external>
+              Subscribe to Newsletter
+            </Button>
+            <Button variant="secondary" size="lg" href="https://www.pod256.org" external>
+              POD256 Podcast
+            </Button>
+          </div>
+          <div className="flex justify-center gap-6 mt-6">
+            <a href="https://x.com/256FOUNDATION" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors">
+              X / Twitter →
+            </a>
+            <a href="https://primal.net/p/nprofile1qqsqhk42dz0exfcsln4yqmdkjys0nvd7dqndgacpsa7w7pt7njq2uuss2u9cq" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors">
+              Nostr →
+            </a>
+            <a href="https://t.me/the256foundation" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors">
+              Telegram →
+            </a>
+          </div>
         </div>
       </SectionWrapper>
     </>

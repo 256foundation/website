@@ -73,7 +73,7 @@ export default async function ProjectsPage() {
             Open-Source <span className="text-[#3b1445] dark:text-[#c084d8]">Projects</span>
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-            The 256 Foundation defines and funds four core pillar projects building a complete, open-source Bitcoin mining stack. We may also fund additional open grants as the ecosystem grows. This page is a log of all funded projects.
+            The 256 Foundation is committed to four core pillar projects building a complete, open-source Bitcoin mining stack. When funding allows beyond those commitments, we open grant cycles for the broader community. This page is a log of all funded projects.
           </p>
         </SectionWrapper>
       </section>
@@ -89,7 +89,7 @@ export default async function ProjectsPage() {
         </div>
         <p className="mt-4 text-sm text-gray-500 font-mono">
           All grants are denominated and disbursed in Bitcoin.{' '}
-          <a href="/grants" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Apply for a grant &rarr;</a>
+          <a href="/grants" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Learn about our grants program &rarr;</a>
         </p>
       </SectionWrapper>
 

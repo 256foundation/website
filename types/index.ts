@@ -62,6 +62,17 @@ export interface TechFeatureGroup {
   items: string[]
 }
 
+export interface ProjectContextPoint {
+  heading: string
+  body: string
+}
+
+export interface ProjectContext {
+  sectionTitle: string
+  intro: string
+  points: ProjectContextPoint[]
+}
+
 export interface PillarProject {
   slug: ProjectSlug
   type: ProjectType
@@ -70,6 +81,7 @@ export interface PillarProject {
   description: string
   whyCoreGrant: string
   whyNecessary: string
+  context?: ProjectContext
   technicalDetails: string
   keySpecs?: KeySpec[]
   techFeatures?: TechFeatureGroup[]

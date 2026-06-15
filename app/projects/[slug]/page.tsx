@@ -149,6 +149,26 @@ export default async function ProjectPage({ params }: Props) {
         </SectionWrapper>
       </section>
 
+      {/* Context / ecosystem comparison — optional, e.g. Ember One vs Bitaxe */}
+      {project.context && (
+        <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
+          <div className="max-w-3xl mb-10">
+            <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white uppercase mb-4">
+              {project.context.sectionTitle}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{project.context.intro}</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {project.context.points.map((point) => (
+              <div key={point.heading} className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6 hover:border-[#3b1445]/40 dark:hover:border-[#5c2070]/40 transition-colors">
+                <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-3">{point.heading}</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{point.body}</p>
+              </div>
+            ))}
+          </div>
+        </SectionWrapper>
+      )}
+
       {/* Technical details */}
       <SectionWrapper>
         <h2 className="font-display text-2xl font-bold text-gray-900 dark:text-white uppercase mb-4">

@@ -18,12 +18,12 @@ export default function ApplySection() {
               </span>
             </div>
             <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight mb-4 max-w-2xl uppercase">
-              Building something for open-source Bitcoin mining?
+              Open Grant Cycles — Coming Soon
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xl">
-              We fund developers and researchers working on open hardware, firmware, pool software,
-              educational resources, and tooling. All funded work must be released under an
-              approved open-source license.
+              The 256 Foundation will fund community-driven open-source mining projects — open hardware,
+              firmware, pool software, research, and tooling. Grant cycles open when funding is available
+              beyond our four core pillar projects. Follow our channels to be notified when the next cycle launches.
             </p>
             <div className="flex flex-wrap gap-3 mt-4">
               {['Open Hardware', 'Firmware', 'Pool Software', 'Research', 'Education'].map((tag) => (
@@ -38,7 +38,7 @@ export default function ApplySection() {
               href="/grants"
               className="inline-flex items-center gap-3 px-8 py-4 bg-[#3b1445] text-white font-mono font-bold text-base rounded-none hover:bg-[#2d0f36] transition-all duration-200 whitespace-nowrap shadow-[0_0_20px_rgba(59,20,69,0.35)] hover:shadow-[0_0_28px_rgba(59,20,69,0.5)]"
             >
-              Apply for a Grant
+              Learn More
               <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 <path d="M4 10h12M12 5l5 5-5 5" />
               </svg>
