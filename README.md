@@ -167,8 +167,8 @@ website-256F/
 ### Installation
 
 ```bash
-git clone https://github.com/tylerkstevens/website-256F.git
-cd website-256F
+git clone https://github.com/256foundation/website.git
+cd website
 npm install
 ```
 
@@ -200,8 +200,9 @@ NEXT_PUBLIC_SITE_URL=https://256foundation.org
 # Zaprite donation link (used on /donate page and home donate cards)
 NEXT_PUBLIC_ZAPRITE_URL=https://pay.zaprite.com/pl_...
 
-# Typeform grant application URL (used on /grants page)
-NEXT_PUBLIC_TYPEFORM_URL=https://form.typeform.com/to/...
+# Typeform grant application URL — currently unused (open grant cycle is closed)
+# Re-enable when a grant cycle opens by restoring the apply CTA on /grants
+# NEXT_PUBLIC_TYPEFORM_URL=https://form.typeform.com/to/...
 
 # Umami analytics (optional — only injected in production)
 NEXT_PUBLIC_UMAMI_WEBSITE_ID=
@@ -302,8 +303,8 @@ useradd -m -s /bin/bash website
 su - website
 
 # Clone the repo
-git clone https://github.com/tylerkstevens/website-256F.git
-cd website-256F
+git clone https://github.com/256foundation/website.git
+cd website
 
 # Install dependencies
 npm install
@@ -492,7 +493,7 @@ Configured in `next.config.ts` for `next/image` optimization. Required on all ho
 | `/projects/mujina` | Mujina | Project detail |
 | `/projects/libre-board` | Libre Board | Project detail |
 | `/projects/hydrapool` | Hydrapool | Project detail |
-| `/grants` | Grants | Grant program overview + application |
+| `/grants` | Grants | Grant program overview; open cycle currently closed — stay informed CTAs |
 | `/donate` | Donate | BTC/Lightning/card + hashrate donation with participation steps |
 | `/telehash` | TeleHash | Countdown, participation guide, event history with photo carousels |
 | `/faq` | FAQ | Categorized Q&A accordion (sourced from old site + expanded) |
