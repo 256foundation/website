@@ -60,10 +60,10 @@ const projects: EcosystemProject[] = [
   {
     name: 'ASIC-rs',
     abbr: 'ASIC-RS',
-    logoDark: '/ecosystem/ASIC_RS_square_dark.png',
-    logoLight: '/ecosystem/ASIC_RS_square_light.png',
+    logoDark: '/asic-rs-logo/dark/dark-asicrs-logo-no-text.svg',
+    logoLight: '/asic-rs-logo/light/asicrs-logo-no-text.svg',
     logoClass: 'transition-all duration-500',
-    url: 'https://docs.rs/asic-rs/latest/asic_rs/index.html',
+    url: 'https://256foundation.github.io/asic-rs/',
     tagline: 'Open-source Rust library for Bitcoin ASIC communication.',
     mission:
       'ASIC-rs is an open-source Rust library for communicating with Bitcoin mining ASICs. It standardizes the low-level protocol interface so firmware developers can build miner software without reverse-engineering proprietary hardware layers.',
