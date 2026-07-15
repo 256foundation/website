@@ -2,6 +2,22 @@
 
 > **Spec reference:** [SPEC.md](./SPEC.md)
 
+> ⚠️ **HISTORICAL DESIGN INTENT — partially superseded (last verified 2026-07-15).**
+> This document captures the *original* architecture plan. Several pieces below were
+> never built or have since changed. For the **current** state, trust
+> [`CLAUDE.md`](./CLAUDE.md) and [`README.md`](./README.md), the code, and `package.json`.
+> Notable divergences from what's actually shipped:
+> - **No Three.js / GSAP / 3D scroll experience.** `three`, `@react-three/*`, and `gsap`
+>   are *not* dependencies, and `public/models/` does not exist. The orphaned
+>   `HardwareProjectViewer.tsx` / `HashStreamCanvas.tsx` placeholder components have been
+>   removed.
+> - **No `POST /api/contact` (Resend).** The contact form posts directly to Formspree
+>   from the client. `/api/hashdash` is the only API route.
+> - **Hashdash** is a proxy to the Prometheus API (`pool.256foundation.org`), not
+>   `dash.256f.org`, and additionally resolves Nostr display names via Primal.
+> - **Primary deployment is Vercel**, not the self-hosted Proxmox LXC described here
+>   (Proxmox remains a documented option in the README).
+
 ---
 
 ## Overview

@@ -29,16 +29,18 @@ Official website for the [256 Foundation](https://256foundation.org), a 501(c)(3
 | Language | TypeScript | ^5.x |
 | Styling | Tailwind CSS v4 | ^4.x |
 | XML Parsing | fast-xml-parser (Substack feed) | ^5.x |
-| MDX Rendering | next-mdx-remote (Newsroom posts) | ^5.x |
+| MDX Rendering | next-mdx-remote (Newsroom posts) | ^6.x |
 | Frontmatter Parsing | gray-matter (Newsroom posts) | ^4.x |
 | Analytics | Umami (self-hosted, optional) | — |
+
+There are **no other runtime dependencies** — no CSS-in-JS, UI kit, state manager, ORM, or 3D library. The full dependency list is in [`package.json`](package.json).
 
 **Key architectural decisions:**
 - **App Router** — all pages use Next.js 15 App Router with server components by default
 - **Tailwind CSS v4** — CSS-first config via `@theme` and `@custom-variant` in `globals.css` (no `tailwind.config.js`)
 - **Dark mode** — driven by `@media (prefers-color-scheme: dark)` OS preference, not a toggle; Tailwind `dark:` prefix maps to this media query
-- **ISR** — project pages (`/projects`, `/projects/[slug]`) use `export const revalidate = 3600` for hourly ISR so live GitHub and forum data stays fresh without blocking builds
-- **Static-first** — all other pages are statically generated at build time; only the Hashdash proxy is server-rendered on demand
+- **ISR** — the home page (`/`) and project pages (`/projects`, `/projects/[slug]`) use `export const revalidate = 3600` for hourly ISR so live GitHub, forum, and Substack data stays fresh without blocking builds
+- **Static-first** — every other page is statically generated at build time (`/newsroom` and `/newsroom/[slug]` are explicitly `force-static`); only the `/api/hashdash` proxy is server-rendered on demand (`force-dynamic`)
 
 ---
 
@@ -64,8 +66,7 @@ website-256F/
 │   │   ├── page.tsx            # /projects — all projects + live org repos
 │   │   └── [slug]/page.tsx     # /projects/[slug] — individual project (ISR)
 │   └── api/
-│       ├── hashdash/route.ts   # Prometheus proxy for live hashrate leaderboard
-│       └── posts/route.ts      # Substack RSS feed proxy
+│       └── hashdash/route.ts   # Prometheus proxy for live hashrate leaderboard (only API route)
 │
 ├── components/
 │   ├── ui/                     # Reusable primitive components
@@ -150,18 +151,21 @@ website-256F/
 │   ├── ecosystem/              # Ecosystem partner logos
 │   ├── newsroom/               # Newsroom article images, organized by post slug
 │   ├── telehash/               # TeleHash event photos (th3-*.jpg, etc.)
-│   ├── og/                     # Open Graph images
-│   └── models/                 # 3D model assets
+│   └── og/                     # Open Graph images
 │
-└── next.config.ts              # Next.js config (image domains, etc.)
+├── content/newsroom/*.mdx      # Newsroom articles (one .mdx per post)
+├── tests/                      # Node built-in test runner (`node --test`)
+└── next.config.ts              # Next.js config (image domains, package-import optimization)
 ```
+
+> See [`CLAUDE.md`](CLAUDE.md) for a condensed orientation guide (conventions, gotchas, and where things live) aimed at AI coding assistants and new contributors.
 
 ---
 
 ## Getting Started
 
 ### Prerequisites
-- Node.js 18+
+- Node.js 20 LTS or newer (the app uses `AbortSignal.timeout`; built and verified on Node 20)
 - npm
 
 ### Installation
@@ -184,7 +188,8 @@ npm run dev
 ```bash
 npm run build     # compile for production
 npm start         # run production server
-npm run lint      # run ESLint
+npm run lint      # run ESLint (next lint)
+npm test          # run the Node test suite (node --test tests/)
 ```
 
 ---
@@ -470,13 +475,17 @@ Once running at `http://<server-ip>:8000`:
 
 ### Remote Image Domains
 
-Configured in `next.config.ts` for `next/image` optimization. Required on all hosting platforms:
+Configured in `next.config.ts` under `images.remotePatterns` for `next/image` optimization. Required on all hosting platforms:
 
 | Domain | Used For |
 |--------|---------|
+| `i.ytimg.com` | YouTube video thumbnails |
+| `img.youtube.com` | YouTube video thumbnails |
 | `substackcdn.com` | Substack post thumbnails |
 | `substack-post-media.s3.amazonaws.com` | Substack post images |
-| `avatars.githubusercontent.com` | GitHub user avatars |
+| `bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com` | Substack-hosted media |
+
+`next/image` also negotiates `image/avif` → `image/webp` → original for all optimized images.
 
 ---
 
@@ -719,13 +728,16 @@ Parsed by `lib/newsroom.ts` at build time. Posts are sorted newest-first. The mo
 
 ## API Routes
 
+`/api/hashdash` is the **only** API route (`export const dynamic = 'force-dynamic'`).
+
 | Route | Method | Description |
 |-------|--------|-------------|
-| `/api/hashdash` | GET | Calls 3 Prometheus queries in parallel: top 5 donors, total hashrate, active donor count. Returns normalized JSON for the leaderboard. |
-| `/api/posts` | GET | Fetches and parses Substack RSS feed, returns 3 most recent posts. |
+| `/api/hashdash` | GET | Runs 3 Prometheus queries in parallel against `pool.256foundation.org/api/v1/query` (top 5 workers by 5-min share rate, total hashrate, active worker count). For `npub…` identities it resolves Nostr display names + avatars via the Primal API (`primal.net/api`), with an in-memory 10-min cache. Each upstream call has a 5s `AbortSignal.timeout`; returns `503` if the pool is unreachable. |
+
+> **Substack posts are not an API route.** The home page server component (`app/page.tsx`) calls `fetchSubstackPosts()` from `lib/substack.ts` directly at render time (ISR, `revalidate: 3600`).
 
 ### Contact Form
-The contact form (`components/home/ContactForm.tsx`) posts **directly to Formspree** (`https://formspree.io/f/xkndjepy`) from the browser — no server route needed. Fields: `name`, `_replyto` (email), `message`.
+The contact form (`components/home/ContactForm.tsx`) posts **directly to Formspree** (`https://formspree.io/f/xkndjepy`) from the browser — no server route needed. Fields: `name`, `_replyto` (email), `message`. (The empty `app/api/contact/` directory is a leftover from the removed Resend integration and can be deleted.)
 
 ---
 

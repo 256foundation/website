@@ -1,5 +1,13 @@
 # 256 Foundation Website — Full Specification
 
+> ⚠️ **ORIGINAL PRODUCT/DESIGN SPEC — aspirational, not a description of the shipped site
+> (last verified 2026-07-15).** This is the pre-build specification and states design
+> intent. Parts were deliberately not implemented (notably the Three.js/@react-three/GSAP
+> 3D scroll interactions and the Resend-backed contact API) or have changed (deployment,
+> hashdash data source). It's kept for product/mission context and history. For the
+> **current** technical reality, use [`CLAUDE.md`](./CLAUDE.md), [`README.md`](./README.md),
+> and the code — see the divergence list at the top of [`ARCHITECTURE.md`](./ARCHITECTURE.md).
+
 ## Overview
 
 The 256 Foundation website (`256foundation.org`) is the primary public-facing presence and source of truth for the entire organization. It serves three core functions:
