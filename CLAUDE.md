@@ -191,6 +191,15 @@ avoid (Resend, Hashdash, Typeform) so they don't creep back in.
 
 ## Related docs
 
+- **Planned content and copy work is tracked in `website-roadmap-2026-Q3.md` in the private
+  [`256foundation/organization-spec`](https://github.com/256foundation/organization-spec) repo.**
+  Check it before making copy or content changes. Ask Tyler for access.
+
+  Copy conventions it sets, which apply to any change:
+  - Don't describe the foundation as a "passthrough" — use direct-funding language.
+  - Don't publish grant amounts per project or per person. Cumulative totals only.
+  - Funded maintainers are **Core Contributors**. Pillar projects are community open source —
+    anyone can contribute, and no grant is required to do so.
 - [`README.md`](README.md) — full reference: deployment (Vercel / Proxmox / Coolify /
   Netlify / Railway), integration URLs, complete design-system tables, content-update
   recipes.
