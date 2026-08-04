@@ -176,8 +176,10 @@ export interface NewsroomPost {
   title: string
   date: string
   author: string
-  category: 'announcement' | 'mission' | 'industry' | 'partner'
+  category: 'announcement' | 'mission' | 'industry' | 'partner' | 'grant' | 'manifesto'
   excerpt: string
   coverImage?: string
   ogImage?: string
+  /** Pins the post above the date-sorted list and claims the home-page slot */
+  featured?: boolean
 }

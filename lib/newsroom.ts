@@ -28,13 +28,27 @@ function toPost(slug: string, data: Record<string, unknown>): NewsroomPost {
     excerpt: String(data.excerpt ?? ''),
     coverImage: data.coverImage ? String(data.coverImage) : undefined,
     ogImage: data.ogImage ? String(data.ogImage) : undefined,
+    featured: data.featured === true,
   }
+}
+
+/**
+ * Featured posts sort first, then everything by date descending. Without a
+ * featured post this is identical to plain date-descending order.
+ *
+ * Mirrored by tests/newsroom-featured.test.mjs — keep the two in step.
+ */
+export function comparePosts(a: NewsroomPost, b: NewsroomPost): number {
+  const aFeatured = a.featured === true
+  const bFeatured = b.featured === true
+  if (aFeatured !== bFeatured) return aFeatured ? -1 : 1
+  return new Date(b.date).getTime() - new Date(a.date).getTime()
 }
 
 export function getAllPosts(): NewsroomPost[] {
   return readAllFiles()
     .map(({ slug, data }) => toPost(slug, data))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .sort(comparePosts)
 }
 
 export function getPostBySlug(slug: string): { meta: NewsroomPost; content: string } | null {
@@ -45,9 +59,10 @@ export function getPostBySlug(slug: string): { meta: NewsroomPost; content: stri
   return { meta: toPost(slug, data), content }
 }
 
+/** Prefers a featured post so it holds the home-page slot; otherwise the newest. */
 export function getLatestPost(): NewsroomPost | null {
   const posts = getAllPosts()
-  return posts[0] ?? null
+  return posts.find((post) => post.featured === true) ?? posts[0] ?? null
 }
 
 export function formatPostDate(dateStr: string): string {
