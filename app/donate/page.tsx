@@ -54,8 +54,9 @@ export default function DonatePage() {
             Fund the Open-Source Mining Revolution
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-            The 256 Foundation is a 100% passthrough nonprofit. Every dollar or sat you donate goes
-            directly to the developers and project managers building the open-source Bitcoin mining stack.
+            The 256 Foundation is a 501(c)(3) nonprofit funding the core contributors building
+            open-source Bitcoin mining infrastructure &mdash; Mujina firmware, Libre Board, Hydrapool,
+            and the Ember One hashboard.
           </p>
         </div>
       </SectionWrapper>

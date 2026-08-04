@@ -19,10 +19,10 @@ const values = [
       'Every project funded by this foundation is made available under a recognized open-source license. No closed-source, no proprietary forks, no exceptions.',
   },
   {
-    icon: '💯',
-    title: '100% Passthrough',
+    icon: '🔧',
+    title: 'Direct Funding',
     description:
-      'Every dollar donated goes directly to the developers and projects we fund. We take no percentage for overhead or administration.',
+      'The 256 Foundation directly funds core contributors building the open-source Bitcoin mining infrastructure we deem critically important — Mujina firmware, Libre Board, Hydrapool, and the Ember One hashboard.',
   },
   {
     icon: '⚡',

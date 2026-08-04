@@ -27,8 +27,8 @@ export default function DonateCards() {
             Fund the Mission
           </h3>
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 max-w-xs">
-            Bitcoin on-chain, Lightning, or credit card via Zaprite. 100% passthrough &mdash; every
-            satoshi goes directly to developers. Tax-deductible 501(c)(3).
+            Bitcoin on-chain, Lightning, or credit card via Zaprite. Directly funds the core
+            contributors building open-source Bitcoin mining infrastructure. Tax-deductible 501(c)(3).
           </p>
           <div className="flex items-center gap-2 text-xs font-mono text-gray-500 dark:text-gray-400 mb-8">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00FF41]" />

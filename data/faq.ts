@@ -16,9 +16,9 @@ export const faqItems: FAQItem[] = [
   },
   {
     category: 'foundation',
-    question: 'How much of my donation goes towards open-source contributors?',
+    question: 'What does my donation fund?',
     answer:
-      '100% of the donations made to the General Fund go to support the individuals working directly on the open-source Bitcoin mining related initiatives. There is no cut taken for administrative costs nor for board members.',
+      'The 256 Foundation directly funds core contributors building the open-source Bitcoin mining infrastructure we deem critically important — Mujina firmware, Libre Board, Hydrapool, and the Ember One hashboard. No board member is compensated.',
   },
   {
     category: 'foundation',
