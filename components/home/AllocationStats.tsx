@@ -55,7 +55,7 @@ export default function AllocationStats({ stats }: AllocationStatsProps) {
         ))}
       </div>
 
-      <div className="mt-10 pt-6 border-t border-gray-200 dark:border-[#1f1f1f] flex items-center gap-6">
+      <div className="mt-10 pt-6 border-t border-gray-200 dark:border-[#1f1f1f] flex items-center">
         <Link
           href="/projects"
           className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline transition-colors inline-flex items-center gap-2"
@@ -65,7 +65,6 @@ export default function AllocationStats({ stats }: AllocationStatsProps) {
             <path d="M2 7h10M8 3l4 4-4 4" />
           </svg>
         </Link>
-        <span className="text-gray-400 dark:text-gray-700 text-xs font-mono">100% passthrough to developers</span>
       </div>
     </div>
   )
