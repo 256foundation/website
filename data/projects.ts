@@ -95,7 +95,7 @@ export const pillarProjects: PillarProject[] = [
       leadEngineer: {
         name: 'Skot',
         handle: '@skot9000',
-        role: 'Lead Engineer',
+        role: 'Core Contributor',
         bio: 'Electrical engineer with years of embedded systems experience, Skot instigated the Bitaxe project — the first open-source Bitcoin ASIC miner — and brings that same hands-on hardware conviction to Ember One. He is one of the most prolific forces in open-source Bitcoin mining hardware.',
         headshot: '/team/skot.jpg',
         links: { x: 'https://x.com/skot9000', github: 'https://github.com/skot' },
@@ -203,7 +203,7 @@ export const pillarProjects: PillarProject[] = [
       leadEngineer: {
         name: 'Ryan Kuester',
         handle: '@ryankuester',
-        role: 'Lead Engineer',
+        role: 'Core Contributor',
         bio: 'Firmware engineer with decades of Linux and embedded systems experience. Ryan brings deep low-level expertise to Mujina, building the open-source firmware foundation that the entire Bitcoin mining stack runs on.',
         headshot: '/team/ryan.jpg',
         links: { x: 'https://x.com/ryankuester' },
@@ -318,7 +318,7 @@ export const pillarProjects: PillarProject[] = [
       leadEngineer: {
         name: 'Schnitzel',
         handle: '@Schnitzel',
-        role: 'Lead Engineer',
+        role: 'Core Contributor',
         bio: 'Open-source infrastructure builder and Bitcoin home miner. Founder of Nakamoto Heating and Amazee.io, Schnitzel brings deep systems engineering experience and a passion for sovereign Bitcoin mining to the Libre Board project.',
         headshot: '/team/schnitzel.jpg',
         links: { x: 'https://x.com/Schnitzel' },
@@ -429,7 +429,7 @@ export const pillarProjects: PillarProject[] = [
       leadEngineer: {
         name: 'Jungly',
         handle: '@jungly',
-        role: 'Lead Engineer',
+        role: 'Core Contributor',
         bio: 'Distributed systems researcher with a PhD and the developer behind P2Pool v2. Jungly brings rigorous academic and hands-on protocol engineering to Hydrapool, building the open-source mining pool infrastructure the ecosystem needs.',
         headshot: '/team/jungly.jpg',
         links: { x: 'https://x.com/jungly' },
