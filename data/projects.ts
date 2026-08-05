@@ -15,7 +15,7 @@ export const pillarProjects: PillarProject[] = [
     context: {
       sectionTitle: 'Why Not Just Use Bitaxe?',
       intro:
-        'The Bitaxe — created by Ember One\'s own lead engineer, Skot — is the first open-source Bitcoin ASIC miner and a landmark achievement. But it was designed to teach one-chip mining, not to model how a production Bitcoin miner is built. Ember One exists because those are two fundamentally different problems.',
+        'The Bitaxe — created by Skot, who is also a core contributor on Ember One — is the first open-source Bitcoin ASIC miner and a landmark achievement. But it was designed to teach one-chip mining, not to model how a production Bitcoin miner is built. Ember One exists because those are two fundamentally different problems.',
       points: [
         {
           heading: 'Hash boards and control boards are separate',
@@ -363,7 +363,7 @@ export const pillarProjects: PillarProject[] = [
         },
         {
           heading: 'A building block for fully decentralized pooling',
-          body: 'Hydrapool\'s roadmap includes interoperability with P2Pool V2 — a ground-up Rust rewrite of the original P2Pool concept, actively developed by Jungly, who is also Hydrapool\'s lead engineer. P2Pool V2 aims to remove the pool operator entirely: miners collectively maintain a share chain and receive non-custodial payouts directly in the coinbase transaction, with no central server to shut down or coerce. Hydrapool is the well-documented, production-capable foundation that makes experimenting with and contributing to that future possible. The path from "one-click pool" to "fully decentralized pooling infrastructure" runs through the same codebase.',
+          body: 'Hydrapool\'s roadmap includes interoperability with P2Pool V2 — a ground-up Rust rewrite of the original P2Pool concept, actively developed by Jungly, who is also a core contributor on Hydrapool. P2Pool V2 aims to remove the pool operator entirely: miners collectively maintain a share chain and receive non-custodial payouts directly in the coinbase transaction, with no central server to shut down or coerce. Hydrapool is the well-documented, production-capable foundation that makes experimenting with and contributing to that future possible. The path from "one-click pool" to "fully decentralized pooling infrastructure" runs through the same codebase.',
         },
       ],
     },
