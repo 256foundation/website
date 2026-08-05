@@ -68,7 +68,6 @@ export default function Logo({
       {/* Dark mode: browser picks this source when prefers-color-scheme: dark */}
       <source media="(prefers-color-scheme: dark)" srcSet={asset.black} />
       {/* Light mode fallback */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={asset.white}
         alt={alt}

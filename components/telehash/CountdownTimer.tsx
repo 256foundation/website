@@ -35,6 +35,9 @@ export default function CountdownTimer({ targetDate, endDate }: CountdownTimerPr
   const [concluded, setConcluded] = useState(false)
 
   useEffect(() => {
+    // The countdown reads the client clock, so it stays hidden until after
+    // hydration to avoid a server/client mismatch.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
     if (!targetDate) return
 
