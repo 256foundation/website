@@ -8,6 +8,8 @@ const categoryLabels: Record<NewsroomPost['category'], string> = {
   mission: 'Mission',
   industry: 'Industry',
   partner: 'Partner',
+  grant: 'Grant',
+  manifesto: 'Manifesto',
 }
 
 interface PostCardProps {
