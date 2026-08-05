@@ -27,7 +27,7 @@ export const board: TeamMember[] = [
   {
     name: 'Tyler Stevens',
     handle: '@tylerkstevens',
-    role: 'Board Member',
+    role: 'President of the Board',
     bio: 'Mechanical engineer, founder of Exergy, and author of the industry reference guide on Bitcoin mining heat reuse. Tyler founded the Hashrate Heatpunks community and has spent his career at the intersection of Bitcoin and energy infrastructure — from thermal engineering on the Vulcan rocket program to building hashrate heating systems for homes and businesses.',
     headshot: '/team/tyler-stevens.jpg',
     links: {
@@ -37,8 +37,8 @@ export const board: TeamMember[] = [
   {
     name: 'Skot',
     handle: '@skot9000',
-    role: 'Board Member & Lead Engineer, Ember One',
-    bio: 'Electrical engineer with years of embedded systems experience, Skot instigated the Bitaxe project — the first open-source Bitcoin ASIC miner — and serves as lead engineer on the Ember One hash board. He is one of the most hands-on forces in open-source Bitcoin mining hardware.',
+    role: 'Secretary of the Board',
+    bio: 'Electrical engineer with years of embedded systems experience, Skot instigated the Bitaxe project — the first open-source Bitcoin ASIC miner — and works on the Ember One hash board. He is one of the most hands-on forces in open-source Bitcoin mining hardware.',
     headshot: '/team/skot.jpg',
     links: {
       x: 'https://x.com/skot9000',
@@ -47,7 +47,7 @@ export const board: TeamMember[] = [
   {
     name: 'Joe Wood',
     handle: '@JoeWoodCPA',
-    role: 'Board Member',
+    role: 'Treasurer of the Board',
     bio: 'Licensed CPA with over sixteen years of experience across auditing, financial reporting, and accounting operations. Joe founded Satoshi Pacioli to bring that expertise to the Bitcoin industry, and serves as treasurer for both the Bitcoin Dev Kit Foundation and Bitcoin is Better. He brings rigorous financial oversight and deep Bitcoin conviction to the 256 Foundation board.',
     headshot: '/team/joe-wood.jpg',
     links: {
