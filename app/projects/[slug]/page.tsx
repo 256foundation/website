@@ -8,6 +8,7 @@ import { fetchProjectForumTopics } from '@/lib/discourse'
 import { fetchRepoMeta, fetchRecentCommits } from '@/lib/github'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Badge from '@/components/ui/Badge'
+import Button from '@/components/ui/Button'
 import ExternalLink from '@/components/ui/ExternalLink'
 import PCBBackground from '@/components/ui/PCBBackground'
 import ProjectTeamSection from '@/components/projects/ProjectTeamSection'
@@ -67,6 +68,9 @@ export default async function ProjectPage({ params }: Props) {
               <p className="text-[#3b1445] dark:text-[#c084d8] font-mono text-lg mb-4">{project.tagline}</p>
               <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mb-8">{project.description}</p>
               <div className="flex flex-wrap gap-3">
+                <Button href="/donate" variant="primary" size="md">
+                  Fund This Project &rarr;
+                </Button>
                 <ExternalLink
                   href={project.githubUrl}
                   className="inline-flex items-center gap-2 border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] font-mono px-5 py-2.5 rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-colors"
