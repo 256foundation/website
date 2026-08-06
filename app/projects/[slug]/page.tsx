@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { pillarProjects } from '@/data/projects'
 import { generatePageMetadata } from '@/lib/metadata'
+import { projectTitleFontClasses } from '@/lib/projectTitle'
 import { fetchProjectForumTopics } from '@/lib/discourse'
 import { fetchRepoMeta, fetchRecentCommits } from '@/lib/github'
 import SectionWrapper from '@/components/ui/SectionWrapper'
@@ -58,7 +59,9 @@ export default async function ProjectPage({ params }: Props) {
               <div className="mb-4">
                 <Badge status={project.status} />
               </div>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-white uppercase mb-3">
+              <h1
+                className={`${projectTitleFontClasses(project)} text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3`}
+              >
                 {project.name}
               </h1>
               <p className="text-[#3b1445] dark:text-[#c084d8] font-mono text-lg mb-4">{project.tagline}</p>

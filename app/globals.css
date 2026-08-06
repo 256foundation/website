@@ -32,9 +32,21 @@
   --font-sans:    var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* ── Project brand typefaces ─────────────────────────────────── */
+/* Bridge Officer (Iconian Fonts) — Mujina wordmark. */
+@font-face {
+  font-family: 'Bridge Officer';
+  src: url('/fonts/bridge-officer.woff2') format('woff2');
+  font-display: swap;
+}
+
 /* ── Font utility classes ────────────────────────────────────── */
 .font-display {
   font-family: var(--font-display);
+}
+
+.font-bridge-officer {
+  font-family: 'Bridge Officer', var(--font-display);
 }
 
 /* ── Base styles ─────────────────────────────────────────────── */

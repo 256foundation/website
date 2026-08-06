@@ -91,6 +91,8 @@ export interface PillarProject {
   forumCategory: string
   forumCategoryApiUrl: string
   ogImage?: string
+  /** Optional brand typeface for the project title. Falls back to font-display. */
+  titleFont?: 'bridge-officer'
   logo?: ProjectLogo
   milestones: Milestone[]
   team: {

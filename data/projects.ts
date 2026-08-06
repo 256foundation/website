@@ -114,7 +114,8 @@ export const pillarProjects: PillarProject[] = [
     slug: 'mujina',
     type: 'software',
     name: 'Mujina',
-    tagline: 'The Linux kernel of Bitcoin mining firmware',
+    titleFont: 'bridge-officer',
+    tagline: 'The Linux kernel project of Bitcoin mining firmware',
     description:
       'Mujina is an actively maintained, open-source Bitcoin mining firmware designed to be a drop-in replacement for proprietary firmware on existing hardware — while also serving as the standard for new open hardware designs.',
     whyCoreGrant:
