@@ -147,9 +147,20 @@ body {
 }
 
 /* ── Focus ring ──────────────────────────────────────────────── */
+/* Unlayered on purpose: this beats Tailwind's utility layer, so the ring is
+   consistent sitewide and can't be knocked out by a stray focus- utility.
+   Light mode narrows the color further in the light-mode block below. */
 :focus-visible {
   outline: 2px solid #3b1445;
   outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* #3b1445 on the #1a1a1a page background is ~1.4:1 — effectively invisible.
+     Use the dark-mode accent instead. */
+  :focus-visible {
+    outline-color: #c084d8;
+  }
 }
 
 /* ── Purple glow utilities ───────────────────────────────────── */
