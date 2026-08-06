@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { PillarProject } from '@/types'
 import type { GitHubRepoMeta } from '@/lib/github'
+import { projectTitleFontClasses } from '@/lib/projectTitle'
 import Badge from '@/components/ui/Badge'
 import ExternalLink from '@/components/ui/ExternalLink'
 
@@ -49,7 +50,7 @@ export default function PillarProjectCard({ project, repoMeta }: Props) {
           </div>
         </div>
 
-        <h3 className="font-display text-xl text-gray-900 dark:text-white font-bold mb-1 group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors uppercase">
+        <h3 className={`${projectTitleFontClasses(project)} text-xl text-gray-900 dark:text-white font-bold mb-1 group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors`}>
           {project.name}
         </h3>
         <p className="text-[#3b1445]/70 dark:text-[#c084d8]/70 text-xs font-mono mb-3 leading-tight">{project.tagline}</p>
