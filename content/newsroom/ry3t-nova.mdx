@@ -1,153 +1,156 @@
 ---
-title: "The First Retail Product Developed With Mujina"
-date: "2026-08-05"
+# TODO: set the publish date before shipping
+title: "The RY3T Nova: The First Product Built on Mujina"
+date: "2026-08-07"
 author: "256 Foundation"
 category: "announcement"
-excerpt: "The 256 Foundation confirms the first commercial product in development on Mujina, the open-source Bitcoin mining firmware we fund: the RY3T Nova, a solar self-consumption miner that follows a PV curve in seconds — and can pay more for surplus power than the grid does."
-coverImage: "/newsroom/ry3t-nova/PLACEHOLDER-nova-hero.png"
-ogImage: "/newsroom/ry3t-nova/PLACEHOLDER-nova-og.png"
-featured: false
+excerpt: "A Swiss energy company is building a solar miner that follows a PV curve in seconds, built on Mujina, the open-source firmware we fund but do not own. It is the first product to prove the model works."
+coverImage: "/newsroom/ry3t-nova/nova-driveway-3stack.webp"
+ogImage: "/newsroom/ry3t-nova/og-ry3t-nova-mujina.png"
+featured: true
 ---
 
-**The 256 Foundation applauds the arrival of the first retail product developed with Mujina, the open-source Bitcoin mining firmware: the [RY3T Nova](https://nova.ry3t.com/en/), in development at [RY3T](https://ry3t.com/en/) of Wil, Switzerland.**
+[RY3T](https://ry3t.com/en/), an energy hardware company in Wil, Switzerland, is building the first commercial product to run [Mujina](https://mujina.org), the open-source Bitcoin mining firmware the 256 Foundation instigated and funds. It is called the [Nova](https://nova.ry3t.com/en/?cur=usd).
 
-We had nothing to do with it. That is precisely why we are announcing it.
+The Nova mines Bitcoin with solar power your home isn't using. When your panels make more than the building can consume, or your batteries are already full, that surplus is used to mine Bitcoin instead of being sold back to the grid at unfavorable rates. In many markets, that earns the homeowner considerably more.
 
-The Nova is a solar self-consumption appliance. When a home's battery is full and the array is still producing, the Nova absorbs the surplus and turns it into Bitcoin — tracking the generation curve in seconds, ramping its power draw up and down to match what the panels are actually making, talking directly to the inverter or energy management system that runs the building. It does this by running **[Mujina](https://mujina.org)** on stock mining control boards. No aftermarket controller, no intermediary hardware, no closed-firmware ceiling.
+It does that by following the solar generation curve in seconds, ramping its power draw up and down to match what the panels are actually making, taking its orders from the solar management system that already runs the building.
 
-To our knowledge, no other commercial mining product can follow a solar curve at this resolution. The reason is not a hardware advantage. It is that Mujina is open source, and its maintainers were free to treat power as a live control input rather than a configuration setting.
+Mujina is a community project. The 256 Foundation defined it, kicked it off, and funds the Core Contributors who maintain it. But it is GPLv3, it is owned by no one, and it is there for anyone to use and contribute to. RY3T read the code, adapted it to their system, and built a product around it. No partnership, no license negotiation, no permission required.
 
-Mujina is a community project, owned by no one. The 256 Foundation kicked it off, stewards the repository, and funds the Core Contributors who maintain it — but it is GPLv3, and it is there for the taking. RY3T took it. They did not ask us, negotiate a license, or sign a partnership. They read the code, modified it for their system, and built a product around it, which is exactly what the license invites anyone to do.
-
-That is the milestone worth marking. Not that the Foundation shipped something — we didn't, and it isn't our job to. It's that open-source mining firmware has reached a machine you will be able to buy.
-
-![PLACEHOLDER — RY3T Nova product photo](/newsroom/ry3t-nova/PLACEHOLDER-nova-product.png)
+That is exactly what we hoped would happen.
 
 ---
 
-## Why Anyone Wants a Miner That Follows the Sun
+## The Problem RY3T Set Out to Solve
 
-The appeal is not novelty. It is arithmetic.
+Anyone with a solar array faces the same question on a sunny afternoon: what happens to the surplus?
 
-Anyone with a solar array and a full battery faces the same question every sunny afternoon: what happens to the surplus? In most markets the answer is that it goes to the grid at the export or net-metering rate — and across much of Europe and the United States, that rate has been falling for years. Feed-in tariffs that once approached the retail price of electricity have been cut repeatedly. In a growing number of places, surplus midday solar earns a couple of cents per kilowatt-hour, nothing at all, or gets curtailed outright because the grid does not want it.
+Increasingly, the answer is *not much*. Feed-in tariffs and export rates across much of Europe and the United States have been cut repeatedly. In a growing number of markets, surplus midday solar earns a couple of cents per kilowatt-hour, earns nothing at all, or gets curtailed outright because the grid does not want it. In some jurisdictions, building owners are now required to pay the utility to export their excess generation.
 
-Bitcoin mining is a buyer of last resort for that electricity. A miner will consume surplus generation at whatever value the hashrate produces — and for a great many owners, in a great many hours of the year, that is worth more than the export rate on offer. The exact comparison depends on the local tariff, the machine's efficiency, the Bitcoin price, and network difficulty, so it is not universal and it is not static. But the structure of the trade is durable: exporting is a price you are given, and mining is a price you can find.
+A Bitcoin miner has always been electricity's buyer of last resort. But industrial machines, excessive noise, and limited firmware control kept that opportunity confined to large industrial and commercial mining operations with power purchase agreements. Mujina brings the same arbitrage home.
 
-Every other flexible load in the house is already treated this way. Batteries, heat pumps, EV chargers, and hot water tanks all get scheduled against the solar curve by the same energy management systems. A miner is the one load that could absorb surplus at any hour, in any quantity, without needing somewhere to put the energy afterward — and it was the one load nobody could dispatch.
-
-That is the product people have wanted for a decade. Nobody could build it, because the firmware would not let them.
+Every other flexible load in the house is already treated this way. Batteries, heat pumps, EV chargers, and hot water tanks all get scheduled against the solar curve by the same energy management systems. A miner is the one load that can absorb surplus at any hour, in any quantity, without needing somewhere to put the energy afterward. It also pays you for doing so.
 
 ---
 
-## The Bottleneck Was Never the Hardware
+## Why It Wasn't Possible Before
 
-ASICs have always been able to change power. The chips take a frequency and a voltage; dial them down and the machine draws less. The physics were never the problem.
+The obstacle was never really the hardware. ASIC mining chips have always been able to change power to some degree: the chips take a frequency and a voltage, and dialing them down draws less. The physics were never in question.
 
-The problem is that every firmware option on the market — the OEM firmware from the manufacturers and the aftermarket alternatives alike — was written for one deployment: a data center, running flat out, at a fixed setpoint, forever. In that world, changing power is a maintenance event. Nobody optimized for it, because nobody needed it. Closed firmware treats power as a configuration setting rather than a live control input.
+The obstacle is the firmware, and specifically that essentially all of it is closed source and designed for industrial use cases. Manufacturer firmware from Bitmain, Whatsminer, Canaan, and Bitdeer, among others, is closed. The aftermarket alternatives, including Braiins OS, LuxOS, and Vnish, are closed too. Miners get the control surface a vendor chooses to expose and nothing beyond it, and what those vendors chose to expose was aimed squarely at large mining operations. When a machine cannot do what an operator needs, there is no recourse: you cannot read the code, change it, or build on it.
 
-- **Whatsminer stock firmware** takes roughly 40 minutes to respond to a wattage change, and reboots the mining process to do it.
-- **Braiins** likewise restarts the mining process on a change, with a similar delay before the machine is productive again.
-- **Auradine** built something genuinely more responsive — and then the company pivoted to AI. That firmware is no longer a path forward.
+And all of it was written for one deployment: a data center running flat out at a fixed setpoint, indefinitely. In that world, changing power is a maintenance event rather than a control input, so nobody optimized for doing it quickly or often. There was no demand for it.
 
-Forty minutes is not a control loop. A cloud front moves across an array in seconds. By the time a stock miner has finished rebooting to accept a new setpoint, the condition it was responding to is gone.
+Companies and DIY tinkerers worked around the limitation anyway: Home Assistant integrations, external controllers, aftermarket relay hardware, firmware hacks, and management layers bolted on top of miners never designed to be modulated. The scaffolding worked, more or less. It also meant extra hardware, extra software, and a ceiling on responsiveness that no amount of integration work could raise.
 
-Companies worked around it anyway. Home Assistant integrations, external controllers, aftermarket relay hardware, and management layers bolted on top of miners that were never designed to be modulated — a whole industry of scaffolding built to compensate for a firmware limitation. The scaffolding worked, more or less. It also meant extra hardware, extra software, and an upper bound on responsiveness that no amount of integration work could lift.
-
-You cannot fix a closed firmware from outside it. You have to replace it.
+You cannot fix closed firmware from outside it. You have to replace it.
 
 ---
 
 ## Mujina: Power as a Live Input
 
-[Mujina](https://mujina.org) is open-source Bitcoin mining firmware — GPLv3, written in Rust, running on Linux, and maintained by **Ryan Kuester**, a Core Contributor funded by the 256 Foundation. The [source is public](https://github.com/256foundation/mujina).
+[Mujina](https://mujina.org) is open-source Bitcoin mining firmware: GPLv3, written in Rust, running on Linux, and maintained by [Ryan](https://x.com/ryankuester), a Core Contributor funded by the 256 Foundation. The [source is public](https://github.com/256foundation/mujina).
 
-The relevant capability is unglamorous and decisive: **Mujina accepts a power target and settles on it in seconds, without rebooting the mining process.**
+The capability that matters here is unglamorous and decisive: **Mujina accepts a power target and settles on it in seconds, without restarting the mining process.**
 
-That single property is what turns a miner into a dispatchable load. Set 1,400W, and the machine is at 1,400W before the next cloud arrives. Set 2,900W, same. No restart, no dropped connection to the pool, no forty-minute penalty for changing your mind. The miner becomes something an inverter or an energy management system can actually steer.
+That single property is what turns a miner into a dispatchable load. Set 1,400W, and the machine is at 1,400W before the next cloud arrives. Set 2,900W, and it settles there just as fast. No restart, no dropped pool connection, no penalty for changing your mind. The miner becomes something an inverter or an energy management system can actually steer in real time.
 
 Because Mujina is open source, that behavior is not a feature request filed with a manufacturer. It is code, in public, that anyone can read, run, and build on.
 
 ---
 
-## What Was Demonstrated
+## What's Been Demonstrated
 
-The capability stack behind the Nova has been demonstrated publicly over recent months by **Schnitzel**, the engineer responsible for the Mujina integration work. Each of the following is documented in public, on real hardware, running Mujina.
+The capability stack behind the Nova has been demonstrated publicly over recent months by [Schnitzel](https://x.com/Schnitzel), a Core Contributor on the open-source Libre Control Board reference design, who did the Mujina integration work. Each of the following runs on real hardware.
 
 ### One control board, two chip generations
 
-The world's first mixed-generation Bitcoin miner: three hashboards spanning two chip generations — S19j and S19k — on a single control board, 280 chips and roughly 110 TH/s, with each board hashing at its own frequency, simultaneously.
+Three hashboards spanning two chip generations, one S19j Pro and two S19k Pro, hashing simultaneously on a single control board: 280 chips, **136.70 TH/s**, each board running at its own frequency.
 
-<!-- ASSET NEEDED: Schnitzel's mixed-hashboard tweet — link + screenshot -->
+![Mujina dashboard showing three mixed hashboards on one control board: 136.70 TH/s total across an S19j Pro board at 500 MHz and two S19k Pro boards at 575 MHz](/newsroom/ry3t-nova/mixed-hashboards.jpeg)
+
+[See the full thread →](https://x.com/Schnitzel/status/2076674720137642489)
 
 This is the kind of thing closed firmware structurally cannot do, because it dismantles the upgrade cycle. If a miner can mix generations, the consequences follow immediately:
 
 - Upgrade one hashboard at a time instead of replacing an entire machine.
 - Run the efficient boards continuously and fire up the older, cheaper boards only on surplus power.
 - One machine with several break-even prices instead of one.
-- "Obsolete" hashboards become the cheapest hashrate on Earth the moment they are run on energy that would otherwise be wasted.
+- "Obsolete" hashboards become the cheapest hashrate available the moment they run on energy that would otherwise be wasted.
 
 Nobody selling new miners has an incentive to ship that firmware. That is precisely why it needed to be open source.
 
 ### Stepless power tracking
 
-A single Nova following a power target from **1,000W to 3,000W — stepless, within seconds.** Point it at your inverter or your smart home controller and surplus solar becomes sats instead of a few cents of export credit.
+A single Nova following a power target from **1,000W to 3,000W, stepless, within seconds.** Point it at an inverter or a smart home controller, and surplus solar becomes sats instead of a few cents of export credit.
 
-<!-- ASSET NEEDED: Schnitzel's Nova power-tracking demo video — link + still/GIF -->
+![RY3T Nova dashboard tracking 2.4 kW of solar excess in real time: 2.43 kW draw, 74.4 TH/s, with the power line following the target staircase](/newsroom/ry3t-nova/nova-power-tracking-ui.png)
 
-### Clustering
+[See the full thread →](https://x.com/Schnitzel/status/2075204573778862217)
 
-Three miners — with different hashboards and different control boards — following a single watt setting together, within seconds. Two distribution strategies:
+### No additional control hardware needed
 
-- **Balance mode** spreads the target across all miners so each runs under-clocked, maximizing efficiency.
-- **Largest-first mode** fills one miner completely before starting the next, minimizing the number of power transitions.
+Traditionally, a mining control board does one thing: run the closed-source mining firmware. But Mujina runs on Linux, and stock control boards can run Linux, so the mining control board becomes the entire system controller. That removes the need for a separate microcontroller to run the solar integration.
 
-The control system runs on one of the miners itself. No separate Raspberry Pi, no external controller, no additional box in the rack.
+- The stock Bitmain control board runs both the Mujina mining firmware and the Nova control layer on top of it, linking mining control directly to the solar system itself.
+- No Raspberry Pi, no Home Assistant, no additional part to buy or break.
+- One Nova can command the rest. Additional Novas with their own hashboards and control boards run Mujina, but only one control board needs to run the Nova application to drive the whole fleet. That scales well for larger home solar arrays.
 
-<!-- ASSET NEEDED: Schnitzel's multi-miner cluster tweet — link + photo -->
+[Watch the test rig →](https://x.com/Schnitzel/status/2077533818366353763)
 
 ---
 
 ## The Nova
 
-RY3T, based in Wil, Switzerland, packages this into a product.
+RY3T packages this into a product.
 
-The **Nova** is their clustered model: up to four miners presented and controlled as a **single appliance**, scaling to **9kW**. You give it one power target; it distributes the load across its miners and reports back combined and per-miner hashrate, power, temperatures, fan state, pool connectivity, uptime, and error status.
+The Nova presents up to three miners as a **single appliance**, scaling to **9kW**. You give it one power target; it distributes the load across its miners and reports back combined and per-miner hashrate, power, temperature, and status.
 
-Integration is over **Modbus TCP** — the protocol that building automation systems, PLCs, PV controllers, and energy management systems already speak. RY3T publishes the [full integration documentation and register map on GitHub](https://github.com/RY3T/ry3t-nova-integration-docs), with MQTT and an HTTP REST API listed as planned. That matters for the same reason the firmware does: the Nova is designed to be commanded by whatever already runs the building, rather than requiring its own parallel control stack.
-
-The Nova is in development, with pre-orders open for Switzerland and the EU initially. Specifications, availability, and timelines are RY3T's to announce — [nova.ry3t.com](https://nova.ry3t.com/en/) is the place to watch.
+The Nova is in development, with pre-orders open for Switzerland and the EU first, and plans to enter the US market. Specifications, availability, and timelines are RY3T's to announce, and [nova.ry3t.com](https://nova.ry3t.com/en/?cur=usd) is the place to watch.
 
 ---
 
 ## Why This Matters to Us
 
-The 256 Foundation identified firmware lock-in as one of the critical gaps in Bitcoin mining infrastructure. We kicked off Mujina to close it, and we fund Core Contributors who maintain it. Through grant agreements, they dedicate their time to closing the gaps we've identified.
+Bitcoin's node and protocol layer attracts sustained open-source attention, funding, and scrutiny. The mining layer (hardware, firmware, pool software) largely does not. It is the part of the system least held to Bitcoin's own *don't trust, verify* standard, and the part most concentrated in the hands of a few manufacturers.
 
-What we do not do is control what happens next. RY3T is taking Mujina into a market we have never touched and would not know how to serve — Swiss and EU homeowners with solar arrays and full batteries. We could not have planned that, staffed it, or sold into it. We did not have to. The license did the work.
+The 256 Foundation was formed to close that gap. We defined and instigated four core pillar projects:
 
-Two things follow from the Nova existing:
+- **[Ember One](/projects/ember-one)**: open-source hash board reference design
+- **[Libre Control Board](/projects/libre-board)**: open-source ASIC control board reference design
+- **[Mujina](/projects/mujina)**: open-source mining firmware
+- **[Hydrapool](/projects/hydrapool)**: one-click deployable open-source mining pool
 
-**Open-source mining firmware is production-ready.** Not a demo and not a hobby build — a commercial product a company is prepared to put its name and its warranty behind.
+We fund the Core Contributors who maintain them through dedicated grant programs, paid for by donations. We do not own the projects. They are open source, and the community does.
 
-**The stack is available to everyone.** Whatever RY3T can build on Mujina, you can build on Mujina. The code is public, the license is GPLv3, and the maintainers are reachable. Take it and go.
+Mujina sits at the crown of the four. It is the most critical missing piece: the Linux kernel equivalent for Bitcoin mining. It is the layer everything else runs on, and it has to be auditable, forkable, and community-governed before anything built above it can be trusted.
 
-In April, the Bitcoin community [voted to put the MARA Foundation's inaugural community contribution behind open-source Bitcoin mining infrastructure](/newsroom/mara-foundation-tier1-supporter). This is what that looks like three months later — not a progress report from us, but a product from someone else.
+Open-source infrastructure proves itself when someone else builds on, inspects, or verifies the security of something you did not plan, fund, or control. The Linux kernel did not succeed because the kernel developers shipped an operating system. It succeeded because everyone else could.
 
-That is the return on funding this work. Mining is moving off the data center floor — into homes, onto solar arrays, into buildings and businesses and places the manufacturers never designed for. Firmware written for a fixed setpoint in a warehouse cannot follow it there. Open firmware can, and now there is a product on the market that proves it.
+Two things follow from it existing.
+
+**Open-source mining firmware is production-ready.** Not a demo and not a hobby build, but a commercial product a company is prepared to put its name behind.
+
+**The stack is available to everyone.** Whatever RY3T can build on Mujina, you can build on Mujina. And because it is GPLv3, improvements built on the work of others and distributed onward come back to the commons for everyone to use.
+
+None of this is an argument against industrial mining. Mujina serves large operations too, where auditable firmware eliminates entire categories of risk that obscurity creates. But the Nova makes the other unlock visible: mining that follows available energy instead of demanding a fixed supply can go where mining could not go before. Into homes, onto rooftops, into buildings and businesses the manufacturers never designed for.
+
+That is the return on funding this work.
 
 ---
 
 ## Get Involved
 
-**See the Nova →** [nova.ry3t.com](https://nova.ry3t.com/en/)
+**See the Nova →** [nova.ry3t.com](https://nova.ry3t.com/en/?cur=usd)
 
 **Read the firmware →** [mujina.org](https://mujina.org) · [github.com/256foundation/mujina](https://github.com/256foundation/mujina)
 
-**Integrate with the Nova →** [Modbus TCP documentation](https://github.com/RY3T/ry3t-nova-integration-docs)
-
 **Talk to the people building it →** [forum.256foundation.org](https://forum.256foundation.org)
 
-Mujina is community open source. Anyone can contribute — no grant required. If you run mining hardware, run the firmware and tell us what breaks. If you write Rust, the issues are open. If you build energy products, the stack is sitting there.
+**Fund the work →** [Support Mujina development](/donate)
+
+Mujina is community open source. Anyone can contribute, no grant required. If you run mining hardware, run the firmware and tell us what breaks. If you write Rust, the issues are open. If you build energy products, the stack is sitting there.
 
 There is a lot more coming.
 
