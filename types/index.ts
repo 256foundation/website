@@ -182,6 +182,12 @@ export interface NewsroomPost {
   excerpt: string
   coverImage?: string
   ogImage?: string
+  /**
+   * Shorter title for <title>/og:title only, leaving the on-page headline
+   * alone. Search and social truncate around 60 characters, and the site
+   * appends " | 256 Foundation" (17), so set this when the headline runs long.
+   */
+  seoTitle?: string
   /** Pins the post above the date-sorted list and claims the home-page slot */
   featured?: boolean
 }
