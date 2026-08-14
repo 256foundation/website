@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const result = getPostBySlug(slug)
   if (!result) return {}
   return generatePageMetadata({
-    title: result.meta.title,
+    title: result.meta.seoTitle ?? result.meta.title,
     description: result.meta.excerpt,
     path: `/newsroom/${slug}`,
     ogImage: result.meta.ogImage,

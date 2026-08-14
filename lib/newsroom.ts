@@ -28,6 +28,7 @@ function toPost(slug: string, data: Record<string, unknown>): NewsroomPost {
     excerpt: String(data.excerpt ?? ''),
     coverImage: data.coverImage ? String(data.coverImage) : undefined,
     ogImage: data.ogImage ? String(data.ogImage) : undefined,
+    seoTitle: data.seoTitle ? String(data.seoTitle) : undefined,
     featured: data.featured === true,
   }
 }
@@ -65,6 +66,15 @@ export function getLatestPost(): NewsroomPost | null {
   return posts.find((post) => post.featured === true) ?? posts[0] ?? null
 }
 
+/**
+ * Renders a frontmatter date exactly as written, in every timezone.
+ *
+ * `new Date('2026-08-14')` parses a date-only string as UTC midnight, so
+ * formatting it in the viewer's local zone shifts it a day earlier anywhere
+ * west of UTC. Formatting in UTC pins it back to the authored calendar date.
+ *
+ * Mirrored by tests/newsroom-date.test.mjs — keep the two in step.
+ */
 export function formatPostDate(dateStr: string): string {
   if (!dateStr) return ''
   try {
@@ -72,6 +82,7 @@ export function formatPostDate(dateStr: string): string {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
+      timeZone: 'UTC',
     })
   } catch {
     return dateStr
