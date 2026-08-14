@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getAllPosts, getPostBySlug, formatPostDate } from '@/lib/newsroom'
 import { generatePageMetadata } from '@/lib/metadata'
+import { getLocalImageSize } from '@/lib/imageSize'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 import PostBody from '@/components/newsroom/PostBody'
@@ -31,6 +32,7 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
   if (!result) notFound()
 
   const { meta, content } = result
+  const coverSize = meta.coverImage ? getLocalImageSize(meta.coverImage) : null
 
   return (
     <SectionWrapper>
@@ -64,16 +66,25 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
         {/* Author */}
         <p className="font-mono text-gray-400 text-xs mb-8">By {meta.author}</p>
 
-        {/* Cover image */}
+        {/* Cover image — sized to its own aspect ratio, so covers as different
+            as a 3:1 banner and a 3:2 photo both render full-width uncropped. */}
         {meta.coverImage && (
-          <div className="relative w-full h-64 mb-10 overflow-hidden border border-gray-200 dark:border-[#1f1f1f]">
-            <Image
-              src={meta.coverImage}
-              alt={meta.title}
-              fill
-              className="object-contain"
-              priority
-            />
+          <div className="w-full mb-10 overflow-hidden border border-gray-200 dark:border-[#1f1f1f]">
+            {coverSize ? (
+              <Image
+                src={meta.coverImage}
+                alt={meta.title}
+                width={coverSize.width}
+                height={coverSize.height}
+                className="w-full h-auto"
+                sizes="(max-width: 768px) 100vw, 672px"
+                priority
+              />
+            ) : (
+              <div className="relative w-full h-64">
+                <Image src={meta.coverImage} alt={meta.title} fill className="object-contain" priority />
+              </div>
+            )}
           </div>
         )}
 
