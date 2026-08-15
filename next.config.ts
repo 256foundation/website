@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Emit a self-contained server bundle so the site can run as a small
+  // container image. Required for the Docker build; harmless elsewhere.
+  output: "standalone",
   // Strip the X-Powered-By: Next.js response header for a slightly smaller
   // payload and less framework fingerprinting.
   poweredByHeader: false,
