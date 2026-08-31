@@ -110,7 +110,7 @@ jobs:
       - name: Check the site is actually serving
         run: |
           set -euo pipefail
-          URL="${{ vars.DEPLOY_HEALTHCHECK_URL || 'https://staging.256foundation.org' }}"
+          URL="${{ vars.DEPLOY_HEALTHCHECK_URL || 'https://www.256foundation.org' }}"
           for i in $(seq 1 10); do
             code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 10 "$URL" || echo 000)
             [ "$code" = "200" ] && { echo "$URL -> 200"; exit 0; }
