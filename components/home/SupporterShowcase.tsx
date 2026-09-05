@@ -11,8 +11,10 @@ interface SupporterShowcaseProps {
 const tierConfig = {
   1: {
     label: 'Tier 1',
-    imgSize: 'w-28 h-28 sm:w-36 sm:h-36',
-    gridCols: 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-3',
+    // Slightly smaller tiles on mobile so three fit per row: at two columns
+    // the fifth supporter was stranded alone on a third row.
+    imgSize: 'w-24 h-24 sm:w-36 sm:h-36',
+    gridCols: 'grid-cols-3 lg:grid-cols-5',
   },
   2: {
     label: 'Tier 2',

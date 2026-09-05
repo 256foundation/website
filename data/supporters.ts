@@ -7,7 +7,6 @@ export const supporters: Supporter[] = [
   // Tier 1 — Block Founders
   { name: 'Block #881423', image: '/supporters/tier1/881423.jpg', link: 'https://mempool.space/block/881423', tier: 1 },
   { name: 'HRF', image: '/supporters/tier1/hrf.png', link: 'https://hrf.org', tier: 1 },
-  { name: 'OSMU', image: '/supporters/tier1/osmu.png', link: 'https://osmu.wiki', tier: 1 },
   { name: 'OpenSats', image: '/supporters/tier1/opensats.png', link: 'https://opensats.org', tier: 1 },
   { name: 'Proto', image: '/supporters/tier1/proto.png', link: 'https://proto.xyz', tier: 1 },
   { name: 'MARA Foundation', image: '/supporters/tier1/MF.png', link: 'https://foundation.mara.com', tier: 1 },
