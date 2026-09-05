@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import PCBBackground from '@/components/ui/PCBBackground'
 import Logo from '@/components/ui/Logo'
+import RotatingTagline from '@/components/home/RotatingTagline'
 import { siteStats } from '@/data/stats'
 
 export default function HeroSection() {
@@ -58,9 +59,7 @@ export default function HeroSection() {
         </div>
 
         {/* Tagline */}
-        <p className="font-display font-extrabold text-gray-900 dark:text-white text-3xl sm:text-5xl lg:text-6xl xl:text-7xl uppercase leading-none max-w-3xl mb-5 sm:mb-8">
-          Building the open-source Bitcoin mining stack.
-        </p>
+        <RotatingTagline />
 
         {/* Stack layer chips */}
         <div className="mb-6 sm:mb-10">
