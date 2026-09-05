@@ -10,7 +10,6 @@ import SectionWrapper from '@/components/ui/SectionWrapper'
 import HeroSection from '@/components/home/HeroSection'
 import DonateCards from '@/components/home/DonateCards'
 import WhySection from '@/components/home/WhySection'
-import AllocationStats from '@/components/home/AllocationStats'
 import ProjectsSection from '@/components/home/ProjectsSection'
 import BlocksFound from '@/components/home/BlocksFound'
 import StayUpdated from '@/components/home/StayUpdated'
@@ -51,10 +50,6 @@ export default async function Home() {
 
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <WhySection />
-      </SectionWrapper>
-
-      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <AllocationStats stats={siteStats} />
       </SectionWrapper>
 
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
