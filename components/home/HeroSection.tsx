@@ -2,7 +2,6 @@ import Link from 'next/link'
 import PCBBackground from '@/components/ui/PCBBackground'
 import Logo from '@/components/ui/Logo'
 import RotatingTagline from '@/components/home/RotatingTagline'
-import { siteStats } from '@/data/stats'
 
 export default function HeroSection() {
   return (
@@ -18,18 +17,6 @@ export default function HeroSection() {
 
       {/* Main content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-8 sm:pb-16 pt-16 lg:pt-24">
-        {/* Status bar */}
-        <div className="flex items-center gap-3 mb-5 sm:mb-12">
-          <span className="inline-block w-2 h-2 rounded-full bg-[#00FF41]" style={{ boxShadow: '0 0 8px #00FF41' }} />
-          <span className="font-mono text-[#00FF41] text-xs tracking-[0.25em] uppercase">
-            Funding Active
-          </span>
-          <span className="font-mono text-gray-400 dark:text-gray-700 text-xs">&mdash;</span>
-          <span className="font-mono text-gray-500 text-xs">
-            {siteStats.totalGrantees} active grantees
-          </span>
-        </div>
-
         {/* Logo + CTA: side-by-side on desktop, stacked (logo → buttons → heading) on mobile */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 lg:mb-8 gap-4 lg:gap-8">
           <h1>
