@@ -1,5 +1,6 @@
 import { XMLParser } from 'fast-xml-parser'
 import type { SubstackPost } from '@/types'
+import { decodeEntities, feedText } from '@/lib/html'
 
 const FEED_URL = 'https://256foundation.substack.com/feed'
 
@@ -39,12 +40,10 @@ export async function fetchSubstackPosts(count = 3): Promise<SubstackPost[]> {
       }
 
       return {
-        title: String(i.title ?? 'Untitled'),
+        title: decodeEntities(String(i.title ?? 'Untitled')),
         link: String(i.link ?? FEED_URL),
         pubDate: String(i.pubDate ?? ''),
-        description: i.description
-          ? String(i.description).replace(/<[^>]+>/g, '').slice(0, 200)
-          : undefined,
+        description: i.description ? feedText(String(i.description), 200) : undefined,
         image,
       }
     })
