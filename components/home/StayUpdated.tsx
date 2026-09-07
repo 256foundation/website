@@ -95,7 +95,7 @@ export default function StayUpdated({ posts, newsroomPosts = [], episodes = [] }
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Newsroom */}
         <div className="flex flex-col">
-          <ColumnHeader label="Newsroom" />
+          <ColumnHeader label="Updates" />
           {newsroomPosts.length > 0 ? (
             <div className="flex flex-col gap-3">
               {newsroomPosts.map((post) => (
