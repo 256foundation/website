@@ -182,6 +182,8 @@ export interface PodcastEpisode {
   episode?: number
   /** Human-readable running time, e.g. "1h 05m" */
   duration?: string
+  /** Episode art; in practice the show logo, which every episode reuses */
+  image?: string
 }
 
 // ── Newsroom ──────────────────────────────────────────────────

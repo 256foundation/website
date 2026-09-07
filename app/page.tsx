@@ -34,12 +34,12 @@ export const metadata = generatePageMetadata({
 
 export default async function Home() {
   const [posts, forumTopics, orgEvents, episodes] = await Promise.all([
-    fetchSubstackPosts(3),
+    fetchSubstackPosts(2),
     fetchForumTopics(6),
     fetchOrgEvents('256foundation', 8),
-    fetchPodcastEpisodes(3),
+    fetchPodcastEpisodes(2),
   ])
-  const newsroomPosts = getAllPosts().slice(0, 3)
+  const newsroomPosts = getAllPosts().slice(0, 2)
   const firstEvent = teleHashEvents.find((e) => e.blockFound)
 
   return (

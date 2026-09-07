@@ -27,6 +27,10 @@ export async function fetchPodcastEpisodes(count = 3): Promise<PodcastEpisode[]>
     const rawItems = channel.item
     if (!rawItems) return []
 
+    // Episodes usually carry their own itunes:image, but it is the same show
+    // logo every time; fall back to the channel art when one is missing.
+    const channelImage = (channel['itunes:image'] as Record<string, string> | undefined)?.['@_href']
+
     // fast-xml-parser returns an object (not array) when there is only one item
     const items: unknown[] = Array.isArray(rawItems) ? rawItems : [rawItems]
 
@@ -47,6 +51,7 @@ export async function fetchPodcastEpisodes(count = 3): Promise<PodcastEpisode[]>
         pubDate: String(i.pubDate ?? ''),
         description: i.description ? feedText(String(i.description), 200) : undefined,
         episode: episode != null ? Number(episode) : undefined,
+        image: (i['itunes:image'] as Record<string, string> | undefined)?.['@_href'] ?? channelImage,
         duration: duration != null ? formatDuration(String(duration)) : undefined,
       }
     })
