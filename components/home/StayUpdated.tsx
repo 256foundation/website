@@ -208,7 +208,17 @@ export default function StayUpdated({ posts, newsroomPosts = [], episodes = [] }
               ))}
             </div>
           ) : (
-            <p className="text-gray-500 text-sm">No issues yet.</p>
+            /*
+              An empty list here means the Substack fetch failed, not that no
+              issues exist — the fetchers fail soft. Point at Substack rather
+              than assert something untrue.
+            */
+            <p className="text-gray-500 text-sm">
+              Latest issues are on{' '}
+              <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className={INLINE_LINK}>
+                Substack
+              </a>.
+            </p>
           )}
           <div className="mt-4 pt-4 border-t border-gray-200 dark:border-[#1f1f1f]">
             <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className={FOOTER_LINK}>
