@@ -172,6 +172,18 @@ export interface SubstackPost {
   image?: string
 }
 
+// ── Podcast (POD256) ──────────────────────────────────────────
+export interface PodcastEpisode {
+  title: string
+  link: string
+  pubDate: string
+  description?: string
+  /** itunes:episode number, when the feed sets one */
+  episode?: number
+  /** Human-readable running time, e.g. "1h 05m" */
+  duration?: string
+}
+
 // ── Newsroom ──────────────────────────────────────────────────
 export interface NewsroomPost {
   slug: string

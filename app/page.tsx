@@ -1,7 +1,8 @@
 import { fetchSubstackPosts } from '@/lib/substack'
-import { getLatestPost } from '@/lib/newsroom'
+import { getAllPosts } from '@/lib/newsroom'
 import { fetchForumTopics } from '@/lib/discourse'
 import { fetchOrgEvents } from '@/lib/github'
+import { fetchPodcastEpisodes } from '@/lib/pod256'
 import { generatePageMetadata } from '@/lib/metadata'
 import { siteStats } from '@/data/stats'
 import { supporters } from '@/data/supporters'
@@ -32,12 +33,13 @@ export const metadata = generatePageMetadata({
 })
 
 export default async function Home() {
-  const [posts, forumTopics, orgEvents] = await Promise.all([
+  const [posts, forumTopics, orgEvents, episodes] = await Promise.all([
     fetchSubstackPosts(3),
     fetchForumTopics(6),
     fetchOrgEvents('256foundation', 8),
+    fetchPodcastEpisodes(3),
   ])
-  const latestNewsroomPost = getLatestPost()
+  const newsroomPosts = getAllPosts().slice(0, 3)
   const firstEvent = teleHashEvents.find((e) => e.blockFound)
 
   return (
@@ -61,7 +63,7 @@ export default async function Home() {
       </SectionWrapper>
 
       <SectionWrapper id="updates" className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <StayUpdated posts={posts} latestNewsroomPost={latestNewsroomPost} />
+        <StayUpdated posts={posts} newsroomPosts={newsroomPosts} episodes={episodes} />
       </SectionWrapper>
 
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
