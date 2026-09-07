@@ -123,7 +123,7 @@ export default function StayUpdated({ posts, newsroomPosts = [], episodes = [] }
 
         {/* Podcast */}
         <div className="flex flex-col">
-          <ColumnHeader label="POD256 Podcast" />
+          <ColumnHeader label="Podcast" />
           {episodes.length > 0 ? (
             <div className="flex flex-col gap-3">
               {episodes.map((ep) => (
