@@ -1,6 +1,7 @@
 import { XMLParser } from 'fast-xml-parser'
 import type { PodcastEpisode } from '@/types'
 import { decodeEntities, feedText } from '@/lib/html'
+import { fetchFeedXml } from '@/lib/feed'
 
 // POD256 publishes through Podhome; pod256.org only links to this feed, so the
 // feed URL is the canonical source rather than anything scraped off the site.
@@ -11,13 +12,9 @@ export const POD256_URL = 'https://www.pod256.org'
 
 export async function fetchPodcastEpisodes(count = 3): Promise<PodcastEpisode[]> {
   try {
-    const res = await fetch(FEED_URL, {
-      next: { revalidate: 3600 },
-    })
+    const xml = await fetchFeedXml(FEED_URL)
+    if (!xml) return []
 
-    if (!res.ok) return []
-
-    const xml = await res.text()
     const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_' })
     const result = parser.parse(xml)
 
