@@ -1,0 +1,123 @@
+---
+title: "It's Time to Commoditize Bitcoin Mining"
+seoTitle: "It's Time to Commoditize Bitcoin Mining"
+date: "2026-09-15"
+author: "256 Foundation"
+category: "announcement"
+excerpt: "We hosted our first in-person fundraiser at Presidio Bitcoin in San Francisco, walking key industry players through the closed status quo of Bitcoin mining and the open stack we're building to replace it."
+coverImage: "/newsroom/presidio-bitcoin-fundraiser/deck-cover.png"
+ogImage: "/newsroom/presidio-bitcoin-fundraiser/deck-cover.png"
+featured: true
+---
+
+On Saturday, September 12, we held our first private, in-person fundraiser at [Presidio Bitcoin](https://www.presidiobitcoin.org) in San Francisco.
+
+The Bay Area has a long history of open source: the Unix lineage that became [BSD](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution) took shape at UC Berkeley, [GitHub](https://github.com/about), where most of the world's open-source code is hosted, was founded here in 2008, and the [Linux Foundation](https://www.linuxfoundation.org/about), the neutral institutional home for open-source projects, is based in the city. [Presidio Bitcoin](https://www.presidiobitcoin.org) carries that local tradition. It is a co-working and events space for open-source Bitcoin builders, set inside the Presidio at the foot of the Golden Gate Bridge.
+
+Operators, donors, engineers, and vendors from across the Bitcoin mining industry, along with our Lead Maintainers, gathered to hear a case we don't think gets made often enough, then sit with it hands-on in breakout workshops.
+
+![The Golden Gate Bridge in San Francisco, where the 256 Foundation held its first private fundraiser the weekend of September 12](/newsroom/presidio-bitcoin-fundraiser/golden-gate-bridge.jpeg)
+
+San Francisco, the weekend of September 12.
+
+## Why We Exist
+
+We opened with our founding story. The Bitcoin mining industry is closed and proprietary, and that closedness is exactly why we founded the 256 Foundation as a 501(c)(3) nonprofit with one explicit goal: open-source the Bitcoin mining stack and commoditize it.
+
+The thesis, stated plainly:
+
+**Bitcoin mining will be open-source, or Bitcoin remains permissioned.**
+
+It may sound extreme. It's not. If you build and want to make something this industry hasn't allowed without starting from scratch, you need open-source. If you operate machines and want confirmation they're actually yours, you need open-source. If you're a company that wants to minimize risk, or simply someone who wants Bitcoin to stay permissionless, you need open-source.
+
+## What a Mature Industry Looks Like
+
+Every mature industry runs on commoditized inputs. You don't reinvent aluminum alloy when you need something strong and lightweight. The recipe is common knowledge, costs stay low, and progress compounds. When the [Hall-Héroult process](https://www.acs.org/education/whatischemistry/landmarks/aluminumprocess.html) cracked cheap aluminum production, its price fell from $4.86 a pound to 78 cents in five years, and whole industries grew on top of the metal. Open source is what the final form of a mature industry looks like.
+
+Open source is also a force multiplier. When work is public, anyone can audit and validate it. Anyone can find bugs, add features, and contribute on top of it. Anyone can use it as a building block in their own project. Free review, free development, free progress. Closed projects, where only a few people can participate, cannot match that pace.
+
+Projects that reach critical mass create gunpowder moments you can't undo. That's the [Linux kernel](https://github.com/torvalds/linux). That's [TCP](https://www.rfc-editor.org/rfc/rfc793) and [HTTP](https://www.rfc-editor.org/rfc/rfc9110). That's the recipe for aluminum.
+
+A company is the wrong vehicle for open-sourcing the mining stack. The reasoning is understandable: a company is incentivized to capture value by selling goods and services around what it creates, and it does not want to give away its work. That works for specialization. It does not work for commodities, and it is a big part of why the mining stack was never commoditized. That logic is holding the entire industry back.
+
+Here is the part that should bother anyone who cares about Bitcoin. Bitcoin started as an open-source project. The [white paper](https://bitcoin.org/bitcoin.pdf) describes one CPU, one vote. Satoshi never anticipated dedicated silicon, and a surrounding software and hardware stack monopolistically controlled by a few vendors. But miners split from nodes, and the mining portion of the stack got centralized. Today it is inherently permissioned.
+
+So the case for open source is bigger than free review, free development, and free progress. It is necessary for decentralization and permissionlessness, and that is part of the Bitcoin ethos.
+
+We are a nonprofit, so we have no incentive to capture value. That is exactly what makes us the right steward for the building-block projects: we can pour the review, the education, and the ecosystem nurturing into them that gets them to that gunpowder moment, with nothing to protect and no edge to keep. Success means anyone can study our work, improve it, manufacture it, compete with it, fork it, and build businesses on top of it without asking us for permission.
+
+Today, mining is stuck in a chicken-and-egg loop instead. There's minimal demand for an open-source mining stack because there are no open tools to build with, and there are no open tools because there's minimal demand. Someone has to break the cycle. Linux broke the same cycle 26 years ago, when serious operators on the enterprise and internet-scale sides took the leap and it became the default. That's the playbook.
+
+## The Status Quo
+
+Mining does three things for the Bitcoin network: it fairly distributes new coins, it settles transactions, and it secures the historical record. All three are critical, and it is a risk to the entire network for them to be controlled by a select few vendors with none of the recipes in the open. A modern miner is four building blocks: a hashboard, a control board, firmware, and a mining pool. None of them are commoditized.
+
+- No datasheets, pinouts, or specs for the mining chips. Build your own system and you're desoldering chips from a full machine to reverse engineer how they work.
+- No open control board to start from, no matter what you want your miner to be.
+- Firmware you cannot audit, inspect, or extend. No way to prove your own revenue, check for kill switches like [Antbleed](https://www.coindesk.com/markets/2017/04/27/antbleed-bitcoins-newest-new-controversy-explained), the remote shutdown backdoor found hiding in Bitmain firmware in 2017, or find out what your machines are sending home.
+- Pools you cannot verify, running highly concentrated infrastructure you simply have to trust.
+
+Then the risks that come with all of it, for an industry wired into national electric grids and carrying the sole profit stream for public companies. What happens if one of these vendors is attacked, or a critical vulnerability ships, or one of them drops support?
+
+## The Vision
+
+A miner can be more than just a data center black box. Because a Bitcoin miner is any device that provides issuance, settlement, and record security. In addition to the data center box status-quo, a miner could be your water heater, part of a solar and battery system, or an off-grid rig earning bitcoin from power with nowhere else to go. Apple doesn't dictate what a computer is, and the world would be worse if they did. Computers come in every shape. Miners should too. By letting a handful of vendors tell us what a Bitcoin miner is and what it isn't, we are holding back the industry, and decentralized issuance, settlement, and record security along with it.
+
+## Proof of Work
+
+This is not a hypothetical for us. Winning [block 881423](https://mempool.space/block/881423) gave us the initial resources to start funding the core building-block projects with the right grantees. Through that process, we successfully reverse engineered the whole mining stack, writing down the recipes for each domain-specific component of a Bitcoin miner that had never been open-source:
+
+- **[Ember One](/projects/ember-one)**, the open-source hashboard reference design
+- **[Libre Board](/projects/libre-board)**, the open-source control board reference design
+- **[Mujina](/projects/mujina)**, the open-source firmware, the Linux OS equivalent of Bitcoin mining
+- **[Hydrapool](/projects/hydrapool)**, open-source pool software anyone can deploy, with transparent and permissionless hashrate aggregation, direct from coinbase payouts, and various payout structures
+
+Nine months after winning the block, early versions of everything ran together as a complete open-source mining development kit: an open hashboard controlled by open firmware on an open control board, mining through our own open pool software. Real work. Real contributions to the network.
+
+This is our Proof of Work.
+
+## Breakout Workshops
+
+Slides only go so far, so after the presentation we split into breakout workshops, one per Core Project, each led by that project's Lead Maintainer: Skot on Ember One, Schnitzel on Libre Board, Ryan on Mujina, and Jungly on Hydrapool.
+
+These were personal sessions built around direct questions, interactive exercises, and live demos on real hardware. Attendees worked through the stack piece by piece with the people who built it: how a standalone hashboard connects to a control board, how open firmware drives the machines, how a pool verifies and pays out the work.
+
+Getting a project into someone's hands is not the same as getting it into their head. The breakouts existed for that second part.
+
+## What Comes Next
+
+The stack exists and works, but the work is not done. Ember One and Libre Board need their latest revisions taken through final validation, and Mujina and Hydrapool remain under continuous development. That is our core grants program at work, and it needs more funding to keep the foot on the gas. So how does a project go from available to indispensable? Community and contribution, in code and out of it. We closed the presentation with the programs now running to get there:
+
+- **Education**: open developer calls, the forum, a weekly podcast and newsletter, and teaching the stack in person, like Ryan did at Bitcoin++ in Nairobi
+- **Stewardship**: a neutral home for projects the industry depends on, like ASIC-rs, now an active dependency inside a manufacturer's fleet management software
+- **Fiscal sponsorship** for sub-communities like the Hashrate Heatpunks and Open Source Miners United, with funds earmarked for those communities
+- **Working groups** to advance standards, including our work on Stratum V2
+- **The 256 Red Team**: reverse engineering the closed firmware most of this industry runs on, and publishing what's inside it
+
+The best one-line description of our role: the Linux Foundation of Bitcoin Mining.
+
+## Watch the Deck
+
+Tyler recorded a full walkthrough of the presentation he gave at the fundraiser:
+
+**Watch the walkthrough →** [Deck walkthrough on X](https://x.com/tylerkstevens/status/2099605393743774159)
+
+![The 256 Foundation team together at the end of the first private fundraiser at Presidio Bitcoin](/newsroom/presidio-bitcoin-fundraiser/team-presidio-fundraiser.jpeg)
+
+The full team at the end of the event.
+
+## Join the Mission
+
+If you're a builder, the stack is on GitHub and the issues are open. If you run miners, run the firmware and tell us what breaks. If you're an educator, there are audiences across this industry who have never heard any of this.
+
+**Contribute code →** [github.com/256foundation](https://github.com/256foundation)
+
+**Join the conversation →** [forum.256foundation.org](https://forum.256foundation.org)
+
+What we need most is fiscal support. Commoditizing an industry is a long and expensive undertaking, and our Core Contributors deserve the stability of multi-year funding. If you believe in Bitcoin and the freedom that open source provides, come talk to us.
+
+**Fund the work →** [Become a supporter](/donate)
+
+---
+
+*The 256 Foundation is a 501(c)(3) nonprofit directly funding the core contributors building the open-source Bitcoin mining stack. [Become a supporter →](/donate)*
