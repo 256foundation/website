@@ -55,8 +55,8 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-2">
             {[
-              { label: 'Firmware', href: '/projects/mujina', type: 'software' },
-              { label: 'Pool', href: '/projects/hydrapool', type: 'software' },
+              { label: 'Firmware', href: '/projects#mujina', type: 'software' },
+              { label: 'Pool', href: '/projects#hydrapool', type: 'software' },
             ].map(({ label, href, type }) => (
               <Link
                 key={href}
@@ -72,8 +72,8 @@ export default function HeroSection() {
             {/* Force hardware chips onto their own row on mobile */}
             <div className="basis-full sm:hidden" aria-hidden="true" />
             {[
-              { label: 'Hash Board', href: '/projects/ember-one' },
-              { label: 'Control Board', href: '/projects/libre-board' },
+              { label: 'Hash Board', href: '/projects#ember-one' },
+              { label: 'Control Board', href: '/projects#libre-board' },
             ].map(({ label, href }) => (
               <Link
                 key={href}
