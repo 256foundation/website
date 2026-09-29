@@ -53,6 +53,12 @@ COPY --from=builder /app/.next/static ./.next/static
 COPY --from=builder /app/data ./data
 COPY --from=builder /app/content ./content
 
+# The image optimizer writes transcoded variants under .next/cache/images. The
+# copied .next is root-owned, so without this the unprivileged `nextjs` user
+# cannot create that directory and every /_next/image hit re-encodes from the
+# source (all responses come back x-nextjs-cache: MISS).
+RUN mkdir -p .next/cache/images && chown -R nextjs:nodejs .next
+
 USER nextjs
 
 EXPOSE 3000
