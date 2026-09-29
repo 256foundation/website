@@ -33,15 +33,8 @@ export interface TeamMember {
 }
 
 // ── Projects ──────────────────────────────────────────────────
-export type ProjectSlug = 'ember-one' | 'mujina' | 'libre-board' | 'hydrapool'
+export type ProjectSlug = 'ember-one' | 'libre-board' | 'mujina' | 'hydrapool'
 export type ProjectType = 'hardware' | 'software'
-
-export interface Milestone {
-  label: string
-  status: 'completed' | 'active' | 'upcoming'
-  date?: string
-  description?: string
-}
 
 export interface ProjectLogo {
   /** Wide/banner image (e.g. social card with text) */
@@ -57,20 +50,10 @@ export interface KeySpec {
   value: string
 }
 
-export interface TechFeatureGroup {
-  category: string
-  items: string[]
-}
-
-export interface ProjectContextPoint {
-  heading: string
-  body: string
-}
-
-export interface ProjectContext {
-  sectionTitle: string
-  intro: string
-  points: ProjectContextPoint[]
+export interface ProjectArchitect {
+  name: string
+  handle: string
+  x: string
 }
 
 export interface PillarProject {
@@ -79,26 +62,21 @@ export interface PillarProject {
   name: string
   tagline: string
   description: string
-  whyCoreGrant: string
+  /** The closed / permissioned reality this layer answers ("the risk"). */
   whyNecessary: string
-  context?: ProjectContext
-  technicalDetails: string
-  keySpecs?: KeySpec[]
-  techFeatures?: TechFeatureGroup[]
+  /** What an open version does, teaches, and unlocks ("the open answer"). */
+  whatItDoes: string
+  keySpecs: KeySpec[]
+  keyFeatures: string[]
+  architect: ProjectArchitect
   status: 'active' | 'completed' | 'paused'
   externalUrl: string
   githubUrl: string
   forumCategory: string
   forumCategoryApiUrl: string
-  ogImage?: string
   /** Optional brand typeface for the project title. Falls back to font-display. */
   titleFont?: 'bridge-officer'
   logo?: ProjectLogo
-  milestones: Milestone[]
-  team: {
-    leadEngineer: TeamMember
-    projectManager: TeamMember
-  }
 }
 
 // ── Supporters ────────────────────────────────────────────────
@@ -107,20 +85,6 @@ export interface Supporter {
   image: string
   link: string
   tier: 1 | 2 | 3
-}
-
-// ── Grants ────────────────────────────────────────────────────
-export interface Grant {
-  name: string
-  grantee: string
-  category: 'hardware' | 'software' | 'research' | 'education'
-  amountBTC: number
-  status: 'active' | 'completed'
-  dateFunded: string
-  startDate?: string
-  duration?: string
-  license?: string
-  description?: string
 }
 
 // ── TeleHash ──────────────────────────────────────────────────

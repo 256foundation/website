@@ -39,7 +39,7 @@ There are **no other runtime dependencies** — no CSS-in-JS, UI kit, state mana
 - **App Router** — all pages use Next.js 15 App Router with server components by default
 - **Tailwind CSS v4** — CSS-first config via `@theme` and `@custom-variant` in `globals.css` (no `tailwind.config.js`)
 - **Dark mode** — driven by `@media (prefers-color-scheme: dark)` OS preference, not a toggle; Tailwind `dark:` prefix maps to this media query
-- **ISR** — the home page (`/`) and project pages (`/projects`, `/projects/[slug]`) use `export const revalidate = 3600` for hourly ISR so live GitHub, forum, and Substack data stays fresh without blocking builds
+- **ISR** — the home page (`/`) and the Open Mining Stack page (`/projects`) use `export const revalidate = 3600` for hourly ISR so live GitHub, forum, and Substack data stays fresh without blocking builds
 - **Static-first** — every other page is statically generated at build time (`/newsroom` and `/newsroom/[slug]` are explicitly `force-static`); only the `/api/hashdash` proxy is server-rendered on demand (`force-dynamic`)
 
 ---
@@ -63,8 +63,7 @@ website-256F/
 │   │   ├── page.tsx            # /newsroom — post list (force-static)
 │   │   └── [slug]/page.tsx     # /newsroom/[slug] — MDX post detail (generateStaticParams)
 │   ├── projects/
-│   │   ├── page.tsx            # /projects — all projects + live org repos
-│   │   └── [slug]/page.tsx     # /projects/[slug] — individual project (ISR)
+│   │   └── page.tsx            # /projects — "Open Mining Stack" (ISR); retired /projects/[slug] 308-redirect to project sites
 │   └── api/
 │       └── hashdash/route.ts   # Prometheus proxy for live hashrate leaderboard (only API route)
 │
@@ -512,15 +511,9 @@ Configured in `next.config.ts` under `images.remotePatterns` for `next/image` op
 ### Top Navigation
 
 ```
-Logo (→ /)     Home     Mission     Grants     Newsroom     Projects ▾     Ecosystem ▾     Community ▾     [GitHub]  [Forum]  [Donate]
+Logo (→ /)     Home     Mission     Grants     Newsroom     Open Mining Stack     Ecosystem ▾     Community ▾     [GitHub]  [Forum]  [Donate]
 
-Projects dropdown:
-  • Ember One          → /projects/ember-one
-  • Mujina             → /projects/mujina
-  • Libre Board        → /projects/libre-board
-  • Hydrapool          → /projects/hydrapool
-  ─────────────────
-  • Funded Project Log → /projects
+Open Mining Stack → /projects  (single page; layers jump to /projects#ember-one, #libre-board, #mujina, #hydrapool)
 
 Ecosystem dropdown:
   • Bitaxe             → https://bitaxe.org                                    (external)
@@ -686,7 +679,7 @@ All site content lives in `data/`. Edit these files to update content without to
 Foundation statistics shown on the home page: BTC raised, blocks found, active grantees.
 
 ### `data/projects.ts`
-Each pillar project: slug, name, description, status, GitHub URL, forum category URL, team members, milestones, key specs, tech features. The `forumCategoryApiUrl` field points to the Discourse category JSON endpoint for the live forum section on each project page.
+The four Open Mining Stack layers (`pillarProjects`), ordered hash board → control board → firmware → pool. Each carries a tagline, problem statement, key specs/features, core architect, and GitHub/forum URLs. The `forumCategoryApiUrl` points to the Discourse category JSON used for the live activity badge. Backs `/projects`.
 
 ### `data/telehash.ts`
 - `teleHashEvents[]` — event history. Each event can have `blockFound`, `btcRaised`, `blockUrl`, `videoUrl`, `summary`, and `photos[]` (paths relative to `/public`).
@@ -698,9 +691,6 @@ FAQ entries with `question`, `answer` (multi-paragraph answers separated by `\n\
 
 ### `data/navigation.ts`
 All nav links for the header dropdowns and footer. Add/remove/reorder without touching layout components.
-
-### `data/grants.ts`
-Grant recipient log with grantee, category, BTC amount, status, dates, license, duration.
 
 ### `data/supporters.ts`
 Supporter logos by tier (1, 2, 3) with name, image path, and link.

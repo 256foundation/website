@@ -59,7 +59,7 @@ export default function ProjectsSection({ forumTopics, orgEvents = [] }: Project
           return (
             <Link
               key={project.slug}
-              href={`/projects/${project.slug}`}
+              href={`/projects#${project.slug}`}
               className="group bg-white dark:bg-[#0d0d0d] p-6 flex flex-col gap-4 hover:bg-gray-50 dark:hover:bg-[#161616] transition-colors duration-200 relative overflow-hidden"
             >
               {/* Corner accent */}

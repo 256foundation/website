@@ -8,6 +8,18 @@ const nextConfig: NextConfig = {
   // payload and less framework fingerprinting.
   poweredByHeader: false,
 
+  // The four standalone pillar project pages were collapsed into the single
+  // /projects "Open Mining Stack" page. Their dedicated project sites are the
+  // technical/contributor homes now, so send old deep links straight there.
+  async redirects() {
+    return [
+      { source: "/projects/ember-one", destination: "https://emberone.org", permanent: true },
+      { source: "/projects/libre-board", destination: "https://libreboard.org", permanent: true },
+      { source: "/projects/mujina", destination: "https://mujina.org", permanent: true },
+      { source: "/projects/hydrapool", destination: "https://hydrapool.org", permanent: true },
+    ];
+  },
+
   images: {
     // Negotiate AVIF → WebP → original. AVIF is ~50% smaller than WebP for
     // photos but takes longer to encode, so it sits behind a fallback.

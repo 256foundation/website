@@ -5,17 +5,7 @@ export const topNav: NavItem[] = [
   { label: 'Mission', href: '/mission' },
   { label: 'Grants', href: '/grants' },
   { label: 'Newsroom', href: '/newsroom' },
-  {
-    label: 'Projects',
-    href: '/projects',
-    children: [
-      { label: 'Ember One', href: '/projects/ember-one' },
-      { label: 'Mujina', href: '/projects/mujina' },
-      { label: 'Libre Board', href: '/projects/libre-board' },
-      { label: 'Hydrapool', href: '/projects/hydrapool' },
-      { label: 'Funded Project Log', href: '/projects', divider: true },
-    ],
-  },
+  { label: 'Mining Stack', href: '/projects' },
   {
     label: 'Ecosystem',
     href: '#',
@@ -46,7 +36,7 @@ export const topNav: NavItem[] = [
 
 export const footerFoundationLinks: NavItem[] = [
   { label: 'Mission', href: '/mission' },
-  { label: 'Projects', href: '/projects' },
+  { label: 'Open Mining Stack', href: '/projects' },
   { label: 'Grants', href: '/grants' },
   { label: 'Donate', href: '/donate' },
   { label: 'Telehash', href: '/telehash' },
