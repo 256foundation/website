@@ -94,7 +94,7 @@ export default function MobileNav({ items, isOpen, onClose }: MobileNavProps) {
         ].join(' ')}
       >
         <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200 dark:border-[#3b1445]/30">
-          <Logo height={36} inverted />
+          <Logo variant="secondary" height={32} />
           <button
             onClick={onClose}
             className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-1"

@@ -1,11 +1,10 @@
 import type { NavItem } from '@/types'
 
 export const topNav: NavItem[] = [
-  { label: 'Home', href: '/' },
   { label: 'Mission', href: '/mission' },
+  { label: 'Mining Stack', href: '/projects' },
   { label: 'Grants', href: '/grants' },
   { label: 'Newsroom', href: '/newsroom' },
-  { label: 'Mining Stack', href: '/projects' },
   {
     label: 'Ecosystem',
     href: '#',
