@@ -15,7 +15,9 @@ export const pillarProjects: PillarProject[] = [
     description:
       'A fully open-source hardware reference design for a Bitcoin mining hash board — the foundational blueprint that miners, researchers, and companies can build upon.',
     whyNecessary:
-      'A single hardware company has held near-total control over mining hash board designs for years, blocking innovation and keeping every other layer dependent on closed hardware. Ember One breaks that grip with a fully documented, CERN-OHL-S-2.0 reference design that anyone can manufacture, modify, or build on.',
+      'Mining chips ship with no datasheets, no pinouts, no voltages or frequencies, and no way to buy the chips on their own. To build on competitive silicon you buy a full machine, desolder the chips, and reverse-engineer how to talk to them.',
+    whatItDoes:
+      'Ember One publishes the whole recipe — open PCB files, bill of materials, and firmware interface spec. It teaches the industry how ASICs chain in series and how a standalone hash board pairs with a separate control board, then lets you scale one design from a bench build to a rack.',
     keySpecs: [
       { label: 'Power', value: '~100W' },
       { label: 'Input Voltage', value: '12–24V DC' },
@@ -45,9 +47,11 @@ export const pillarProjects: PillarProject[] = [
     name: 'Libre Board',
     tagline: 'Open-source Bitcoin miner control board',
     description:
-      'An open-source hardware control board that runs full Linux and Mujina firmware — enabling custom mining setups from pool mining to hashrate heating and solar-powered mining.',
+      'An open-source hardware control board that runs Linux, supporting Mujina natively, plus anything else you need alongside it. Swappable compute scales across system complexity, so one board can run your system with no extra controllers.',
     whyNecessary:
-      'Control boards are the brain of any miner, and every existing one is a proprietary black box. Libre Board is the open bridge between open firmware and open hash board hardware, unlocking hashrate heating rigs, solar controllers, Home Assistant integration, and fully custom mining appliances.',
+      'A control board silently decides what a “miner” is allowed to be. Want your own firmware, a display, Wi-Fi on a remote site, or a flow sensor wired into a heat system? The closed board says no.',
+    whatItDoes:
+      'Libre Board exposes every interface a mining system might need and runs full Linux. It teaches builders how to wire anything into a miner, then strip the design down to their own parts list and form factor.',
     keySpecs: [
       { label: 'Input Voltage', value: '12–24V DC' },
       { label: 'Compute', value: 'CM5 / RISC-V / ARM' },
@@ -80,7 +84,9 @@ export const pillarProjects: PillarProject[] = [
     description:
       'Actively maintained open-source mining firmware, a drop-in replacement for proprietary firmware on existing hardware and a standard for new open designs.',
     whyNecessary:
-      'The entire ecosystem runs on closed firmware that can silently enforce pool restrictions, add dev fees, or phone home. Mujina makes mining firmware auditable, forkable, and community-governed — the Linux kernel equivalent for Bitcoin miners.',
+      'Firmware is the operating system of a miner, and it is unauditable. You cannot verify it is not skimming hashrate, phoning home, or holding a remote kill switch.',
+    whatItDoes:
+      'Mujina is the Linux-kernel project of mining firmware: open, reproducible, and forkable, with per-chip power control and no dev fee. It standardizes the layer everything else depends on, and gives operators source they can actually trust.',
     keySpecs: [
       { label: 'Language', value: 'Rust' },
       { label: 'License', value: 'GPLv3' },
@@ -110,9 +116,11 @@ export const pillarProjects: PillarProject[] = [
     name: 'Hydrapool',
     tagline: 'One-click deployable open-source Bitcoin mining pool',
     description:
-      'A fully open-source mining pool software package deployed with a single command, supporting multiple payout structures and Stratum V1/V2.',
+      'A fully open-source mining pool built as a platform: payout and accounting logic are plug-ins, not hard-coded — deployed with a single command.',
     whyNecessary:
-      'Mining pools decide which transactions get mined, and the largest ones run closed software — a chokepoint on Bitcoin\u2019s censorship resistance. Hydrapool makes it trivial to stand up an independent, open-source pool anyone can deploy in one command.',
+      'The pool is the server side of mining, and it is concentrated. Pools can filter which transactions get mined, custody your payouts, and hide the accounting — and there’s no permissionless way to aggregate hashrate without trusting an operator.',
+    whatItDoes:
+      'Like WordPress for pools: the core is a platform and payouts are plug-ins — solo, PPLNS, and more (Lightning, Ark) on the same core, all non-custodial from the coinbase. A P2Pool V2 path goes further, to pooling with no operator to trust at all.',
     keySpecs: [
       { label: 'Language', value: 'Rust' },
       { label: 'License', value: 'AGPLv3' },
@@ -120,10 +128,11 @@ export const pillarProjects: PillarProject[] = [
       { label: 'Payouts', value: 'Direct from coinbase' },
     ],
     keyFeatures: [
-      'One-command deploy',
-      'Solo + PPLNS payouts, no custody',
-      'Stratum V1 (V2 planned)',
-      'Prometheus metrics + Grafana dashboards',
+      'One-command Docker deploy',
+      'Plugin payout logic — solo, PPLNS, more',
+      'Non-custodial coinbase payouts',
+      'P2Pool V2 path (pool without an operator)',
+      'Prometheus + Grafana monitoring',
       'Live at pool.256foundation.org:3333',
     ],
     architect: { name: 'Jungly', handle: '@jungly', x: 'https://x.com/jungly' },

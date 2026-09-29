@@ -62,8 +62,10 @@ export interface PillarProject {
   name: string
   tagline: string
   description: string
-  /** The ecosystem gap / centralization risk this layer answers. */
+  /** The closed / permissioned reality this layer answers ("the risk"). */
   whyNecessary: string
+  /** What an open version does, teaches, and unlocks ("the open answer"). */
+  whatItDoes: string
   keySpecs: KeySpec[]
   keyFeatures: string[]
   architect: ProjectArchitect

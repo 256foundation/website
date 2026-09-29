@@ -60,18 +60,26 @@ export default function StackLayerSection({ project, index, layerLabel, repoMeta
               </div>
             </div>
 
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-5">{project.description}</p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">{project.description}</p>
 
-            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-8">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-gray-400 dark:text-gray-600 block mb-1.5">
-                The problem
-              </span>
-              {project.whyNecessary}
-            </p>
+            <div className="space-y-5 mb-8">
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-gray-400 dark:text-gray-600 block mb-1.5">
+                  The closed problem
+                </span>
+                {project.whyNecessary}
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-[#3b1445] dark:text-[#c084d8] block mb-1.5">
+                  The open answer
+                </span>
+                {project.whatItDoes}
+              </p>
+            </div>
 
             {/* Architect */}
             <p className="font-mono text-xs text-gray-500 dark:text-gray-400 mb-8">
-              <span className="text-gray-400 dark:text-gray-600">Core Architect &amp; Lead Maintainer — </span>
+              <span className="text-gray-400 dark:text-gray-600">Funded by 256 · Core Architect &amp; Lead Maintainer — </span>
               <span className="text-gray-900 dark:text-white">{project.architect.name}</span>{' '}
               <a
                 href={project.architect.x}
