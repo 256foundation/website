@@ -21,8 +21,8 @@ export default function HeroSection() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4 lg:mb-8 gap-4 lg:gap-8">
           <h1>
             {/* Horizontal logo at compact height on mobile/tablet, full size on lg+ */}
-            <Logo height={130} inverted className="lg:hidden" />
-            <Logo height={180} inverted className="hidden lg:block" />
+            <Logo height={52} className="lg:hidden" />
+            <Logo height={120} className="hidden lg:block" />
           </h1>
 
           {/* CTA buttons — right of logo on desktop, below logo on mobile */}

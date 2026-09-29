@@ -1,27 +1,42 @@
-type LogoVariant = 'horizontal' | 'square' | 'vertical' | 'circular'
+type LogoVariant = 'horizontal' | 'secondary' | 'square' | 'vertical' | 'circular'
 
-const LOGO_ASSETS: Record<LogoVariant, { black: string; white: string; width: number; height: number }> = {
+interface LogoAsset {
+  /** Artwork for light backgrounds (dark/purple). */
+  dark: string
+  /** Artwork for dark backgrounds (white). */
+  light: string
+  width: number
+  height: number
+}
+
+const LOGO_ASSETS: Record<LogoVariant, LogoAsset> = {
   horizontal: {
-    black: '/logos/256-logo-horizontal-black.png',
-    white: '/logos/256-logo-horizontal-white.png',
-    width: 4096,
-    height: 1714,
+    dark: '/logos/256-logo-horizontal-dark.png',
+    light: '/logos/256-logo-horizontal-light.png',
+    width: 2600,
+    height: 421,
   },
-  square: {
-    black: '/logos/256-logo-square-black.png',
-    white: '/logos/256-logo-square-white.png',
-    width: 2048,
-    height: 2048,
+  secondary: {
+    dark: '/logos/256-logo-secondary-dark.png',
+    light: '/logos/256-logo-secondary-light.png',
+    width: 1400,
+    height: 449,
   },
   vertical: {
-    black: '/logos/256-logo-vertical-black.png',
-    white: '/logos/256-logo-vertical-white.png',
+    dark: '/logos/256-logo-vertical-dark.png',
+    light: '/logos/256-logo-vertical-light.png',
+    width: 1600,
+    height: 648,
+  },
+  square: {
+    dark: '/logos/256-logo-square-black.png',
+    light: '/logos/256-logo-square-white.png',
     width: 2048,
     height: 2048,
   },
   circular: {
-    black: '/logos/256-logo-rnd-lg-black.png',
-    white: '/logos/256-logo-rnd-lg-white.png',
+    dark: '/logos/256-logo-rnd-lg-black.png',
+    light: '/logos/256-logo-rnd-lg-white.png',
     width: 1797,
     height: 1797,
   },
@@ -65,11 +80,11 @@ export default function Logo({
       className={className}
       style={{ lineHeight: 0, flexShrink: 0 }}
     >
-      {/* Dark mode: browser picks this source when prefers-color-scheme: dark */}
-      <source media="(prefers-color-scheme: dark)" srcSet={asset.black} />
-      {/* Light mode fallback */}
+      {/* Dark mode: light (white) artwork */}
+      <source media="(prefers-color-scheme: dark)" srcSet={asset.light} />
+      {/* Light mode fallback: dark (purple) artwork */}
       <img
-        src={asset.white}
+        src={asset.dark}
         alt={alt}
         width={asset.width}
         height={asset.height}

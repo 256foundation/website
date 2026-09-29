@@ -41,7 +41,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center group opacity-90 hover:opacity-100 transition-opacity duration-200">
-              <Logo height={44} inverted />
+              <Logo variant="secondary" height={40} />
             </Link>
 
             {/* Desktop Nav */}
