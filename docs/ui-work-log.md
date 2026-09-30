@@ -140,9 +140,9 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   application form (`https://form.typeform.com/to/oqyJAntF`, new tab). Core Projects
   "Calls currently closed" stays inert until its window reopens. The hero "Apply for a
   Grant" card still jumps to `#grant-programs` (both programs).
-- **Community hero photos are placeholders** — `public/community/hero-0*.jpg` are copies
-  of the TeleHash shots; drop real community photos and update `communityHeroPhotos` in
-  `data/community.ts`.
+- **Community hero photos** — real community shots in `public/community/hero-0*.webp`
+  (1920px WebP, EXIF-rotated), listed in `communityHeroPhotos` in `data/community.ts`;
+  add or reorder there.
 - **`/our-work` copy is a first pass** — every outline section is present but light;
   dial in copy and art later. It currently reuses `mission-background.webp` as its hero.
 - **Libre Board announcement pre-publish checklist** (from the canon review, not yet
@@ -163,4 +163,5 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
 - Favicon: `app/icon.png`
 - Hero art: `public/projects/open-mining-stack.webp`,
   `public/mission-background.webp`, `public/grants-hero-background.webp`
+- Community hero carousel: `public/community/hero-0*.webp`
 - Project marks: `public/projects/*`

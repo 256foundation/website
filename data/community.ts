@@ -1,15 +1,19 @@
 import type { CommunityChannel, CommunityProject } from '@/types'
 
 /**
- * Hero carousel photos for /community. Seeded with the TeleHash event photos as
- * placeholders — drop real community shots in /public/community and swap these.
+ * Hero carousel photos for /community. Real community shots, re-encoded to
+ * 1920px WebP in /public/community. Add or reorder here — the carousel cycles
+ * the array in order.
  */
 export const communityHeroPhotos: string[] = [
-  '/community/hero-01.jpg',
-  '/community/hero-02.jpg',
-  '/community/hero-03.jpg',
-  '/community/hero-04.jpg',
-  '/community/hero-05.jpg',
+  '/community/hero-01.webp',
+  '/community/hero-02.webp',
+  '/community/hero-03.webp',
+  '/community/hero-04.webp',
+  '/community/hero-05.webp',
+  '/community/hero-06.webp',
+  '/community/hero-07.webp',
+  '/community/hero-08.webp',
 ]
 
 /** Where the community lives. Every card links out; the page does not mirror content. */
