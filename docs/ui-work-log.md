@@ -14,9 +14,9 @@ Last updated: 2026-09-30
 | `ui/website-changes` | [#20](https://github.com/256foundation/website/pull/20) | Open Mining Stack: collapse `/projects` + 4 deep pages into one page; 308-redirect retired slugs; remove nav dropdown, Grant Log, ecosystem grid | open |
 | `ui/edits-round2` | [#21](https://github.com/256foundation/website/pull/21) | Logo rebrand + invisible-logo fix; nav reorder; full-bleed stack hero | open (branched off `ui/website-changes`) |
 | `ui/edits-round3` | — | Mission + Grants refresh; grants program copy/buttons; funding announcements log (round 4) | no PR yet (branched off `ui/edits-round2`) |
-| `ui/edits-round5` | — | Community page; Our Work stub; nav consolidation; supporters → Donate; canon sweep | no PR yet (branched off `ui/edits-round3`) |
+| `ui/edits-round5` | [#23](https://github.com/256foundation/website/pull/23) | Community page; Our Work stub; nav consolidation; supporters → Donate; canon sweep | open (based on `main`; #20–#22 already merged) |
 
-Each branch stacks on the previous one. Merge order matters: #20 → #21 → `ui/edits-round3` → `ui/edits-round5`.
+Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
 Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run lint` +
 `npm test` must stay green (lint has 6 pre-existing `<img>` warnings, 0 errors).
@@ -85,7 +85,7 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   client-safe `lib/newsroomMeta.ts` (no `fs`), re-exported by `lib/newsroom.ts`, because
   a client component importing the `fs`-using module failed the webpack build.
 
-### Round 5 — `ui/edits-round5` (no PR) — Community page + Our Work stub
+### Round 5 — `ui/edits-round5` (PR #23) — Community page + Our Work stub
 - **Nav consolidated:** both Ecosystem and Community dropdowns removed (they were all
   external links except Telehash). `topNav` = Mission · Our Work · Mining Stack · Grants ·
   Newsroom · Community. Footer adds Our Work + Community; `/telehash` stays a live route
