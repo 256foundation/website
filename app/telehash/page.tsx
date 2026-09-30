@@ -9,7 +9,7 @@ import DecorativeBg from '@/components/ui/DecorativeBg'
 export const metadata = generatePageMetadata({
   title: 'Telehash',
   description:
-    'Telehash is the 256 Foundation\'s semi-annual livestream fundraising event — point your hashrate to our pool for a chance to find a Bitcoin block live on stream.',
+    'Telehash is the 256 Foundation\'s occasional livestream fundraising event — point your hashrate to our pool for a chance to find a Bitcoin block live on stream.',
   path: '/telehash',
 })
 
@@ -53,9 +53,9 @@ export default function TelehashPage() {
             Mine for the Mission
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-4">
-            Telehash is the 256 Foundation&apos;s semi-annual fundraising event — an 8-hour
-            livestream where the global Bitcoin mining community points their hashrate to our
-            Hydrapool instance running in solo mining mode.
+            Telehash is the 256 Foundation&apos;s occasional fundraising event: held a few times a
+            year, the team gathers in person and livestreams as the global Bitcoin mining community
+            points their hashrate to our Hydrapool instance running in solo mining mode.
           </p>
           <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
             If a block is found during the stream, all block reward proceeds go directly to the

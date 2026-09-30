@@ -55,7 +55,7 @@ export const faqItems: FAQItem[] = [
     category: 'donations',
     question: 'What is TeleHash and how does it relate to donations?',
     answer:
-      'TeleHash is the 256 Foundation\'s semi-annual fundraising event — an 8-hour livestream where we run our Hydrapool instance in solo mining mode and invite the global community to point their hashrate to our pool. The first TeleHash event resulted in finding a Bitcoin block, raising the initial BTC that seeded the four core pillar grants.',
+      'TeleHash is the 256 Foundation\'s occasional fundraising event — held a few times a year, in person, and livestreamed. We run our Hydrapool instance in solo mining mode and invite the global community to point their hashrate to our pool for a chance at a solo block. The first TeleHash event found one, raising the initial BTC that seeded the four core projects.',
   },
 
   // ── Grants ────────────────────────────────────────────────────
@@ -63,7 +63,7 @@ export const faqItems: FAQItem[] = [
     category: 'grants',
     question: 'How are funds distributed?',
     answer:
-      'Donations to the General Fund are currently prioritized toward the four core pillar projects — Ember One, Mujina, Libre Board, and Hydrapool. These are foundation-defined initiatives we are fully committed to funding. When excess funding is available beyond those commitments, the board opens grant cycles for community-submitted projects. During active cycles, recipients are selected through an evaluation and interview process and awarded fair-market value for their work. You can find a record of all funded projects on the Projects page.',
+      'Donations are currently prioritized toward the four core projects — Ember One, Mujina, Libre Board, and Hydrapool. These are Foundation-defined initiatives we are fully committed to funding. When excess funding is available beyond those commitments, the board opens the General Grant Program for community-submitted projects. Applicants are selected through an evaluation and interview process and awarded fair-market value for their work. You can find a record of all funded projects on the Grants page.',
   },
   {
     category: 'grants',
@@ -81,7 +81,7 @@ export const faqItems: FAQItem[] = [
     category: 'grants',
     question: 'Who can apply for a grant?',
     answer:
-      'Open grant applications are currently closed. The 256 Foundation is focused on funding and facilitating our four core pillar projects, which we consider the essential building blocks for open-source Bitcoin mining hardware and software. When funding allows beyond those commitments, we open grant cycles for community developers and researchers. Any developer, hardware engineer, or researcher working on open-source Bitcoin mining can apply during an open cycle. All funded projects must be released under a recognized open-source license (OSI for software, OSHWA for hardware). Follow POD256, our newsletter, or social channels to be notified when the next cycle opens.',
+      'The General Grant Program is open to anyone working on open-source Bitcoin mining: develop a scope of your own, or a scope of work on one of ours. Any developer, hardware engineer, or researcher working on open-source Bitcoin mining can apply. All funded projects must be released under a recognized open-source license (OSI for software, OSHWA for hardware). Follow POD256, our newsletter, or social channels for updates.',
   },
   {
     category: 'grants',
@@ -91,27 +91,27 @@ export const faqItems: FAQItem[] = [
   },
   {
     category: 'grants',
-    question: 'What is the difference between a Core Pillar Grant and an Open Grant?',
+    question: 'What is the difference between the Core Projects Program and the General Grant Program?',
     answer:
-      'Core Pillar Grants are grants where the foundation identifies a critical missing piece of infrastructure, defines the scope and deliverables, and selects qualified developers to build it. Open Grants are community-driven: developers submit their own project proposals, which are reviewed and funded during grant cycles.',
+      'The Core Projects Program is work the Foundation scopes: we identify a critical missing piece of infrastructure, define the scope and deliverables, and select qualified developers to build it. The General Grant Program is work the applicant scopes: developers submit their own project proposals, which are reviewed and funded when the program is open.',
   },
   {
     category: 'grants',
     question: 'How does the grant application process work?',
     answer:
-      'Open grant applications are not currently being accepted. When a grant cycle opens, applicants submit a proposal including project description, technical approach, requested funding amount, timeline, milestone plan, and links to relevant prior work. The foundation board reviews submissions and interviews qualified candidates. Approved grantees work with the foundation to finalize scope, milestones, and payment structure, and all funded work is developed in public under an approved open-source license. Follow our channels to be notified when the next cycle opens.',
+      'General Grant Program applicants submit a proposal including project description, technical approach, requested funding amount, timeline, milestone plan, and links to relevant prior work. The Foundation board reviews submissions and interviews qualified candidates. Approved grantees work with the Foundation to finalize scope, milestones, and payment structure, and all funded work is developed in public under an approved open-source license.',
   },
 
   // ── Projects & Ecosystem ──────────────────────────────────────
   {
     category: 'projects',
-    question: 'What are the four pillar projects?',
+    question: 'What are the four core projects?',
     answer:
-      'The four pillar projects are: Ember One (open-source mining hash board hardware), Mujina (open-source mining firmware), Libre Board (open-source miner control board hardware), and Hydrapool (open-source mining pool software). Together they form a complete open-source Bitcoin mining stack.',
+      'The four core projects are: Ember One (open-source mining hash board hardware), Mujina (open-source mining firmware), Libre Board (open-source miner control board hardware), and Hydrapool (open-source mining pool software). Together they form a complete open-source Bitcoin mining stack.',
   },
   {
     category: 'projects',
-    question: 'How do the four pillar projects relate to each other?',
+    question: 'How do the four core projects relate to each other?',
     answer:
       'They are designed as complementary layers of the same stack: Ember One provides the hash board (the compute layer), Libre Board provides the control board that connects the hash board to the network, Mujina runs on Libre Board and manages the mining operation, and Hydrapool provides the pool that the miner connects to. Any combination can be used independently, but together they form a fully open-source mining system.',
   },

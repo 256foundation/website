@@ -93,14 +93,14 @@ export default function EcosystemSection() {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase leading-tight">
-          Community Projects Under Our Umbrella
+          Community Projects We Serve
         </h2>
         <div className="space-y-3">
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
             The 256 Foundation doesn&apos;t just fund development — it serves as a connective layer
-            for the broader open-source Bitcoin mining ecosystem. We&apos;ve brought several community-led
-            projects under our organizational umbrella so they have the infrastructure, visibility,
-            and support to grow — while remaining fully and community-led.
+            for the broader open-source Bitcoin mining ecosystem. We support several community-led
+            projects with infrastructure, visibility, and support to grow — while they remain fully
+            and community-led.
           </p>
           <p className="text-gray-500 text-sm leading-relaxed">
             These projects share our conviction that Bitcoin&apos;s mining layer must be open,

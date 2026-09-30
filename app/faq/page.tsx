@@ -24,11 +24,11 @@ const categoryConfig: Record<Category, { label: string; description: string }> =
   },
   grants: {
     label: 'Grants',
-    description: 'How our grants program works and how to apply',
+    description: 'How our grant programs work and how to apply',
   },
   projects: {
     label: 'Projects & Ecosystem',
-    description: 'Our four pillar projects and the broader ecosystem',
+    description: 'Our four core projects and the broader ecosystem',
   },
   technical: {
     label: 'Technical',

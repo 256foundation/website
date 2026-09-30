@@ -14,16 +14,16 @@ export default function ApplySection() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-1 h-4 bg-[#3b1445]" />
               <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
-                Open Grants
+                General Grant Program
               </span>
             </div>
             <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight mb-4 max-w-2xl uppercase">
-              Open Grant Cycles — Coming Soon
+              Fund Your Open-Source Mining Project
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xl">
-              The 256 Foundation will fund community-driven open-source mining projects — open hardware,
-              firmware, pool software, research, and tooling. Grant cycles open when funding is available
-              beyond our four core pillar projects. Follow our channels to be notified when the next cycle launches.
+               The 256 Foundation funds community-driven open-source mining projects — open hardware,
+               firmware, pool software, research, and tooling. Apply with a scope of your own, or a
+               scope of work on one of ours. Follow our channels for updates.
             </p>
             <div className="flex flex-wrap gap-3 mt-4">
               {['Open Hardware', 'Firmware', 'Pool Software', 'Research', 'Education'].map((tag) => (

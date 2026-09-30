@@ -4,6 +4,8 @@ import Button from '@/components/ui/Button'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 import CopyButton from '@/components/ui/CopyButton'
 import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS } from '@/data/donate'
+import { supporters } from '@/data/supporters'
+import SupporterShowcase from '@/components/home/SupporterShowcase'
 
 export const metadata = generatePageMetadata({
   title: 'Donate',
@@ -221,6 +223,11 @@ export default function DonatePage() {
             Learn About Telehash &rarr;
           </a>
         </div>
+      </SectionWrapper>
+
+      {/* Supporters — logos and the live hashrate leaderboard */}
+      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
+        <SupporterShowcase supporters={supporters} />
       </SectionWrapper>
     </>
   )

@@ -79,6 +79,31 @@ export interface PillarProject {
   logo?: ProjectLogo
 }
 
+// ── Community ─────────────────────────────────────────────────
+/** A channel or destination the community lives in (forum, chat, etc.). */
+export interface CommunityChannel {
+  label: string
+  description: string
+  href: string
+  external?: boolean
+}
+
+/**
+ * A project surfaced on /community. `community-directed` projects run their own
+ * restricted fund (OSMU, Hashrate Heatpunks); `we-serve` projects are ecosystem
+ * projects the Foundation supports but does not direct.
+ */
+export interface CommunityProject {
+  name: string
+  abbr: string
+  description: string
+  href: string
+  logo?: string
+  logoDark?: string
+  logoLight?: string
+  relationship: 'community-directed' | 'we-serve'
+}
+
 // ── Supporters ────────────────────────────────────────────────
 export interface Supporter {
   name: string

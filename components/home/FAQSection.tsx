@@ -5,7 +5,7 @@ import { faqItems } from '@/data/faq'
 const SELECTED = [
   'What does the 256 Foundation do?',
   'How much of my donation goes towards open-source contributors?',
-  'What is the difference between a Core Pillar Grant and an Open Grant?',
+  'What is the difference between the Core Projects Program and the General Grant Program?',
   'How can I donate to the 256 Foundation?',
 ]
 

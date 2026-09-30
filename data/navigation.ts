@@ -2,41 +2,19 @@ import type { NavItem } from '@/types'
 
 export const topNav: NavItem[] = [
   { label: 'Mission', href: '/mission' },
+  { label: 'Our Work', href: '/our-work' },
   { label: 'Mining Stack', href: '/projects' },
   { label: 'Grants', href: '/grants' },
   { label: 'Newsroom', href: '/newsroom' },
-  {
-    label: 'Ecosystem',
-    href: '#',
-    children: [
-      { label: 'Bitaxe', href: 'https://bitaxe.org', external: true },
-      { label: 'OSMU', href: 'https://osmu.wiki', external: true },
-      { label: 'Hashrate Heatpunks', href: 'https://heatpunks.org', external: true },
-      { label: 'Jua Kali', href: 'https://github.com/GridlessCompute/Jua-Kali-Miner', external: true },
-      { label: 'ASIC-rs', href: 'https://256foundation.github.io/asic-rs/', external: true },
-      { label: 'HashScope', href: 'https://github.com/256foundation/HashScope', external: true },
-    ],
-  },
-  {
-    label: 'Community',
-    href: '#',
-    children: [
-      { label: 'Forum', href: 'https://forum.256foundation.org', external: true },
-      { label: 'Group Chat', href: 'https://t.me/the256foundation', external: true },
-      { label: 'Newsletter', href: 'https://256foundation.substack.com', external: true },
-      { label: 'POD256', href: 'https://www.pod256.org', external: true },
-      { label: 'X / Twitter', href: 'https://x.com/256FOUNDATION', external: true },
-      { label: 'Nostr', href: 'https://primal.net/p/nprofile1qqsqhk42dz0exfcsln4yqmdkjys0nvd7dqndgacpsa7w7pt7njq2uuss2u9cq', external: true },
-      { label: 'Hashdash', href: 'https://dash.256f.org', external: true },
-      { label: 'Telehash', href: '/telehash' },
-    ],
-  },
+  { label: 'Community', href: '/community' },
 ]
 
 export const footerFoundationLinks: NavItem[] = [
   { label: 'Mission', href: '/mission' },
+  { label: 'Our Work', href: '/our-work' },
   { label: 'Open Mining Stack', href: '/projects' },
   { label: 'Grants', href: '/grants' },
+  { label: 'Community', href: '/community' },
   { label: 'Donate', href: '/donate' },
   { label: 'Telehash', href: '/telehash' },
   { label: 'FAQ', href: '/faq' },
