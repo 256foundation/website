@@ -110,36 +110,20 @@ export default function CommunityHeroCarousel({
       </SectionWrapper>
 
       {count > 1 && (
-        <>
-          {/* Manual controls — bottom-right, clear of the left-aligned copy */}
-          <div className="absolute bottom-4 right-4 sm:right-6 z-10 flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => goTo(index - 1)}
-              aria-label="Previous photo"
-              className="flex h-10 w-10 items-center justify-center border border-white/30 bg-black/30 text-white/80 backdrop-blur-sm transition-colors hover:border-white/70 hover:text-white"
-            >
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <span className="font-mono text-xs text-white/70 tabular-nums" aria-hidden="true">
-              {index + 1} / {count}
-            </span>
-            <button
-              type="button"
-              onClick={() => goTo(index + 1)}
-              aria-label="Next photo"
-              className="flex h-10 w-10 items-center justify-center border border-white/30 bg-black/30 text-white/80 backdrop-blur-sm transition-colors hover:border-white/70 hover:text-white"
-            >
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
+        /* Centered controls: subtle arrows flanking the dots */
+        <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-4">
+          <button
+            type="button"
+            onClick={() => goTo(index - 1)}
+            aria-label="Previous photo"
+            className="text-white/50 transition-colors hover:text-white"
+          >
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
 
-          {/* Dot nav */}
-          <div className="absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 gap-2 sm:flex">
+          <div className="flex gap-2">
             {photos.map((_, i) => (
               <button
                 key={i}
@@ -154,7 +138,18 @@ export default function CommunityHeroCarousel({
               />
             ))}
           </div>
-        </>
+
+          <button
+            type="button"
+            onClick={() => goTo(index + 1)}
+            aria-label="Next photo"
+            className="text-white/50 transition-colors hover:text-white"
+          >
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
       )}
     </section>
   )
