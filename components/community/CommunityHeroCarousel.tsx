@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 
@@ -16,7 +16,8 @@ interface CommunityHeroCarouselProps {
 /**
  * Full-bleed hero that crossfades a rolling set of community photos behind the
  * page's single call to action. Autoplay pauses on hover and stops entirely
- * under prefers-reduced-motion, which just leaves the first frame up.
+ * under prefers-reduced-motion, which just leaves the first frame up. Dots and
+ * arrows jump/step manually, and any manual move restarts the autoplay timer.
  */
 export default function CommunityHeroCarousel({
   photos,
@@ -28,22 +29,45 @@ export default function CommunityHeroCarousel({
 }: CommunityHeroCarouselProps) {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
+  // Bumped on manual navigation so the autoplay interval restarts from now
+  // rather than firing right after a click.
+  const [resetKey, setResetKey] = useState(0)
+
+  const count = photos.length
+  const touchX = useRef<number | null>(null)
+
+  const goTo = useCallback(
+    (next: number) => {
+      setIndex(((next % count) + count) % count)
+      setResetKey((k) => k + 1)
+    },
+    [count],
+  )
 
   useEffect(() => {
-    if (photos.length < 2) return
+    if (count < 2) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const id = window.setInterval(() => {
-      if (!paused) setIndex((i) => (i + 1) % photos.length)
+      if (!paused) setIndex((i) => (i + 1) % count)
     }, 6000)
     return () => window.clearInterval(id)
-  }, [photos.length, paused])
+  }, [count, paused, resetKey])
 
   return (
     <section
       className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
+      onTouchStart={(e) => {
+        touchX.current = e.touches[0].clientX
+      }}
+      onTouchEnd={(e) => {
+        if (touchX.current === null) return
+        const dx = e.changedTouches[0].clientX - touchX.current
+        if (Math.abs(dx) > 40) goTo(index + (dx < 0 ? 1 : -1))
+        touchX.current = null
+      }}
     >
       {/* Rotating photo layer — crossfades under the copy */}
       <div aria-hidden="true" className="absolute inset-0">
@@ -85,22 +109,52 @@ export default function CommunityHeroCarousel({
         </div>
       </SectionWrapper>
 
-      {/* Dot nav */}
-      {photos.length > 1 && (
-        <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-          {photos.map((_, i) => (
+      {count > 1 && (
+        <>
+          {/* Manual controls — bottom-right, clear of the left-aligned copy */}
+          <div className="absolute bottom-4 right-4 sm:right-6 z-10 flex items-center gap-2">
             <button
-              key={i}
               type="button"
-              onClick={() => setIndex(i)}
-              aria-label={`Go to photo ${i + 1}`}
-              className={[
-                'h-1.5 w-1.5 rounded-full transition-all',
-                i === index ? 'bg-[#c084d8] scale-125' : 'bg-white/40 hover:bg-white/70',
-              ].join(' ')}
-            />
-          ))}
-        </div>
+              onClick={() => goTo(index - 1)}
+              aria-label="Previous photo"
+              className="flex h-10 w-10 items-center justify-center border border-white/30 bg-black/30 text-white/80 backdrop-blur-sm transition-colors hover:border-white/70 hover:text-white"
+            >
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <span className="font-mono text-xs text-white/70 tabular-nums" aria-hidden="true">
+              {index + 1} / {count}
+            </span>
+            <button
+              type="button"
+              onClick={() => goTo(index + 1)}
+              aria-label="Next photo"
+              className="flex h-10 w-10 items-center justify-center border border-white/30 bg-black/30 text-white/80 backdrop-blur-sm transition-colors hover:border-white/70 hover:text-white"
+            >
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Dot nav */}
+          <div className="absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 gap-2 sm:flex">
+            {photos.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Go to photo ${i + 1}`}
+                aria-current={i === index}
+                className={[
+                  'h-1.5 w-1.5 rounded-full transition-all',
+                  i === index ? 'bg-[#c084d8] scale-125' : 'bg-white/40 hover:bg-white/70',
+                ].join(' ')}
+              />
+            ))}
+          </div>
+        </>
       )}
     </section>
   )
