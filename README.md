@@ -57,6 +57,7 @@ website-256F/
 │   ├── mission/page.tsx        # /mission
 │   ├── donate/page.tsx         # /donate
 │   ├── grants/page.tsx         # /grants
+│   ├── grants/announcements/page.tsx  # /grants/announcements — funding log archive
 │   ├── faq/page.tsx            # /faq
 │   ├── telehash/page.tsx       # /telehash
 │   ├── newsroom/
@@ -100,7 +101,11 @@ website-256F/
 │   │   └── ContactForm.tsx     # Formspree-powered contact form
 │   ├── newsroom/               # Newsroom components
 │   │   ├── PostCard.tsx        # Card for post list (cover image, category, date, title, excerpt)
+│   │   ├── NewsroomIndex.tsx   # Client-side category filter + post grid
 │   │   └── PostBody.tsx        # MDXRemote wrapper — renders MDX content with .newsroom-body styles
+│   ├── grants/                 # Grants funding-log components
+│   │   ├── FundingAnnouncements.tsx    # Log section: cards, empty state, "View all →"
+│   │   └── GrantAnnouncementCard.tsx   # One log entry (date, project, program chip, term, line)
 │   ├── projects/               # Project detail components
 │   │   ├── PillarProjectCard.tsx       # Card with live GitHub stars/forks/issues
 │   │   ├── MilestoneTracker.tsx
@@ -134,7 +139,8 @@ website-256F/
 │
 ├── lib/
 │   ├── metadata.ts             # SEO metadata generation helper
-│   ├── newsroom.ts             # Newsroom helpers — getAllPosts, getPostBySlug, getLatestPost, formatPostDate
+│   ├── newsroom.ts             # Newsroom helpers — getAllPosts, getPostBySlug, getLatestPost, formatPostDate; re-exports newsroomMeta
+│   ├── newsroomMeta.ts         # Client-safe: category vocabulary/labels, formatPostDate (no fs)
 │   ├── substack.ts             # Substack RSS fetch + parse
 │   ├── discourse.ts            # Discourse forum API — latest topics + per-category topics
 │   └── github.ts               # GitHub REST API — repo meta, org repos, org events
@@ -143,7 +149,7 @@ website-256F/
 │   └── index.ts                # All TypeScript interfaces
 │
 ├── public/
-│   ├── logos/                  # Logo variants
+│   ├── logos/                  # 256-logo-{horizontal,secondary,vertical}-{dark,light}.png (dark=for light bg)
 │   ├── projects/               # Project images
 │   ├── team/                   # Team headshots
 │   ├── supporters/             # Supporter tier logos (tier1/, tier2/, tier3/)
@@ -204,9 +210,9 @@ NEXT_PUBLIC_SITE_URL=https://256foundation.org
 # Zaprite donation link (used on /donate page and home donate cards)
 NEXT_PUBLIC_ZAPRITE_URL=https://pay.zaprite.com/pl_...
 
-# Typeform grant application URL — currently unused (open grant cycle is closed)
-# Re-enable when a grant cycle opens by restoring the apply CTA on /grants
-# NEXT_PUBLIC_TYPEFORM_URL=https://form.typeform.com/to/...
+# Typeform grant application URL — unused; the URL is hardcoded in app/grants/page.tsx
+# (the General Grant "Apply for a Grant" button links straight to it)
+# NEXT_PUBLIC_TYPEFORM_URL=https://form.typeform.com/to/oqyJAntF
 
 # Umami analytics (optional — only injected in production)
 NEXT_PUBLIC_UMAMI_WEBSITE_ID=
@@ -495,25 +501,22 @@ Configured in `next.config.ts` under `images.remotePatterns` for `next/image` op
 | Route | Page | Description |
 |-------|------|-------------|
 | `/` | Home | Hero, donate CTAs, why section, stats, blocks found, forum + GitHub activity, FAQ, supporters, contact form |
-| `/mission` | Mission | Foundation story, team, timeline, values |
-| `/projects` | Projects | Grant log, pillar project cards with live GitHub stats, ecosystem projects, GitHub org stats CTA |
-| `/projects/ember-one` | Ember One | Project detail with live forum topics and GitHub activity |
-| `/projects/mujina` | Mujina | Project detail |
-| `/projects/libre-board` | Libre Board | Project detail |
-| `/projects/hydrapool` | Hydrapool | Project detail |
-| `/grants` | Grants | Grant program overview; open cycle currently closed — stay informed CTAs |
+| `/mission` | Mission | Mission statement, photo-framed narrative, principles, founders + board |
+| `/projects` | Open Mining Stack | Four stack layers (hash board → control board → firmware → pool) with live activity badges; retired `/projects/[slug]` 308-redirect to project sites |
+| `/grants` | Grants | Two programs — Core Projects Program / General Grant Program (`#grant-programs`); funding announcements log (`#funding-announcements`) |
+| `/grants/announcements` | Funding Archive | Every `grant-announcement` newsroom post, newest first |
 | `/donate` | Donate | BTC/Lightning/card + hashrate donation with participation steps |
 | `/telehash` | TeleHash | Countdown, participation guide, event history with photo carousels |
 | `/faq` | FAQ | Categorized Q&A accordion (sourced from old site + expanded) |
-| `/newsroom` | Newsroom | List of org-authored MDX posts (announcements, mission, industry) |
+| `/newsroom` | Newsroom | List of org-authored MDX posts (perspective, foundation news, project updates, highlights, grant announcements) |
 | `/newsroom/[slug]` | Post Detail | Full article rendered from MDX with cover image and article body |
 
 ### Top Navigation
 
 ```
-Logo (→ /)     Home     Mission     Grants     Newsroom     Open Mining Stack     Ecosystem ▾     Community ▾     [GitHub]  [Forum]  [Donate]
+Logo (→ /)     Mission     Mining Stack     Grants     Newsroom     Ecosystem ▾     Community ▾     [GitHub]  [Forum]  [Donate]
 
-Open Mining Stack → /projects  (single page; layers jump to /projects#ember-one, #libre-board, #mujina, #hydrapool)
+Mining Stack → /projects  (single "Open Mining Stack" page; layers jump to /projects#ember-one, #libre-board, #mujina, #hydrapool)
 
 Ecosystem dropdown:
   • Bitaxe             → https://bitaxe.org                                    (external)
@@ -703,16 +706,22 @@ MDX files for org-authored articles. Each file is `[slug].mdx` with frontmatter:
 title: "Post Title"
 date: "2026-05-01"          # ISO date — controls sort order and display
 author: "256 Foundation"
-category: "announcement"    # announcement | mission | industry | partner
+category: "foundation-news" # perspective | foundation-news | project-update | highlight | grant-announcement
 excerpt: "One-sentence summary shown on the list page and in the home page card."
 coverImage: "/newsroom/[post-slug]/banner.png"   # optional — shown at top of post
 ogImage: "/newsroom/[post-slug]/og.png"          # optional — used for social share OG image
+# grant-announcement only, all optional — feed the /grants funding log:
+project: "Libre Board"
+program: "core"             # core | general
+term: "Four months, September to December"
 ---
 
 Article body in Markdown...
 ```
 
 Parsed by `lib/newsroom.ts` at build time. Posts are sorted newest-first. The most recent post is surfaced on the home page in the StayUpdated section.
+
+Posts with `category: grant-announcement` additionally appear, newest first, in the `/grants` funding log (`#funding-announcements`, max 6) and its `/grants/announcements` archive. Grants *received* from third parties (HRF, MARA) are `foundation-news`, not announcements. The log never shows a dollar amount, and its copy avoids "cycle"/"wave"/"round", "pillar", retired program names, and em dashes; `tests/grant-announcements.test.mjs` enforces this.
 
 ---
 
@@ -755,7 +764,7 @@ Set `nextEventDate` to an ISO date string and fill in `nextEventDetails` in `dat
 2. Add entry to `data/team.ts`
 
 ### Update donation/grant form links
-Set `NEXT_PUBLIC_ZAPRITE_URL` and `NEXT_PUBLIC_TYPEFORM_URL` in `.env.local` or Vercel environment variables.
+Donation link: set `NEXT_PUBLIC_ZAPRITE_URL` in `.env.local` or Vercel environment variables. The Typeform grant application URL is hardcoded in `app/grants/page.tsx` (`GENERAL_GRANT_APPLICATION_URL`); `NEXT_PUBLIC_TYPEFORM_URL` is unused.
 
 ### Add an ecosystem project
 1. Add logo(s) to `public/ecosystem/` — for dark/light variants name them `<Project>_square_dark.png` and `<Project>_square_light.png`

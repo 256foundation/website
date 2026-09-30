@@ -1,81 +1,100 @@
+import type { ReactNode } from 'react'
+import Image from 'next/image'
 import { generatePageMetadata } from '@/lib/metadata'
 import { founders, board } from '@/data/team'
 import SectionWrapper from '@/components/ui/SectionWrapper'
-import TeamMemberCard from '@/components/shared/TeamMemberCard'
 import DecorativeBg from '@/components/ui/DecorativeBg'
+import TeamMemberCard from '@/components/shared/TeamMemberCard'
 
 export const metadata = generatePageMetadata({
   title: 'Mission',
   description:
-    'The 256 Foundation exists to build the open-source Bitcoin mining ecosystem — funding developers who are dismantling the proprietary mining empire.',
+    'To decentralize Bitcoin mining by building, funding and stewarding open-source alternatives to every closed layer of the mining stack.',
   path: '/mission',
 })
 
-const values = [
+/** Emphasized section kicker — accent bar + wider-tracked label. */
+function SectionKicker({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex items-center gap-3 mb-4">
+      <span aria-hidden="true" className="block w-1.5 h-4 bg-[#3b1445] dark:bg-[#c084d8]" />
+      <span className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-sm tracking-[0.28em] uppercase">
+        {children}
+      </span>
+    </div>
+  )
+}
+
+const principles = [
   {
-    icon: '🔓',
-    title: 'Free and Open Development',
-    description:
-      'Every project funded by this foundation is made available under a recognized open-source license. No closed-source, no proprietary forks, no exceptions.',
+    lead: 'Money from anyone, influence from no one.',
+    body: 'We take money from anyone; it has no impact on how we run the organization. No special treatment for any funder.',
   },
   {
-    icon: '🔧',
-    title: 'Direct Funding',
-    description:
-      'The 256 Foundation directly funds core contributors building the open-source Bitcoin mining infrastructure we deem critically important — Mujina firmware, Libre Board, Hydrapool, and the Ember One hashboard.',
+    lead: 'No obligation to capture value.',
+    body: 'Our non-profit structure removes the incentive to capture value — which is why we can be the neutral home for the ecosystem’s shared dependencies, and never compete with the builders and companies that contribute.',
   },
   {
-    icon: '⚡',
-    title: 'Permissionless Innovation',
-    description:
-      'Bitcoin is permissionless money. The infrastructure that secures it should be permissionless too. Anyone should be able to build on our open stack.',
-  },
-  {
-    icon: '🌐',
-    title: 'Community-First Governance',
-    description:
-      'Decisions are made with the long-term health of the Bitcoin network and the open-source mining community in mind — not the interests of any single company or actor.',
+    lead: 'We started the projects — we don’t own them, and we don’t sell them.',
+    body: 'Every core project and grant we fund is released under a recognized open-source licence, no exceptions.',
   },
 ]
 
 export default function MissionPage() {
   return (
     <>
-      {/* Hero */}
+      {/* Hero — clean, text only */}
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
-        <div className="max-w-3xl relative z-10">
-          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-            Our Mission
-          </p>
-          <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
-            Build the Open-Source Bitcoin Mining Ecosystem
+        <div className="max-w-4xl relative z-10">
+          <SectionKicker>Our Mission</SectionKicker>
+          <h1 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight uppercase">
+            To decentralize Bitcoin mining by building, funding and stewarding open-source
+            alternatives to every closed layer of the mining stack — so that the technology
+            Bitcoin depends on cannot be owned, switched off, or permissioned by anyone.
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
-            The 256 Foundation raises money to fund developers building open-source Bitcoin mining
-            hardware and software solutions — dismantling the proprietary mining empire that has
-            centralized Bitcoin mining around closed-source hardware and software.
-          </p>
-          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-6">
+        </div>
+      </SectionWrapper>
+
+      {/* Status quo — thin info bar above the photo */}
+      <section className="bg-gray-50 dark:bg-[#242424] border-b border-gray-200 dark:border-[#1f1f1f]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 lg:py-4">
+          <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
             All Bitcoin miners, large and small, have been negatively affected by one large
             antagonistic hardware company who has blocked innovation, denied collaboration, and
             taken majority control over the hardware and software that keeps Bitcoin running.
           </p>
-          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+        </div>
+      </section>
+
+      {/* Photo band */}
+      <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] border-b border-gray-200 dark:border-[#1f1f1f] overflow-hidden">
+        <Image
+          src="/mission-background.webp"
+          alt="Bitcoin mining hardware out in the field"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
+
+      {/* Pledge — thin info bar below the photo */}
+      <section className="bg-gray-50 dark:bg-[#242424] border-b border-gray-200 dark:border-[#1f1f1f]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 lg:py-4">
+          <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
             An open protocol should be accessible to anyone at all layers. The open-source
             Bitcoin mining stack we are building achieves this. We believe in free and open
             development and we pledge that every project from this foundation will always be made
             available through free and open-source contributions.
           </p>
         </div>
-      </SectionWrapper>
+      </section>
 
       {/* Vision */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl">
-          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-            Our Vision
-          </p>
+          <SectionKicker>Our Vision</SectionKicker>
           <blockquote className="border-l-4 border-[#3b1445] pl-6 py-2">
             <p className="font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-relaxed uppercase">
               &ldquo;An open protocol should be accessible to anyone at all layers — the open-source
@@ -114,37 +133,24 @@ export default function MissionPage() {
         </div>
       </SectionWrapper>
 
-      {/* Values */}
-      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-          Our Values
-        </p>
-        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
-          Principles We Build On
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {values.map((v) => (
-            <div
-              key={v.title}
-              className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors"
-            >
-              <div className="text-2xl mb-3">{v.icon}</div>
-              <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase mb-2">{v.title}</h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{v.description}</p>
-            </div>
-          ))}
+      {/* Principles — subtle filler */}
+      <SectionWrapper tight className="border-b border-gray-200 dark:border-[#1f1f1f]">
+        <div className="max-w-3xl">
+          <SectionKicker>Principles</SectionKicker>
+          <div className="space-y-5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+            {principles.map((p) => (
+              <p key={p.lead}>
+                <span className="font-bold text-gray-900 dark:text-white">{p.lead}</span> {p.body}
+              </p>
+            ))}
+          </div>
         </div>
       </SectionWrapper>
 
       {/* Founders */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-          Founders
-        </p>
-        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
-          Who Started This
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+        <SectionKicker>Founders</SectionKicker>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
           {founders.map((member) => (
             <TeamMemberCard key={member.name} member={member} />
           ))}
@@ -153,13 +159,8 @@ export default function MissionPage() {
 
       {/* Board */}
       <SectionWrapper>
-        <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-          Board
-        </p>
-        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-8">
-          Board of Directors
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <SectionKicker>Board</SectionKicker>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           {board.map((member) => (
             <TeamMemberCard key={member.name} member={member} />
           ))}

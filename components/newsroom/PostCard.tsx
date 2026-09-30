@@ -1,16 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { NewsroomPost } from '@/types'
-import { formatPostDate } from '@/lib/newsroom'
-
-const categoryLabels: Record<NewsroomPost['category'], string> = {
-  announcement: 'Announcement',
-  mission: 'Mission',
-  industry: 'Industry',
-  partner: 'Partner',
-  grant: 'Grant',
-  manifesto: 'Manifesto',
-}
+import { formatPostDate, categoryLabel } from '@/lib/newsroomMeta'
 
 interface PostCardProps {
   post: NewsroomPost
@@ -38,7 +29,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
       <div className={`flex flex-col flex-1 ${featured ? 'p-6' : 'p-4'}`}>
         <div className="flex items-center gap-3 mb-2">
           <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs uppercase tracking-widest">
-            {categoryLabels[post.category]}
+            {categoryLabel(post.category)}
           </span>
           {post.date && (
             <time className="font-mono text-gray-400 text-xs">

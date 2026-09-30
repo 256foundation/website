@@ -69,13 +69,13 @@ export default async function OpenMiningStackPage() {
         <SectionWrapper className="relative z-10 flex min-h-[560px] lg:min-h-[640px] items-center">
           <div className="max-w-2xl">
             <p className="font-mono text-[#c084d8] text-xs tracking-[0.2em] uppercase mb-4">
-              Open Mining Stack
+              The 256 Foundation&rsquo;s Core Projects Program
             </p>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-5">
               The Open <span className="text-[#c084d8]">Mining Stack</span>
             </h1>
             <p className="font-display text-xl sm:text-2xl font-semibold text-white uppercase leading-tight mb-5">
-              Bitcoin mining will be open source, or Bitcoin stays permissioned.
+              Bitcoin mining will be open-source, or Bitcoin stays permissioned
             </p>
             <p className="text-gray-200 text-lg leading-relaxed">
               Mining began open — general-purpose CPUs, open operating systems, off-the-shelf

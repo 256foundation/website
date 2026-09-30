@@ -151,13 +151,40 @@ export interface PodcastEpisode {
 }
 
 // ── Newsroom ──────────────────────────────────────────────────
+/**
+ * Newsroom categories. The display names live in
+ * components/newsroom/categories.ts; this union is the frontmatter vocabulary.
+ * `grant-announcement` is the only category that feeds the grants-page
+ * funding log, so a typo here silently drops a post out of that log.
+ */
+export type NewsroomCategory =
+  | 'perspective'
+  | 'foundation-news'
+  | 'project-update'
+  | 'highlight'
+  | 'grant-announcement'
+
 export interface NewsroomPost {
   slug: string
   title: string
   date: string
   author: string
-  category: 'announcement' | 'mission' | 'industry' | 'partner' | 'grant' | 'manifesto'
+  category: NewsroomCategory
   excerpt: string
+  /**
+   * Project name for a funding announcement. Free text, rendered as a label on
+   * the grants log card; never a link. Only meaningful with
+   * category `grant-announcement`, ignored elsewhere.
+   */
+  project?: string
+  /**
+   * Which grant program funded the work — powers the log card's chip. Only
+   * meaningful with category `grant-announcement`; an unrecognized value drops
+   * the chip rather than erroring.
+   */
+  program?: 'core' | 'general'
+  /** Optional funding term, e.g. "Four months, September to December". Rendered verbatim when present. */
+  term?: string
   coverImage?: string
   ogImage?: string
   /**
