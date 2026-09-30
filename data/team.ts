@@ -5,7 +5,7 @@ export const founders: TeamMember[] = [
     name: 'Bitkite',
     handle: '@bitkite',
     role: 'Co-Founder',
-    bio: 'Co-founder of Bitcoin Park — a community-supported campus in Nashville and Austin focused on grassroots freedom tech adoption — where he has spent years running world-class events at the intersection of Bitcoin, energy, and open-source technology. Bitkite brings a builder\'s conviction that Bitcoin\'s future depends on decentralized infrastructure accessible to everyone, not just institutions.',
+    bio: 'Co-founder of Bitcoin Park — a community-supported campus in Nashville and Austin focused on grassroots freedom tech adoption — where he has spent years running world-class events at the intersection of Bitcoin, energy, and AI. Bitkite brings a builder\'s conviction that an abundant future depends on decentralized infrastructure, community and education — not just institutions.',
     headshot: '/team/bitkite.jpg',
     links: {
       x: 'https://x.com/bitkite',
@@ -38,7 +38,7 @@ export const board: TeamMember[] = [
     name: 'Skot',
     handle: '@skot9000',
     role: 'Secretary of the Board',
-    bio: 'Electrical engineer with years of embedded systems experience, Skot instigated the Bitaxe project - the first open-source Bitcoin ASIC miner. His efforts sparked the Open Source Miners United community and helped influence the formation of the 256 Foundation.',
+    bio: 'Electrical engineer with years of embedded systems experience, Skot instigated the Bitaxe project - the first open-source Bitcoin ASIC miner. His efforts sparked the Open Source Miners United community and ultimately helped influence the formation of the 256 Foundation and the architecture for the Ember One project.',
     headshot: '/team/skot.jpg',
     links: {
       x: 'https://x.com/skot9000',
