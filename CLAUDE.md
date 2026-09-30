@@ -56,7 +56,9 @@ Static-first with hourly ISR for pages that show live external data. Verified ro
 | Route | Render | Notes |
 |-------|--------|-------|
 | `/` | Static + ISR (`revalidate = 3600`) | fetches Substack, forum, GitHub org events |
-| `/mission`, `/donate`, `/grants`, `/faq`, `/telehash` | Static | pure data-file content |
+| `/mission` | Static | mission statement, photo-framed narrative, principles, team |
+| `/grants` | Static | two programs — Core Projects / General Grant (`#grant-programs`) |
+| `/donate`, `/faq`, `/telehash` | Static | pure data-file content |
 | `/newsroom` | `force-static` | lists MDX posts |
 | `/newsroom/[slug]` | SSG (`generateStaticParams`) | MDX detail; `force-static` |
 | `/projects` | Static + ISR (`revalidate = 3600`) | "Open Mining Stack" — 4 pillar layers + live repo/forum badges; retired `/projects/[slug]` URLs 308-redirect to the dedicated project sites |
@@ -180,10 +182,39 @@ avoid (Resend, Hashdash, Typeform) so they don't creep back in.
   topbar at a huge z-index. `components/layout/TelehashExtensionDetector.tsx` +
   the `--ext-offset` CSS var + `.site-main`/header styles in `globals.css` handle this.
   Be careful editing fixed-position header/offset styling.
-- **Grant cycle is currently closed** — the `/grants` apply CTA and `NEXT_PUBLIC_TYPEFORM_URL`
-  are intentionally removed; re-add when a cycle reopens.
+- **Grant cycle is currently closed.** `/grants` reflects this with non-linking buttons:
+  "Calls currently closed" (Core Projects) and "Apply for a Grant" (General Grant — link
+  pending). `NEXT_PUBLIC_TYPEFORM_URL` is not wired yet.
 - Mining pool address `pool.256foundation.org` appears as **hardcoded strings** in
   `app/donate/page.tsx` and `app/telehash/page.tsx` (not in a data file).
+
+---
+
+## Current UI state (as of 2026-09-30)
+
+Read [`docs/ui-work-log.md`](docs/ui-work-log.md) for the running log of UI revisions,
+decisions, and open items. Durable facts a fresh session must know:
+
+- **Brand/logo system:** `components/ui/Logo.tsx` renders the correct artwork per color
+  scheme via `<picture>`. Assets live in `public/logos/256-logo-{horizontal,secondary,vertical}-{dark,light}.png`
+  (plus legacy `square`/`circular`). `dark` = dark/purple artwork for light backgrounds;
+  `light` = white artwork for dark backgrounds. **Header + mobile drawer use `secondary`;
+  hero + footer use `horizontal`.** Favicon is `app/icon.png`.
+- **Header nav order:** Mission · Mining Stack · Grants · Newsroom · Ecosystem · Community
+  (no Home item — the logo links home).
+- **`/projects` is named "Open Mining Stack"** on-page; the nav label is just
+  **"Mining Stack"**. Hero is a full-bleed photo (`public/projects/open-mining-stack.webp`).
+- **`/mission`** is restructured: mission-statement hero, a photo band
+  (`public/mission-background.webp`) framed by thin info bars, a subtle "Principles"
+  filler, then Founders/Board with `SectionKicker` labels (defined in the page).
+- **`/grants`** programs are named **Core Projects Program** (we scope) and **General
+  Grant Program** (you scope); `/grants#grant-programs` is the anchor.
+- **Hero title accent:** the accent word in a hero H1 is `text-[#c084d8]` (e.g. "Mining
+  Stack", "Open-Source").
+- **Full-bleed hero pattern:** `next/image` `fill` + `object-cover` inside a `relative
+  overflow-hidden` section, two `bg-gradient-*` overlay divs, `SectionWrapper` with
+  `flex min-h-[560px] lg:min-h-[640px] items-center`, contents in a centered `max-w-2xl`
+  with left-aligned text.
 
 ---
 
@@ -198,6 +229,8 @@ avoid (Resend, Hashdash, Typeform) so they don't creep back in.
   - Don't publish grant amounts per project or per person. Cumulative totals only.
   - Funded maintainers are **Core Contributors**. Pillar projects are community open source —
     anyone can contribute, and no grant is required to do so.
+- [`docs/ui-work-log.md`](docs/ui-work-log.md) — running log of UI revision rounds,
+  branch/PR status, and open follow-ups. **Check this first in a fresh session.**
 - [`README.md`](README.md) — full reference: deployment (Vercel / Proxmox / Coolify /
   Netlify / Railway), integration URLs, complete design-system tables, content-update
   recipes.

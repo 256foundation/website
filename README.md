@@ -143,7 +143,7 @@ website-256F/
 │   └── index.ts                # All TypeScript interfaces
 │
 ├── public/
-│   ├── logos/                  # Logo variants
+│   ├── logos/                  # 256-logo-{horizontal,secondary,vertical}-{dark,light}.png (dark=for light bg)
 │   ├── projects/               # Project images
 │   ├── team/                   # Team headshots
 │   ├── supporters/             # Supporter tier logos (tier1/, tier2/, tier3/)
@@ -495,13 +495,9 @@ Configured in `next.config.ts` under `images.remotePatterns` for `next/image` op
 | Route | Page | Description |
 |-------|------|-------------|
 | `/` | Home | Hero, donate CTAs, why section, stats, blocks found, forum + GitHub activity, FAQ, supporters, contact form |
-| `/mission` | Mission | Foundation story, team, timeline, values |
-| `/projects` | Projects | Grant log, pillar project cards with live GitHub stats, ecosystem projects, GitHub org stats CTA |
-| `/projects/ember-one` | Ember One | Project detail with live forum topics and GitHub activity |
-| `/projects/mujina` | Mujina | Project detail |
-| `/projects/libre-board` | Libre Board | Project detail |
-| `/projects/hydrapool` | Hydrapool | Project detail |
-| `/grants` | Grants | Grant program overview; open cycle currently closed — stay informed CTAs |
+| `/mission` | Mission | Mission statement, photo-framed narrative, principles, founders + board |
+| `/projects` | Open Mining Stack | Four stack layers (hash board → control board → firmware → pool) with live activity badges; retired `/projects/[slug]` 308-redirect to project sites |
+| `/grants` | Grants | Two programs — Core Projects Program / General Grant Program (`#grant-programs`); cycle closed |
 | `/donate` | Donate | BTC/Lightning/card + hashrate donation with participation steps |
 | `/telehash` | TeleHash | Countdown, participation guide, event history with photo carousels |
 | `/faq` | FAQ | Categorized Q&A accordion (sourced from old site + expanded) |
@@ -511,9 +507,9 @@ Configured in `next.config.ts` under `images.remotePatterns` for `next/image` op
 ### Top Navigation
 
 ```
-Logo (→ /)     Home     Mission     Grants     Newsroom     Open Mining Stack     Ecosystem ▾     Community ▾     [GitHub]  [Forum]  [Donate]
+Logo (→ /)     Mission     Mining Stack     Grants     Newsroom     Ecosystem ▾     Community ▾     [GitHub]  [Forum]  [Donate]
 
-Open Mining Stack → /projects  (single page; layers jump to /projects#ember-one, #libre-board, #mujina, #hydrapool)
+Mining Stack → /projects  (single "Open Mining Stack" page; layers jump to /projects#ember-one, #libre-board, #mujina, #hydrapool)
 
 Ecosystem dropdown:
   • Bitaxe             → https://bitaxe.org                                    (external)

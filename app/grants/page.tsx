@@ -16,25 +16,25 @@ const steps = [
     step: '01',
     title: 'Submit Your Application',
     description:
-      'Fill out our application form via Typeform. Include your project description, technical approach, requested funding amount, timeline, and milestone plan.',
+      'Send us a scoped proposal: the gap, the project, the person, the license — and why it\'s genuinely open source — plus milestones, how you\'ll report progress, and an honest account of the current state.',
   },
   {
     step: '02',
     title: 'Foundation Review',
     description:
-      'The 256 Foundation board reviews applications when a grant cycle opens. We evaluate technical merit, alignment with the open-source mining mission, and the team\'s ability to execute.',
+      'The board reviews applications as they come in, against written criteria. If it\'s a good idea and funding is available, we\'ll ask for more detail.',
   },
   {
     step: '03',
-    title: 'Decision & Onboarding',
+    title: 'Scope & Agreement',
     description:
-      'Approved grantees are contacted for further discussion. We work with you to finalize scope, milestones, and payment structure.',
+      'We finalize scope, term, and milestones with you, and the board approves every grant. Funding runs under a written grant agreement — the work stays open-source, and IP never transfers to the Foundation.',
   },
   {
     step: '04',
     title: 'Build in Public',
     description:
-      'All funded projects are developed in public and released under an approved open-source license. We may feature your work on the foundation website and social channels.',
+      'Work is paid monthly, and developed in public under the project\'s open-source license, with milestones from the scope document. We may feature it on the website and our channels.',
   },
 ]
 
@@ -79,19 +79,19 @@ export default function GrantsPage() {
               Funding <span className="text-[#c084d8]">Open-Source</span> Mining
             </h1>
             <p className="text-gray-200 text-lg leading-relaxed mb-8">
-              Two programs fund open-source Bitcoin mining: the Core Projects Program for projects we
-              scope, and the General Grant Program for other projects you scope.
+              Two programs fund open-source Bitcoin mining: the Core Projects Program for work we
+              scope, and the General Grant Program for work you scope.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Link
-                href="/projects"
+                href="#grant-programs"
                 className="group border border-white/20 bg-black/35 backdrop-blur-sm p-5 hover:border-[#c084d8]/60 hover:bg-black/50 transition-colors"
               >
                 <div className="font-display font-bold text-white uppercase mb-1 group-hover:text-[#c084d8] transition-colors">
-                  Our Core Projects
+                  Apply for a Grant
                 </div>
                 <div className="font-mono text-xs text-gray-300">
-                  The open-source mining stack →
+                  Core projects or one of your own
                 </div>
               </Link>
               <div className="border border-white/20 bg-black/35 backdrop-blur-sm p-5">
@@ -108,70 +108,84 @@ export default function GrantsPage() {
       </section>
 
       {/* Grant types */}
-      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
+      <SectionWrapper id="grant-programs" className="scroll-mt-[130px] border-b border-gray-200 dark:border-[#1f1f1f]">
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-4">
           Grant Programs
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-2xl mb-8">
-          256 Foundation grants are long-term support initiatives with continued funding — not one-time payments or touch-and-go projects. We commit to sustained collaboration with developers over the full grant period.
-        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-50 dark:bg-[#242424] border border-[#3b1445]/50 dark:border-[#5c2070]/50 rounded-none p-6">
-            <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-3">
-              Core Projects Program
+          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
+            <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-2">
+              We scoped it
             </div>
-            <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Foundation-Defined</h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-              The foundation identifies critical missing pieces of the open-source mining stack,
-              defines the scope and deliverables, and commits to funding qualified developers to build them.
-              These four projects — Ember One, Mujina, Libre Board, and Hydrapool — are our top priority.
-              They are not traditional grants; they are dedicated foundation projects.
+            <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Core Projects Program</h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">
+              Recruitment for the four core projects that make our open mining stack: Ember One,
+              Libre Board, Mujina &amp; Hydrapool.
             </p>
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-none text-xs font-mono border text-[#00FF41] border-[#00FF41]/40 bg-[#00FF41]/10">
-              Currently Active
-            </span>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+              Funded with priority, under renewable funding terms, to keep the development kit&apos;s
+              work moving.
+            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                className="inline-flex items-center px-3 py-1.5 rounded-none text-xs font-mono border border-gray-300 dark:border-[#3f3f3f] text-gray-500 dark:text-gray-400"
+              >
+                Calls currently closed
+              </button>
+              <Link
+                href="/projects"
+                className="inline-flex items-center px-3 py-1.5 rounded-none text-xs font-mono border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-colors"
+              >
+                See our Core Projects →
+              </Link>
+            </div>
           </div>
           <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
-            <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-3">
-              General Grant Program
+            <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-2">
+              You scoped it
             </div>
-            <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Community-Driven</h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-              Any developer or researcher can submit a proposal for a project that advances the
-              open-source Bitcoin mining ecosystem. Open grant cycles launch when funding is available
-              beyond the Core Projects Program. Follow our channels to know when the next cycle opens.
+            <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">General Grant Program</h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">
+              Apply with an idea for your own project — or your own scope of work on one of ours.
             </p>
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-none text-xs font-mono border text-yellow-600 dark:text-yellow-400 border-yellow-500/40 bg-yellow-500/10">
-              Cycle Closed
-            </span>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+              So long as it advances the open-source Bitcoin mining ecosystem, it&apos;s eligible.
+            </p>
+            <button
+              type="button"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-none text-xs font-mono font-bold bg-[#3b1445] text-white hover:bg-[#2d0f36] transition-colors"
+            >
+              Apply for a Grant →
+            </button>
           </div>
         </div>
       </SectionWrapper>
 
-      {/* What we fund */}
-      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
+      {/* What we fund — subtle filler */}
+      <SectionWrapper tight className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
-            <h2 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase mb-6">
+            <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
               What We Fund
-            </h2>
-            <ul className="space-y-3">
+            </div>
+            <ul className="space-y-2">
               {whatWeFund.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm">
-                  <span className="text-[#00FF41] mt-0.5 shrink-0">&rarr;</span>
+                <li key={item} className="flex items-start gap-3 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                  <span className="text-[#00FF41] mt-0.5 shrink-0 text-xs">&rarr;</span>
                   {item}
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h2 className="font-display font-bold text-gray-900 dark:text-white text-xl uppercase mb-6">
+            <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
               What We Don&apos;t Fund
-            </h2>
-            <ul className="space-y-3">
+            </div>
+            <ul className="space-y-2">
               {whatWeDontFund.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm">
-                  <span className="text-red-500 mt-0.5 shrink-0">&times;</span>
+                <li key={item} className="flex items-start gap-3 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                  <span className="text-red-500 mt-0.5 shrink-0 text-xs">&times;</span>
                   {item}
                 </li>
               ))}
@@ -184,14 +198,8 @@ export default function GrantsPage() {
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
           <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase">
-            Application Process
+            How a grant runs
           </h2>
-        </div>
-        <div className="flex items-start gap-3 px-4 py-3 mb-8 border border-yellow-500/40 bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 font-mono text-xs">
-          <svg className="w-4 h-4 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
-          </svg>
-          The open grant cycle is currently closed. The steps below describe how the process works when a cycle is active. Follow our channels to be notified when the next cycle opens.
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
