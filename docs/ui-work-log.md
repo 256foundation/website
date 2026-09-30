@@ -55,6 +55,35 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   **See our Core Projects** → `/projects`). Reworked "How a grant runs" steps; made
   "What We Fund / Don't Fund" a subtle filler section.
 
+### Round 4 — `ui/edits-round4` (no PR) — funding announcements log
+- **Newsroom taxonomy replaced:** the six old categories (`announcement`, `mission`,
+  `industry`, `partner`, `grant`, `manifesto` — five unused) → five new ones:
+  `perspective`, `foundation-news`, `project-update`, `highlight`, `grant-announcement`.
+  Existing posts remapped (Presidio → Perspective; HRF + MARA → Foundation News; RY3T
+  Nova → Highlight). `category` is now validated in `toPost`, not cast.
+- **Grants bottom section:** "Stay Informed" replaced by a **Funding announcements** log
+  (`components/grants/FundingAnnouncements.tsx` + `GrantAnnouncementCard.tsx`), derived
+  from `getGrantAnnouncements()` (newsroom posts tagged `grant-announcement`, newest
+  first, max 6 + "View all →"). Hero card relabeled "Funding announcements" and now links
+  `#funding-announcements`. The newsletter / POD256 / social links left `/grants`.
+- **New route:** `/grants/announcements` — "All funding announcements" archive, back
+  link to `/grants#funding-announcements`.
+- **First article:** `content/newsroom/libre-board-funding.mdx` (Libre Board, `program:
+  core`, `term: Four months, September to December`, cover `public/newsroom/libre-board-funding/cover.jpeg`).
+- **Copy rules in force for this feature:** no "cycle" / "wave" / "round"; no amounts;
+  no "pillar" / "maintainer retainer" / "adoption phase" / retired program names; no em
+  dashes (also scrubbed from pre-existing grants-page copy). Tests in
+  `tests/grant-announcements.test.mjs` enforce these.
+- **Bug fix:** `/newsroom` and the home "Updates" column listed posts featured-first
+  because both used `getAllPosts()`. Added `getAllPostsByDate()` and pointed both at it,
+  so `featured` no longer reorders either feed. Home and the index now run strict
+  newest-first. `featured` remains for the (currently unused) `getLatestPost()` slot.
+- **Newsroom category filters:** `components/newsroom/NewsroomIndex.tsx` (client) adds
+  an All + per-category chip bar with live counts; only populated categories get a chip.
+  Split the pure helpers (`NEWSROOM_CATEGORIES`, `categoryLabel`, `formatPostDate`) into
+  client-safe `lib/newsroomMeta.ts` (no `fs`), re-exported by `lib/newsroom.ts`, because
+  a client component importing the `fs`-using module failed the webpack build.
+
 ---
 
 ## Decisions / conventions locked
@@ -69,16 +98,27 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
 - Logo `dark`/`light` naming = artwork for light/dark backgrounds respectively.
 - Copy follows the private roadmap: no "passthrough", no per-person amounts, "Core
   Contributors".
+- **Newsroom categories** (5): Perspective, Foundation News, Project Update, Highlight,
+  Grant Announcement. Display names live in `categoryLabel()` in `lib/newsroom.ts`.
+  Only `grant-announcement` feeds the grants log; grants *received* (HRF, MARA) are
+  Foundation News. Third-party grant amounts may stay in titles (MARA is exempt); the
+  log itself never shows an amount.
+- **Grant-announcement copy rules:** no "cycle" / "wave" / "round"; no "pillar" /
+  "maintainer retainer" / "adoption phase"; no retired program names; no em dashes.
+  Funded work, not the project's achievements, is what the Foundation claims.
 
 ---
 
 ## Open items / next steps
 
-- **Grants "Apply for a Grant" buttons** (hero card and General Grant card) have **no
-  link yet** — wire to the application form (Typeform / `NEXT_PUBLIC_TYPEFORM_URL`) when
-  a cycle reopens.
-- **Grants "Announcement Log"** hero card has no target — add a bottom-of-page
-  announcement-log section and link it (`#announcement-log`).
+- **Grants "Apply for a Grant" button** (General Grant card) now links to the Typeform
+  application form (`https://form.typeform.com/to/oqyJAntF`, new tab). Core Projects
+  "Calls currently closed" stays inert until its window reopens. The hero "Apply for a
+  Grant" card still jumps to `#grant-programs` (both programs).
+- **Libre Board announcement pre-publish checklist** (from the canon review, not yet
+  confirmed): (1) Schnitzel's consent to being named and linked as maintainer; (2) verify
+  "revision three" against the actual project state before publishing — never publish a
+  revision number the repo does not support.
 - **Square / circular logo variants** in `Logo.tsx` still point at the old brand files;
   replace if new assets exist.
 - `/projects` uses one hero image; no separate dev-kit photo asset.

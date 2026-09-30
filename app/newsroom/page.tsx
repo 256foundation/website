@@ -1,8 +1,8 @@
-import { getAllPosts } from '@/lib/newsroom'
+import { getAllPostsByDate } from '@/lib/newsroom'
 import { generatePageMetadata } from '@/lib/metadata'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import DecorativeBg from '@/components/ui/DecorativeBg'
-import PostCard from '@/components/newsroom/PostCard'
+import NewsroomIndex from '@/components/newsroom/NewsroomIndex'
 
 export const dynamic = 'force-static'
 
@@ -13,9 +13,10 @@ export const metadata = generatePageMetadata({
 })
 
 export default function NewsroomPage() {
-  // `featured` only pins a post to the home-page slot; this index lists every
-  // post in one uniform grid.
-  const posts = getAllPosts()
+  // `featured` only pins a post to the home-page slot; this index is a uniform
+  // grid in plain date-descending order, so a featured post never jumps a newer
+  // one here.
+  const posts = getAllPostsByDate()
 
   return (
     <SectionWrapper className="min-h-[60vh]">
@@ -33,15 +34,7 @@ export default function NewsroomPage() {
         Announcements, perspectives, and updates from the 256 Foundation team.
       </p>
 
-      {posts.length === 0 ? (
-        <p className="text-gray-500 text-sm">No posts yet. Check back soon.</p>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
-        </div>
-      )}
+      <NewsroomIndex posts={posts} />
     </SectionWrapper>
   )
 }

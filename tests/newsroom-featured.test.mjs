@@ -5,9 +5,9 @@
 // lib/newsroom.ts. Keep the two in step — the mirror is annotated there too.
 //
 // The final test does not mirror anything: it reads the real MDX frontmatter
-// off disk and guards the category union that item 6a widened, which is the
-// one failure mode a mirror cannot catch (a typo'd category silently falls
-// back to 'announcement' in toPost()).
+// off disk and guards the category union, which is the one failure mode a
+// mirror cannot catch (a typo'd category silently falls back to
+// 'foundation-news' in toPost()).
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import fs from 'node:fs'
@@ -23,6 +23,9 @@ function comparePosts(a, b) {
 
 /** Mirror of getAllPosts()'s ordering step */
 const sortPosts = (posts) => [...posts].sort(comparePosts)
+
+/** Mirror of getAllPostsByDate() — date only, the featured flag ignored */
+const sortPostsByDate = (posts) => [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
 /** Mirror of getLatestPost() */
 function pickLatest(posts) {
@@ -49,6 +52,20 @@ test('a featured post sorts first even when it is the oldest', () => {
   assert.deepEqual(
     sortPosts(posts).map((p) => p.slug),
     ['manifesto', 'newest', 'middle'],
+  )
+})
+
+test('the newsroom index ignores the featured pin and stays newest-first', () => {
+  // Regression: the index used getAllPosts() and let a featured post jump a
+  // newer one, contradicting the page's own "featured pins the home slot only".
+  const posts = [
+    post('newest', '2026-07-01'),
+    post('featured-but-older', '2026-01-01', true),
+    post('oldest', '2024-02-01'),
+  ]
+  assert.deepEqual(
+    sortPostsByDate(posts).map((p) => p.slug),
+    ['newest', 'featured-but-older', 'oldest'],
   )
 })
 
@@ -95,7 +112,7 @@ test('removing the featured flag restores the pre-item-6 result exactly', () => 
 
 // ── Real content, not a mirror ────────────────────────────────────────────────
 
-const CATEGORIES = ['announcement', 'mission', 'industry', 'partner', 'grant', 'manifesto']
+const CATEGORIES = ['perspective', 'foundation-news', 'project-update', 'highlight', 'grant-announcement']
 
 test('every newsroom post declares a category in the union and a valid featured flag', () => {
   const dir = path.join(process.cwd(), 'content/newsroom')

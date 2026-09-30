@@ -57,7 +57,8 @@ Static-first with hourly ISR for pages that show live external data. Verified ro
 |-------|--------|-------|
 | `/` | Static + ISR (`revalidate = 3600`) | fetches Substack, forum, GitHub org events |
 | `/mission` | Static | mission statement, photo-framed narrative, principles, team |
-| `/grants` | Static | two programs — Core Projects / General Grant (`#grant-programs`) |
+| `/grants` | Static | two programs — Core Projects / General Grant (`#grant-programs`); funding log (`#funding-announcements`) |
+| `/grants/announcements` | Static | archive of every `grant-announcement` newsroom post |
 | `/donate`, `/faq`, `/telehash` | Static | pure data-file content |
 | `/newsroom` | `force-static` | lists MDX posts |
 | `/newsroom/[slug]` | SSG (`generateStaticParams`) | MDX detail; `force-static` |
@@ -80,7 +81,8 @@ components/
   layout/       Header, Footer, MobileNav, NavDropdown, AnnouncementBanner, TelehashExtensionDetector
   home/         home-page sections (Hero, DonateCards, StayUpdated, HashrateLeaderboard, ContactForm, …)
   projects/     Open Mining Stack sections (StackSubNav, StackLayerSection, ActivityBadges)
-  newsroom/     PostCard, PostBody (MDXRemote wrapper)
+  grants/       funding log (FundingAnnouncements, GrantAnnouncementCard)
+  newsroom/     PostCard, NewsroomIndex (category filter), PostBody (MDXRemote wrapper)
   shared/       TeamMemberCard, Timeline, NewsletterSignup, SubstackEmbed
   telehash/     CountdownTimer, LeaderboardTable, PhotoCarousel, TeleHashEventCard
 data/           ★ site content as typed TS — edit here, not in components
@@ -112,7 +114,11 @@ structure are in [`types/index.ts`](types/index.ts).
 
 **Newsroom posts:** add `content/newsroom/<slug>.mdx` with frontmatter
 (`title`, `date`, `author`, `category`, `excerpt`, optional `coverImage`/`ogImage`).
-Parsed by [`lib/newsroom.ts`](lib/newsroom.ts); sorted newest-first; the newest post
+`category` is one of five: `perspective`, `foundation-news`, `project-update`,
+`highlight`, `grant-announcement` (display names in `categoryLabel()`, `lib/newsroomMeta.ts`).
+Posts tagged `grant-announcement` additionally carry optional `project`, `program`
+(`core` | `general`), and `term`, and feed the `/grants` funding log. Parsed by
+[`lib/newsroom.ts`](lib/newsroom.ts); sorted newest-first; the newest post
 auto-surfaces on the home page. Article images go in `public/newsroom/<slug>/`.
 
 ---
@@ -128,6 +134,9 @@ renders. GitHub/forum/Substack fetches use `next: { revalidate: 3600 }`.
 - [`lib/discourse.ts`](lib/discourse.ts) — Discourse forum (`forum.256foundation.org`):
   latest topics + per-project category topics; plus `forumTopicUrl` / `timeAgo` helpers.
 - [`lib/substack.ts`](lib/substack.ts) — parses the Substack RSS feed for post cards.
+- [`lib/newsroomMeta.ts`](lib/newsroomMeta.ts) — `fs`-free slice of the newsroom module
+  (category vocabulary/labels, `formatPostDate`). Client components import this, not
+  `lib/newsroom.ts`, which imports Node `fs` and fails the webpack client build.
 - [`lib/metadata.ts`](lib/metadata.ts) — `generatePageMetadata()`; every page uses it for
   OG/Twitter/canonical tags.
 - [`app/api/hashdash/route.ts`](app/api/hashdash/route.ts) — live hashrate leaderboard:
@@ -182,9 +191,10 @@ avoid (Resend, Hashdash, Typeform) so they don't creep back in.
   topbar at a huge z-index. `components/layout/TelehashExtensionDetector.tsx` +
   the `--ext-offset` CSS var + `.site-main`/header styles in `globals.css` handle this.
   Be careful editing fixed-position header/offset styling.
-- **Grant cycle is currently closed.** `/grants` reflects this with non-linking buttons:
-  "Calls currently closed" (Core Projects) and "Apply for a Grant" (General Grant — link
-  pending). `NEXT_PUBLIC_TYPEFORM_URL` is not wired yet.
+- **Core Projects calls are closed.** `/grants` shows "Calls currently closed" (Core
+  Projects, inert) beside "Apply for a Grant" (General Grant), which links to the
+  Typeform form `https://form.typeform.com/to/oqyJAntF` (hardcoded in `app/grants/page.tsx`;
+  `NEXT_PUBLIC_TYPEFORM_URL` is still unused).
 - Mining pool address `pool.256foundation.org` appears as **hardcoded strings** in
   `app/donate/page.tsx` and `app/telehash/page.tsx` (not in a data file).
 
@@ -209,6 +219,11 @@ decisions, and open items. Durable facts a fresh session must know:
   filler, then Founders/Board with `SectionKicker` labels (defined in the page).
 - **`/grants`** programs are named **Core Projects Program** (we scope) and **General
   Grant Program** (you scope); `/grants#grant-programs` is the anchor.
+- **`/grants` funding log:** bottom section `#funding-announcements`, fed by newsroom
+  posts whose `category` is `grant-announcement` (`getGrantAnnouncements()`), newest
+  first, 6 max + "View all →" to `/grants/announcements`. No amounts, no "cycle"/"wave"/
+  "round", no retired program names, no em dashes. Empty state ships. Tests:
+  `tests/grant-announcements.test.mjs`.
 - **Hero title accent:** the accent word in a hero H1 is `text-[#c084d8]` (e.g. "Mining
   Stack", "Open-Source").
 - **Full-bleed hero pattern:** `next/image` `fill` + `object-cover` inside a `relative

@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { generatePageMetadata } from '@/lib/metadata'
+import { getGrantAnnouncements } from '@/lib/newsroom'
 import SectionWrapper from '@/components/ui/SectionWrapper'
-import Button from '@/components/ui/Button'
+import FundingAnnouncements from '@/components/grants/FundingAnnouncements'
 
 export const metadata = generatePageMetadata({
   title: 'Grants',
@@ -16,7 +17,7 @@ const steps = [
     step: '01',
     title: 'Submit Your Application',
     description:
-      'Send us a scoped proposal: the gap, the project, the person, the license — and why it\'s genuinely open source — plus milestones, how you\'ll report progress, and an honest account of the current state.',
+      'Send us a scoped proposal: the gap, the project, the person, the license, and why it\'s genuinely open source, plus milestones, how you\'ll report progress, and an honest account of the current state.',
   },
   {
     step: '02',
@@ -28,7 +29,7 @@ const steps = [
     step: '03',
     title: 'Scope & Agreement',
     description:
-      'We finalize scope, term, and milestones with you, and the board approves every grant. Funding runs under a written grant agreement — the work stays open-source, and IP never transfers to the Foundation.',
+      'We finalize scope, term, and milestones with you, and the board approves every grant. Funding runs under a written grant agreement: the work stays open-source, and IP never transfers to the Foundation.',
   },
   {
     step: '04',
@@ -54,7 +55,16 @@ const whatWeDontFund = [
   'Projects that restrict others from using, modifying, or distributing the work',
 ]
 
+/** How many announcements the on-page log previews before it links to the archive. */
+const ANNOUNCEMENT_PREVIEW_LIMIT = 6
+
+/** General Grant Program application form. Core Projects calls are still closed. */
+const GENERAL_GRANT_APPLICATION_URL = 'https://form.typeform.com/to/oqyJAntF'
+
 export default function GrantsPage() {
+  const allAnnouncements = getGrantAnnouncements()
+  const previewAnnouncements = allAnnouncements.slice(0, ANNOUNCEMENT_PREVIEW_LIMIT)
+
   return (
     <>
       {/* Hero — full-bleed image with overlaid copy (matches Open Mining Stack) */}
@@ -94,14 +104,17 @@ export default function GrantsPage() {
                   Core projects or one of your own
                 </div>
               </Link>
-              <div className="border border-white/20 bg-black/35 backdrop-blur-sm p-5">
-                <div className="font-display font-bold text-white uppercase mb-1">
-                  Announcement Log
-                </div>
-                <div className="font-mono text-xs text-gray-300">
-                  See what we&apos;ve already funded
-                </div>
-              </div>
+        <Link
+          href="#funding-announcements"
+          className="group border border-white/20 bg-black/35 backdrop-blur-sm p-5 hover:border-[#c084d8]/60 hover:bg-black/50 transition-colors"
+        >
+          <div className="font-display font-bold text-white uppercase mb-1 group-hover:text-[#c084d8] transition-colors">
+            Funding announcements
+          </div>
+          <div className="font-mono text-xs text-gray-300">
+            See what we&apos;ve already funded
+          </div>
+        </Link>
             </div>
           </div>
         </SectionWrapper>
@@ -147,17 +160,19 @@ export default function GrantsPage() {
             </div>
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">General Grant Program</h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">
-              Apply with an idea for your own project — or your own scope of work on one of ours.
+              Apply with an idea for your own project, or your own scope of work on one of ours.
             </p>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
               So long as it advances the open-source Bitcoin mining ecosystem, it&apos;s eligible.
             </p>
-            <button
-              type="button"
+            <Link
+              href={GENERAL_GRANT_APPLICATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-none text-xs font-mono font-bold bg-[#3b1445] text-white hover:bg-[#2d0f36] transition-colors"
             >
               Apply for a Grant →
-            </button>
+            </Link>
           </div>
         </div>
       </SectionWrapper>
@@ -214,37 +229,14 @@ export default function GrantsPage() {
         </div>
       </SectionWrapper>
 
-      {/* Stay Informed CTA */}
-      <SectionWrapper>
-        <div className="text-center max-w-xl mx-auto">
-          <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl uppercase mb-4">
-            Stay Informed
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-8">
-            Open grant cycles will be announced on the POD256 podcast, our newsletter, and social channels.
-            Follow along so you don&apos;t miss the next round.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button variant="primary" size="lg" href="https://256foundation.substack.com" external>
-              Subscribe to Newsletter
-            </Button>
-            <Button variant="secondary" size="lg" href="https://www.pod256.org" external>
-              POD256 Podcast
-            </Button>
-          </div>
-          <div className="flex justify-center gap-6 mt-6">
-            <a href="https://x.com/256FOUNDATION" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors">
-              X / Twitter →
-            </a>
-            <a href="https://primal.net/p/nprofile1qqsqhk42dz0exfcsln4yqmdkjys0nvd7dqndgacpsa7w7pt7njq2uuss2u9cq" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors">
-              Nostr →
-            </a>
-            <a href="https://t.me/the256foundation" target="_blank" rel="noopener noreferrer" className="font-mono text-xs text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors">
-              Telegram →
-            </a>
-          </div>
-        </div>
-      </SectionWrapper>
+      {/* Funding announcements */}
+      <FundingAnnouncements
+        id="funding-announcements"
+        className="scroll-mt-[130px]"
+        title="Funding announcements"
+        posts={previewAnnouncements}
+        showViewAll={allAnnouncements.length > ANNOUNCEMENT_PREVIEW_LIMIT}
+      />
     </>
   )
 }

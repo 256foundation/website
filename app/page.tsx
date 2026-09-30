@@ -1,5 +1,5 @@
 import { fetchSubstackPosts } from '@/lib/substack'
-import { getAllPosts } from '@/lib/newsroom'
+import { getAllPostsByDate } from '@/lib/newsroom'
 import { fetchForumTopics } from '@/lib/discourse'
 import { fetchOrgEvents } from '@/lib/github'
 import { fetchPodcastEpisodes } from '@/lib/pod256'
@@ -39,7 +39,9 @@ export default async function Home() {
     fetchOrgEvents('256foundation', 8),
     fetchPodcastEpisodes(2),
   ])
-  const newsroomPosts = getAllPosts().slice(0, 2)
+  // Newest first. The "Updates" column is a date-ordered feed, so a featured
+  // post must not jump a newer one here.
+  const newsroomPosts = getAllPostsByDate().slice(0, 2)
   const firstEvent = teleHashEvents.find((e) => e.blockFound)
 
   return (

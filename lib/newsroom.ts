@@ -2,6 +2,18 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import type { NewsroomPost } from '@/types'
+import {
+  GRANT_ANNOUNCEMENT_CATEGORY,
+  isNewsroomCategory,
+} from '@/lib/newsroomMeta'
+
+// Re-exported so server code can keep importing everything from this one module.
+export {
+  NEWSROOM_CATEGORIES,
+  GRANT_ANNOUNCEMENT_CATEGORY,
+  categoryLabel,
+  formatPostDate,
+} from '@/lib/newsroomMeta'
 
 const CONTENT_DIR = path.join(process.cwd(), 'content/newsroom')
 
@@ -24,8 +36,14 @@ function toPost(slug: string, data: Record<string, unknown>): NewsroomPost {
     title: String(data.title ?? ''),
     date: String(data.date ?? ''),
     author: String(data.author ?? '256 Foundation'),
-    category: (data.category as NewsroomPost['category']) ?? 'announcement',
+    // Validated, not cast — a typo'd category used to fall through silently.
+    // An unrecognized value lands in the neutral news bucket rather than
+    // misfiling a grant announcement into the grants log.
+    category: isNewsroomCategory(data.category) ? data.category : 'foundation-news',
     excerpt: String(data.excerpt ?? ''),
+    project: data.project ? String(data.project) : undefined,
+    program: data.program === 'core' || data.program === 'general' ? data.program : undefined,
+    term: data.term ? String(data.term) : undefined,
     coverImage: data.coverImage ? String(data.coverImage) : undefined,
     ogImage: data.ogImage ? String(data.ogImage) : undefined,
     seoTitle: data.seoTitle ? String(data.seoTitle) : undefined,
@@ -52,6 +70,17 @@ export function getAllPosts(): NewsroomPost[] {
     .sort(comparePosts)
 }
 
+/**
+ * Every post, newest first, ignoring the `featured` pin. The newsroom index
+ * uses this so a featured post does not jump ahead of a newer one there:
+ * `featured` is a home-page-slot concern only.
+ */
+export function getAllPostsByDate(): NewsroomPost[] {
+  return readAllFiles()
+    .map(({ slug, data }) => toPost(slug, data))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+}
+
 export function getPostBySlug(slug: string): { meta: NewsroomPost; content: string } | null {
   const filePath = path.join(CONTENT_DIR, `${slug}.mdx`)
   if (!fs.existsSync(filePath)) return null
@@ -67,24 +96,14 @@ export function getLatestPost(): NewsroomPost | null {
 }
 
 /**
- * Renders a frontmatter date exactly as written, in every timezone.
- *
- * `new Date('2026-08-14')` parses a date-only string as UTC midnight, so
- * formatting it in the viewer's local zone shifts it a day earlier anywhere
- * west of UTC. Formatting in UTC pins it back to the authored calendar date.
- *
- * Mirrored by tests/newsroom-date.test.mjs — keep the two in step.
+ * Funding announcements, newest first, for the grants-page log and its
+ * archive. Sorted by date alone rather than reusing `getAllPosts()`, whose
+ * order pins `featured` posts to the top — a featured announcement should not
+ * jump ahead of a newer one in the log.
  */
-export function formatPostDate(dateStr: string): string {
-  if (!dateStr) return ''
-  try {
-    return new Date(dateStr).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      timeZone: 'UTC',
-    })
-  } catch {
-    return dateStr
-  }
+export function getGrantAnnouncements(limit?: number): NewsroomPost[] {
+  const posts = getAllPosts()
+    .filter((post) => post.category === GRANT_ANNOUNCEMENT_CATEGORY)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  return typeof limit === 'number' ? posts.slice(0, limit) : posts
 }

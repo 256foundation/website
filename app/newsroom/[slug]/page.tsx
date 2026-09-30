@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getAllPosts, getPostBySlug, formatPostDate } from '@/lib/newsroom'
+import { getAllPosts, getPostBySlug, formatPostDate, categoryLabel } from '@/lib/newsroom'
 import { generatePageMetadata } from '@/lib/metadata'
 import { getLocalImageSize } from '@/lib/imageSize'
 import SectionWrapper from '@/components/ui/SectionWrapper'
@@ -49,7 +49,7 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
         {/* Category + date */}
         <div className="flex items-center gap-3 mb-4">
           <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs uppercase tracking-widest">
-            {meta.category}
+            {categoryLabel(meta.category)}
           </span>
           {meta.date && (
             <time className="font-mono text-gray-400 text-xs">
