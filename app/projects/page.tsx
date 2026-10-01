@@ -135,7 +135,7 @@ export default async function OpenMiningStackPage() {
 
       {/* Closing CTA */}
       <section className="bg-white dark:bg-[#1a1a1a]">
-        <SectionWrapper className="max-w-3xl text-center">
+        <SectionWrapper className="max-w-3xl mx-auto text-center">
           <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase mb-4">
             Fund the Stack
           </p>
