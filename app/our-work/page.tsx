@@ -27,9 +27,9 @@ export const metadata = generatePageMetadata({
   path: '/our-work',
 })
 
-function SectionKicker({ children }: { children: ReactNode }) {
+function SectionKicker({ children, centered }: { children: ReactNode; centered?: boolean }) {
   return (
-    <div className="flex items-center gap-3 mb-4">
+    <div className={['flex items-center gap-3 mb-4', centered ? 'justify-center' : ''].join(' ')}>
       <span aria-hidden="true" className="block w-1.5 h-4 bg-[#3b1445] dark:bg-[#c084d8]" />
       <span className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-sm tracking-[0.28em] uppercase">
         {children}
@@ -186,24 +186,33 @@ export default function OurWorkPage() {
         <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed max-w-2xl mb-10">
           {ourWorkPrograms.intro}
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {ourWorkPrograms.programs.map((program) => (
-            <div
-              key={program.name}
-              className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6"
-            >
-              <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase mb-2">
-                {program.name}
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{program.body}</p>
+        {/* A numbered list rather than a grid: five items never leave an orphaned
+            last cell, and it holds at any aspect ratio. */}
+        <div className="max-w-3xl border-y border-gray-200 dark:border-[#1f1f1f] divide-y divide-gray-200 dark:divide-[#1f1f1f]">
+          {ourWorkPrograms.programs.map((program, i) => (
+            <div key={program.name} className="flex flex-col gap-1.5 py-6 sm:flex-row sm:gap-6">
+              <span
+                aria-hidden="true"
+                className="font-mono text-xs text-[#3b1445] dark:text-[#c084d8] opacity-60 sm:w-10 sm:shrink-0 sm:pt-1"
+              >
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div>
+                <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase mb-1.5">
+                  {program.name}
+                </h3>
+                <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-2xl">
+                  {program.body}
+                </p>
+              </div>
             </div>
           ))}
         </div>
       </SectionWrapper>
 
       {/* Close */}
-      <SectionWrapper className="max-w-3xl text-center">
-        <SectionKicker>{ourWorkClose.kicker}</SectionKicker>
+      <SectionWrapper className="max-w-3xl mx-auto text-center">
+        <SectionKicker centered>{ourWorkClose.kicker}</SectionKicker>
         <p className="font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-snug uppercase mb-5">
           {ourWorkClose.line}
         </p>
