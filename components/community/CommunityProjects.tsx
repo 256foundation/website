@@ -74,8 +74,9 @@ export default function CommunityProjects() {
         ))}
       </div>
       <p className="text-gray-500 dark:text-gray-400 text-sm mb-12">
-        The OSMU Fund and Hashrate Heatpunks Fund are community-directed, with the board approving
-        every allocation.{' '}
+        We host their infrastructure and steward both the OSMU and Hashrate Heatpunks funds: the
+        community directs the work, the board approves every allocation, and donations go to the
+        community&apos;s own priorities.{' '}
         <Link
           href="/our-work"
           className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
