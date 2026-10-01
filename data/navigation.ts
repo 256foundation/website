@@ -12,7 +12,7 @@ export const topNav: NavItem[] = [
 export const footerFoundationLinks: NavItem[] = [
   { label: 'Mission', href: '/mission' },
   { label: 'Our Work', href: '/our-work' },
-  { label: 'Open Mining Stack', href: '/projects' },
+  { label: 'Mining Stack', href: '/projects' },
   { label: 'Grants', href: '/grants' },
   { label: 'Community', href: '/community' },
   { label: 'Donate', href: '/donate' },
