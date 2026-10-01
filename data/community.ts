@@ -65,8 +65,10 @@ export const communityDirectedProjects: CommunityProject[] = [
     name: 'Open Source Miners United',
     abbr: 'OSMU',
     description: 'Where open-source mining hardware gets built.',
-    detail:
-      'OSMU is the informal network of developers behind most of the open-source mining hardware and software you know: Bitaxe, NerdAxe, AxeOS, Qaxe, Piaxe and more. Designs anyone can build, modify, and manufacture. No membership, no permission; it is a community, not an organization, and that is the point. We host their infrastructure and steward the OSMU Fund the same way: the community directs the work, the board approves every allocation.',
+    detail: [
+      'OSMU is the informal network of developers behind most of the open-source mining hardware and software you know: Bitaxe, NerdAxe, AxeOS, Qaxe, Piaxe and more. Designs anyone can build, modify, and manufacture. No membership, no permission; it is a community, not an organization, and that is the point.',
+      'We host their infrastructure and steward the OSMU Fund the same way: the community directs the work, the board approves every allocation.',
+    ],
     href: 'https://osmu.wiki',
     logo: '/ecosystem/osmu.png',
     relationship: 'community-directed',
@@ -75,8 +77,10 @@ export const communityDirectedProjects: CommunityProject[] = [
     name: 'Hashrate Heatpunks',
     abbr: 'HEATPUNKS',
     description: 'Mining heat is a product, not a problem.',
-    detail:
-      'Heatpunks are a community of home and business miners proving that the heat a miner produces is worth something. They build the guides, the standards, and the events that turn wasted heat into working heaters: water heating, space heating, dryers. What started as hobbyists piping miner exhaust through greenhouses is becoming a real industry segment, and Heatpunks are the group organizing it. We provide the nonprofit home and steward the Hashrate Heatpunks Fund, so donations go to the community\'s own priorities, approved by the board.',
+    detail: [
+      'Heatpunks are a community of home and business miners proving that the heat a miner produces is worth something. They build the guides, the standards, and the events that turn wasted heat into working heaters: water heating, space heating, dryers. What started as hobbyists piping miner exhaust through greenhouses is becoming a real industry segment, and Heatpunks are the group organizing it.',
+      'We provide the nonprofit home and steward the Hashrate Heatpunks Fund, so donations go to the community\'s own priorities, approved by the board.',
+    ],
     href: 'https://heatpunks.org',
     logo: '/ecosystem/heatpunks.png',
     relationship: 'community-directed',

@@ -97,8 +97,8 @@ export interface CommunityProject {
   name: string
   abbr: string
   description: string
-  /** Longer paragraph shown under the one-line description, when present. */
-  detail?: string
+  /** Longer description paragraphs shown under the one-line description, when present. */
+  detail?: string[]
   href: string
   logo?: string
   logoDark?: string

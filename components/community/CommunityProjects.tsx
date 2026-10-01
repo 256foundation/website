@@ -31,12 +31,12 @@ function ProjectCard({ project }: { project: CommunityProject }) {
       <p className="text-[#3b1445] dark:text-[#c084d8] text-xs leading-relaxed mt-1.5">
         {project.description}
       </p>
-      <div className="flex-1">
-        {project.detail && (
-          <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed mt-3">
-            {project.detail}
+      <div className="flex-1 space-y-3 mt-3">
+        {project.detail?.map((para) => (
+          <p key={para} className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed">
+            {para}
           </p>
-        )}
+        ))}
       </div>
       <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
         Visit →
