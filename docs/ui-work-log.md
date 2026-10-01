@@ -1,9 +1,10 @@
 # UI work log
 
 Running log of website UI revision rounds, decisions, and open follow-ups. **Read this
-first in a fresh session** so nothing lives only in chat history.
+first in a fresh session** so nothing lives only in chat history. For the fuller
+round-5 pickup context, see [`docs/session-context.md`](./session-context.md).
 
-Last updated: 2026-09-30
+Last updated: 2026-10-01
 
 ---
 
@@ -14,7 +15,7 @@ Last updated: 2026-09-30
 | `ui/website-changes` | [#20](https://github.com/256foundation/website/pull/20) | Open Mining Stack: collapse `/projects` + 4 deep pages into one page; 308-redirect retired slugs; remove nav dropdown, Grant Log, ecosystem grid | open |
 | `ui/edits-round2` | [#21](https://github.com/256foundation/website/pull/21) | Logo rebrand + invisible-logo fix; nav reorder; full-bleed stack hero | open (branched off `ui/website-changes`) |
 | `ui/edits-round3` | — | Mission + Grants refresh; grants program copy/buttons; funding announcements log (round 4) | no PR yet (branched off `ui/edits-round2`) |
-| `ui/edits-round5` | [#24](https://github.com/256foundation/website/pull/24) → [#25](https://github.com/256foundation/website/pull/25) | Community page; Our Work stub; nav consolidation; supporters → Donate; canon sweep; Our Work hero photo | #24 merged; #25 (hero photo) open |
+| `ui/edits-round5` | [#24](https://github.com/256foundation/website/pull/24) → [#25](https://github.com/256foundation/website/pull/25) | Community page; Our Work stub; nav consolidation; supporters → Donate; canon sweep; Our Work hero photo | both merged; no open PRs |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
