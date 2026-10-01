@@ -13,9 +13,10 @@ Last updated: 2026-09-30
 |--------|----|----------|-------|
 | `ui/website-changes` | [#20](https://github.com/256foundation/website/pull/20) | Open Mining Stack: collapse `/projects` + 4 deep pages into one page; 308-redirect retired slugs; remove nav dropdown, Grant Log, ecosystem grid | open |
 | `ui/edits-round2` | [#21](https://github.com/256foundation/website/pull/21) | Logo rebrand + invisible-logo fix; nav reorder; full-bleed stack hero | open (branched off `ui/website-changes`) |
-| `ui/edits-round3` | — | Mission + Grants refresh; grants program copy/buttons | no PR yet (branched off `ui/edits-round2`) |
+| `ui/edits-round3` | — | Mission + Grants refresh; grants program copy/buttons; funding announcements log (round 4) | no PR yet (branched off `ui/edits-round2`) |
+| `ui/edits-round5` | [#24](https://github.com/256foundation/website/pull/24) | Community page; Our Work stub; nav consolidation; supporters → Donate; canon sweep | open (based on `main`; #20–#22 already merged) |
 
-Each branch stacks on the previous one. Merge order matters: #20 → #21 → `ui/edits-round3`.
+Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
 Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run lint` +
 `npm test` must stay green (lint has 6 pre-existing `<img>` warnings, 0 errors).
@@ -84,6 +85,30 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   client-safe `lib/newsroomMeta.ts` (no `fs`), re-exported by `lib/newsroom.ts`, because
   a client component importing the `fs`-using module failed the webpack build.
 
+### Round 5 — `ui/edits-round5` (PR #24) — Community page + Our Work stub
+- **Nav consolidated:** both Ecosystem and Community dropdowns removed (they were all
+  external links except Telehash). `topNav` = Mission · Our Work · Mining Stack · Grants ·
+  Newsroom · Community. Footer adds Our Work + Community; `/telehash` stays a live route
+  but out of nav.
+- **New `/community`:** one narrative — full-bleed **photo carousel** hero
+  (`CommunityHeroCarousel`, crossfade, dots, pause-on-hover, reduced-motion static;
+  photos seeded from `public/community/hero-0*.jpg`), Connect (six channel cards),
+  Community projects (community-directed OSMU + Heatpunks with fund line → `/our-work`;
+  ecosystem projects we serve: Bitaxe, Jua Kali, ASIC-rs, HashScope), a featured **Telehash**
+  block linking `/telehash`, Listen and learn (live Substack + POD256 cards +
+  `NewsletterSignup`), Get involved (Conversation + Code/GitHub blocks). One CTA: Join the forum.
+- **New `/our-work` stub** (real but light, all 8 outline sections): thesis, status quo,
+  vision, proof of work, how we work → `/grants`, programs (Red Team, Working Group,
+  Stewardship, Community, Education), close. Added to nav, footer, sitemap. Copy is
+  first-pass; claim discipline applies.
+- **Supporters moved:** `SupporterShowcase` (logo tiers + live HashrateLeaderboard) off
+  the home page, onto `/donate`. Home keeps its other sections for now (overhaul later).
+- **Site-wide canon sweep:** `pillar projects` → `core projects`; FAQ "Core Pillar Grant
+  vs Open Grant" → "Core Projects Program vs General Grant Program"; ApplySection →
+  "General Grant Program / Fund Your Open-Source Mining Project"; home ProjectsSection
+  heading → "The Open Mining Stack"; EcosystemSection "under our umbrella" → "we serve";
+  `data/telehash.ts` scrub. Tests: `tests/community.test.mjs`.
+
 ---
 
 ## Decisions / conventions locked
@@ -115,14 +140,19 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   application form (`https://form.typeform.com/to/oqyJAntF`, new tab). Core Projects
   "Calls currently closed" stays inert until its window reopens. The hero "Apply for a
   Grant" card still jumps to `#grant-programs` (both programs).
+- **Community hero photos** — real community shots in `public/community/hero-0*.webp`
+  (1920px WebP, EXIF-rotated), listed in `communityHeroPhotos` in `data/community.ts`;
+  add or reorder there.
+- **`/our-work` copy is a first pass** — every outline section is present but light;
+  dial in copy and art later. It currently reuses `mission-background.webp` as its hero.
 - **Libre Board announcement pre-publish checklist** (from the canon review, not yet
   confirmed): (1) Schnitzel's consent to being named and linked as maintainer; (2) verify
   "revision three" against the actual project state before publishing — never publish a
   revision number the repo does not support.
 - **Square / circular logo variants** in `Logo.tsx` still point at the old brand files;
   replace if new assets exist.
-- `/projects` uses one hero image; no separate dev-kit photo asset.
-- Home `ProjectsSection` heading still reads "The Open-Source Stack".
+- Home page still has its old `CommunitySection` + `EcosystemSection` (language-scrubbed);
+  the planned home overhaul comes after this and Our Work.
 - `ARCHITECTURE.md` / `SPEC.md` remain intentionally stale (banner at top).
 
 ---
@@ -133,4 +163,5 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
 - Favicon: `app/icon.png`
 - Hero art: `public/projects/open-mining-stack.webp`,
   `public/mission-background.webp`, `public/grants-hero-background.webp`
+- Community hero carousel: `public/community/hero-0*.webp`
 - Project marks: `public/projects/*`

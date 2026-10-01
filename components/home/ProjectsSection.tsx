@@ -36,10 +36,10 @@ export default function ProjectsSection({ forumTopics, orgEvents = [] }: Project
       <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
         <div>
           <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase">
-            The Open-Source Stack
+            The Open Mining Stack
           </h2>
           <p className="text-gray-500 dark:text-gray-400 text-sm mt-2 max-w-xl">
-            Four core grants building every layer — from silicon to pool software.
+            Four core projects, one open stack — from silicon to pool software.
           </p>
         </div>
         <Link

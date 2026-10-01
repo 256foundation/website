@@ -5,7 +5,6 @@ import { fetchOrgEvents } from '@/lib/github'
 import { fetchPodcastEpisodes } from '@/lib/pod256'
 import { generatePageMetadata } from '@/lib/metadata'
 import { siteStats } from '@/data/stats'
-import { supporters } from '@/data/supporters'
 import { teleHashEvents } from '@/data/telehash'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import HeroSection from '@/components/home/HeroSection'
@@ -17,7 +16,6 @@ import StayUpdated from '@/components/home/StayUpdated'
 import ApplySection from '@/components/home/ApplySection'
 import CommunitySection from '@/components/home/CommunitySection'
 import EcosystemSection from '@/components/home/EcosystemSection'
-import SupporterShowcase from '@/components/home/SupporterShowcase'
 import FAQSection from '@/components/home/FAQSection'
 import ContactForm from '@/components/home/ContactForm'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -78,10 +76,6 @@ export default async function Home() {
 
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <EcosystemSection />
-      </SectionWrapper>
-
-      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <SupporterShowcase supporters={supporters} />
       </SectionWrapper>
 
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
