@@ -71,7 +71,7 @@ test('ecosystem projects we serve are the four agreed projects', () => {
 test('the fund line links to /our-work', () => {
   const source = read('components/community/CommunityProjects.tsx')
   assert.ok(source.includes('href="/our-work"'))
-  assert.ok(/community-directed/.test(source))
+  assert.ok(/community directs the work/.test(source))
 })
 
 // ── Retired-vocabulary sweep ──────────────────────────────────────────────────

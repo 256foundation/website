@@ -5,8 +5,8 @@ export const topNav: NavItem[] = [
   { label: 'Our Work', href: '/our-work' },
   { label: 'Mining Stack', href: '/projects' },
   { label: 'Grants', href: '/grants' },
-  { label: 'Newsroom', href: '/newsroom' },
   { label: 'Community', href: '/community' },
+  { label: 'Newsroom', href: '/newsroom' },
 ]
 
 export const footerFoundationLinks: NavItem[] = [
@@ -15,10 +15,10 @@ export const footerFoundationLinks: NavItem[] = [
   { label: 'Mining Stack', href: '/projects' },
   { label: 'Grants', href: '/grants' },
   { label: 'Community', href: '/community' },
+  { label: 'Newsroom', href: '/newsroom' },
   { label: 'Donate', href: '/donate' },
   { label: 'Telehash', href: '/telehash' },
   { label: 'FAQ', href: '/faq' },
-  { label: 'Newsroom', href: '/newsroom' },
 ]
 
 export const footerCommunityLinks: NavItem[] = [
