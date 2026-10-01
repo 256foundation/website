@@ -28,9 +28,16 @@ function ProjectCard({ project }: { project: CommunityProject }) {
       <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase leading-tight group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
         {project.name}
       </h3>
-      <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed mt-1.5 flex-1">
+      <p className="text-[#3b1445] dark:text-[#c084d8] text-xs leading-relaxed mt-1.5">
         {project.description}
       </p>
+      <div className="flex-1">
+        {project.detail && (
+          <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed mt-3">
+            {project.detail}
+          </p>
+        )}
+      </div>
       <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
         Visit →
       </span>
@@ -51,8 +58,10 @@ export default function CommunityProjects() {
         Built together
       </h2>
       <p className="text-gray-500 dark:text-gray-400 text-sm max-w-2xl mb-10">
-        Some projects are directed by the community, with funds of their own. Others are ecosystem
-        projects the Foundation serves and supports.
+        Industries have niches. This one has sub-communities: groups of builders who gather around
+        one specific piece of the mining world. We don&apos;t run them and we don&apos;t direct them.
+        We give them a platform: infrastructure to host, a nonprofit home, and a dedicated fund for
+        donations.
       </p>
 
       {/* Community-directed */}
