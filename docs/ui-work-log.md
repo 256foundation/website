@@ -144,7 +144,7 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   (1920px WebP, EXIF-rotated), listed in `communityHeroPhotos` in `data/community.ts`;
   add or reorder there.
 - **`/our-work` copy is a first pass** — every outline section is present but light;
-  dial in copy and art later. It currently reuses `mission-background.webp` as its hero.
+  dial in copy and art later. Hero art is `public/our-work-hero.webp`.
 - **Libre Board announcement pre-publish checklist** (from the canon review, not yet
   confirmed): (1) Schnitzel's consent to being named and linked as maintainer; (2) verify
   "revision three" against the actual project state before publishing — never publish a
@@ -162,6 +162,7 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
 - Brand logos: `public/logos/256-logo-{horizontal,secondary,vertical}-{dark,light}.png`
 - Favicon: `app/icon.png`
 - Hero art: `public/projects/open-mining-stack.webp`,
-  `public/mission-background.webp`, `public/grants-hero-background.webp`
+  `public/mission-background.webp`, `public/grants-hero-background.webp`,
+  `public/our-work-hero.webp`
 - Community hero carousel: `public/community/hero-0*.webp`
 - Project marks: `public/projects/*`
