@@ -34,6 +34,8 @@ export default async function CommunityPage() {
         sub="Open-source needs more than code. Review, teaching, forums, dev calls, community niches, and an ecosystem around every project. This is where that work happens and how to be part of it."
         ctaLabel="Join the forum →"
         ctaHref="https://forum.256foundation.org"
+        secondaryLabel="Dive into the code →"
+        secondaryHref="https://github.com/256foundation"
       />
 
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">

@@ -11,6 +11,8 @@ interface CommunityHeroCarouselProps {
   sub: string
   ctaLabel: string
   ctaHref: string
+  secondaryLabel?: string
+  secondaryHref?: string
 }
 
 /**
@@ -26,6 +28,8 @@ export default function CommunityHeroCarousel({
   sub,
   ctaLabel,
   ctaHref,
+  secondaryLabel,
+  secondaryHref,
 }: CommunityHeroCarouselProps) {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
@@ -100,12 +104,24 @@ export default function CommunityHeroCarousel({
             {headline}
           </h1>
           <p className="text-gray-200 text-lg leading-relaxed mb-8">{sub}</p>
-          <a
-            href={ctaHref}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#3b1445] text-white font-mono font-bold text-sm rounded-none hover:bg-[#2d0f36] transition-colors"
-          >
-            {ctaLabel}
-          </a>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href={ctaHref}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#3b1445] text-white font-mono font-bold text-sm rounded-none hover:bg-[#2d0f36] transition-colors"
+            >
+              {ctaLabel}
+            </a>
+            {secondaryLabel && secondaryHref && (
+              <a
+                href={secondaryHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-white/40 text-white font-mono font-bold text-sm rounded-none hover:border-white/80 hover:bg-white/5 transition-colors"
+              >
+                {secondaryLabel}
+              </a>
+            )}
+          </div>
         </div>
       </SectionWrapper>
 
