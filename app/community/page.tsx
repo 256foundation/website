@@ -15,7 +15,7 @@ export const revalidate = 3600
 export const metadata = generatePageMetadata({
   title: 'Community',
   description:
-    "The stack doesn't build itself. Everything we fund is built in public, by a community of maintainers, miners, and builders. Here's where it lives and how to join.",
+    "Open-source needs more than code. Review, teaching, forums, dev calls, community niches, and an ecosystem around every project. This is where that work happens and how to be part of it.",
   path: '/community',
 })
 
@@ -31,7 +31,7 @@ export default async function CommunityPage() {
         photos={communityHeroPhotos}
         kicker="Community"
         headline="The stack doesn't build itself."
-        sub="Everything we fund is built in public, by a community of maintainers, miners, and builders. Here's where it lives and how to join."
+        sub="Open-source needs more than code. Review, teaching, forums, dev calls, community niches, and an ecosystem around every project. This is where that work happens and how to be part of it."
         ctaLabel="Join the forum →"
         ctaHref="https://forum.256foundation.org"
       />
