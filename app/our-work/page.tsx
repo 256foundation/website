@@ -52,7 +52,7 @@ export default function OurWorkPage() {
       {/* Hero — full-bleed image with overlaid copy */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]">
         <Image
-          src="/mission-background.webp"
+          src="/our-work-hero.webp"
           alt=""
           fill
           priority
