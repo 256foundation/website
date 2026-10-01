@@ -21,10 +21,10 @@ export default function TelehashFeature() {
             A few times a year, the whole community mines together
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xl">
-            TeleHash is our occasional in-person gathering. The team gets together, we livestream,
-            and the global community of supporters points its hashrate at one pool for a chance at
-            a solo block to fund the Foundation. The first event found one to launch the core
-            projects.
+            Telehash is our occasional in-person mining fundraiser. We get together and livestream
+            all day while the global community of supporters points their hashrate at our gamified
+            instance of Hydrapool for a chance at a solo block to fund the Foundation. The first
+            event found block 881423, seeding the funding for the core projects.
           </p>
         </div>
 
