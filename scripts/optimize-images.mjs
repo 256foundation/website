@@ -6,7 +6,7 @@
 // miss and makes raw in-article <img> tags fetch megabytes directly.
 //
 // For each raster file under public/newsroom this writes a sibling `.webp` (max
-// 1600px, quality 82), points every reference at it, and removes the original.
+// 1440px, quality 78), points every reference at it, and removes the original.
 // Already-`.webp` files are recompressed in place. Safe to re-run.
 //
 //   node scripts/optimize-images.mjs
@@ -24,8 +24,8 @@ const publicDir = path.join(root, 'public/newsroom')
 const REFERENCE_DIRS = ['content', 'data', 'components', 'app', 'lib']
 const RASTER = new Set(['.png', '.jpg', '.jpeg'])
 
-const MAX_WIDTH = 1600
-const QUALITY = 82
+const MAX_WIDTH = 1440
+const QUALITY = 78
 
 /** Every file we touched: `/newsroom/...` before, and the `/newsroom/...webp` after. */
 const rewrites = new Map()

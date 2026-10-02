@@ -1,4 +1,5 @@
 import type { CommunityProject } from '@/types'
+import Image from 'next/image'
 import { communityDirectedProjects, ecosystemProjects } from '@/data/community'
 import Eyebrow from '@/components/ui/Eyebrow'
 import TextLink from '@/components/ui/TextLink'
@@ -15,7 +16,13 @@ function ProjectCard({ project }: { project: CommunityProject }) {
         />
       </picture>
     ) : project.logo ? (
-      <img src={project.logo} alt={project.name} className="h-12 w-auto object-contain" />
+      <Image
+        src={project.logo}
+        alt={project.name}
+        fill
+        sizes="200px"
+        className="object-contain object-left"
+      />
     ) : null
 
   return (
@@ -25,7 +32,7 @@ function ProjectCard({ project }: { project: CommunityProject }) {
       rel="noopener noreferrer"
       className="group flex flex-col bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] p-6 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors"
     >
-      <div className="h-12 mb-4 flex items-center">{logo}</div>
+      <div className="relative h-12 mb-4 flex items-center">{logo}</div>
       <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase leading-tight group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
         {project.name}
       </h3>
