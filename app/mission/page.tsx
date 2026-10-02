@@ -29,6 +29,25 @@ const principles = [
   },
 ]
 
+const narrative = [
+  {
+    lead: 'Bitcoin mining does three jobs.',
+    body: 'It issues new coins, settles transactions, and secures the record. All three matter to everyone who holds bitcoin.',
+  },
+  {
+    lead: 'Today, that machinery is closed.',
+    body: 'One company controls most of the hardware and software. Closed means unauditable, unfixable, and permissioned.',
+  },
+  {
+    lead: 'To open it, you need the recipes.',
+    body: 'A miner is four building blocks: a hashboard, a control board, firmware, and a pool. The knowledge to build each was locked away.',
+  },
+  {
+    lead: 'So we wrote them down.',
+    body: 'We reverse-engineered every layer, published the designs as open source, and fund the work to commoditize them, so anyone can build, audit, and compete.',
+  },
+]
+
 export default function MissionPage() {
   return (
     <>
@@ -56,20 +75,23 @@ export default function MissionPage() {
         </SectionWrapper>
       </section>
 
-      {/* Narrative — story filler that leads into the Vision */}
+      {/* Narrative — numbered story beats that lead into the Vision */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <div className="max-w-3xl space-y-8 text-gray-500 dark:text-gray-400 text-base sm:text-lg leading-relaxed">
-          <p>
-            All Bitcoin miners, large and small, have been negatively affected by one large
-            antagonistic hardware company who has blocked innovation, denied collaboration, and
-            taken majority control over the hardware and software that keeps Bitcoin running.
-          </p>
-          <p>
-            An open protocol should be accessible to anyone at all layers. The open-source Bitcoin
-            mining stack we are building achieves this. We believe in free and open development and
-            we pledge that every project from this foundation will always be made available through
-            free and open-source contributions.
-          </p>
+        <div className="max-w-3xl space-y-10">
+          {narrative.map((point, i) => (
+            <div key={point.lead} className="flex gap-5 sm:gap-8">
+              <span
+                aria-hidden="true"
+                className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-2xl sm:text-3xl leading-none pt-1 tabular-nums"
+              >
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg leading-relaxed">
+                <span className="font-bold text-gray-900 dark:text-white">{point.lead}</span>{' '}
+                {point.body}
+              </p>
+            </div>
+          ))}
         </div>
       </SectionWrapper>
 
