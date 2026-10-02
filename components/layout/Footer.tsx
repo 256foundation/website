@@ -19,7 +19,7 @@ export default function Footer() {
               <Logo height={52} />
             </div>
             <p className="text-gray-500 dark:text-gray-500 text-sm leading-relaxed mt-3 max-w-xs">
-              Building the open-source Bitcoin mining ecosystem.
+              Open-Sourcing Bitcoin Mining
             </p>
             <p className="font-mono text-gray-400 dark:text-gray-700 text-xs mt-4">
               A 501(c)(3) nonprofit organization
