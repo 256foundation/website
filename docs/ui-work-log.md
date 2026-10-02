@@ -166,6 +166,7 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   `/faq`, `/newsroom`, `/grants`, `/grants/announcements`, and `/donate`.
 - **Our Work close:** the Linux Foundation line breaks onto its own line, and the primary
   button is relabeled **"Support with a Donation →"**.
+- **Community close:** added a PageCTA after Get Involved (Donate + Get in touch); it had none.
 
 ---
 
