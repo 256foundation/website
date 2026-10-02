@@ -18,7 +18,8 @@ Last updated: 2026-10-01
 | `ui/edits-round5` | [#24](https://github.com/256foundation/website/pull/24) → [#25](https://github.com/256foundation/website/pull/25) | Community page; Our Work stub; nav consolidation; supporters → Donate; canon sweep; Our Work hero photo | both merged; no open PRs |
 | `ui/edits-round6` | [#26](https://github.com/256foundation/website/pull/26) | Footer restructure: supplemental pages get a dedicated Resources column; Donate CTA; social icons removed as redundant | merged |
 | `ui/edits-round7` | [#27](https://github.com/256foundation/website/pull/27) | Libre Board article: reactivation framing + funding CTA; footer "Grant announcements" label | merged |
-| `ui/edits-round8` | — | Footer Contact button beside Donate | open (branched off `main`) |
+| `ui/edits-round8` | [#28](https://github.com/256foundation/website/pull/28) | Footer Contact button beside Donate | open (branched off `main`) |
+| `ui/edits-round9` | — | Contact form: label "Name / Nym", message placeholder "What's up?" | open |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
@@ -146,6 +147,10 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
 ### Round 8 — `ui/edits-round8` — footer Contact button
 - Added a secondary **Contact** button (`/#contact`) beside the Donate CTA in the footer
   brand column, matching the header's Contact treatment.
+
+### Round 9 — `ui/edits-round9` — contact form copy
+- Contact form (`components/home/ContactForm.tsx`): name label "Name / Alias" →
+  **"Name / Nym"**, message placeholder "How can we help?" → **"What's up?"**.
 
 ---
 
