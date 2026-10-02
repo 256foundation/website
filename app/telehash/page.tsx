@@ -148,15 +148,15 @@ export default function TelehashPage() {
         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-2xl mb-8">
           Username and workername can be anything you want. Use a website URL, X handle, or Nostr npub as your username — your profile pic or favicon will show up on the leaderboard.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
           {participationSteps.map((s) => (
-            <div key={s.step} className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-5">
+            <div key={s.step} className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-4">
               <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-2xl opacity-40 mb-3">
                 {s.step}
               </div>
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-2">{s.title}</h3>
               {s.code && (
-                <code className="block bg-gray-100 dark:bg-[#1f1f1f] border border-gray-200 dark:border-[#2a2a2a] rounded-none px-3 py-2 font-mono text-gray-800 dark:text-gray-100 text-[11px] mt-2 mb-2 break-all">
+                <code className="block bg-gray-100 dark:bg-[#1f1f1f] border border-gray-200 dark:border-[#2a2a2a] rounded-none px-2 py-2 font-mono text-gray-800 dark:text-gray-100 text-[9px] mt-2 mb-2 break-all">
                   {s.code}
                 </code>
               )}

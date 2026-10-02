@@ -181,6 +181,9 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   with gray text; `CopyButton` rethemed from green to gray/purple.
 - Shared **`ZAPRITE_URL`** constant added to `data/donate.ts`; `/donate` and the home
   `DonateCards` now read it (removes the hardcoded/`#`-fallback mismatch).
+- **Telehash page** retheme: participation code blocks no longer dark purple + neon green
+  (now neutral gray), the "In Person" / "Block Found!" green badges use the brand purple,
+  and step cards/pool-URL chip resized so the URL stays on one line.
 
 ---
 
