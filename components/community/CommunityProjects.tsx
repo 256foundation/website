@@ -2,6 +2,7 @@ import type { CommunityProject } from '@/types'
 import Image from 'next/image'
 import { communityDirectedProjects, ecosystemProjects } from '@/data/community'
 import Eyebrow from '@/components/ui/Eyebrow'
+import Button from '@/components/ui/Button'
 import TextLink from '@/components/ui/TextLink'
 
 function ProjectCard({ project }: { project: CommunityProject }) {
@@ -26,12 +27,7 @@ function ProjectCard({ project }: { project: CommunityProject }) {
     ) : null
 
   return (
-    <a
-      href={project.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex flex-col bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] p-6 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors"
-    >
+    <div className="group flex flex-col bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] p-6 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors">
       <div className="relative h-12 mb-4 flex items-center">{logo}</div>
       <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase leading-tight group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
         {project.name}
@@ -46,10 +42,22 @@ function ProjectCard({ project }: { project: CommunityProject }) {
           </p>
         ))}
       </div>
-      <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs mt-4">
-        Visit →
-      </span>
-    </a>
+      <div className="flex items-center gap-4 mt-4">
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline"
+        >
+          Visit →
+        </a>
+        {project.donateHref && (
+          <Button variant="outlined" size="sm" href={project.donateHref} external>
+            Donate →
+          </Button>
+        )}
+      </div>
+    </div>
   )
 }
 

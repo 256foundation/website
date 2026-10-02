@@ -100,6 +100,8 @@ export interface CommunityProject {
   /** Longer description paragraphs shown under the one-line description, when present. */
   detail?: string[]
   href: string
+  /** Optional Zaprite (or similar) link to donate to this project's own restricted fund. */
+  donateHref?: string
   logo?: string
   logoDark?: string
   logoLight?: string
