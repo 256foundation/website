@@ -23,7 +23,7 @@ export const faqItems: FAQItem[] = [
   {
     category: 'foundation',
     question: 'What is the best way to communicate with 256 Foundation?',
-    answer: 'Email is the best way to reach us: admin@256foundation.org',
+    answer: 'Email is the best way to reach us: contact@256foundation.org',
   },
 
   // ── Donations ─────────────────────────────────────────────────
