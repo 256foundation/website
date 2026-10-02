@@ -155,7 +155,7 @@ export default function TelehashPage() {
               href="https://forum.256foundation.org/upcoming-events/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between gap-3 border-t border-gray-200 dark:border-[#2a2a2a] bg-gray-50 dark:bg-[#242424] px-6 py-4 font-mono text-[#3b1445] dark:text-[#c084d8] text-sm uppercase tracking-wider hover:bg-[#3b1445]/5 dark:hover:bg-[#5c2070]/10 transition-colors"
+              className="flex items-center justify-between gap-3 bg-[#3b1445] px-6 py-4 font-mono text-white text-sm uppercase tracking-wider hover:bg-[#2d0f36] transition-colors"
             >
               <span>View Events Calendar</span>
               <span aria-hidden="true">→</span>
