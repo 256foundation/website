@@ -109,7 +109,7 @@ in `data/community.ts` — add or reorder there.
 - Our Work hero: `public/our-work-hero.webp` (from supplied `our-work-hero.jpg`,
   converted to 1920px WebP)
 - Other hero art: `public/projects/open-mining-stack.webp`,
-  `public/mission-background.webp`, `public/grants-hero-background.webp`
+  `public/mission-hero.webp`, `public/grants-hero-background.webp`, `public/home-hero.webp`
 - Brand logos: `public/logos/256-logo-{horizontal,secondary,vertical}-{dark,light}.png`
 
 Image workflow used this round: `sharp` resize to max width 1920, `webp({quality: 82,

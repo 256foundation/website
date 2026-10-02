@@ -318,7 +318,7 @@ why/who; destination pages answer how.
 - Brand logos: `public/logos/256-logo-{horizontal,secondary,vertical}-{dark,light}.png`
 - Favicon: `app/icon.png`
 - Hero art: `public/projects/open-mining-stack.webp`,
-  `public/mission-background.webp`, `public/grants-hero-background.webp`,
-  `public/our-work-hero.webp`
+  `public/mission-hero.webp`, `public/grants-hero-background.webp`,
+  `public/our-work-hero.webp`, `public/home-hero.webp`
 - Community hero carousel: `public/community/hero-0*.webp`
 - Project marks: `public/projects/*`

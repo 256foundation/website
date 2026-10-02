@@ -214,9 +214,10 @@ decisions, and open items. Durable facts a fresh session must know:
   (no Home item — the logo links home).
 - **`/projects` is named "Open Mining Stack"** on-page; the nav label is just
   **"Mining Stack"**. Hero is a full-bleed photo (`public/projects/open-mining-stack.webp`).
-- **`/mission`** is restructured: mission-statement hero, a photo band
-  (`public/mission-background.webp`) framed by thin info bars, a subtle "Principles"
-  filler, then Founders/Board with `SectionKicker` labels (defined in the page).
+- **`/mission`** is restructured: a full-bleed photo hero (`public/mission-hero.webp`),
+  a four-beat numbered story narrative, and a two-statement vision typographically
+  enlarged. Founders/Board follow. The narrative copy answers *why*; the home links here
+  for depth.
 - **`/grants`** programs are named **Core Projects Program** (we scope) and **General
   Grant Program** (you scope); `/grants#grant-programs` is the anchor.
 - **`/grants` funding log:** bottom section `#funding-announcements`, fed by newsroom
@@ -251,5 +252,5 @@ decisions, and open items. Durable facts a fresh session must know:
   recipes.
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) / [`SPEC.md`](SPEC.md) — original design intent
   (see stale-warning banners at their tops).
-- `discourse-header-prompt.md` — one-off prompt for matching the Discourse forum header
+- `docs/discourse-header-prompt.md` — one-off prompt for matching the Discourse forum header
   to the site header; not part of the app build.
