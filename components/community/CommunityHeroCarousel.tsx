@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import SectionWrapper from '@/components/ui/SectionWrapper'
+import Eyebrow from '@/components/ui/Eyebrow'
+import Button from '@/components/ui/Button'
 
 interface CommunityHeroCarouselProps {
   photos: string[]
@@ -97,29 +99,21 @@ export default function CommunityHeroCarousel({
 
       <SectionWrapper className="relative z-10 flex min-h-[560px] lg:min-h-[640px] items-center">
         <div className="max-w-2xl">
-          <p className="font-mono text-[#c084d8] text-xs tracking-[0.2em] uppercase mb-4">
+          <Eyebrow onDark className="mb-4">
             {kicker}
-          </p>
+          </Eyebrow>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-5">
             {headline}
           </h1>
           <p className="text-gray-200 text-lg leading-relaxed mb-8">{sub}</p>
           <div className="flex flex-wrap items-center gap-3">
-            <a
-              href={ctaHref}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#3b1445] text-white font-mono font-bold text-sm rounded-none hover:bg-[#2d0f36] transition-colors"
-            >
+            <Button variant="primary" size="lg" href={ctaHref} external>
               {ctaLabel}
-            </a>
+            </Button>
             {secondaryLabel && secondaryHref && (
-              <a
-                href={secondaryHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/40 text-white font-mono font-bold text-sm rounded-none hover:border-white/80 hover:bg-white/5 transition-colors"
-              >
+              <Button variant="onDarkOutlined" size="lg" href={secondaryHref} external>
                 {secondaryLabel}
-              </a>
+              </Button>
             )}
           </div>
         </div>

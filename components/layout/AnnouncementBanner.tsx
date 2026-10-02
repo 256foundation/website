@@ -70,7 +70,7 @@ export default function AnnouncementBanner() {
             className="flex items-center gap-3 flex-1 min-w-0 overflow-hidden group"
           >
             {/* Badge */}
-            <span className="font-mono text-[10px] uppercase tracking-widest text-[#00FF41] border border-[#00FF41] px-1.5 py-0.5 shrink-0 leading-none">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#c084d8] border border-[#c084d8] px-1.5 py-0.5 shrink-0 leading-none">
               {label}
             </span>
 

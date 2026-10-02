@@ -41,7 +41,7 @@ function UpdateCard({
   imageFit?: 'cover' | 'contain'
 }) {
   const className =
-    'group flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] ' +
+    'group flex flex-col bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] ' +
     'hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 ' +
     'hover:shadow-[0_0_16px_rgba(59,20,69,0.08)] transition-all duration-200'
 

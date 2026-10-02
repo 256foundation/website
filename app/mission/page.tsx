@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react'
 import Image from 'next/image'
 import { generatePageMetadata } from '@/lib/metadata'
 import { founders, board } from '@/data/team'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import DecorativeBg from '@/components/ui/DecorativeBg'
+import Eyebrow from '@/components/ui/Eyebrow'
 import TeamMemberCard from '@/components/shared/TeamMemberCard'
 import PageCTA from '@/components/shared/PageCTA'
 
@@ -13,18 +13,6 @@ export const metadata = generatePageMetadata({
     'To decentralize Bitcoin mining by building, funding and stewarding open-source alternatives to every closed layer of the mining stack.',
   path: '/mission',
 })
-
-/** Emphasized section kicker — accent bar + wider-tracked label. */
-function SectionKicker({ children }: { children: ReactNode }) {
-  return (
-    <div className="flex items-center gap-3 mb-4">
-      <span aria-hidden="true" className="block w-1.5 h-4 bg-[#3b1445] dark:bg-[#c084d8]" />
-      <span className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-sm tracking-[0.28em] uppercase">
-        {children}
-      </span>
-    </div>
-  )
-}
 
 const principles = [
   {
@@ -48,7 +36,7 @@ export default function MissionPage() {
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
         <div className="max-w-4xl relative z-10">
-          <SectionKicker>Our Mission</SectionKicker>
+          <Eyebrow className="mb-4">Our Mission</Eyebrow>
           <h1 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight uppercase">
             To decentralize Bitcoin mining by building, funding and stewarding open-source
             alternatives to every closed layer of the mining stack — so that the technology
@@ -58,7 +46,7 @@ export default function MissionPage() {
       </SectionWrapper>
 
       {/* Status quo — thin info bar above the photo */}
-      <section className="bg-gray-50 dark:bg-[#242424] border-b border-gray-200 dark:border-[#1f1f1f]">
+      <section className="bg-gray-50 dark:bg-[#1a1a1a] border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 lg:py-4">
           <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
             All Bitcoin miners, large and small, have been negatively affected by one large
@@ -81,7 +69,7 @@ export default function MissionPage() {
       </div>
 
       {/* Pledge — thin info bar below the photo */}
-      <section className="bg-gray-50 dark:bg-[#242424] border-b border-gray-200 dark:border-[#1f1f1f]">
+      <section className="bg-gray-50 dark:bg-[#1a1a1a] border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 lg:py-4">
           <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
             An open protocol should be accessible to anyone at all layers. The open-source
@@ -95,7 +83,7 @@ export default function MissionPage() {
       {/* Vision */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl">
-          <SectionKicker>Our Vision</SectionKicker>
+          <Eyebrow className="mb-4">Our Vision</Eyebrow>
           <blockquote className="border-l-4 border-[#3b1445] pl-6 py-2">
             <p className="font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-relaxed uppercase">
               &ldquo;An open protocol should be accessible to anyone at all layers — the open-source
@@ -137,7 +125,7 @@ export default function MissionPage() {
       {/* Principles — subtle filler */}
       <SectionWrapper tight className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl">
-          <SectionKicker>Principles</SectionKicker>
+          <Eyebrow className="mb-4">Principles</Eyebrow>
           <div className="space-y-5 text-sm leading-relaxed text-gray-500 dark:text-gray-400">
             {principles.map((p) => (
               <p key={p.lead}>
@@ -150,7 +138,7 @@ export default function MissionPage() {
 
       {/* Founders */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <SectionKicker>Founders</SectionKicker>
+        <Eyebrow className="mb-4">Founders</Eyebrow>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
           {founders.map((member) => (
             <TeamMemberCard key={member.name} member={member} />
@@ -160,7 +148,7 @@ export default function MissionPage() {
 
       {/* Board */}
       <SectionWrapper>
-        <SectionKicker>Board</SectionKicker>
+        <Eyebrow className="mb-4">Board</Eyebrow>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           {board.map((member) => (
             <TeamMemberCard key={member.name} member={member} />

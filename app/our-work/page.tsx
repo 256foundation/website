@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { generatePageMetadata } from '@/lib/metadata'
@@ -14,6 +13,8 @@ import {
 } from '@/data/ourWork'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Button from '@/components/ui/Button'
+import Eyebrow from '@/components/ui/Eyebrow'
+import PageCTA from '@/components/shared/PageCTA'
 
 /**
  * First-pass /our-work. Every section of the agreed outline is present but
@@ -26,17 +27,6 @@ export const metadata = generatePageMetadata({
     'We are commoditizing the Bitcoin mining stack. The 256 Foundation funds the open-source stack, because a company cannot do this and a closed industry will not.',
   path: '/our-work',
 })
-
-function SectionKicker({ children, centered }: { children: ReactNode; centered?: boolean }) {
-  return (
-    <div className={['flex items-center gap-3 mb-4', centered ? 'justify-center' : ''].join(' ')}>
-      <span aria-hidden="true" className="block w-1.5 h-4 bg-[#3b1445] dark:bg-[#c084d8]" />
-      <span className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-sm tracking-[0.28em] uppercase">
-        {children}
-      </span>
-    </div>
-  )
-}
 
 /** One-line layer note per core project, keyed by slug. */
 const projectLines: Record<string, string> = {
@@ -64,9 +54,9 @@ export default function OurWorkPage() {
 
         <SectionWrapper className="relative z-10 flex min-h-[560px] lg:min-h-[640px] items-center">
           <div className="max-w-2xl">
-            <p className="font-mono text-[#c084d8] text-xs tracking-[0.2em] uppercase mb-4">
+            <Eyebrow onDark className="mb-4">
               {ourWorkHero.kicker}
-            </p>
+            </Eyebrow>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-5">
               We are commoditizing the <span className="text-[#c084d8]">Bitcoin mining stack</span>.
             </h1>
@@ -75,7 +65,7 @@ export default function OurWorkPage() {
               <Button variant="primary" size="lg" href="/donate">
                 Fund the work →
               </Button>
-              <Button variant="outlined" size="lg" href="/projects">
+              <Button variant="onDarkOutlined" size="lg" href="/projects">
                 See the stack →
               </Button>
             </div>
@@ -86,7 +76,7 @@ export default function OurWorkPage() {
       {/* The thesis */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl">
-          <SectionKicker>{ourWorkThesis.kicker}</SectionKicker>
+          <Eyebrow className="mb-4">{ourWorkThesis.kicker}</Eyebrow>
           <blockquote className="border-l-4 border-[#3b1445] dark:border-[#c084d8] pl-6 py-2 mb-8">
             <p className="font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-relaxed uppercase">
               &ldquo;{ourWorkThesis.quote}&rdquo;
@@ -102,7 +92,7 @@ export default function OurWorkPage() {
 
       {/* The status quo */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <SectionKicker>{ourWorkStatusQuo.kicker}</SectionKicker>
+        <Eyebrow className="mb-4">{ourWorkStatusQuo.kicker}</Eyebrow>
         <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed max-w-2xl mb-8">
           {ourWorkStatusQuo.intro}
         </p>
@@ -127,7 +117,7 @@ export default function OurWorkPage() {
       {/* The vision */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl">
-          <SectionKicker>{ourWorkVision.kicker}</SectionKicker>
+          <Eyebrow className="mb-4">{ourWorkVision.kicker}</Eyebrow>
           <p className="font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-relaxed uppercase">
             {ourWorkVision.body}
           </p>
@@ -136,7 +126,7 @@ export default function OurWorkPage() {
 
       {/* Proof of work */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <SectionKicker>{ourWorkProof.kicker}</SectionKicker>
+        <Eyebrow className="mb-4">{ourWorkProof.kicker}</Eyebrow>
         <div className="max-w-3xl space-y-4 text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-10">
           {ourWorkProof.body.map((p) => (
             <p key={p}>{p}</p>
@@ -166,7 +156,7 @@ export default function OurWorkPage() {
       {/* How we work */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl">
-          <SectionKicker>How We Work</SectionKicker>
+          <Eyebrow className="mb-4">How We Work</Eyebrow>
           <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-6">
             Every grant runs under a written scope, board approval, and a grant agreement that keeps
             the work open-source, paid monthly under renewable terms. There are two doors.
@@ -182,7 +172,7 @@ export default function OurWorkPage() {
 
       {/* Beyond the kit */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <SectionKicker>{ourWorkPrograms.kicker}</SectionKicker>
+        <Eyebrow className="mb-4">{ourWorkPrograms.kicker}</Eyebrow>
         <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed max-w-2xl mb-10">
           {ourWorkPrograms.intro}
         </p>
@@ -211,27 +201,13 @@ export default function OurWorkPage() {
       </SectionWrapper>
 
       {/* Close */}
-      <SectionWrapper className="max-w-3xl mx-auto text-center">
-        <SectionKicker centered>{ourWorkClose.kicker}</SectionKicker>
-        <p className="font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-snug uppercase mb-5">
-          {ourWorkClose.line.map((line) => (
-            <span key={line} className="block">
-              {line}
-            </span>
-          ))}
-        </p>
-        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xl mx-auto mb-8">
-          {ourWorkClose.body}
-        </p>
-        <div className="flex flex-wrap justify-center gap-3">
-          <Button variant="primary" size="lg" href="/donate">
-            Support with a Donation →
-          </Button>
-          <Button variant="outlined" size="lg" href="/contact">
-            Get in touch →
-          </Button>
-        </div>
-      </SectionWrapper>
+      <PageCTA
+        align="center"
+        kicker={ourWorkClose.kicker}
+        title={ourWorkClose.line.join(' ')}
+        body={ourWorkClose.body}
+        donateLabel="Support with a Donation →"
+      />
     </>
   )
 }

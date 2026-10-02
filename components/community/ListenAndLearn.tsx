@@ -36,7 +36,7 @@ export default function ListenAndLearn({ posts, episodes }: ListenAndLearnProps)
           href={substack?.link ?? SUBSTACK_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors"
+          className="group flex flex-col bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors"
         >
           <div className="relative h-36 overflow-hidden bg-white dark:bg-[#1a1a1a]">
             {substack?.image && (
@@ -61,7 +61,7 @@ export default function ListenAndLearn({ posts, episodes }: ListenAndLearnProps)
           href={episode?.link ?? POD256_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors"
+          className="group flex flex-col bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors"
         >
           <div className="relative h-36 overflow-hidden bg-white dark:bg-[#1a1a1a]">
             {episode?.image && (

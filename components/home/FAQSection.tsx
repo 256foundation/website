@@ -40,7 +40,7 @@ export default function FAQSection() {
         {selected.map((item, i) => (
           <details
             key={i}
-            className="group bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden [&[open]]:border-[#3b1445]/50 dark:[&[open]]:border-[#5c2070]/50"
+            className="group bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden [&[open]]:border-[#3b1445]/50 dark:[&[open]]:border-[#5c2070]/50"
           >
             <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-mono text-gray-900 dark:text-white text-sm font-bold hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors list-none [&::-webkit-details-marker]:hidden group-open:text-[#3b1445] dark:group-open:text-[#c084d8]">
               {item.question}

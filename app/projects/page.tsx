@@ -1,11 +1,13 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { generatePageMetadata } from '@/lib/metadata'
 import { pillarProjects } from '@/data/projects'
 import { fetchRepoMeta } from '@/lib/github'
 import { fetchProjectForumTopics } from '@/lib/discourse'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Button from '@/components/ui/Button'
+import Eyebrow from '@/components/ui/Eyebrow'
+import TextLink from '@/components/ui/TextLink'
+import PageCTA from '@/components/shared/PageCTA'
 import StackSubNav from '@/components/projects/StackSubNav'
 import StackLayerSection from '@/components/projects/StackLayerSection'
 
@@ -68,9 +70,9 @@ export default async function OpenMiningStackPage() {
 
         <SectionWrapper className="relative z-10 flex min-h-[560px] lg:min-h-[640px] items-center">
           <div className="max-w-2xl">
-            <p className="font-mono text-[#c084d8] text-xs tracking-[0.2em] uppercase mb-4">
+            <Eyebrow onDark className="mb-4">
               The 256 Foundation&rsquo;s Core Projects Program
-            </p>
+            </Eyebrow>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-5">
               The Open <span className="text-[#c084d8]">Mining Stack</span>
             </h1>
@@ -88,7 +90,7 @@ export default async function OpenMiningStackPage() {
       </section>
 
       {/* Overview index */}
-      <section className="bg-gray-50 dark:bg-[#242424] border-b border-gray-200 dark:border-[#1f1f1f]">
+      <section className="bg-gray-50 dark:bg-[#1a1a1a] border-b border-gray-200 dark:border-[#1f1f1f]">
         <SectionWrapper>
           <p className="text-gray-500 dark:text-gray-400 text-sm max-w-2xl mb-8">
             Every mature industry runs on commoditized, open inputs — recipes anyone can read, use,
@@ -134,40 +136,28 @@ export default async function OpenMiningStackPage() {
       ))}
 
       {/* Closing CTA */}
-      <section className="bg-white dark:bg-[#1a1a1a]">
-        <SectionWrapper className="max-w-3xl mx-auto text-center">
-          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase mb-4">
-            Fund the Stack
-          </p>
-          <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-5">
-            Together, a Permissionless <span className="text-[#3b1445] dark:text-[#c084d8]">Development Kit</span>
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-8 max-w-xl mx-auto">
-            An open hash board on an open control board running open firmware, mining to an open
-            pool. Four independent projects that combine into one open-source mining development
-            kit — free for anyone to study, fork, manufacture, and build a business on.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button variant="primary" size="lg" href="/donate">
-              Donate →
-            </Button>
-            <Button variant="outlined" size="lg" href="/contact">
-              Get in touch →
-            </Button>
+      <PageCTA
+        align="center"
+        kicker="Fund the Stack"
+        title="Together, a Permissionless Development Kit"
+        body="An open hash board on an open control board running open firmware, mining to an open pool. Four independent projects that combine into one open-source mining development kit — free for anyone to study, fork, manufacture, and build a business on."
+        donateLabel="Donate →"
+        extra={
+          <>
             <Button variant="outlined" size="lg" href="https://github.com/256foundation" external>
               GitHub Org
             </Button>
             <Button variant="outlined" size="lg" href="https://forum.256foundation.org" external>
               Forum
             </Button>
-          </div>
-          <p className="mt-8">
-            <Link href="/grants" className="font-mono text-xs text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors">
-              Learn about our grants program →
-            </Link>
-          </p>
-        </SectionWrapper>
-      </section>
+          </>
+        }
+        footnote={
+          <TextLink href="/grants" muted arrow>
+            Learn about our grants program
+          </TextLink>
+        }
+      />
     </main>
   )
 }

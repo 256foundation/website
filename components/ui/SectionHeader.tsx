@@ -1,3 +1,5 @@
+import Eyebrow from '@/components/ui/Eyebrow'
+
 interface SectionHeaderProps {
   title: string
   subtitle?: string
@@ -17,14 +19,7 @@ export default function SectionHeader({
 
   return (
     <div className={['mb-12', alignClass, className].join(' ')}>
-      {label && (
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-1 h-4 bg-[#3b1445]" />
-          <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
-            {label}
-          </span>
-        </div>
-      )}
+      {label && <Eyebrow centered={align === 'center'} className="mb-4">{label}</Eyebrow>}
       <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight tracking-tight uppercase">
         {title}
       </h2>

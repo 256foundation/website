@@ -1,7 +1,8 @@
 'use client'
 
-import Link from 'next/link'
 import type { Supporter } from '@/types'
+import Button from '@/components/ui/Button'
+import TextLink from '@/components/ui/TextLink'
 import HashrateLeaderboard from './HashrateLeaderboard'
 
 interface SupporterShowcaseProps {
@@ -108,15 +109,9 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
         <p className="text-gray-500 dark:text-gray-400 text-sm">
           Want your logo here? Support the open-source Bitcoin mining stack.
         </p>
-        <Link
-          href="/donate"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-[#3b1445] text-white font-mono font-bold text-sm rounded-none hover:bg-[#2d0f36] transition-colors whitespace-nowrap"
-        >
-          Become a Supporter
-          <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            <path d="M3 8h10M9 4l4 4-4 4" />
-          </svg>
-        </Link>
+        <Button variant="primary" href="/donate" className="whitespace-nowrap">
+          Become a Supporter →
+        </Button>
       </div>
 
       {/* Hashrate leaderboard */}
@@ -125,14 +120,9 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
           <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase">
             Live Hashrate Donors
           </h3>
-          <a
-            href="https://dash.256f.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline transition-colors"
-          >
-            View Full Dashboard &rarr;
-          </a>
+          <TextLink href="https://dash.256f.org" external arrow>
+            View Full Dashboard
+          </TextLink>
         </div>
         <HashrateLeaderboard />
       </div>

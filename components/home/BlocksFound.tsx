@@ -45,7 +45,7 @@ export default function BlocksFound({ stats, videoUrl }: BlocksFoundProps) {
       {/* Right: YouTube embed */}
       <div className="rounded-none overflow-hidden border border-gray-200 dark:border-[#1f1f1f] bg-white dark:bg-[#1a1a1a]">
         {isPlaceholder ? (
-          <div className="aspect-video flex items-center justify-center bg-gray-50 dark:bg-[#242424]">
+          <div className="aspect-video flex items-center justify-center bg-gray-50 dark:bg-[#1a1a1a]">
             <div className="text-center">
               <div className="text-[#3b1445] dark:text-[#c084d8] font-mono text-sm mb-2">&#9654; Block Find Video</div>
               <div className="text-gray-500 text-xs">Video will be embedded here</div>

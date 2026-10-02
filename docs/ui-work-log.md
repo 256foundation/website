@@ -4,7 +4,7 @@ Running log of website UI revision rounds, decisions, and open follow-ups. **Rea
 first in a fresh session** so nothing lives only in chat history. For the fuller
 round-5 pickup context, see [`docs/session-context.md`](./session-context.md).
 
-Last updated: 2026-10-01
+Last updated: 2026-10-02
 
 ---
 
@@ -22,7 +22,7 @@ Last updated: 2026-10-01
 | `ui/edits-round9` | [#29](https://github.com/256foundation/website/pull/29) | Contact form: label "Name / Nym", message placeholder "What's up?" | open |
 | `ui/edits-round10` | [#30](https://github.com/256foundation/website/pull/30) | Dedicated `/contact` page + site-wide contextual contact links | open |
 | `ui/edits-round11` | [#31](https://github.com/256foundation/website/pull/31) | `/donate` + `/telehash` relayout, neutral code style, FAQ hero CTA, footer cleanup | open |
-| `ui/edits-round12` | — | (new round) | open (branched off `ui/edits-round11`) |
+| `ui/edits-round12` | — | Design-system continuity pass: shared Eyebrow / TextLink / Panel, on-dark buttons, one PageCTA, surface + spacing tokens, badge routing, green → status-only | open (branched off `ui/edits-round11`) |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
@@ -193,6 +193,33 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
 - **FAQ hero** now has a right-side "General Questions" panel with **Get in touch** (/contact)
   and **Visit the Forum** links, mirroring the telehash panel treatment.
 
+### Round 12 — `ui/edits-round12` — design-system continuity pass
+Full audit first (heroes, closers, buttons, kickers, surfaces, badges, accents), then a
+token/component consolidation. Layouts kept; only tokens and shared primitives changed.
+
+New primitives: `components/ui/Eyebrow.tsx` (single kicker), `components/ui/TextLink.tsx`
+(single inline `→` link), `components/ui/Panel.tsx` (the hero header/body/footer box).
+New tokens: `lib/tokens.ts` — three surfaces (`default`, `raised`, `tinted`).
+
+- **Kickers unified** to `<Eyebrow>` everywhere: replaced `SectionHeader`'s inline label, the
+  local `SectionKicker` helpers in `/mission` and `/our-work`, and all inline kickers. One
+  size, tracking, and bar width.
+- **Buttons**: added `onDark` / `onDarkOutlined` variants and replaced ~15 hardcoded CTA
+  links, fixing the low-contrast outlined button on the photo heroes.
+- **Closers**: one `PageCTA` with `align="center"`, `extra`, and `footnote`; `/our-work` and
+  `/projects` bespoke closers now use it.
+- **Panel**: `/donate`, `/telehash`, and `/faq` heroes now render the shared `<Panel>`.
+- **Badges**: `Badge` gained `online`, `in-person`, `block-found`, `closed`; telehash event
+  pills, the Block Found badge, and grants' "Calls currently closed" route through it.
+- **Surfaces**: dark card values collapsed (`#242424`/`#0a0a0a`/`#13091a` → `#1a1a1a`, tinted
+  → `#1e1028`); `Card` now carries the surface tokens.
+- **Spacing**: `SectionWrapper` gained a named `size` scale (`hero`/`default`/`tight`/`compact`)
+  so heroes no longer jump between rhythms.
+- **Accent rule**: purple is the brand accent; green `#00FF41` is reserved for live/active/
+  hashrate (live dots, `HashrateLeaderboard`, `Badge active`, `BlocksFound`). Everything else
+  that was green (hero chips, hardware tags, grant arrows, success states, banner tag,
+  newsletter) is purple.
+
 ---
 
 ## Decisions / conventions locked
@@ -215,6 +242,10 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
 - **Grant-announcement copy rules:** no "cycle" / "wave" / "round"; no "pillar" /
   "maintainer retainer" / "adoption phase"; no retired program names; no em dashes.
   Funded work, not the project's achievements, is what the Foundation claims.
+- **Design-system primitives (round 12):** use `<Eyebrow>` for every kicker, `<TextLink>` for
+  inline `→` links, `<Panel>` for boxed hero actions, and `<Card>` / `lib/tokens.ts` surfaces
+  for cards. Do not hand-roll these again. Accent rule: purple brand; green `#00FF41` only for
+  live/active/hashrate.
 
 ---
 

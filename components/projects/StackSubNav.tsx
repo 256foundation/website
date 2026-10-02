@@ -43,7 +43,7 @@ export default function StackSubNav({ layers }: Props) {
   return (
     <nav
       aria-label="Stack layers"
-      className="sticky z-40 bg-white/95 dark:bg-[#13091a]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#1f1f1f]"
+      className="sticky z-40 bg-white/95 dark:bg-[#1e1028]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#1f1f1f]"
       style={{ top: 'calc(67px + var(--ext-offset))' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

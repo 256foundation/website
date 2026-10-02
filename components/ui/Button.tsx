@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 
-type Variant = 'primary' | 'secondary' | 'outlined'
+type Variant = 'primary' | 'secondary' | 'outlined' | 'onDark' | 'onDarkOutlined'
 type Size = 'sm' | 'md' | 'lg'
 
 interface ButtonProps {
@@ -24,6 +24,10 @@ const variantStyles: Record<Variant, string> = {
     'bg-transparent text-[#3b1445] dark:text-[#c084d8] font-bold border border-transparent hover:underline',
   outlined:
     'bg-transparent text-[#3b1445] dark:text-[#c084d8] font-bold border border-[#3b1445]/50 dark:border-[#5c2070]/50 hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5',
+  onDark:
+    'bg-white text-[#1a1a1a] font-bold border border-white hover:bg-gray-100 hover:border-gray-100',
+  onDarkOutlined:
+    'bg-transparent text-white font-bold border border-white/40 hover:border-white/90 hover:bg-white/5',
 }
 
 const sizeStyles: Record<Size, string> = {

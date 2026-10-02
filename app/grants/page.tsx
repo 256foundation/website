@@ -3,6 +3,10 @@ import Link from 'next/link'
 import { generatePageMetadata } from '@/lib/metadata'
 import { getGrantAnnouncements } from '@/lib/newsroom'
 import SectionWrapper from '@/components/ui/SectionWrapper'
+import Eyebrow from '@/components/ui/Eyebrow'
+import Badge from '@/components/ui/Badge'
+import Button from '@/components/ui/Button'
+import Card from '@/components/ui/Card'
 import FundingAnnouncements from '@/components/grants/FundingAnnouncements'
 import PageCTA from '@/components/shared/PageCTA'
 
@@ -83,9 +87,7 @@ export default function GrantsPage() {
 
         <SectionWrapper className="relative z-10 flex min-h-[560px] lg:min-h-[640px] items-center">
           <div className="max-w-2xl">
-            <p className="font-mono text-[#c084d8] text-xs tracking-[0.2em] uppercase mb-4">
-              Grants
-            </p>
+            <Eyebrow onDark className="mb-4">Grants</Eyebrow>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-5">
               Funding <span className="text-[#c084d8]">Open-Source</span> Mining
             </h1>
@@ -127,10 +129,8 @@ export default function GrantsPage() {
           Grant Programs
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
-            <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-2">
-              We scoped it
-            </div>
+          <Card>
+            <Eyebrow className="mb-2">We scoped it</Eyebrow>
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">Core Projects Program</h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">
               Recruitment for the four core projects that make our open mining stack: Ember One,
@@ -141,24 +141,14 @@ export default function GrantsPage() {
               work moving.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <button
-                type="button"
-                className="inline-flex items-center px-3 py-1.5 rounded-none text-xs font-mono border border-gray-300 dark:border-[#3f3f3f] text-gray-500 dark:text-gray-400"
-              >
-                Calls currently closed
-              </button>
-              <Link
-                href="/projects"
-                className="inline-flex items-center px-3 py-1.5 rounded-none text-xs font-mono border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-colors"
-              >
+              <Badge status="closed">Calls currently closed</Badge>
+              <Button variant="outlined" size="sm" href="/projects">
                 See our Core Projects →
-              </Link>
+              </Button>
             </div>
-          </div>
-          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
-            <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-2">
-              You scoped it
-            </div>
+          </Card>
+          <Card>
+            <Eyebrow className="mb-2">You scoped it</Eyebrow>
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-lg uppercase mb-3">General Grant Program</h3>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-3">
               Apply with an idea for your own project, or your own scope of work on one of ours.
@@ -166,15 +156,10 @@ export default function GrantsPage() {
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
               So long as it advances the open-source Bitcoin mining ecosystem, it&apos;s eligible.
             </p>
-            <Link
-              href={GENERAL_GRANT_APPLICATION_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-none text-xs font-mono font-bold bg-[#3b1445] text-white hover:bg-[#2d0f36] transition-colors"
-            >
+            <Button variant="primary" size="sm" href={GENERAL_GRANT_APPLICATION_URL} external>
               Apply for a Grant →
-            </Link>
-          </div>
+            </Button>
+          </Card>
         </div>
       </SectionWrapper>
 
@@ -182,22 +167,18 @@ export default function GrantsPage() {
       <SectionWrapper tight className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
-            <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-              What We Fund
-            </div>
+            <Eyebrow className="mb-4">What We Fund</Eyebrow>
             <ul className="space-y-2">
               {whatWeFund.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                  <span className="text-[#00FF41] mt-0.5 shrink-0 text-xs">&rarr;</span>
+                  <span className="text-[#3b1445] dark:text-[#c084d8] mt-0.5 shrink-0 text-xs">&rarr;</span>
                   {item}
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-              What We Don&apos;t Fund
-            </div>
+            <Eyebrow className="mb-4">What We Don&apos;t Fund</Eyebrow>
             <ul className="space-y-2">
               {whatWeDontFund.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
@@ -219,13 +200,13 @@ export default function GrantsPage() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
-            <div key={s.step} className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6">
+            <Card key={s.step}>
               <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-3xl mb-4 opacity-50">
                 {s.step}
               </div>
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-2">{s.title}</h3>
               <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">{s.description}</p>
-            </div>
+            </Card>
           ))}
         </div>
       </SectionWrapper>

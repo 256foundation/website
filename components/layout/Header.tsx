@@ -32,8 +32,8 @@ export default function Header() {
         className={[
           'fixed left-0 right-0 z-[2147483647] transition-all duration-300',
           scrolled
-            ? 'bg-white/95 dark:bg-[#13091a]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#3b1445]/30'
-            : 'bg-white/80 dark:bg-[#13091a]/80 backdrop-blur-sm border-b border-transparent',
+            ? 'bg-white/95 dark:bg-[#1e1028]/95 backdrop-blur-md border-b border-gray-200 dark:border-[#3b1445]/30'
+            : 'bg-white/80 dark:bg-[#1e1028]/80 backdrop-blur-sm border-b border-transparent',
         ].join(' ')}
         style={{ top: 'calc(3px + var(--ext-offset))' }}
       >

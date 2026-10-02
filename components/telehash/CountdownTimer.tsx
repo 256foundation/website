@@ -65,7 +65,7 @@ export default function CountdownTimer({ targetDate, endDate }: CountdownTimerPr
   // No event scheduled
   if (!targetDate) {
     return (
-      <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 text-center">
+      <div className="bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 text-center">
         <p className="font-mono text-gray-600 dark:text-gray-400 text-sm mb-2">No event currently scheduled.</p>
         <p className="text-gray-500 text-xs">
           Telehash events are announced via our{' '}
@@ -95,7 +95,7 @@ export default function CountdownTimer({ targetDate, endDate }: CountdownTimerPr
   // Event has concluded
   if (concluded) {
     return (
-      <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 text-center">
+      <div className="bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 text-center">
         <p className="font-mono font-bold text-gray-900 dark:text-white text-base mb-1">Event Concluded</p>
         <p className="font-mono text-gray-500 dark:text-gray-400 text-xs mb-3">
           Thanks to everyone who participated. The next Telehash will be announced soon.
@@ -148,7 +148,7 @@ export default function CountdownTimer({ targetDate, endDate }: CountdownTimerPr
   ]
 
   return (
-    <div className="bg-gray-50 dark:bg-[#242424] border border-[#3b1445]/30 dark:border-[#5c2070]/30 rounded-none p-6">
+    <div className="bg-gray-50 dark:bg-[#1a1a1a] border border-[#3b1445]/30 dark:border-[#5c2070]/30 rounded-none p-6">
       <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase text-center mb-6">
         Next Telehash Event
       </p>

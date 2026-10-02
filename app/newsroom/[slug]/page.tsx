@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import Image from 'next/image'
 import { getAllPosts, getPostBySlug, formatPostDate, categoryLabel } from '@/lib/newsroom'
 import { generatePageMetadata } from '@/lib/metadata'
 import { getLocalImageSize } from '@/lib/imageSize'
 import SectionWrapper from '@/components/ui/SectionWrapper'
+import TextLink from '@/components/ui/TextLink'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 import PostBody from '@/components/newsroom/PostBody'
 
@@ -39,12 +39,9 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
       <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
       <div className="max-w-2xl mx-auto">
         {/* Back link */}
-        <Link
-          href="/newsroom"
-          className="inline-flex items-center gap-1.5 font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline mb-8 block"
-        >
+        <TextLink href="/newsroom" className="mb-8 block">
           ← Back to Newsroom
-        </Link>
+        </TextLink>
 
         {/* Category + date */}
         <div className="flex items-center gap-3 mb-4">
@@ -93,18 +90,8 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
 
         {/* Footer divider */}
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-[#1f1f1f] flex flex-wrap items-center justify-between gap-3">
-          <Link
-            href="/newsroom"
-            className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline"
-          >
-            ← Back to Newsroom
-          </Link>
-          <Link
-            href="/contact"
-            className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline"
-          >
-            Questions? Get in touch →
-          </Link>
+          <TextLink href="/newsroom">← Back to Newsroom</TextLink>
+          <TextLink href="/contact" arrow>Questions? Get in touch</TextLink>
         </div>
       </div>
     </SectionWrapper>

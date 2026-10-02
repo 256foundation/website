@@ -27,7 +27,7 @@ export default function StackLayerSection({ project, index, layerLabel, repoMeta
       style={{ scrollMarginTop: 'calc(150px + var(--ext-offset))' }}
       className={[
         'border-b border-gray-200 dark:border-[#1f1f1f]',
-        alt ? 'bg-gray-50 dark:bg-[#242424]' : 'bg-white dark:bg-[#1a1a1a]',
+        alt ? 'bg-gray-50 dark:bg-[#1a1a1a]' : 'bg-white dark:bg-[#1a1a1a]',
       ].join(' ')}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
@@ -159,7 +159,7 @@ export default function StackLayerSection({ project, index, layerLabel, repoMeta
             <ul className="space-y-2">
               {project.keyFeatures.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                  <span className="text-[#00FF41] mt-0.5 shrink-0 text-xs">→</span>
+                  <span className="text-[#3b1445] dark:text-[#c084d8] mt-0.5 shrink-0 text-xs">→</span>
                   {item}
                 </li>
               ))}

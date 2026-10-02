@@ -2,8 +2,11 @@ import { generatePageMetadata } from '@/lib/metadata'
 import { faqItems } from '@/data/faq'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Button from '@/components/ui/Button'
+import Eyebrow from '@/components/ui/Eyebrow'
+import Panel from '@/components/ui/Panel'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 import PageCTA from '@/components/shared/PageCTA'
+import { surface } from '@/lib/tokens'
 import type { FAQItem } from '@/types'
 
 export const metadata = generatePageMetadata({
@@ -48,7 +51,7 @@ export default function FAQPage() {
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-stretch">
           <div className="max-w-2xl">
-            <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">FAQ</p>
+            <Eyebrow className="mb-4">FAQ</Eyebrow>
             <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl uppercase mb-6">
               Frequently Asked Questions
             </h1>
@@ -59,36 +62,28 @@ export default function FAQPage() {
           </div>
 
           {/* Get-in-touch / forum panel */}
-          <div className="flex h-full flex-col border border-gray-200 dark:border-[#2a2a2a]">
-            <div className="flex items-center gap-3 border-b border-gray-200 dark:border-[#2a2a2a] bg-gray-50 dark:bg-[#242424] px-6 py-4">
-              <span className="w-1 h-4 bg-[#3b1445] dark:bg-[#c084d8]" />
-              <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
-                General Questions
-              </span>
+          <Panel label="General Questions" fullHeight>
+            <p className="font-display font-bold text-gray-900 dark:text-white text-lg sm:text-xl uppercase mb-3">
+              Didn&apos;t find your answer?
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              Have a general question about the projects or the foundation? Reach out to us, or
+              post it directly on our community forum.
+            </p>
+            <div className="mt-auto pt-6 flex flex-wrap gap-3">
+              <Button variant="primary" size="md" href="/contact">
+                Get in touch →
+              </Button>
+              <Button
+                variant="outlined"
+                size="md"
+                href="https://forum.256foundation.org"
+                external
+              >
+                Visit the Forum →
+              </Button>
             </div>
-            <div className="flex flex-1 flex-col p-6 sm:p-8">
-              <p className="font-display font-bold text-gray-900 dark:text-white text-lg sm:text-xl uppercase mb-3">
-                Didn&apos;t find your answer?
-              </p>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                Have a general question about the projects or the foundation? Reach out to us, or
-                post it directly on our community forum.
-              </p>
-              <div className="mt-auto pt-6 flex flex-wrap gap-3">
-                <Button variant="primary" size="md" href="/contact">
-                  Get in touch →
-                </Button>
-                <Button
-                  variant="outlined"
-                  size="md"
-                  href="https://forum.256foundation.org"
-                  external
-                >
-                  Visit the Forum →
-                </Button>
-              </div>
-            </div>
-          </div>
+          </Panel>
         </div>
       </SectionWrapper>
 
@@ -110,7 +105,10 @@ export default function FAQPage() {
                 {items.map((item, i) => (
                   <details
                     key={i}
-                    className="group bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden [&[open]]:border-[#3b1445]/50 dark:[&[open]]:border-[#5c2070]/50"
+                    className={[
+                      'group border rounded-none overflow-hidden [&[open]]:border-[#3b1445]/50 dark:[&[open]]:border-[#5c2070]/50',
+                      surface('default'),
+                    ].join(' ')}
                   >
                     <summary className="flex items-center justify-between px-5 py-4 cursor-pointer font-mono text-gray-900 dark:text-white text-sm font-bold hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors list-none [&::-webkit-details-marker]:hidden group-open:text-[#3b1445] dark:group-open:text-[#c084d8]">
                       {item.question}
