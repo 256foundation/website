@@ -26,7 +26,7 @@ Last updated: 2026-10-02
 | `ui/edits-round13` | [#33](https://github.com/256foundation/website/pull/33) | Mission narrative rework (photo hero, numbered story beats, large two-point vision), shared `HeroScrim` across main-page heroes, footer logo matches header, Elsewhere link reorder | merged |
 | `ui/edits-round14` | [#34](https://github.com/256foundation/website/pull/34) | Homepage overhaul: 8-beat rebuild (thesis hero, problem, stack, proof, funding band, community, latest, shared closer); `Reveal` + scroll-progress client utilities; dead home components pruned | merged |
 | `ui/edits-round14` (docs) | [#35](https://github.com/256foundation/website/pull/35) | Docs sync for round 14 (CLAUDE/README/session-context/ARCHITECTURE) | open |
-| `ui/edits-round15` | — | Clean favicon from the header `secondary` mark: theme-aware `app/icon.svg`, `app/favicon.ico` + `app/apple-icon.png` fallbacks (replaces the off-brand purple `app/icon.png`) | no PR yet (off `main`) |
+| `ui/edits-round15` | — | Home polish: clean favicon from the header `secondary` mark (theme-aware `app/icon.svg`, `app/favicon.ico` + `app/apple-icon.png` fallbacks, replaces off-brand `app/icon.png`); dedicated home Community photo (`public/home-community.webp`, conference panel) instead of reusing a `/community` carousel shot | no PR yet (off `main`) |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
@@ -262,7 +262,7 @@ why/who; destination pages answer how.
 - **Copy:** zero em dashes, ban-list clean (no "cycle"/"pillar"/amounts). Page is ~5.9
   desktop screens.
 
-### Round 15 — `ui/edits-round15` — favicon
+### Round 15 — `ui/edits-round15` — home polish (favicon + community photo)
 
 Replaced the off-brand favicon (a purple "256" cropped from the `horizontal` wordmark) with
 the **`secondary` mark** the header actually uses.
@@ -272,6 +272,15 @@ the **`secondary` mark** the header actually uses.
 - **`app/favicon.ico`** (16/32/48) and **`app/apple-icon.png`** (180, dark brand tile) are
   fallbacks for clients without SVG favicon support.
 - The mark is tightly trimmed, centered, ~90% frame width. No stray whitespace.
+
+Gave the home Community beat its own photo instead of reusing `/community/hero-01.webp`:
+
+- Cropped the supplied conference-panel shot to a 2048x820 (~2.5:1) band (ceiling and stage
+  floor removed, four panelists framed with headroom), exported to `public/home-community.webp`
+  at quality 82.
+- Wide band, so desktop shows all four while the left copy sits on the dark side of
+  `HeroScrim`. The speaker is dead-center, so narrow/mobile `object-cover` crops to a clean
+  portrait of him instead of slicing someone in half. Looks intentional at any aspect ratio.
 
 ---
 
@@ -333,6 +342,6 @@ the **`secondary` mark** the header actually uses.
   (built from `public/logos/256-logo-secondary-{dark,light}.png`)
 - Hero art: `public/projects/open-mining-stack.webp`,
   `public/mission-background.webp`, `public/grants-hero-background.webp`,
-  `public/our-work-hero.webp`
+  `public/our-work-hero.webp`, `public/home-hero.webp`, `public/home-community.webp`
 - Community hero carousel: `public/community/hero-0*.webp`
 - Project marks: `public/projects/*`
