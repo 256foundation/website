@@ -17,7 +17,7 @@ export const metadata = generatePageMetadata({
 
 /** Neutral code chip — matches the light gray/purple page instead of a dark terminal. */
 const codeClass =
-  'block bg-gray-100 dark:bg-[#1f1f1f] border border-gray-200 dark:border-[#2a2a2a] rounded-none px-3 py-2 font-mono text-gray-800 dark:text-gray-100 text-xs mb-3 break-all'
+  'block bg-gray-100 dark:bg-[#1f1f1f] border border-gray-200 dark:border-[#2a2a2a] rounded-none px-3 py-2 font-mono text-gray-800 dark:text-gray-100 text-[11px] mb-3 break-all'
 
 const acceptedMethods = ['Credit / Debit Card', 'Bitcoin On-Chain', 'Lightning']
 
@@ -112,7 +112,7 @@ export default function DonatePage() {
           No processor, no middleman. Send on-chain or via Lightning, directly to the foundation.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
           {/* Bitcoin On-Chain */}
           <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6">
             <div className="flex items-center gap-2 mb-1">
