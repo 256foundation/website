@@ -46,7 +46,7 @@ function ProjectCard({ project }: { project: CommunityProject }) {
           </p>
         ))}
       </div>
-      <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+      <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs mt-4">
         Visit →
       </span>
     </a>

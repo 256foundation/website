@@ -119,9 +119,10 @@ export default function OurWorkPage() {
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl">
           <Eyebrow className="mb-4">{ourWorkVision.kicker}</Eyebrow>
-          <p className="font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-relaxed uppercase">
-            {ourWorkVision.body}
-          </p>
+          <div className="space-y-4 font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-relaxed uppercase">
+            <p>{ourWorkVision.lead}</p>
+            <p>{ourWorkVision.body}</p>
+          </div>
         </div>
       </SectionWrapper>
 

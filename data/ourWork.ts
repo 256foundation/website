@@ -47,7 +47,8 @@ export const ourWorkStatusQuo = {
 }
 
 export const ourWorkVision = {
-  kicker: 'The Vision',
+  kicker: 'The Future',
+  lead: 'The future of mining should be decided by miners.',
   body:
     'A miner can be more than a data center black box. It can be a water heater, a solar and battery rig, an off-grid machine. Miners should come in every shape.',
 }
@@ -68,11 +69,11 @@ export const ourWorkPrograms = {
   programs: [
     {
       name: 'Red Team Program',
-      body: 'Reverse engineering closed firmware and coordinating disclosure: report, wait 30 days, publish.',
+      body: 'Reverse engineering closed firmware and other mining software, followed by responsible disclosure.',
     },
     {
       name: 'Working Group Program',
-      body: 'Convening the industry around published standards such as Stratum V2. Host the work, do not own it.',
+      body: 'Convening the industry around standards, specifications, form factors, connectors, api endpoints and more. We bring the industry together to advance and mature it.',
     },
     {
       name: 'Stewardship',
@@ -84,7 +85,7 @@ export const ourWorkPrograms = {
     },
     {
       name: 'Education',
-      body: 'Developer calls, the forum, the podcast, and the newsletter, plus teaching the stack in person.',
+      body: 'Developer calls, the forum, the podcast, and the newsletter, plus teaching the stack in person with hands on workshops.',
     },
   ],
 }

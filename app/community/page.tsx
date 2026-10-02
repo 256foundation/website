@@ -1,6 +1,7 @@
 import { generatePageMetadata } from '@/lib/metadata'
 import { fetchSubstackPosts } from '@/lib/substack'
 import { fetchPodcastEpisodes } from '@/lib/pod256'
+import { getAllPostsByDate } from '@/lib/newsroom'
 import { communityHeroPhotos } from '@/data/community'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import CommunityHeroCarousel from '@/components/community/CommunityHeroCarousel'
@@ -25,6 +26,7 @@ export default async function CommunityPage() {
     fetchSubstackPosts(1),
     fetchPodcastEpisodes(1),
   ])
+  const newsroomPost = getAllPostsByDate()[0]
 
   return (
     <>
@@ -52,7 +54,7 @@ export default async function CommunityPage() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ListenAndLearn posts={posts} episodes={episodes} />
+        <ListenAndLearn newsroomPost={newsroomPost} posts={posts} episodes={episodes} />
       </SectionWrapper>
 
       <GetInvolved />
