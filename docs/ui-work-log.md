@@ -25,8 +25,8 @@ Last updated: 2026-10-02
 | `ui/edits-round12` | [#32](https://github.com/256foundation/website/pull/32) | Design-system continuity pass: shared Eyebrow / TextLink / Panel, on-dark buttons, one PageCTA, surface + spacing tokens, badge routing, green → status-only | merged |
 | `ui/edits-round13` | [#33](https://github.com/256foundation/website/pull/33) | Mission narrative rework (photo hero, numbered story beats, large two-point vision), shared `HeroScrim` across main-page heroes, footer logo matches header, Elsewhere link reorder | merged |
 | `ui/edits-round14` | [#34](https://github.com/256foundation/website/pull/34) | Homepage overhaul: 8-beat rebuild (thesis hero, problem, stack, proof, funding band, community, latest, shared closer); `Reveal` + scroll-progress client utilities; dead home components pruned | merged |
-| `ui/edits-round14` (docs) | [#35](https://github.com/256foundation/website/pull/35) | Docs sync for round 14 (CLAUDE/README/session-context/ARCHITECTURE) | open |
-| `ui/edits-round15` | — | Home polish: clean favicon from the header `secondary` mark (theme-aware `app/icon.svg`, `app/favicon.ico` + `app/apple-icon.png` fallbacks, replaces off-brand `app/icon.png`); dedicated home Community photo (`public/home-community.webp`, conference panel) instead of reusing a `/community` carousel shot | no PR yet (off `main`) |
+| `ui/edits-round14` (docs) | [#35](https://github.com/256foundation/website/pull/35) | Docs sync for round 14 (CLAUDE/README/session-context/ARCHITECTURE) | merged |
+| `ui/edits-round15` | — | Home polish: clean favicon from the header `secondary` mark (theme-aware `app/icon.svg`, `app/favicon.ico` + `app/apple-icon.png` fallbacks, replaces off-brand `app/icon.png`); dedicated home Community photo (`public/home-community.webp`, conference panel) instead of reusing a `/community` carousel shot; home CTA consistency (Latest beat's "All updates →" now the shared outlined `Button` like every other main-page link) | no PR yet (off `main`) |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
