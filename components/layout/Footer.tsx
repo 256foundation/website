@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="h-[2px] bg-gradient-to-r from-transparent via-[#5c2070] to-transparent dark:via-[#3b1445]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
 
           {/* Brand column */}
           <div className="lg:col-span-4">
@@ -34,72 +34,75 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Foundation links */}
-          <div className="lg:col-span-3">
-            <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
-              <span className="w-1 h-3 bg-[#3b1445] dark:bg-[#5c2070] inline-block flex-shrink-0" />
-              Foundation
-            </h3>
-            <ul className="space-y-3">
-              {footerFoundationLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
-                  >
-                    <span className="w-0 group-hover:w-3 h-px bg-[#3b1445] transition-all duration-200 overflow-hidden" />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Link columns — equal-width three-up so spacing stays even */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-10">
+            {/* Foundation links */}
+            <div>
+              <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
+                <span className="w-1 h-3 bg-[#3b1445] dark:bg-[#5c2070] inline-block flex-shrink-0" />
+                Foundation
+              </h3>
+              <ul className="space-y-3">
+                {footerFoundationLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
+                    >
+                      <span className="w-0 group-hover:w-3 h-px bg-[#3b1445] transition-all duration-200 overflow-hidden" />
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Resources — supplemental on-site pages */}
-          <div className="lg:col-span-2">
-            <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
-              <span className="w-1 h-3 border border-[#3b1445] dark:border-[#5c2070] inline-block flex-shrink-0" />
-              Resources
-            </h3>
-            <ul className="space-y-3">
-              {footerResourcesLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
-                  >
-                    <span className="w-0 group-hover:w-3 h-px bg-[#3b1445] transition-all duration-200 overflow-hidden" />
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Resources — supplemental on-site pages */}
+            <div>
+              <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
+                <span className="w-1 h-3 border border-[#3b1445] dark:border-[#5c2070] inline-block flex-shrink-0" />
+                Resources
+              </h3>
+              <ul className="space-y-3">
+                {footerResourcesLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
+                    >
+                      <span className="w-0 group-hover:w-3 h-px bg-[#3b1445] transition-all duration-200 overflow-hidden" />
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Elsewhere — external channels */}
-          <div className="lg:col-span-3">
-            <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
-              <span className="w-1 h-3 bg-[#3b1445] dark:bg-[#5c2070] inline-block flex-shrink-0" />
-              Elsewhere
-            </h3>
-            <ul className="space-y-3">
-              {footerCommunityLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
-                  >
-                    <span className="w-0 group-hover:w-3 h-px bg-[#3b1445] transition-all duration-200 overflow-hidden" />
-                    {link.label}
-                    <svg className="w-2.5 h-2.5 opacity-30 group-hover:opacity-60 transition-opacity" viewBox="0 0 10 10" fill="currentColor">
-                      <path d="M8 1H5V0h5v5H9V2L4 7l-.707-.707L8 1zM0 9V4h1v4h4v1H0z" />
-                    </svg>
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {/* Elsewhere — external channels */}
+            <div>
+              <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
+                <span className="w-1 h-3 bg-[#3b1445] dark:bg-[#5c2070] inline-block flex-shrink-0" />
+                Elsewhere
+              </h3>
+              <ul className="space-y-3">
+                {footerCommunityLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
+                    >
+                      <span className="w-0 group-hover:w-3 h-px bg-[#3b1445] transition-all duration-200 overflow-hidden" />
+                      {link.label}
+                      <svg className="w-2.5 h-2.5 opacity-30 group-hover:opacity-60 transition-opacity" viewBox="0 0 10 10" fill="currentColor">
+                        <path d="M8 1H5V0h5v5H9V2L4 7l-.707-.707L8 1zM0 9V4h1v4h4v1H0z" />
+                      </svg>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 

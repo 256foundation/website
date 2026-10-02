@@ -122,7 +122,9 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   were fully duplicated by the external link column.
 - **External column renamed "Community" → "Elsewhere"** so it clearly reads as the
   off-site list, distinct from the on-site `/community` page link.
-- Footer grid rebalanced to four columns on `lg` (`4 / 3 / 2 / 3`), two on `md`.
+- Footer grid: brand column plus a nested equal-width three-up subgrid for the link
+  columns, so the three column gaps stay even (`grid-cols-2 sm:grid-cols-3` on small,
+  brand `col-span-4` / links `col-span-8` on `lg`).
 
 ---
 
