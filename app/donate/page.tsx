@@ -80,7 +80,7 @@ export default function DonatePage() {
               external
               className="w-full"
             >
-              Donate with Zaprite →
+              Donate Bitcoin or Fiat →
             </Button>
             <div className="flex flex-wrap gap-x-5 gap-y-2 mt-5">
               {acceptedMethods.map((method) => (
