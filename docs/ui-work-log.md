@@ -19,10 +19,11 @@ Last updated: 2026-10-02
 | `ui/edits-round6` | [#26](https://github.com/256foundation/website/pull/26) | Footer restructure: supplemental pages get a dedicated Resources column; Donate CTA; social icons removed as redundant | merged |
 | `ui/edits-round7` | [#27](https://github.com/256foundation/website/pull/27) | Libre Board article: reactivation framing + funding CTA; footer "Grant announcements" label | merged |
 | `ui/edits-round8` | [#28](https://github.com/256foundation/website/pull/28) | Footer Contact button beside Donate | merged |
-| `ui/edits-round9` | [#29](https://github.com/256foundation/website/pull/29) | Contact form: label "Name / Nym", message placeholder "What's up?" | open |
-| `ui/edits-round10` | [#30](https://github.com/256foundation/website/pull/30) | Dedicated `/contact` page + site-wide contextual contact links | open |
-| `ui/edits-round11` | [#31](https://github.com/256foundation/website/pull/31) | `/donate` + `/telehash` relayout, neutral code style, FAQ hero CTA, footer cleanup | open |
+| `ui/edits-round9` | [#29](https://github.com/256foundation/website/pull/29) | Contact form: label "Name / Nym", message placeholder "What's up?" | closed |
+| `ui/edits-round10` | [#30](https://github.com/256foundation/website/pull/30) | Dedicated `/contact` page + site-wide contextual contact links | merged |
+| `ui/edits-round11` | [#31](https://github.com/256foundation/website/pull/31) | `/donate` + `/telehash` relayout, neutral code style, FAQ hero CTA, footer cleanup | merged |
 | `ui/edits-round12` | [#32](https://github.com/256foundation/website/pull/32) | Design-system continuity pass: shared Eyebrow / TextLink / Panel, on-dark buttons, one PageCTA, surface + spacing tokens, badge routing, green → status-only | open (branched off `ui/edits-round11`) |
+| `ui/edits-round13` | — | (new round) | open (branched off `ui/edits-round12`) |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
