@@ -3,7 +3,7 @@ import SectionWrapper from '@/components/ui/SectionWrapper'
 import Button from '@/components/ui/Button'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 import CopyButton from '@/components/ui/CopyButton'
-import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS } from '@/data/donate'
+import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS, ZAPRITE_URL } from '@/data/donate'
 import { supporters } from '@/data/supporters'
 import SupporterShowcase from '@/components/home/SupporterShowcase'
 import PageCTA from '@/components/shared/PageCTA'
@@ -14,6 +14,12 @@ export const metadata = generatePageMetadata({
     'Support the open-source Bitcoin mining ecosystem. Donate Bitcoin, fiat, or hashrate to the 256 Foundation.',
   path: '/donate',
 })
+
+/** Neutral code chip — matches the light gray/purple page instead of a dark terminal. */
+const codeClass =
+  'block bg-gray-100 dark:bg-[#1f1f1f] border border-gray-200 dark:border-[#2a2a2a] rounded-none px-3 py-2 font-mono text-gray-800 dark:text-gray-100 text-[11px] mb-3 break-all'
+
+const acceptedMethods = ['Credit / Debit Card', 'Bitcoin On-Chain', 'Lightning']
 
 const hashrateSteps = [
   {
@@ -37,171 +43,144 @@ const hashrateSteps = [
     step: '04',
     title: 'Monitor your contribution',
     description: 'Your miner appears on the live leaderboard at dash.256f.org within a few minutes.',
-    link: { label: 'Open Hashdash &rarr;', href: 'https://dash.256f.org' },
+    link: { label: 'Open Hashdash →', href: 'https://dash.256f.org' },
   },
 ]
 
 export default function DonatePage() {
-  const zapriteUrl = process.env.NEXT_PUBLIC_ZAPRITE_URL ?? '#'
-
   return (
     <>
-      {/* Hero */}
-      <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
+      {/* Hero + primary action — Zaprite button above the fold */}
+      <SectionWrapper decorative tight className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
-        <div className="max-w-3xl">
-          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-            Donate
-          </p>
-          <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
-            Fund the Open-Source Mining Revolution
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
-            The 256 Foundation is a 501(c)(3) nonprofit funding the core contributors building
-            open-source Bitcoin mining infrastructure &mdash; Mujina firmware, Libre Board, Hydrapool,
-            and the Ember One hashboard.
-          </p>
-        </div>
-      </SectionWrapper>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
+          <div>
+            <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
+              Donate
+            </p>
+            <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-5">
+              Fund the open-source{' '}
+              <span className="text-[#3b1445] dark:text-[#c084d8]">mining stack</span>.
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed max-w-lg">
+              The 256 Foundation is a 501(c)(3) nonprofit funding the core contributors building
+              open-source Bitcoin mining infrastructure. Every donation goes straight to the stack.
+            </p>
+          </div>
 
-      {/* 501c3 info */}
-      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]" tight>
-        <div className="bg-gray-50 dark:bg-[#242424] border border-[#3b1445]/40 dark:border-[#5c2070]/40 rounded-none p-6 max-w-2xl">
-          <div className="flex items-start gap-4">
-            <div className="text-[#3b1445] dark:text-[#c084d8] text-2xl shrink-0">&#9878;</div>
-            <div>
-              <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase mb-2">
-                501(c)(3) Nonprofit — Tax Deductible
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                The 256 Foundation is a fully approved 501(c)(3) nonprofit organization.
-                Qualifying financial donations are tax-deductible to the extent permitted by US law.
-                Please consult your tax advisor. {/* TODO: Add EIN number here */}
-              </p>
+          {/* Action box */}
+          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6 sm:p-8">
+            <p className="font-mono text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
+              Give in seconds
+            </p>
+            <Button
+              variant="primary"
+              size="lg"
+              href={ZAPRITE_URL}
+              external
+              className="w-full"
+            >
+              Donate Bitcoin or Fiat →
+            </Button>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 mt-5">
+              {acceptedMethods.map((method) => (
+                <span
+                  key={method}
+                  className="inline-flex items-center gap-2 font-mono text-xs text-gray-600 dark:text-gray-300"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#3b1445] dark:bg-[#c084d8]" />
+                  {method}
+                </span>
+              ))}
             </div>
+            <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed mt-5">
+              Processed securely by Zaprite. Prefer no processor?{' '}
+              <a href="#direct" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">
+                Send Bitcoin directly →
+              </a>
+            </p>
           </div>
         </div>
       </SectionWrapper>
 
-      {/* Donate money */}
-      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-4">
-          Donate with Money
-        </h2>
-        <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-6 max-w-2xl">
-          We accept Bitcoin (on-chain and Lightning Network) and credit/debit card payments
-          processed securely via Zaprite.
-        </p>
-        <div className="flex flex-wrap gap-4 items-center mb-8">
-          <div className="flex items-center gap-2 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-4 py-2">
-            <span className="text-[#3b1445] dark:text-[#c084d8]">&#8383;</span>
-            <span className="font-mono text-gray-600 dark:text-gray-300 text-sm">Bitcoin On-Chain</span>
-          </div>
-          <div className="flex items-center gap-2 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-4 py-2">
-            <span className="text-[#3b1445] dark:text-[#c084d8]">&#9889;</span>
-            <span className="font-mono text-gray-600 dark:text-gray-300 text-sm">Lightning Network</span>
-          </div>
-          <div className="flex items-center gap-2 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none px-4 py-2">
-            <span className="text-[#00FF41]">&#128179;</span>
-            <span className="font-mono text-gray-600 dark:text-gray-300 text-sm">Credit / Debit Card</span>
-          </div>
-        </div>
-        <Button
-          variant="primary"
-          size="lg"
-          href={zapriteUrl}
-          external={zapriteUrl !== '#'}
-        >
-          Donate Now via Zaprite
-        </Button>
-      </SectionWrapper>
-
-      {/* Send Bitcoin Directly */}
-      <SectionWrapper id="direct" className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-2">
+      {/* Other ways to give — direct on-chain / Lightning */}
+      <SectionWrapper id="direct" className="scroll-mt-[130px] border-b border-gray-200 dark:border-[#1f1f1f]">
+        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-3">
           Send Bitcoin Directly
         </h2>
         <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-8 max-w-2xl">
-          Prefer to send Bitcoin without a payment processor? Use the addresses below to donate
-          on-chain or via Lightning — directly to the foundation, with no middleman.
+          No processor, no middleman. Send on-chain or via Lightning, directly to the foundation.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
           {/* Bitcoin On-Chain */}
           <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-1">
               <span className="text-[#3b1445] dark:text-[#c084d8] text-lg">&#8383;</span>
               <span className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400">
                 Bitcoin On-Chain
               </span>
             </div>
-            <p className="text-gray-500 dark:text-gray-400 text-xs mb-3">
-              Send from any Bitcoin wallet
-            </p>
-            <code className="block bg-[#2d0f36] border border-[#5c2070]/50 rounded-none px-3 py-2 font-mono text-[#00FF41] text-xs mb-3 break-all">
-              {BITCOIN_ADDRESS}
-            </code>
+            <p className="text-gray-500 dark:text-gray-400 text-xs mb-4">From any Bitcoin wallet</p>
+            <code className={codeClass}>{BITCOIN_ADDRESS}</code>
             <CopyButton value={BITCOIN_ADDRESS} />
           </div>
 
           {/* Lightning */}
           <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2 mb-1">
               <span className="text-[#3b1445] dark:text-[#c084d8] text-lg">&#9889;</span>
               <span className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400">
                 Lightning Address
               </span>
             </div>
-            <p className="text-gray-500 dark:text-gray-400 text-xs mb-3">
-              Instant, near-zero fee payments
-            </p>
-            <code className="block bg-[#2d0f36] border border-[#5c2070]/50 rounded-none px-3 py-2 font-mono text-[#00FF41] text-xs mb-3 break-all">
-              {LIGHTNING_ADDRESS}
-            </code>
+            <p className="text-gray-500 dark:text-gray-400 text-xs mb-4">Instant, near-zero fees</p>
+            <code className={codeClass}>{LIGHTNING_ADDRESS}</code>
             <CopyButton value={LIGHTNING_ADDRESS} />
           </div>
         </div>
       </SectionWrapper>
 
       {/* Donate hashrate */}
-      <SectionWrapper id="hashrate">
-        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-4">
+      <SectionWrapper id="hashrate" className="scroll-mt-[130px] border-b border-gray-200 dark:border-[#1f1f1f]">
+        <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-3">
           Donate Hashrate
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-3 max-w-2xl">
-          Point your Bitcoin mining hardware to the 256 Foundation&apos;s Hydrapool instance.
-          We run our pool in solo mining mode — if a block is found, all proceeds go directly
-          to the foundation. Your hashrate costs you nothing but electricity, and it helps
-          secure the network while supporting open-source development.
-        </p>
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-8 max-w-2xl">
-          You can donate hashrate any time — and during{' '}
-          <a href="/telehash" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">Telehash events</a>,
-          the entire community points hashrate together for a chance to find a block live on stream.
+        <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-8 max-w-2xl">
+          Point your miner at our Hydrapool instance. If we find a block, all proceeds go to the
+          foundation — it costs you only electricity. During{' '}
+          <a href="/telehash" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">
+            Telehash events
+          </a>{' '}
+          the whole community points hashrate together for a chance to find a block live on stream.
         </p>
 
         <div className="space-y-4 max-w-2xl mb-8">
           {hashrateSteps.map((s) => (
-            <div key={s.step} className="flex gap-4 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-5">
+            <div
+              key={s.step}
+              className="flex gap-4 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-5"
+            >
               <span className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-lg opacity-50 shrink-0 w-8">
                 {s.step}
               </span>
-              <div>
-                <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-1">{s.title}</h3>
-                {s.code && (
-                  <code className="block bg-[#2d0f36] border border-[#5c2070]/50 rounded-none px-3 py-2 font-mono text-[#00FF41] text-xs my-2 break-all">
-                    {s.code}
-                  </code>
+              <div className="min-w-0">
+                <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-1">
+                  {s.title}
+                </h3>
+                {s.code && <code className={codeClass}>{s.code}</code>}
+                {s.description && (
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">{s.description}</p>
                 )}
-                <p className="text-gray-600 dark:text-gray-400 text-sm">{s.description}</p>
                 {s.link && (
                   <a
                     href={s.link.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline mt-1 inline-block"
-                    dangerouslySetInnerHTML={{ __html: s.link.label }}
-                  />
+                  >
+                    {s.link.label}
+                  </a>
                 )}
               </div>
             </div>
@@ -209,31 +188,23 @@ export default function DonatePage() {
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <a
-            href="https://dash.256f.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-5 py-2.5 bg-transparent text-[#3b1445] dark:text-[#c084d8] font-mono font-bold text-sm rounded-none border border-[#3b1445]/50 dark:border-[#5c2070]/50 hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-all"
-          >
-            View Hashdash &rarr;
-          </a>
-          <a
-            href="/telehash"
-            className="inline-flex items-center justify-center px-5 py-2.5 text-gray-600 dark:text-gray-300 font-mono text-sm rounded-none border border-gray-200 dark:border-[#1f1f1f] hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-all"
-          >
-            Learn About Telehash &rarr;
-          </a>
+          <Button variant="outlined" size="md" href="https://dash.256f.org" external>
+            View Hashdash →
+          </Button>
+          <Button variant="outlined" size="md" href="/telehash">
+            Learn About Telehash →
+          </Button>
         </div>
       </SectionWrapper>
 
       {/* Supporters — logos and the live hashrate leaderboard */}
-      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
+      <SectionWrapper>
         <SupporterShowcase supporters={supporters} />
       </SectionWrapper>
 
       <PageCTA
         kicker="Questions About Donating?"
-        title="Large gifts, on-chain, or something else."
+        title="Large Gifts or Something Else"
         body="If you want to give in a way that isn't covered here, or you'd like to talk it through first, get in touch."
         donateLabel="Donate →"
       />

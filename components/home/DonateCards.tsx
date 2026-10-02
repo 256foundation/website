@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS } from '@/data/donate'
+import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS, ZAPRITE_URL } from '@/data/donate'
 
 export default function DonateCards() {
   return (
@@ -35,7 +35,7 @@ export default function DonateCards() {
             Tax deductible &middot; BTC + Lightning + Credit Card
           </div>
           <a
-            href="https://pay.zaprite.com/pl_ZRWeSGjRWG"
+            href={ZAPRITE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] font-mono font-bold text-sm rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-all duration-200"

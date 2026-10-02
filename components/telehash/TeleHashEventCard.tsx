@@ -27,7 +27,7 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
             </time>
           </div>
           {event.blockFound && (
-            <span className="shrink-0 inline-flex items-center px-3 py-1 rounded-none text-sm font-mono font-bold border text-[#00FF41] border-[#00FF41]/40 bg-[#00FF41]/10">
+            <span className="shrink-0 inline-flex items-center px-3 py-1 rounded-none text-sm font-mono font-bold border text-[#3b1445] dark:text-[#c084d8] border-[#3b1445]/40 dark:border-[#5c2070]/40 bg-[#3b1445]/10 dark:bg-[#5c2070]/10">
               Block Found!
             </span>
           )}

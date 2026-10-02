@@ -42,7 +42,7 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
         <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">Our Supporters</span>
       </div>
       <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl mb-2 uppercase">
-        Community Backers
+        Foundation Backers
       </h2>
       <p className="text-gray-600 dark:text-gray-400 text-sm mb-10">
         The individuals and organizations fueling the open-source mining revolution.

@@ -31,8 +31,9 @@ export default function CopyButton({ value }: CopyButtonProps) {
     <button
       onClick={handleCopy}
       className="font-mono text-[10px] uppercase tracking-widest border px-2 py-1 transition-all duration-200 shrink-0
-        border-[#00FF41]/40 text-[#00FF41]/60 hover:border-[#00FF41] hover:text-[#00FF41]
-        data-[copied=true]:border-[#00FF41] data-[copied=true]:text-[#00FF41]"
+        border-gray-300 dark:border-[#3f3f3f] text-gray-600 dark:text-gray-300
+        hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:text-[#3b1445] dark:hover:text-[#c084d8]
+        data-[copied=true]:border-[#3b1445] data-[copied=true]:text-[#3b1445] dark:data-[copied=true]:border-[#5c2070] dark:data-[copied=true]:text-[#c084d8]"
       data-copied={copied}
       aria-label={copied ? 'Copied!' : `Copy ${value}`}
     >
