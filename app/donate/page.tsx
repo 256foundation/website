@@ -197,14 +197,6 @@ export default function DonatePage() {
         </div>
       </SectionWrapper>
 
-      {/* 501(c)(3) note — kept low so it doesn't push the action down */}
-      <SectionWrapper tight className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-2xl">
-          The 256 Foundation is a fully approved 501(c)(3) nonprofit. Qualifying financial donations
-          are tax-deductible to the extent permitted by US law. Please consult your tax advisor.
-        </p>
-      </SectionWrapper>
-
       {/* Supporters — logos and the live hashrate leaderboard */}
       <SectionWrapper>
         <SupporterShowcase supporters={supporters} />
@@ -212,7 +204,7 @@ export default function DonatePage() {
 
       <PageCTA
         kicker="Questions About Donating?"
-        title="Large gifts, on-chain, or something else."
+        title="Large Gifts or Something Else"
         body="If you want to give in a way that isn't covered here, or you'd like to talk it through first, get in touch."
         donateLabel="Donate →"
       />
