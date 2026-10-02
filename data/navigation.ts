@@ -20,7 +20,7 @@ export const footerFoundationLinks: NavItem[] = [
 
 // Supplemental / utility pages — secondary to the primary foundation sections.
 export const footerResourcesLinks: NavItem[] = [
-  { label: 'Announcements', href: '/grants/announcements' },
+  { label: 'Grant announcements', href: '/grants/announcements' },
   { label: 'Telehash', href: '/telehash' },
   { label: 'FAQ', href: '/faq' },
 ]
