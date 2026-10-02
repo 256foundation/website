@@ -56,40 +56,22 @@ export default function MissionPage() {
         </SectionWrapper>
       </section>
 
-      {/* Status quo — thin info bar above the photo */}
-      <section className="bg-gray-50 dark:bg-[#1a1a1a] border-b border-gray-200 dark:border-[#1f1f1f]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 lg:py-4">
-          <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+      {/* Narrative — story filler that leads into the Vision */}
+      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
+        <div className="max-w-3xl space-y-8 text-gray-500 dark:text-gray-400 text-base sm:text-lg leading-relaxed">
+          <p>
             All Bitcoin miners, large and small, have been negatively affected by one large
             antagonistic hardware company who has blocked innovation, denied collaboration, and
             taken majority control over the hardware and software that keeps Bitcoin running.
           </p>
-        </div>
-      </section>
-
-      {/* Photo band */}
-      <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] border-b border-gray-200 dark:border-[#1f1f1f] overflow-hidden">
-        <Image
-          src="/mission-background.webp"
-          alt="Bitcoin mining hardware out in the field"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-      </div>
-
-      {/* Pledge — thin info bar below the photo */}
-      <section className="bg-gray-50 dark:bg-[#1a1a1a] border-b border-gray-200 dark:border-[#1f1f1f]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 lg:py-4">
-          <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-            An open protocol should be accessible to anyone at all layers. The open-source
-            Bitcoin mining stack we are building achieves this. We believe in free and open
-            development and we pledge that every project from this foundation will always be made
-            available through free and open-source contributions.
+          <p>
+            An open protocol should be accessible to anyone at all layers. The open-source Bitcoin
+            mining stack we are building achieves this. We believe in free and open development and
+            we pledge that every project from this foundation will always be made available through
+            free and open-source contributions.
           </p>
         </div>
-      </section>
+      </SectionWrapper>
 
       {/* Vision */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
