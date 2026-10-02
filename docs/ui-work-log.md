@@ -17,7 +17,8 @@ Last updated: 2026-10-01
 | `ui/edits-round3` | — | Mission + Grants refresh; grants program copy/buttons; funding announcements log (round 4) | no PR yet (branched off `ui/edits-round2`) |
 | `ui/edits-round5` | [#24](https://github.com/256foundation/website/pull/24) → [#25](https://github.com/256foundation/website/pull/25) | Community page; Our Work stub; nav consolidation; supporters → Donate; canon sweep; Our Work hero photo | both merged; no open PRs |
 | `ui/edits-round6` | [#26](https://github.com/256foundation/website/pull/26) | Footer restructure: supplemental pages get a dedicated Resources column; Donate CTA; social icons removed as redundant | merged |
-| `ui/edits-round7` | [#27](https://github.com/256foundation/website/pull/27) | Libre Board article: reactivation framing + funding CTA; footer "Grant announcements" label; footer Contact button | open (branched off `main`) |
+| `ui/edits-round7` | [#27](https://github.com/256foundation/website/pull/27) | Libre Board article: reactivation framing + funding CTA; footer "Grant announcements" label | merged |
+| `ui/edits-round8` | — | Footer Contact button beside Donate | open (branched off `main`) |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
@@ -129,7 +130,7 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   label is shortened to "Grant announcements" in the footer so no one column's text
   runs close to the next and the visual gaps stay even.
 
-### Round 7 — `ui/edits-round7` (PR #27) — Libre Board post + footer follow-ups
+### Round 7 — `ui/edits-round7` (PR #27, merged) — Libre Board post
 - **Libre Board announcement** (`content/newsroom/libre-board-funding.mdx`): reframed as
   additional funding that **reactivates the existing 12-month 2026 term**, not a new term.
   Retitled the post, SEO title, excerpt, opening, and the "What the Funding Covers" lead;
@@ -140,8 +141,11 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   on-chain / Lightning are all one-time).
 - **Test parser fix:** the grant-announcements frontmatter `field()` helper stopped at an
   apostrophe in a quoted value, silently failing the title check; now handles quoted values.
-- **Footer:** Resources link relabeled "Grant announcements"; added a secondary **Contact**
-  button (`/#contact`) beside the Donate CTA in the brand column.
+- **Footer:** Resources link relabeled "Grant announcements".
+
+### Round 8 — `ui/edits-round8` — footer Contact button
+- Added a secondary **Contact** button (`/#contact`) beside the Donate CTA in the footer
+  brand column, matching the header's Contact treatment.
 
 ---
 
