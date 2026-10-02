@@ -33,8 +33,8 @@ export default function CommunitySection({ forumTopics, orgEvents = [] }: Commun
       {/* Photo strip */}
       <section className="relative flex min-h-[60vh] items-center overflow-hidden">
         <Image
-          src="/community/hero-01.webp"
-          alt="The 256 Foundation community at work"
+          src="/home-community.webp"
+          alt="The 256 Foundation team on a conference panel"
           fill
           sizes="100vw"
           className="object-cover object-center"

@@ -25,7 +25,9 @@ Last updated: 2026-10-02
 | `ui/edits-round12` | [#32](https://github.com/256foundation/website/pull/32) | Design-system continuity pass: shared Eyebrow / TextLink / Panel, on-dark buttons, one PageCTA, surface + spacing tokens, badge routing, green → status-only | merged |
 | `ui/edits-round13` | [#33](https://github.com/256foundation/website/pull/33) | Mission narrative rework (photo hero, numbered story beats, large two-point vision), shared `HeroScrim` across main-page heroes, footer logo matches header, Elsewhere link reorder | merged |
 | `ui/edits-round14` | [#34](https://github.com/256foundation/website/pull/34) | Homepage overhaul: 8-beat rebuild (thesis hero, problem, stack, proof, funding band, community, latest, shared closer); `Reveal` + scroll-progress client utilities; dead home components pruned | merged |
-| `ui/edits-round14` (docs) | [#35](https://github.com/256foundation/website/pull/35) | Docs sync for round 14 (CLAUDE/README/session-context/ARCHITECTURE) | open |
+| `ui/edits-round14` (docs) | [#35](https://github.com/256foundation/website/pull/35) | Docs sync for round 14 (CLAUDE/README/session-context/ARCHITECTURE) | merged |
+| `ui/edits-round15` | — | Home polish: clean favicon from the header `secondary` mark (theme-aware `app/icon.svg`, `app/favicon.ico` + `app/apple-icon.png` fallbacks, replaces off-brand `app/icon.png`); dedicated home Community photo (`public/home-community.webp`, conference panel) instead of reusing a `/community` carousel shot; home CTA consistency (Latest beat's "All updates →" now the shared outlined `Button` like every other main-page link) | [#36](https://github.com/256foundation/website/pull/36) |
+| `chore/housekeeping` | [#37](https://github.com/256foundation/website/pull/37) | Repo hygiene: prune merged branches, drop unused assets, move the Discourse prompt into `docs/`, non-breaking `npm audit fix` | open |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
@@ -261,6 +263,31 @@ why/who; destination pages answer how.
 - **Copy:** zero em dashes, ban-list clean (no "cycle"/"pillar"/amounts). Page is ~5.9
   desktop screens.
 
+### Round 15 — `ui/edits-round15` — home polish (favicon + community photo)
+
+Replaced the off-brand favicon (a purple "256" cropped from the `horizontal` wordmark) with
+the **`secondary` mark** the header actually uses.
+
+- **`app/icon.svg`** is the primary: the black mark in light mode, white in dark mode via a
+  `prefers-color-scheme` media query (two inline PNGs). Renders crisp at any tab size.
+- **`app/favicon.ico`** (16/32/48) and **`app/apple-icon.png`** (180, dark brand tile) are
+  fallbacks for clients without SVG favicon support.
+- The mark is tightly trimmed, centered, ~90% frame width. No stray whitespace.
+
+Gave the home Community beat its own photo instead of reusing `/community/hero-01.webp`:
+
+- Cropped the supplied conference-panel shot to a 2048x820 (~2.5:1) band (ceiling and stage
+  floor removed, four panelists framed with headroom), exported to `public/home-community.webp`
+  at quality 82.
+- Wide band, so desktop shows all four while the left copy sits on the dark side of
+  `HeroScrim`. The speaker is dead-center, so narrow/mobile `object-cover` crops to a clean
+  portrait of him instead of slicing someone in half. Looks intentional at any aspect ratio.
+
+CTA consistency pass on home: the mission, our-work, mining-stack and grants links were
+already boxed buttons, but the Latest beat's "All updates →" was a bare text link. It now uses
+the same `Button variant="outlined" size="sm"`, so every in-content link to a main page on the
+home page is the same control (photo overlays stay `onDark`).
+
 ---
 
 ## Decisions / conventions locked
@@ -317,9 +344,10 @@ why/who; destination pages answer how.
 ## Asset locations
 
 - Brand logos: `public/logos/256-logo-{horizontal,secondary,vertical}-{dark,light}.png`
-- Favicon: `app/icon.png`
+- Favicon: `app/icon.svg` (theme-aware), `app/favicon.ico`, `app/apple-icon.png`
+  (built from `public/logos/256-logo-secondary-{dark,light}.png`)
 - Hero art: `public/projects/open-mining-stack.webp`,
   `public/mission-background.webp`, `public/grants-hero-background.webp`,
-  `public/our-work-hero.webp`
+  `public/our-work-hero.webp`, `public/home-hero.webp`, `public/home-community.webp`
 - Community hero carousel: `public/community/hero-0*.webp`
 - Project marks: `public/projects/*`

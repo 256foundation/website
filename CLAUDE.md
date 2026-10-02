@@ -218,7 +218,8 @@ decisions, and open items. Durable facts a fresh session must know:
   scheme via `<picture>`. Assets live in `public/logos/256-logo-{horizontal,secondary,vertical}-{dark,light}.png`
   (plus legacy `square`/`circular`). `dark` = dark/purple artwork for light backgrounds;
   `light` = white artwork for dark backgrounds. **Header + mobile drawer use `secondary`;
-  hero + footer use `horizontal`.** Favicon is `app/icon.png`.
+  hero + footer use `horizontal`.** Favicon is the `secondary` mark, theme-aware: `app/icon.svg`
+  (black in light mode, white in dark) with `app/favicon.ico` and `app/apple-icon.png` fallbacks.
 - **Header nav order:** Mission · Our Work · Mining Stack · Grants · Community · Newsroom
   (no Home item — the logo links home). Footer Foundation column mirrors it.
 - **`/projects` is named "Open Mining Stack"** on-page; the nav label is just
