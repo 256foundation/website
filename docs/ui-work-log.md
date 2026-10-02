@@ -22,9 +22,10 @@ Last updated: 2026-10-02
 | `ui/edits-round9` | [#29](https://github.com/256foundation/website/pull/29) | Contact form: label "Name / Nym", message placeholder "What's up?" | closed |
 | `ui/edits-round10` | [#30](https://github.com/256foundation/website/pull/30) | Dedicated `/contact` page + site-wide contextual contact links | merged |
 | `ui/edits-round11` | [#31](https://github.com/256foundation/website/pull/31) | `/donate` + `/telehash` relayout, neutral code style, FAQ hero CTA, footer cleanup | merged |
-| `ui/edits-round12` | [#32](https://github.com/256foundation/website/pull/32) | Design-system continuity pass: shared Eyebrow / TextLink / Panel, on-dark buttons, one PageCTA, surface + spacing tokens, badge routing, green → status-only | open (branched off `ui/edits-round11`) |
-| `ui/edits-round13` | [#33](https://github.com/256foundation/website/pull/33) | Mission narrative rework (photo hero, numbered story beats, large two-point vision), shared `HeroScrim` across main-page heroes, footer logo matches header, Elsewhere link reorder | open (branched off `ui/edits-round12`) |
-| `ui/edits-round14` | [#34](https://github.com/256foundation/website/pull/34) | Homepage overhaul: 8-beat rebuild (thesis hero, problem, stack, proof, funding band, community, latest, shared closer); `Reveal` + scroll-progress client utilities; dead home components pruned | open (branched off `ui/edits-round13`) |
+| `ui/edits-round12` | [#32](https://github.com/256foundation/website/pull/32) | Design-system continuity pass: shared Eyebrow / TextLink / Panel, on-dark buttons, one PageCTA, surface + spacing tokens, badge routing, green → status-only | merged |
+| `ui/edits-round13` | [#33](https://github.com/256foundation/website/pull/33) | Mission narrative rework (photo hero, numbered story beats, large two-point vision), shared `HeroScrim` across main-page heroes, footer logo matches header, Elsewhere link reorder | merged |
+| `ui/edits-round14` | [#34](https://github.com/256foundation/website/pull/34) | Homepage overhaul: 8-beat rebuild (thesis hero, problem, stack, proof, funding band, community, latest, shared closer); `Reveal` + scroll-progress client utilities; dead home components pruned | merged |
+| `ui/edits-round14` (docs) | [#35](https://github.com/256foundation/website/pull/35) | Docs sync for round 14 (CLAUDE/README/session-context/ARCHITECTURE) | open |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
