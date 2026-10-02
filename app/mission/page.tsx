@@ -12,6 +12,7 @@ export const metadata = generatePageMetadata({
   description:
     'To decentralize Bitcoin mining by building, funding and stewarding open-source alternatives to every closed layer of the mining stack.',
   path: '/mission',
+  ogImage: '/og/og-mission.png',
 })
 
 const principles = [

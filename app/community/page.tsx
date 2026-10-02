@@ -19,6 +19,7 @@ export const metadata = generatePageMetadata({
   description:
     "Open-source needs more than code. Review, teaching, forums, dev calls, community niches, and an ecosystem around every project. This is where that work happens and how to be part of it.",
   path: '/community',
+  ogImage: '/og/og-community.png',
 })
 
 export default async function CommunityPage() {

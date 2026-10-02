@@ -15,6 +15,7 @@ export const metadata = generatePageMetadata({
   description:
     'Two programs fund open-source Bitcoin mining: the Core Projects Program for projects we scope, and the General Grant Program for projects you scope.',
   path: '/grants',
+  ogImage: '/og/og-grants.png',
 })
 
 const steps = [

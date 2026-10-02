@@ -27,6 +27,7 @@ export const metadata = generatePageMetadata({
   description:
     'We are commoditizing the Bitcoin mining stack. The 256 Foundation funds the open-source stack, because a company cannot do this and a closed industry will not.',
   path: '/our-work',
+  ogImage: '/og/og-our-work.png',
 })
 
 /** One-line layer note per core project, keyed by slug. */

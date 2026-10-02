@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: result.meta.seoTitle ?? result.meta.title,
     description: result.meta.excerpt,
     path: `/newsroom/${slug}`,
-    ogImage: result.meta.ogImage,
+    ogImage: result.meta.ogImage ?? result.meta.coverImage,
   })
 }
 
