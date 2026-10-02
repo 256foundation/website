@@ -12,6 +12,7 @@ export const metadata = generatePageMetadata({
   title: 'Newsroom',
   description: 'Announcements, mission updates, and industry perspectives from the 256 Foundation.',
   path: '/newsroom',
+  ogImage: '/og/og-newsroom.png',
 })
 
 export default function NewsroomPage() {

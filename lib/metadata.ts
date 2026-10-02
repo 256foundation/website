@@ -15,7 +15,7 @@ export function generatePageMetadata({
   title,
   description,
   path,
-  ogImage = '/og/256F-OG.png',
+  ogImage = '/og/og-home.png',
 }: MetadataProps): Metadata {
   const url = `${BASE_URL}${path}`
   const fullTitle = path === '/' ? `256 Foundation` : `${title} | 256 Foundation`

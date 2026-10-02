@@ -1,17 +1,19 @@
 import Image from 'next/image'
-import type { SubstackPost, PodcastEpisode } from '@/types'
+import Link from 'next/link'
+import type { SubstackPost, PodcastEpisode, NewsroomPost } from '@/types'
 import { formatPostDate } from '@/lib/newsroomMeta'
+import { formatPostDate as formatNewsroomDate } from '@/lib/newsroom'
 import { POD256_URL } from '@/lib/pod256'
-import NewsletterSignup from '@/components/shared/NewsletterSignup'
 
 const SUBSTACK_URL = 'https://256foundation.substack.com'
 
 interface ListenAndLearnProps {
+  newsroomPost?: NewsroomPost
   posts: SubstackPost[]
   episodes: PodcastEpisode[]
 }
 
-export default function ListenAndLearn({ posts, episodes }: ListenAndLearnProps) {
+export default function ListenAndLearn({ newsroomPost, posts, episodes }: ListenAndLearnProps) {
   const substack = posts[0]
   const episode = episodes[0]
 
@@ -27,10 +29,38 @@ export default function ListenAndLearn({ posts, episodes }: ListenAndLearnProps)
         The latest and the loudest
       </h2>
       <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xl mb-10">
-        Two channels where the work gets explained: the podcast and the newsletter.
+        Three channels where the work gets explained: the newsroom, the newsletter, and the podcast.
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Newsroom — matches the home page Latest beat */}
+        {newsroomPost && (
+          <Link
+            href={`/newsroom/${newsroomPost.slug}`}
+            className="group flex flex-col bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors"
+          >
+            <div className="relative h-36 overflow-hidden bg-white dark:bg-[#1a1a1a]">
+              {newsroomPost.coverImage && (
+                <Image
+                  src={newsroomPost.coverImage}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="33vw"
+                />
+              )}
+            </div>
+            <div className="p-5">
+              <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-[11px] tracking-widest uppercase">
+                Newsroom · {formatNewsroomDate(newsroomPost.date)}
+              </span>
+              <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase leading-snug mt-1.5 line-clamp-2 group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
+                {newsroomPost.title}
+              </h3>
+            </div>
+          </Link>
+        )}
+
         {/* Assembling Freedom newsletter */}
         <a
           href={substack?.link ?? SUBSTACK_URL}
@@ -80,8 +110,6 @@ export default function ListenAndLearn({ posts, episodes }: ListenAndLearnProps)
             )}
           </div>
         </a>
-
-        <NewsletterSignup />
       </div>
     </div>
   )

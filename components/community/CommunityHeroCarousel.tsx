@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import Image from 'next/image'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Eyebrow from '@/components/ui/Eyebrow'
@@ -10,7 +10,7 @@ import Button from '@/components/ui/Button'
 interface CommunityHeroCarouselProps {
   photos: string[]
   kicker: string
-  headline: string
+  headline: ReactNode
   sub: string
   ctaLabel: string
   ctaHref: string

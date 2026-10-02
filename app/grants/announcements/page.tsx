@@ -9,6 +9,7 @@ export const metadata = generatePageMetadata({
   description:
     'Every grant the 256 Foundation has announced, newest first, drawn from our newsroom.',
   path: '/grants/announcements',
+  ogImage: '/og/og-grant-announcements.png',
 })
 
 export default function GrantAnnouncementsArchivePage() {

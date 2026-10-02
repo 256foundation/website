@@ -30,7 +30,8 @@ Last updated: 2026-10-02
 | `chore/housekeeping` | [#37](https://github.com/256foundation/website/pull/37) | Repo hygiene: prune merged branches, drop unused assets, move the Discourse prompt into `docs/`, non-breaking `npm audit fix` | merged |
 | `chore/image-weight` | [#38](https://github.com/256foundation/website/pull/38) | Cut shipped raster weight ~13MB → ~1.5MB: convert oversized project/ecosystem/supporter art to right-sized WebP (`scripts/optimize-art.mjs`), re-encode logos + OG to compressed palette PNG | merged |
 | `chore/perf-pass` | [#39](https://github.com/256foundation/website/pull/39) | Round 2 of image/perf: re-run newsroom optimizer, convert telehash photos to WebP, and mount only 3 frames in the `/community` hero carousel instead of all 8 | merged |
-| `chore/img-nextimage` | — | Convert the last 5 raw `<img>` tags to `next/image` (lint now clean), tighten newsroom optimizer to 1440px/q78, align `deviceSizes` to 1440 | PR opens now |
+| `chore/img-nextimage` | [#40](https://github.com/256foundation/website/pull/40) | Convert the last 5 raw `<img>` tags to `next/image` (lint now clean), tighten newsroom optimizer to 1440px/q78, align `deviceSizes` to 1440 | merged |
+| `ui/our-work-hero-break` | [#41](https://github.com/256foundation/website/pull/41) | Hero-heading consistency: purple accent word(s) on the home, mission, grants, community and our-work heroes, "open-source"/"mining stack" broken to their own line where noted, trailing periods removed from all main-page hero headers; grants hero CTAs switched to the shared Button pair; our-work Vision relabeled "The Future" with a new lead line and program copy refreshed; community "Listen and Learn" shows newsroom + newsletter + podcast with the newsroom piece first, and project cards keep "Visit →" visible, with a Donate → button into each community fund (OSMU, Hashrate Heatpunks); community carousel opens on the developer-call shot; every page's closing PageCTA now defaults to centered so pages all end on the same note. **Plus:** regenerated OpenGraph share cards — one branded home card and a dedicated card per footer Foundation + Resources page (`scripts/generate-og.mjs` → `public/og/og-*.png`, brand TTFs in `assets/fonts/`), wired through `ogImage` in each page's metadata; newsroom posts still use their own featured image | PR opens now |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
@@ -354,3 +355,6 @@ home page is the same control (photo overlays stay `onDark`).
   `public/our-work-hero.webp`, `public/home-hero.webp`, `public/home-community.webp`
 - Community hero carousel: `public/community/hero-0*.webp`
 - Project marks: `public/projects/*`
+- OpenGraph cards: `public/og/og-*.png`, regenerated with `npm run og`
+  (`scripts/generate-og.mjs`; brand TTFs live in `assets/fonts/` and the script
+  mirrors them into `~/Library/Fonts` so librsvg can render the card text)

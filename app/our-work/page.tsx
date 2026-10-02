@@ -27,6 +27,7 @@ export const metadata = generatePageMetadata({
   description:
     'We are commoditizing the Bitcoin mining stack. The 256 Foundation funds the open-source stack, because a company cannot do this and a closed industry will not.',
   path: '/our-work',
+  ogImage: '/og/og-our-work.png',
 })
 
 /** One-line layer note per core project, keyed by slug. */
@@ -58,7 +59,8 @@ export default function OurWorkPage() {
               {ourWorkHero.kicker}
             </Eyebrow>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-5">
-              We are commoditizing the <span className="text-[#c084d8]">Bitcoin mining stack</span>.
+              We are commoditizing the{' '}
+              <span className="block text-[#c084d8]">Bitcoin mining stack</span>
             </h1>
             <p className="text-gray-200 text-lg leading-relaxed mb-8">{ourWorkHero.line}</p>
             <div className="flex flex-wrap gap-3">
@@ -118,9 +120,10 @@ export default function OurWorkPage() {
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl">
           <Eyebrow className="mb-4">{ourWorkVision.kicker}</Eyebrow>
-          <p className="font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-relaxed uppercase">
-            {ourWorkVision.body}
-          </p>
+          <div className="space-y-4 font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-relaxed uppercase">
+            <p>{ourWorkVision.lead}</p>
+            <p>{ourWorkVision.body}</p>
+          </div>
         </div>
       </SectionWrapper>
 

@@ -1,6 +1,7 @@
 import { generatePageMetadata } from '@/lib/metadata'
 import { fetchSubstackPosts } from '@/lib/substack'
 import { fetchPodcastEpisodes } from '@/lib/pod256'
+import { getAllPostsByDate } from '@/lib/newsroom'
 import { communityHeroPhotos } from '@/data/community'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import CommunityHeroCarousel from '@/components/community/CommunityHeroCarousel'
@@ -18,6 +19,7 @@ export const metadata = generatePageMetadata({
   description:
     "Open-source needs more than code. Review, teaching, forums, dev calls, community niches, and an ecosystem around every project. This is where that work happens and how to be part of it.",
   path: '/community',
+  ogImage: '/og/og-community.png',
 })
 
 export default async function CommunityPage() {
@@ -25,13 +27,14 @@ export default async function CommunityPage() {
     fetchSubstackPosts(1),
     fetchPodcastEpisodes(1),
   ])
+  const newsroomPost = getAllPostsByDate()[0]
 
   return (
     <>
       <CommunityHeroCarousel
         photos={communityHeroPhotos}
         kicker="Community"
-        headline="The stack doesn't build itself."
+        headline={<>The industry doesn&apos;t <span className="text-[#c084d8]">build</span> itself</>}
         sub="Open-source needs more than code. Review, teaching, forums, dev calls, community niches, and an ecosystem around every project. This is where that work happens and how to be part of it."
         ctaLabel="Join the forum →"
         ctaHref="https://forum.256foundation.org"
@@ -52,7 +55,7 @@ export default async function CommunityPage() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ListenAndLearn posts={posts} episodes={episodes} />
+        <ListenAndLearn newsroomPost={newsroomPost} posts={posts} episodes={episodes} />
       </SectionWrapper>
 
       <GetInvolved />

@@ -6,8 +6,8 @@ import type { CommunityChannel, CommunityProject } from '@/types'
  * the array in order.
  */
 export const communityHeroPhotos: string[] = [
-  '/community/hero-01.webp',
   '/community/hero-02.webp',
+  '/community/hero-01.webp',
   '/community/hero-03.webp',
   '/community/hero-04.webp',
   '/community/hero-05.webp',
@@ -69,6 +69,7 @@ export const communityDirectedProjects: CommunityProject[] = [
       'OSMU is the informal network of developers behind most of the open-source mining hardware and software you know: Bitaxe, NerdAxe, AxeOS, Qaxe, Piaxe and more. Designs anyone can build, modify, and manufacture. No membership, no permission; it is a community, not an organization, and that is the point.',
     ],
     href: 'https://osmu.wiki',
+    donateHref: 'https://pay.zaprite.com/pl_pZcAXZuXn2',
     logo: '/ecosystem/osmu.webp',
     relationship: 'community-directed',
   },
@@ -80,6 +81,7 @@ export const communityDirectedProjects: CommunityProject[] = [
       'Heatpunks are a community of home and business miners proving that the heat a miner produces is worth something. They build the guides, the standards, and the events that turn wasted heat into working heaters: water heating, space heating, dryers. What started as hobbyists piping miner exhaust through greenhouses is becoming a real industry segment, and Heatpunks are the group organizing it.',
     ],
     href: 'https://heatpunks.org',
+    donateHref: 'https://pay.zaprite.com/pl_TFoKMotEqk',
     logo: '/ecosystem/heatpunks.webp',
     relationship: 'community-directed',
   },

@@ -12,6 +12,7 @@ export const metadata = generatePageMetadata({
   description:
     'To decentralize Bitcoin mining by building, funding and stewarding open-source alternatives to every closed layer of the mining stack.',
   path: '/mission',
+  ogImage: '/og/og-mission.png',
 })
 
 const principles = [
@@ -67,9 +68,11 @@ export default function MissionPage() {
           <div className="max-w-4xl">
             <Eyebrow onDark className="mb-4">Our Mission</Eyebrow>
             <h1 className="font-display font-bold text-white text-2xl sm:text-3xl lg:text-4xl leading-tight uppercase">
-              To decentralize Bitcoin mining by building, funding and stewarding open-source
-              alternatives to every closed layer of the mining stack — so that the technology
-              Bitcoin depends on cannot be owned, switched off, or permissioned by anyone.
+              To <span className="text-[#c084d8]">decentralize</span> Bitcoin mining by building,
+              funding and stewarding <span className="text-[#c084d8]">open-source</span> alternatives
+              to every closed layer of the <span className="text-[#c084d8]">mining stack</span> — so
+              that the technology Bitcoin depends on cannot be owned, switched off, or permissioned
+              by anyone
             </h1>
           </div>
         </SectionWrapper>

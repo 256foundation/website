@@ -17,6 +17,7 @@ export const metadata = generatePageMetadata({
   description:
     'Telehash is the 256 Foundation\'s occasional livestream fundraising event — point your hashrate to our pool for a chance to find a Bitcoin block live on stream.',
   path: '/telehash',
+  ogImage: '/og/og-telehash.png',
 })
 
 const participationSteps = [

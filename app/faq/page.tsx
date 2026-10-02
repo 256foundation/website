@@ -14,6 +14,7 @@ export const metadata = generatePageMetadata({
   description:
     'Frequently asked questions about the 256 Foundation, our grants program, donations, and the open-source Bitcoin mining ecosystem.',
   path: '/faq',
+  ogImage: '/og/og-faq.png',
 })
 
 type Category = FAQItem['category']

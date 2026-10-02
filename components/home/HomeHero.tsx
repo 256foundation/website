@@ -30,7 +30,9 @@ export default function HomeHero() {
             The 256 Foundation
           </Eyebrow>
           <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase">
-            Bitcoin mining will be open-source, or Bitcoin remains permissioned.
+            Bitcoin mining will be{' '}
+            <span className="block text-[#c084d8]">open-source,</span>
+            or Bitcoin remains permissioned
           </h1>
           <p className="mt-5 text-gray-200 text-lg leading-relaxed max-w-xl">
             We&apos;re building the open-source Bitcoin mining stack.

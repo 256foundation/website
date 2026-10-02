@@ -19,6 +19,7 @@ export const metadata = generatePageMetadata({
   description:
     'The open-source Bitcoin mining stack: open hash board, control board, firmware, and pool software funded by the 256 Foundation.',
   path: '/projects',
+  ogImage: '/og/og-mining-stack.png',
 })
 
 const layerLabels: Record<string, string> = {
