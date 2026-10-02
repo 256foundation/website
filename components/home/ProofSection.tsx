@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Button from '@/components/ui/Button'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 
 /** Bitcoin block height found on the first Telehash, from data/telehash.ts. */
@@ -48,12 +48,11 @@ export default function ProofSection({ videoUrl }: ProofSectionProps) {
             </p>
           </div>
 
-          <Link
-            href="/our-work"
-            className="mt-8 inline-flex font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline transition-colors"
-          >
-            Our work →
-          </Link>
+          <div className="mt-8">
+            <Button variant="outlined" href="/our-work">
+              Our work →
+            </Button>
+          </div>
         </div>
 
         {/* Right: the block-find video */}

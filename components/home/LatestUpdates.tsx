@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Eyebrow from '@/components/ui/Eyebrow'
+import TextLink from '@/components/ui/TextLink'
 import type { SubstackPost, NewsroomPost, PodcastEpisode } from '@/types'
 import { formatPostDate } from '@/lib/substack'
 import { formatPostDate as formatNewsroomDate } from '@/lib/newsroom'
@@ -89,12 +90,9 @@ export default function LatestUpdates({ newsroomPost, post, episode }: LatestUpd
             What&apos;s new.
           </h2>
         </div>
-        <Link
-          href="/newsroom"
-          className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline whitespace-nowrap transition-colors"
-        >
-          All updates →
-        </Link>
+        <TextLink href="/newsroom" arrow className="whitespace-nowrap">
+          All updates
+        </TextLink>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

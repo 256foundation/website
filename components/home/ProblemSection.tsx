@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Button from '@/components/ui/Button'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 
 const beats = [
@@ -28,12 +28,9 @@ export default function ProblemSection() {
           </div>
         ))}
         <div>
-          <Link
-            href="/mission"
-            className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline transition-colors"
-          >
+          <Button variant="outlined" href="/mission">
             The full mission →
-          </Link>
+          </Button>
         </div>
       </div>
     </SectionWrapper>
