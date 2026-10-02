@@ -95,43 +95,17 @@ export default function MissionPage() {
         </div>
       </SectionWrapper>
 
-      {/* Vision */}
+      {/* Vision — two large statements */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <div className="max-w-3xl">
-          <Eyebrow className="mb-4">Our Vision</Eyebrow>
-          <blockquote className="border-l-4 border-[#3b1445] pl-6 py-2">
-            <p className="font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-relaxed uppercase">
-              &ldquo;An open protocol should be accessible to anyone at all layers — the open-source
-              Bitcoin mining stack we are building achieves this.&rdquo;
-            </p>
-          </blockquote>
-          <div className="mt-8 space-y-4 text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+        <div className="max-w-4xl">
+          <Eyebrow className="mb-6">Our Vision</Eyebrow>
+          <div className="space-y-8 font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight uppercase">
             <p>
-              We provide the educational resources, tools, and support to demystify Bitcoin and
-              freedom technology — empowering individuals to engage with and benefit from this
-              revolutionary system.
+              A mature mining industry: multi-vendor, accessible reference designs, auditable and
+              modifiable open software - as building blocks for the whole stack.
             </p>
             <p>
-              We pledge that every project from this foundation will always be made available
-              through free and open-source contributions, specifically by the{' '}
-              <a
-                href="https://opensource.org/osd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
-              >
-                OSI definition
-              </a>{' '}
-              as it relates to software, or the{' '}
-              <a
-                href="https://www.oshwa.org/definition/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
-              >
-                OSHWA definition
-              </a>{' '}
-              as it relates to hardware and other special-purpose applications.
+              Issuance, settlement, and record security are truly decentralized and permissionless.
             </p>
           </div>
         </div>
