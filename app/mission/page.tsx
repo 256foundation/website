@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { generatePageMetadata } from '@/lib/metadata'
 import { founders, board } from '@/data/team'
 import SectionWrapper from '@/components/ui/SectionWrapper'
-import DecorativeBg from '@/components/ui/DecorativeBg'
 import Eyebrow from '@/components/ui/Eyebrow'
 import TeamMemberCard from '@/components/shared/TeamMemberCard'
 import PageCTA from '@/components/shared/PageCTA'
@@ -32,18 +31,31 @@ const principles = [
 export default function MissionPage() {
   return (
     <>
-      {/* Hero — clean, text only */}
-      <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
-        <div className="max-w-4xl relative z-10">
-          <Eyebrow className="mb-4">Our Mission</Eyebrow>
-          <h1 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight uppercase">
-            To decentralize Bitcoin mining by building, funding and stewarding open-source
-            alternatives to every closed layer of the mining stack — so that the technology
-            Bitcoin depends on cannot be owned, switched off, or permissioned by anyone.
-          </h1>
-        </div>
-      </SectionWrapper>
+      {/* Hero — full-bleed image with overlaid mission statement (matches Our Work / Grants) */}
+      <section className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]">
+        <Image
+          src="/mission-hero.webp"
+          alt="Panel discussion on keeping Bitcoin mining decentralized"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-black/45" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/30" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/35" />
+
+        <SectionWrapper className="relative z-10 flex min-h-[560px] lg:min-h-[640px] items-center">
+          <div className="max-w-4xl">
+            <Eyebrow onDark className="mb-4">Our Mission</Eyebrow>
+            <h1 className="font-display font-bold text-white text-2xl sm:text-3xl lg:text-4xl leading-tight uppercase">
+              To decentralize Bitcoin mining by building, funding and stewarding open-source
+              alternatives to every closed layer of the mining stack — so that the technology
+              Bitcoin depends on cannot be owned, switched off, or permissioned by anyone.
+            </h1>
+          </div>
+        </SectionWrapper>
+      </section>
 
       {/* Status quo — thin info bar above the photo */}
       <section className="bg-gray-50 dark:bg-[#1a1a1a] border-b border-gray-200 dark:border-[#1f1f1f]">
