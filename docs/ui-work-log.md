@@ -16,6 +16,7 @@ Last updated: 2026-10-01
 | `ui/edits-round2` | [#21](https://github.com/256foundation/website/pull/21) | Logo rebrand + invisible-logo fix; nav reorder; full-bleed stack hero | open (branched off `ui/website-changes`) |
 | `ui/edits-round3` | — | Mission + Grants refresh; grants program copy/buttons; funding announcements log (round 4) | no PR yet (branched off `ui/edits-round2`) |
 | `ui/edits-round5` | [#24](https://github.com/256foundation/website/pull/24) → [#25](https://github.com/256foundation/website/pull/25) | Community page; Our Work stub; nav consolidation; supporters → Donate; canon sweep; Our Work hero photo | both merged; no open PRs |
+| `ui/edits-round6` | — | Footer restructure: supplemental pages get a dedicated Resources column; Donate CTA; social icons removed as redundant | open (branched off `main`) |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
@@ -109,6 +110,19 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   "General Grant Program / Fund Your Open-Source Mining Project"; home ProjectsSection
   heading → "The Open Mining Stack"; EcosystemSection "under our umbrella" → "we serve";
   `data/telehash.ts` scrub. Tests: `tests/community.test.mjs`.
+
+### Round 6 — `ui/edits-round6` (no PR) — footer restructure
+- **Supplemental pages separated.** `/donate`, `/telehash`, `/faq` were tacked onto
+  the end of the Foundation column with no distinction. Added a dedicated, visually
+  secondary **Resources** column (outlined section marker) and moved them there; also
+  added the previously missing `/grants/announcements` archive as "Funding announcements".
+- **Donate promoted** to a standalone filled button under the logo/tagline in the footer's
+  brand column (Donate stays out of the link lists).
+- **Social icon row removed** from the brand column — X, GitHub, Group Chat, and Nostr
+  were fully duplicated by the external link column.
+- **External column renamed "Community" → "Elsewhere"** so it clearly reads as the
+  off-site list, distinct from the on-site `/community` page link.
+- Footer grid rebalanced to four columns on `lg` (`4 / 3 / 2 / 3`), two on `md`.
 
 ---
 
