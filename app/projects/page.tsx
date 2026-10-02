@@ -6,6 +6,7 @@ import { fetchProjectForumTopics } from '@/lib/discourse'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Button from '@/components/ui/Button'
 import Eyebrow from '@/components/ui/Eyebrow'
+import HeroScrim from '@/components/ui/HeroScrim'
 import TextLink from '@/components/ui/TextLink'
 import PageCTA from '@/components/shared/PageCTA'
 import StackSubNav from '@/components/projects/StackSubNav'
@@ -65,8 +66,7 @@ export default async function OpenMiningStackPage() {
           className="object-cover object-center"
         />
         {/* Contrast overlays so the copy stays legible over the photo */}
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+        <HeroScrim />
 
         <SectionWrapper className="relative z-10 flex min-h-[560px] lg:min-h-[640px] items-center">
           <div className="max-w-2xl">
