@@ -1,6 +1,7 @@
 import { generatePageMetadata } from '@/lib/metadata'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import DecorativeBg from '@/components/ui/DecorativeBg'
+import Eyebrow from '@/components/ui/Eyebrow'
 import ContactForm from '@/components/home/ContactForm'
 
 export const metadata = generatePageMetadata({
@@ -17,9 +18,7 @@ export default function ContactPage() {
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="max-w-2xl">
-          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-            Contact
-          </p>
+          <Eyebrow className="mb-4">Contact</Eyebrow>
           <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl uppercase mb-6">
             Get in touch
           </h1>

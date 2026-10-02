@@ -2,6 +2,7 @@ import { getAllPostsByDate } from '@/lib/newsroom'
 import { generatePageMetadata } from '@/lib/metadata'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import DecorativeBg from '@/components/ui/DecorativeBg'
+import Eyebrow from '@/components/ui/Eyebrow'
 import NewsroomIndex from '@/components/newsroom/NewsroomIndex'
 import PageCTA from '@/components/shared/PageCTA'
 
@@ -23,12 +24,7 @@ export default function NewsroomPage() {
     <>
       <SectionWrapper className="min-h-[60vh]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-1 h-4 bg-[#3b1445]" />
-          <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
-            256 Foundation
-          </span>
-        </div>
+        <Eyebrow className="mb-4">256 Foundation</Eyebrow>
         <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl uppercase mb-2">
           Newsroom
         </h1>

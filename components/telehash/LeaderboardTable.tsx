@@ -60,7 +60,7 @@ export default function LeaderboardTable({ entries }: LeaderboardTableProps) {
           <div className="overflow-x-auto">
             <table className="w-full text-xs font-mono">
               <thead>
-                <tr className="bg-gray-50 dark:bg-[#242424] border-b border-gray-200 dark:border-[#1f1f1f]">
+                <tr className="bg-gray-50 dark:bg-[#1a1a1a] border-b border-gray-200 dark:border-[#1f1f1f]">
                   <th className="text-left px-4 py-2 font-normal text-gray-500 uppercase tracking-wider w-8">#</th>
                   <th className="text-left px-4 py-2 font-normal text-gray-500 uppercase tracking-wider">Contributor</th>
                   <th className="text-right px-4 py-2 font-normal text-gray-500 uppercase tracking-wider">Hashes</th>
@@ -73,7 +73,7 @@ export default function LeaderboardTable({ entries }: LeaderboardTableProps) {
                     key={entry.rank}
                     className={[
                       'border-b border-gray-100 dark:border-[#1f1f1f]',
-                      i % 2 === 0 ? 'bg-white dark:bg-[#1a1a1a]' : 'bg-gray-50/50 dark:bg-[#242424]/50',
+                      i % 2 === 0 ? 'bg-white dark:bg-[#1a1a1a]' : 'bg-gray-50/50 dark:bg-[#1a1a1a]/50',
                       entry.rank <= 3 ? 'opacity-100' : 'opacity-80',
                     ].join(' ')}
                   >

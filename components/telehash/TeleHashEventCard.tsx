@@ -1,4 +1,6 @@
 import type { TeleHashEvent } from '@/types'
+import { surface } from '@/lib/tokens'
+import Badge from '@/components/ui/Badge'
 import PhotoCarousel from './PhotoCarousel'
 import LeaderboardTable from './LeaderboardTable'
 
@@ -10,7 +12,7 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
   const isPlaceholder = !event.videoUrl || event.videoUrl.includes('PLACEHOLDER')
 
   return (
-    <div className={`bg-gray-50 dark:bg-[#242424] rounded-none overflow-hidden border ${event.blockFound ? 'border-[#3b1445]/40 dark:border-[#5c2070]/40' : 'border-gray-200 dark:border-[#1f1f1f]'}`}>
+    <div className={['rounded-none overflow-hidden border', surface('default'), event.blockFound ? 'border-[#3b1445]/40 dark:border-[#5c2070]/40' : ''].filter(Boolean).join(' ')}>
       {/* Header */}
       <div className="p-6 border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="flex items-start justify-between gap-4 mb-4">
@@ -26,11 +28,7 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
               })}
             </time>
           </div>
-          {event.blockFound && (
-            <span className="shrink-0 inline-flex items-center px-3 py-1 rounded-none text-sm font-mono font-bold border text-[#3b1445] dark:text-[#c084d8] border-[#3b1445]/40 dark:border-[#5c2070]/40 bg-[#3b1445]/10 dark:bg-[#5c2070]/10">
-              Block Found!
-            </span>
-          )}
+          {event.blockFound && <Badge status="block-found" className="shrink-0 px-3 py-1 text-sm" />}
         </div>
 
         {event.btcRaised !== undefined && (

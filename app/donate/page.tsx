@@ -1,7 +1,11 @@
 import { generatePageMetadata } from '@/lib/metadata'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Button from '@/components/ui/Button'
+import Card from '@/components/ui/Card'
+import Eyebrow from '@/components/ui/Eyebrow'
+import TextLink from '@/components/ui/TextLink'
 import DecorativeBg from '@/components/ui/DecorativeBg'
+import Panel from '@/components/ui/Panel'
 import CopyButton from '@/components/ui/CopyButton'
 import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS, ZAPRITE_URL } from '@/data/donate'
 import { supporters } from '@/data/supporters'
@@ -43,7 +47,7 @@ const hashrateSteps = [
     step: '04',
     title: 'Monitor your contribution',
     description: 'Your miner appears on the live leaderboard at dash.256f.org within a few minutes.',
-    link: { label: 'Open Hashdash →', href: 'https://dash.256f.org' },
+    link: { label: 'Open Hashdash', href: 'https://dash.256f.org' },
   },
 ]
 
@@ -51,13 +55,11 @@ export default function DonatePage() {
   return (
     <>
       {/* Hero + primary action — Zaprite button above the fold */}
-      <SectionWrapper decorative tight className="border-b border-gray-200 dark:border-[#1f1f1f]">
+      <SectionWrapper decorative size="hero" className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
           <div>
-            <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-              Donate
-            </p>
+            <Eyebrow className="mb-4">Donate</Eyebrow>
             <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-5">
               Fund the open-source{' '}
               <span className="text-[#3b1445] dark:text-[#c084d8]">mining stack</span>.
@@ -68,11 +70,7 @@ export default function DonatePage() {
             </p>
           </div>
 
-          {/* Action box */}
-          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6 sm:p-8">
-            <p className="font-mono text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
-              Give in seconds
-            </p>
+          <Panel label="Give in seconds">
             <Button
               variant="primary"
               size="lg"
@@ -95,11 +93,11 @@ export default function DonatePage() {
             </div>
             <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed mt-5">
               Processed securely by Zaprite. Prefer no processor?{' '}
-              <a href="#direct" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">
-                Send Bitcoin directly →
-              </a>
+              <TextLink href="#direct" arrow>
+                Send Bitcoin directly
+              </TextLink>
             </p>
-          </div>
+          </Panel>
         </div>
       </SectionWrapper>
 
@@ -114,7 +112,7 @@ export default function DonatePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
           {/* Bitcoin On-Chain */}
-          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6">
+          <Card>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-[#3b1445] dark:text-[#c084d8] text-lg">&#8383;</span>
               <span className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400">
@@ -124,10 +122,10 @@ export default function DonatePage() {
             <p className="text-gray-500 dark:text-gray-400 text-xs mb-4">From any Bitcoin wallet</p>
             <code className={codeClass}>{BITCOIN_ADDRESS}</code>
             <CopyButton value={BITCOIN_ADDRESS} />
-          </div>
+          </Card>
 
           {/* Lightning */}
-          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6">
+          <Card>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-[#3b1445] dark:text-[#c084d8] text-lg">&#9889;</span>
               <span className="font-mono text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400">
@@ -137,7 +135,7 @@ export default function DonatePage() {
             <p className="text-gray-500 dark:text-gray-400 text-xs mb-4">Instant, near-zero fees</p>
             <code className={codeClass}>{LIGHTNING_ADDRESS}</code>
             <CopyButton value={LIGHTNING_ADDRESS} />
-          </div>
+          </Card>
         </div>
       </SectionWrapper>
 
@@ -149,18 +147,13 @@ export default function DonatePage() {
         <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-8 max-w-2xl">
           Point your miner at our Hydrapool instance. If we find a block, all proceeds go to the
           foundation — it costs you only electricity. During{' '}
-          <a href="/telehash" className="text-[#3b1445] dark:text-[#c084d8] hover:underline">
-            Telehash events
-          </a>{' '}
+          <TextLink href="/telehash">Telehash events</TextLink>{' '}
           the whole community points hashrate together for a chance to find a block live on stream.
         </p>
 
         <div className="space-y-4 max-w-2xl mb-8">
           {hashrateSteps.map((s) => (
-            <div
-              key={s.step}
-              className="flex gap-4 bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-5"
-            >
+            <Card key={s.step} className="flex gap-4 p-5">
               <span className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-lg opacity-50 shrink-0 w-8">
                 {s.step}
               </span>
@@ -173,17 +166,12 @@ export default function DonatePage() {
                   <p className="text-gray-600 dark:text-gray-400 text-sm">{s.description}</p>
                 )}
                 {s.link && (
-                  <a
-                    href={s.link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline mt-1 inline-block"
-                  >
+                  <TextLink href={s.link.href} external arrow className="mt-1">
                     {s.link.label}
-                  </a>
+                  </TextLink>
                 )}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
 

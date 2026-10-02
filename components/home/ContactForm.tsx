@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Button from '@/components/ui/Button'
+import { surface } from '@/lib/tokens'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -37,8 +38,8 @@ export default function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-gray-50 dark:bg-[#242424] border border-[#00FF41]/30 rounded-none p-8 text-center">
-        <div className="text-[#00FF41] text-2xl mb-3">&#10003;</div>
+      <div className={['border border-[#3b1445]/30 dark:border-[#5c2070]/40 rounded-none p-8 text-center', surface('default')].join(' ')}>
+        <div className="text-[#3b1445] dark:text-[#c084d8] text-2xl mb-3">&#10003;</div>
         <h3 className="font-display font-bold text-gray-900 dark:text-white mb-2 uppercase">Message Received</h3>
         <p className="text-gray-600 dark:text-gray-400 text-sm">
           Thanks for reaching out. We&apos;ll get back to you soon.

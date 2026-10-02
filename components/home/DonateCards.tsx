@@ -1,19 +1,17 @@
-import Link from 'next/link'
 import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS, ZAPRITE_URL } from '@/data/donate'
+import { surface } from '@/lib/tokens'
+import Eyebrow from '@/components/ui/Eyebrow'
+import Button from '@/components/ui/Button'
+import TextLink from '@/components/ui/TextLink'
 
 export default function DonateCards() {
   return (
     <div>
-      <div className="flex items-center gap-3 mb-10">
-        <div className="w-1 h-4 bg-[#3b1445]" />
-        <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
-          Support the Mission
-        </span>
-      </div>
+      <Eyebrow className="mb-10">Support the Mission</Eyebrow>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 dark:bg-[#3b1445]/30">
         {/* Panel A -- Money */}
-        <div className="bg-white dark:bg-[#1e1028] p-8 lg:p-10 group hover:shadow-[0_0_28px_rgba(59,20,69,0.2)] dark:hover:shadow-[0_0_28px_rgba(192,132,216,0.12)] transition-all duration-300 relative overflow-hidden">
+        <div className={`${surface('raised')} p-8 lg:p-10 group hover:shadow-[0_0_28px_rgba(59,20,69,0.2)] dark:hover:shadow-[0_0_28px_rgba(192,132,216,0.12)] transition-all duration-300 relative overflow-hidden`}>
           {/* Corner bracket decoration */}
           <div className="absolute top-0 right-0 w-16 h-[2px] bg-[#3b1445]/40 group-hover:bg-[#3b1445] dark:bg-[#5c2070]/50 dark:group-hover:bg-[#c084d8]/80 transition-colors duration-300" />
           <div className="absolute top-0 right-0 w-[2px] h-16 bg-[#3b1445]/40 group-hover:bg-[#3b1445] dark:bg-[#5c2070]/50 dark:group-hover:bg-[#c084d8]/80 transition-colors duration-300" />
@@ -31,30 +29,19 @@ export default function DonateCards() {
             contributors building open-source Bitcoin mining infrastructure. Tax-deductible 501(c)(3).
           </p>
           <div className="flex items-center gap-2 text-xs font-mono text-gray-500 dark:text-gray-400 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00FF41]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#3b1445] dark:bg-[#c084d8]" />
             Tax deductible &middot; BTC + Lightning + Credit Card
           </div>
-          <a
-            href={ZAPRITE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] font-mono font-bold text-sm rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-all duration-200"
-          >
-            Donate Now
-            <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-              <path d="M3 8h10M9 4l4 4-4 4" />
-            </svg>
-          </a>
-          <Link
-            href="/donate#direct"
-            className="font-mono text-xs text-[#3b1445] dark:text-[#c084d8] hover:underline mt-4 block"
-          >
+          <Button variant="outlined" href={ZAPRITE_URL} external>
+            Donate Now →
+          </Button>
+          <TextLink href="/donate#direct" className="mt-4 block">
             Or send Bitcoin directly →
-          </Link>
+          </TextLink>
         </div>
 
         {/* Panel B -- Hashrate */}
-        <div className="bg-white dark:bg-[#1e1028] p-8 lg:p-10 group hover:shadow-[0_0_28px_rgba(59,20,69,0.2)] dark:hover:shadow-[0_0_28px_rgba(192,132,216,0.12)] transition-all duration-300 relative overflow-hidden">
+        <div className={`${surface('raised')} p-8 lg:p-10 group hover:shadow-[0_0_28px_rgba(59,20,69,0.2)] dark:hover:shadow-[0_0_28px_rgba(192,132,216,0.12)] transition-all duration-300 relative overflow-hidden`}>
           {/* Corner bracket decoration */}
           <div className="absolute top-0 right-0 w-16 h-[2px] bg-[#3b1445]/40 group-hover:bg-[#3b1445] dark:bg-[#5c2070]/50 dark:group-hover:bg-[#c084d8]/80 transition-colors duration-300" />
           <div className="absolute top-0 right-0 w-[2px] h-16 bg-[#3b1445]/40 group-hover:bg-[#3b1445] dark:bg-[#5c2070]/50 dark:group-hover:bg-[#c084d8]/80 transition-colors duration-300" />
@@ -70,18 +57,12 @@ export default function DonateCards() {
             go to the foundation. Every hash counts toward open-source mining.
           </p>
           <div className="flex items-center gap-2 text-xs font-mono text-gray-500 dark:text-gray-400 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#3b1445]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#3b1445] dark:bg-[#c084d8]" />
             No registration &middot; Works with any ASIC &middot; Stratum V1/V2
           </div>
-          <Link
-            href="/donate#hashrate"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] font-mono font-bold text-sm rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-all duration-200"
-          >
-            Setup Instructions
-            <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-              <path d="M3 8h10M9 4l4 4-4 4" />
-            </svg>
-          </Link>
+          <Button variant="outlined" href="/donate#hashrate">
+            Setup Instructions →
+          </Button>
         </div>
       </div>
     </div>

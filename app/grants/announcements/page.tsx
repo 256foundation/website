@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import TextLink from '@/components/ui/TextLink'
 import { generatePageMetadata } from '@/lib/metadata'
 import { getGrantAnnouncements } from '@/lib/newsroom'
 import FundingAnnouncements from '@/components/grants/FundingAnnouncements'
@@ -20,12 +20,7 @@ export default function GrantAnnouncementsArchivePage() {
         title="All funding announcements"
         posts={announcements}
         backLink={
-          <Link
-            href="/grants#funding-announcements"
-            className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline"
-          >
-            ← Back to Grants
-          </Link>
+          <TextLink href="/grants#funding-announcements">← Back to Grants</TextLink>
         }
       />
 

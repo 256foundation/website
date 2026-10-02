@@ -16,7 +16,7 @@ export default function Timeline({ items }: TimelineProps) {
           {/* Dot */}
           <span className="absolute flex items-center justify-center w-4 h-4 rounded-full bg-[#3b1445] -left-[9px] ring-4 ring-white dark:ring-[#1a1a1a]" />
 
-          <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-4 hover:border-[#3b1445]/20 dark:hover:border-[#5c2070]/20 transition-colors">
+          <div className="bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-4 hover:border-[#3b1445]/20 dark:hover:border-[#5c2070]/20 transition-colors">
             <time className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs mb-1 block">{item.date}</time>
             <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase">{item.title}</h3>
             {item.description && (

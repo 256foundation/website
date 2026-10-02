@@ -1,6 +1,7 @@
-import Link from 'next/link'
 import type { CommunityProject } from '@/types'
 import { communityDirectedProjects, ecosystemProjects } from '@/data/community'
+import Eyebrow from '@/components/ui/Eyebrow'
+import TextLink from '@/components/ui/TextLink'
 
 function ProjectCard({ project }: { project: CommunityProject }) {
   const logo =
@@ -22,7 +23,7 @@ function ProjectCard({ project }: { project: CommunityProject }) {
       href={project.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] p-6 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors"
+      className="group flex flex-col bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] p-6 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 transition-colors"
     >
       <div className="h-12 mb-4 flex items-center">{logo}</div>
       <h3 className="font-display font-bold text-gray-900 dark:text-white text-base uppercase leading-tight group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
@@ -48,12 +49,7 @@ function ProjectCard({ project }: { project: CommunityProject }) {
 export default function CommunityProjects() {
   return (
     <div>
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-1 h-4 bg-[#3b1445] dark:bg-[#c084d8]" />
-        <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
-          Community Projects
-        </span>
-      </div>
+      <Eyebrow className="mb-4">Community Projects</Eyebrow>
       <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-3">
         Built together
       </h2>
@@ -65,9 +61,7 @@ export default function CommunityProjects() {
       </p>
 
       {/* Community-directed */}
-      <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-        Community-directed, with funds of their own
-      </div>
+      <Eyebrow className="mb-4">Community-directed, with funds of their own</Eyebrow>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-4">
         {communityDirectedProjects.map((project) => (
           <ProjectCard key={project.abbr} project={project} />
@@ -77,18 +71,13 @@ export default function CommunityProjects() {
         We host their infrastructure and steward both the OSMU and Hashrate Heatpunks funds: the
         community directs the work, the board approves every allocation, and donations go to the
         community&apos;s own priorities.{' '}
-        <Link
-          href="/our-work"
-          className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
-        >
-          More on our work →
-        </Link>
+        <TextLink href="/our-work" arrow>
+          More on our work
+        </TextLink>
       </p>
 
       {/* Ecosystem projects we serve */}
-      <div className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-        Ecosystem projects we serve
-      </div>
+      <Eyebrow className="mb-4">Ecosystem projects we serve</Eyebrow>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {ecosystemProjects.map((project) => (
           <ProjectCard key={project.abbr} project={project} />

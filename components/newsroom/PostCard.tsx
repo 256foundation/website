@@ -12,7 +12,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
   return (
     <Link
       href={`/newsroom/${post.slug}`}
-      className="group flex flex-col bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_24px_rgba(59,20,69,0.1)] transition-all duration-200"
+      className="group flex flex-col bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_24px_rgba(59,20,69,0.1)] transition-all duration-200"
     >
       {post.coverImage && (
         <div className={`relative w-full flex-shrink-0 overflow-hidden ${featured ? 'h-56' : 'h-36'}`}>

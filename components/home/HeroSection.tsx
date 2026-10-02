@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Button from '@/components/ui/Button'
 import PCBBackground from '@/components/ui/PCBBackground'
 import Logo from '@/components/ui/Logo'
 import RotatingTagline from '@/components/home/RotatingTagline'
@@ -27,21 +28,12 @@ export default function HeroSection() {
 
           {/* CTA buttons — right of logo on desktop, below logo on mobile */}
           <div className="flex flex-wrap items-center gap-4 shrink-0">
-            <Link
-              href="/mission"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#1a1a1a] dark:bg-white text-white dark:text-[#1a1a1a] font-mono font-bold text-sm rounded-none hover:bg-[#333] dark:hover:bg-gray-100 transition-colors duration-200"
-            >
-              Our Mission
-              <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M3 8h10M9 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-            <Link
-              href="/donate"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-[#3b1445]/50 dark:border-[#5c2070]/50 text-[#3b1445] dark:text-[#c084d8] font-mono font-bold text-sm rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/5 transition-all duration-200"
-            >
-              Donate &rarr;
-            </Link>
+            <Button variant="primary" size="lg" href="/mission">
+              Our Mission →
+            </Button>
+            <Button variant="outlined" size="lg" href="/donate">
+              Donate →
+            </Button>
           </div>
         </div>
 
@@ -55,18 +47,16 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-2">
             {[
-              { label: 'Firmware', href: '/projects#mujina', type: 'software' },
-              { label: 'Pool', href: '/projects#hydrapool', type: 'software' },
-            ].map(({ label, href, type }) => (
+              { label: 'Firmware', href: '/projects#mujina' },
+              { label: 'Pool', href: '/projects#hydrapool' },
+            ].map(({ label, href }) => (
               <Link
                 key={href}
                 href={href}
-                className="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 border transition-all duration-200 group border-[#3b1445] dark:border-[#c084d8] text-[#3b1445] dark:text-[#c084d8] hover:bg-[#3b1445]/8 dark:hover:bg-[#c084d8]/10"
+                className="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 border border-[#3b1445]/60 dark:border-[#c084d8]/60 text-[#3b1445] dark:text-[#c084d8] hover:bg-[#3b1445]/8 dark:hover:bg-[#c084d8]/10 transition-all duration-200"
               >
                 {label}
-                <svg className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M2 6h8M7 3l3 3-3 3" />
-                </svg>
+                <span aria-hidden="true">→</span>
               </Link>
             ))}
             {/* Force hardware chips onto their own row on mobile */}
@@ -78,12 +68,10 @@ export default function HeroSection() {
               <Link
                 key={href}
                 href={href}
-                className="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 border transition-all duration-200 group border-[#00FF41] text-[#00FF41] hover:bg-[#00FF41]/15"
+                className="inline-flex items-center gap-1.5 font-mono text-xs px-4 py-2 border border-[#3b1445]/60 dark:border-[#c084d8]/60 text-[#3b1445] dark:text-[#c084d8] hover:bg-[#3b1445]/8 dark:hover:bg-[#c084d8]/10 transition-all duration-200"
               >
                 {label}
-                <svg className="w-3 h-3 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-200" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M2 6h8M7 3l3 3-3 3" />
-                </svg>
+                <span aria-hidden="true">→</span>
               </Link>
             ))}
           </div>

@@ -1,9 +1,11 @@
-import Link from 'next/link'
+import { surface } from '@/lib/tokens'
 import DecorativeBg from '@/components/ui/DecorativeBg'
+import Eyebrow from '@/components/ui/Eyebrow'
+import Button from '@/components/ui/Button'
 
 export default function ApplySection() {
   return (
-    <div className="relative overflow-hidden isolate rounded-none bg-[#f8f2fc] dark:bg-[#1e1028]">
+    <div className={['relative overflow-hidden isolate rounded-none', surface('tinted')].join(' ')}>
       {/* Purple left accent bar */}
       <div className="absolute top-0 left-0 w-1 h-full bg-[#3b1445]" />
       <DecorativeBg glowPosition="100% 50%" glowOpacity={0.06} gridOpacity={0.06} vignette={false} />
@@ -11,12 +13,7 @@ export default function ApplySection() {
       <div className="relative z-10 p-8 lg:p-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-1 h-4 bg-[#3b1445]" />
-              <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
-                General Grant Program
-              </span>
-            </div>
+            <Eyebrow className="mb-4">General Grant Program</Eyebrow>
             <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl lg:text-4xl leading-tight mb-4 max-w-2xl uppercase">
               Fund Your Open-Source Mining Project
             </h2>
@@ -34,15 +31,9 @@ export default function ApplySection() {
             </div>
           </div>
           <div className="lg:col-span-4 flex lg:justify-end">
-            <Link
-              href="/grants"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#3b1445] text-white font-mono font-bold text-base rounded-none hover:bg-[#2d0f36] transition-all duration-200 whitespace-nowrap shadow-[0_0_20px_rgba(59,20,69,0.35)] hover:shadow-[0_0_28px_rgba(59,20,69,0.5)]"
-            >
-              Learn More
-              <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                <path d="M4 10h12M12 5l5 5-5 5" />
-              </svg>
-            </Link>
+            <Button variant="primary" size="lg" href="/grants" className="whitespace-nowrap">
+              Learn More →
+            </Button>
           </div>
         </div>
       </div>

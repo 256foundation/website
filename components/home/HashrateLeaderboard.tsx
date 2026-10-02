@@ -90,7 +90,7 @@ export default function HashrateLeaderboard() {
 
   if (error) {
     return (
-      <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 text-center">
+      <div className="bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 text-center">
         <p className="text-gray-500 text-sm mb-2">Unable to load live hashrate data.</p>
         <a
           href="https://dash.256f.org"
@@ -105,7 +105,7 @@ export default function HashrateLeaderboard() {
   }
 
   return (
-    <div className="bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden">
+    <div className="bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none overflow-hidden">
 
       {/* Stats header */}
       <div className="flex items-center justify-between gap-4 px-4 py-3 border-b border-gray-200 dark:border-[#1f1f1f] bg-white dark:bg-[#1a1a1a]">

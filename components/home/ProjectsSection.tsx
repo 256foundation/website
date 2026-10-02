@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Eyebrow from '@/components/ui/Eyebrow'
 import { pillarProjects } from '@/data/projects'
 import { forumTopicUrl, timeAgo } from '@/lib/discourse'
 import type { ForumTopic } from '@/lib/discourse'
@@ -19,20 +20,15 @@ interface ProjectsSectionProps {
 }
 
 const typeConfig: Record<string, { label: string; color: string }> = {
-  hardware: { label: 'Hardware', color: 'text-[#00FF41] border-[#00FF41]/40' },
-  software: { label: 'Software', color: 'text-[#c084d8] border-[#c084d8]/40' },
+  hardware: { label: 'Hardware', color: 'text-[#3b1445] dark:text-[#c084d8] border-[#3b1445]/40 dark:border-[#5c2070]/40' },
+  software: { label: 'Software', color: 'text-[#3b1445] dark:text-[#c084d8] border-[#3b1445]/40 dark:border-[#5c2070]/40' },
 }
 
 export default function ProjectsSection({ forumTopics, orgEvents = [] }: ProjectsSectionProps) {
   return (
     <div>
       {/* Section header */}
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-1 h-4 bg-[#3b1445]" />
-        <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
-          Funded Projects
-        </span>
-      </div>
+      <Eyebrow className="mb-4">Funded Projects</Eyebrow>
       <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
         <div>
           <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase">
@@ -115,7 +111,7 @@ export default function ProjectsSection({ forumTopics, orgEvents = [] }: Project
 
       {/* Forum activity strip */}
       {forumTopics.length > 0 && (
-        <div className="border border-t-0 border-gray-200 dark:border-[#1f1f1f] bg-gray-50 dark:bg-[#0a0a0a]">
+        <div className="border border-t-0 border-gray-200 dark:border-[#1f1f1f] bg-gray-50 dark:bg-[#1a1a1a]">
           {/* Strip header */}
           <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200 dark:border-[#1f1f1f]">
             <div className="flex items-center gap-2">
@@ -163,7 +159,7 @@ export default function ProjectsSection({ forumTopics, orgEvents = [] }: Project
       )}
 
       {/* GitHub org activity strip — always rendered, fallback if API empty */}
-      <div className="border border-t-0 border-gray-200 dark:border-[#1f1f1f] bg-gray-50 dark:bg-[#0a0a0a]">
+      <div className="border border-t-0 border-gray-200 dark:border-[#1f1f1f] bg-gray-50 dark:bg-[#1a1a1a]">
           {/* Strip header */}
           <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200 dark:border-[#1f1f1f]">
             <div className="flex items-center gap-2">

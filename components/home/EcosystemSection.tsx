@@ -119,7 +119,7 @@ export default function EcosystemSection() {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block bg-gray-50 dark:bg-[#242424] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_24px_rgba(59,20,69,0.1)] transition-all duration-300"
+            className="group block bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_24px_rgba(59,20,69,0.1)] transition-all duration-300"
           >
             {/* Top accent bar */}
             <div className="h-0.5 w-full bg-gray-200 dark:bg-[#1f1f1f] group-hover:bg-[#3b1445]/60 transition-colors duration-300" />

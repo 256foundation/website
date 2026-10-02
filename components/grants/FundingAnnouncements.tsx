@@ -52,7 +52,7 @@ export default function FundingAnnouncements({
       </p>
 
       {isEmpty ? (
-        <div className="border border-gray-200 dark:border-[#1f1f1f] bg-gray-50 dark:bg-[#242424] rounded-none p-8 max-w-2xl">
+        <div className="border border-gray-200 dark:border-[#1f1f1f] bg-gray-50 dark:bg-[#1a1a1a] rounded-none p-8 max-w-2xl">
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
             We announce new funding through our newsroom. When a grant is approved, it&apos;s
             announced here.

@@ -6,7 +6,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-gray-200 dark:border-[#3b1445]/25 bg-white dark:bg-[#13091a]">
+    <footer className="border-t border-gray-200 dark:border-[#3b1445]/25 bg-white dark:bg-[#1e1028]">
       {/* Purple accent line at top */}
       <div className="h-[2px] bg-gradient-to-r from-transparent via-[#5c2070] to-transparent dark:via-[#3b1445]" />
 
