@@ -34,10 +34,10 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Link columns — equal-width three-up so spacing stays even */}
+          {/* Link columns — equal width; short labels keep content gaps even */}
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-10">
             {/* Foundation links */}
-            <div>
+            <div className="min-w-0">
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
                 <span className="w-1 h-3 bg-[#3b1445] dark:bg-[#5c2070] inline-block flex-shrink-0" />
                 Foundation
@@ -58,7 +58,7 @@ export default function Footer() {
             </div>
 
             {/* Resources — supplemental on-site pages */}
-            <div>
+            <div className="min-w-0">
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
                 <span className="w-1 h-3 border border-[#3b1445] dark:border-[#5c2070] inline-block flex-shrink-0" />
                 Resources
@@ -79,7 +79,7 @@ export default function Footer() {
             </div>
 
             {/* Elsewhere — external channels */}
-            <div>
+            <div className="min-w-0">
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
                 <span className="w-1 h-3 bg-[#3b1445] dark:bg-[#5c2070] inline-block flex-shrink-0" />
                 Elsewhere

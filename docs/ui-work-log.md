@@ -123,8 +123,10 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
 - **External column renamed "Community" → "Elsewhere"** so it clearly reads as the
   off-site list, distinct from the on-site `/community` page link.
 - Footer grid: brand column plus a nested equal-width three-up subgrid for the link
-  columns, so the three column gaps stay even (`grid-cols-2 sm:grid-cols-3` on small,
-  brand `col-span-4` / links `col-span-8` on `lg`).
+  columns, so the column gap is consistent (`grid-cols-2 sm:grid-cols-3` on small,
+  brand `col-span-4` / links `col-span-8` on `lg`). The long "Funding announcements"
+  label is shortened to "Announcements" in the footer so no one column's text runs
+  close to the next and the visual gaps stay even.
 
 ---
 
