@@ -27,7 +27,8 @@ Last updated: 2026-10-02
 | `ui/edits-round14` | [#34](https://github.com/256foundation/website/pull/34) | Homepage overhaul: 8-beat rebuild (thesis hero, problem, stack, proof, funding band, community, latest, shared closer); `Reveal` + scroll-progress client utilities; dead home components pruned | merged |
 | `ui/edits-round14` (docs) | [#35](https://github.com/256foundation/website/pull/35) | Docs sync for round 14 (CLAUDE/README/session-context/ARCHITECTURE) | merged |
 | `ui/edits-round15` | — | Home polish: clean favicon from the header `secondary` mark (theme-aware `app/icon.svg`, `app/favicon.ico` + `app/apple-icon.png` fallbacks, replaces off-brand `app/icon.png`); dedicated home Community photo (`public/home-community.webp`, conference panel) instead of reusing a `/community` carousel shot; home CTA consistency (Latest beat's "All updates →" now the shared outlined `Button` like every other main-page link) | [#36](https://github.com/256foundation/website/pull/36) |
-| `chore/housekeeping` | [#37](https://github.com/256foundation/website/pull/37) | Repo hygiene: prune merged branches, drop unused assets, move the Discourse prompt into `docs/`, non-breaking `npm audit fix` | open |
+| `chore/housekeeping` | [#37](https://github.com/256foundation/website/pull/37) | Repo hygiene: prune merged branches, drop unused assets, move the Discourse prompt into `docs/`, non-breaking `npm audit fix` | merged |
+| `chore/image-weight` | — | Cut shipped raster weight ~13MB → ~1.5MB: convert oversized project/ecosystem/supporter art to right-sized WebP (`scripts/optimize-art.mjs`), re-encode logos + OG to compressed palette PNG | PR opens now |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 

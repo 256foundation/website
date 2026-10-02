@@ -38,7 +38,7 @@ export const pillarProjects: PillarProject[] = [
     forumCategory: 'https://forum.256foundation.org/c/ember-one',
     forumCategoryApiUrl: 'https://forum.256foundation.org/c/ember-one/5.json',
     logo: {
-      icon: '/projects/ember-one-hashboard.png',
+      icon: '/projects/ember-one-hashboard.webp',
     },
   },
   {
@@ -72,7 +72,7 @@ export const pillarProjects: PillarProject[] = [
     forumCategory: 'https://forum.256foundation.org/c/libre-board',
     forumCategoryApiUrl: 'https://forum.256foundation.org/c/fibre-board/6.json',
     logo: {
-      icon: '/projects/libre-board.png',
+      icon: '/projects/libre-board.webp',
     },
   },
   {
@@ -107,7 +107,7 @@ export const pillarProjects: PillarProject[] = [
     forumCategory: 'https://forum.256foundation.org/c/mujina',
     forumCategoryApiUrl: 'https://forum.256foundation.org/c/mujina/7.json',
     logo: {
-      character: '/projects/mujina-character.png',
+      character: '/projects/mujina-character.webp',
     },
   },
   {
@@ -142,7 +142,7 @@ export const pillarProjects: PillarProject[] = [
     forumCategory: 'https://forum.256foundation.org/c/hydrapool',
     forumCategoryApiUrl: 'https://forum.256foundation.org/c/hydrapool/8.json',
     logo: {
-      icon: '/projects/hydrapool-logo.png',
+      icon: '/projects/hydrapool-logo.webp',
     },
   },
 ]
