@@ -187,6 +187,8 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
 - **Telehash hero** is now two columns with the event status on the right: the no-event flag
   moved out of its own section, the countdown / next-event details live in the hero too, and
   a **View Events Calendar** link sits in the hero. The standalone countdown section is gone.
+- The telehash hero event status is a **full-height panel** (anchored header, centered message,
+  bottom "View Events Calendar" bar) rather than a floating box, so it fills the hero cleanly.
 
 ---
 
