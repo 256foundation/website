@@ -18,11 +18,17 @@ import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const TARGET_DIRS = ['public/projects', 'public/ecosystem', 'public/supporters']
+// dir -> longest-side cap. Marks/logos render tiny; telehash photos fill a
+// full-width carousel so they get more pixels.
+const TARGET_DIRS = [
+  { dir: 'public/projects', max: 800 },
+  { dir: 'public/ecosystem', max: 800 },
+  { dir: 'public/supporters', max: 800 },
+  { dir: 'public/telehash', max: 1200 },
+]
 const REFERENCE_DIRS = ['content', 'data', 'components', 'app', 'lib']
 const RASTER = new Set(['.png', '.jpg', '.jpeg'])
 
-const MAX_PX = 800
 const QUALITY = 82
 const THRESHOLD = 40 * 1024
 
@@ -41,7 +47,7 @@ function publicPath(abs) {
   return '/' + path.relative(path.join(root, 'public'), abs).split(path.sep).join('/')
 }
 
-async function process(abs) {
+async function process(abs, maxPx) {
   const ext = path.extname(abs).toLowerCase()
   if (!RASTER.has(ext)) return
   const stat = fs.statSync(abs)
@@ -54,7 +60,7 @@ async function process(abs) {
 
   const tmp = target + '.tmp'
   const { width, height, size } = await sharp(abs)
-    .resize({ width: MAX_PX, height: MAX_PX, withoutEnlargement: true, fit: 'inside' })
+    .resize({ width: maxPx, height: maxPx, withoutEnlargement: true, fit: 'inside' })
     .webp({ quality: QUALITY, effort: 6 })
     .toFile(tmp)
 
@@ -90,11 +96,13 @@ function rewriteReferences() {
 }
 
 async function main() {
-  const files = TARGET_DIRS.flatMap((d) => [...walk(path.join(root, d))])
-  const before = files.reduce((n, f) => n + fs.statSync(f).size, 0)
-  for (const file of files) await process(file)
+  const allFiles = TARGET_DIRS.flatMap(({ dir }) => [...walk(path.join(root, dir))])
+  const before = allFiles.reduce((n, f) => n + fs.statSync(f).size, 0)
+  for (const { dir, max } of TARGET_DIRS) {
+    for (const file of walk(path.join(root, dir))) await process(file, max)
+  }
   const edited = rewriteReferences()
-  const after = TARGET_DIRS.flatMap((d) => [...walk(path.join(root, d))])
+  const after = TARGET_DIRS.flatMap(({ dir }) => [...walk(path.join(root, dir))])
     .reduce((n, f) => n + fs.statSync(f).size, 0)
 
   console.log(

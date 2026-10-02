@@ -76,22 +76,28 @@ export default function CommunityHeroCarousel({
         touchX.current = null
       }}
     >
-      {/* Rotating photo layer — crossfades under the copy */}
+      {/* Rotating photo layer — crossfades under the copy. Mount only the
+          current frame and its two neighbours so /community loads 3 hero
+          images instead of 8. */}
       <div aria-hidden="true" className="absolute inset-0">
-        {photos.map((src, i) => (
-          <Image
-            key={src}
-            src={src}
-            alt=""
-            fill
-            priority={i === 0}
-            sizes="100vw"
-            className={[
-              'object-cover object-center transition-opacity duration-1000 ease-in-out',
-              i === index ? 'opacity-100' : 'opacity-0',
-            ].join(' ')}
-          />
-        ))}
+        {photos.map((src, i) => {
+          const distance = Math.min(Math.abs(i - index), count - Math.abs(i - index))
+          if (distance > 1) return null
+          return (
+            <Image
+              key={src}
+              src={src}
+              alt=""
+              fill
+              priority={i === 0}
+              sizes="100vw"
+              className={[
+                'object-cover object-center transition-opacity duration-1000 ease-in-out',
+                i === index ? 'opacity-100' : 'opacity-0',
+              ].join(' ')}
+            />
+          )
+        })}
       </div>
 
       {/* Contrast overlays so the copy stays legible over any frame */}
