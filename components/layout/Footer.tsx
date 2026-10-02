@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-4">
             <div className="mb-3">
-              <Logo height={52} />
+              <Logo variant="secondary" height={52} />
             </div>
             <p className="text-gray-500 dark:text-gray-500 text-sm leading-relaxed mt-3 max-w-xs">
               Open-Sourcing Bitcoin Mining
