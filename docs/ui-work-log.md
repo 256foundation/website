@@ -156,6 +156,7 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
 ### Round 10 — `ui/edits-round10` — dedicated `/contact` page
 - New **`/contact`** page (`app/contact/page.tsx`): the shared `ContactForm` plus the general
   email **contact@256foundation.org**. Added to the sitemap and to footer Resources.
+- The general email is also shown in the footer brand column, under the 501(c)(3) line.
 - **Relinked `/ #contact` → `/contact`** in the header, footer, mobile nav, and the Libre
   Board article. The home page keeps its own `id="contact"` section and full form (per
   decision), so existing `/#contact` links still land.

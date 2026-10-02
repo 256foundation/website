@@ -24,6 +24,12 @@ export default function Footer() {
             <p className="font-mono text-gray-400 dark:text-gray-700 text-xs mt-4">
               A 501(c)(3) nonprofit organization
             </p>
+            <a
+              href="mailto:contact@256foundation.org"
+              className="inline-block font-mono text-gray-500 dark:text-gray-500 text-xs mt-2 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors duration-150"
+            >
+              contact@256foundation.org
+            </a>
 
             {/* Primary actions */}
             <div className="flex items-center gap-3 mt-6">
