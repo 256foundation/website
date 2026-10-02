@@ -73,6 +73,11 @@ website-256F/
 │   │   ├── Button.tsx
 │   │   ├── Card.tsx
 │   │   ├── Badge.tsx
+│   │   ├── Eyebrow.tsx         # Single kicker (accent bar + mono label)
+│   │   ├── TextLink.tsx        # Single inline → link style
+│   │   ├── Panel.tsx           # Boxed hero header/body/footer
+│   │   ├── HeroScrim.tsx       # Shared dark gradient overlay for photo heroes
+│   │   ├── Reveal.tsx          # "use client" — one-time fade-in, reduced-motion safe
 │   │   ├── Logo.tsx
 │   │   ├── SectionWrapper.tsx
 │   │   ├── SectionHeader.tsx
@@ -83,22 +88,20 @@ website-256F/
 │   │   ├── Header.tsx
 │   │   ├── Footer.tsx
 │   │   ├── MobileNav.tsx
-│   │   └── NavDropdown.tsx
+│   │   ├── NavDropdown.tsx
+│   │   ├── ScrollProgress.tsx  # "use client" — header scroll-progress line
+│   │   └── AnnouncementBanner.tsx
 │   ├── home/                   # Home page section components
-│   │   ├── HeroSection.tsx
-│   │   ├── DonateCards.tsx
-│   │   ├── WhySection.tsx
-│   │   ├── AllocationStats.tsx
-│   │   ├── BlocksFound.tsx
-│   │   ├── StayUpdated.tsx     # Forum topics + GitHub activity strips
-│   │   ├── ProjectsSection.tsx # Live GitHub org activity feed
-│   │   ├── ApplySection.tsx
-│   │   ├── CommunitySection.tsx
-│   │   ├── EcosystemSection.tsx
-│   │   ├── FAQSection.tsx      # Curated 4-question accordion from data/faq.ts
-│   │   ├── SupporterShowcase.tsx
-│   │   ├── HashrateLeaderboard.tsx  # Live Prometheus hashrate data
-│   │   └── ContactForm.tsx     # Formspree-powered contact form
+│   │   ├── HomeHero.tsx        # Thesis hero, full-bleed Development Kit shot, static PCB
+│   │   ├── ProblemSection.tsx  # Two centered statements → /mission
+│   │   ├── StackSection.tsx    # Four layer cards → /projects#slug
+│   │   ├── ProofSection.tsx    # Block 881423 + block-find video → /our-work
+│   │   ├── FundingBand.tsx     # Compact funding band → /grants
+│   │   ├── CommunitySection.tsx # Photo + live forum/GitHub strips → /community
+│   │   ├── LatestUpdates.tsx   # One newsroom/POD256/Substack card → /newsroom
+│   │   ├── SupporterShowcase.tsx   # Used on /donate
+│   │   ├── HashrateLeaderboard.tsx # Live Prometheus data, used on /donate
+│   │   └── ContactForm.tsx     # Formspree-powered contact form, used on /contact
 │   ├── newsroom/               # Newsroom components
 │   │   ├── PostCard.tsx        # Card for post list (cover image, category, date, title, excerpt)
 │   │   ├── NewsroomIndex.tsx   # Client-side category filter + post grid
@@ -679,7 +682,7 @@ GitHub API is called unauthenticated by default (60 req/hr limit). Set `GITHUB_T
 All site content lives in `data/`. Edit these files to update content without touching components.
 
 ### `data/stats.ts`
-Foundation statistics shown on the home page: BTC raised, blocks found, active grantees.
+Foundation statistics (BTC raised, blocks found, active grantees). Currently unused after the round-14 home rebuild; kept for reuse (e.g. a future stats strip).
 
 ### `data/projects.ts`
 The four Open Mining Stack layers (`pillarProjects`), ordered hash board → control board → firmware → pool. Each carries a tagline, problem statement, key specs/features, core architect, and GitHub/forum URLs. The `forumCategoryApiUrl` points to the Discourse category JSON used for the live activity badge. Backs `/projects`.
@@ -719,7 +722,7 @@ term: "Four months, September to December"
 Article body in Markdown...
 ```
 
-Parsed by `lib/newsroom.ts` at build time. Posts are sorted newest-first. The most recent post is surfaced on the home page in the StayUpdated section.
+Parsed by `lib/newsroom.ts` at build time. Posts are sorted newest-first. The most recent post is surfaced in the home page Latest beat.
 
 Posts with `category: grant-announcement` additionally appear, newest first, in the `/grants` funding log (`#funding-announcements`, max 6) and its `/grants/announcements` archive. Grants *received* from third parties (HRF, MARA) are `foundation-news`, not announcements. The log never shows a dollar amount, and its copy avoids "cycle"/"wave"/"round", "pillar", retired program names, and em dashes; `tests/grant-announcements.test.mjs` enforces this.
 
@@ -746,7 +749,7 @@ The contact form (`components/home/ContactForm.tsx`) posts **directly to Formspr
 1. Create a new MDX file in `content/newsroom/[slug].mdx` with required frontmatter (title, date, author, category, excerpt)
 2. Drop any article images into `public/newsroom/[slug]/` and reference them in the MDX body using standard Markdown image syntax: `![alt text](/newsroom/[slug]/image.png)`
 3. Optionally set `coverImage` (displayed at top of post) and `ogImage` (social share preview) in frontmatter
-4. The post appears automatically on `/newsroom`, at `/newsroom/[slug]`, and if it's the newest post it surfaces on the home page in the StayUpdated section — no code changes needed
+4. The post appears automatically on `/newsroom`, at `/newsroom/[slug]`, and if it's the newest post it surfaces in the home page Latest beat — no code changes needed
 5. Redeploy (or wait for ISR) to publish — all newsroom routes are statically generated via `generateStaticParams`
 
 ### Add a TeleHash event
@@ -766,11 +769,11 @@ Set `nextEventDate` to an ISO date string and fill in `nextEventDetails` in `dat
 ### Update donation/grant form links
 Donation link: set `NEXT_PUBLIC_ZAPRITE_URL` in `.env.local` or Vercel environment variables. The Typeform grant application URL is hardcoded in `app/grants/page.tsx` (`GENERAL_GRANT_APPLICATION_URL`); `NEXT_PUBLIC_TYPEFORM_URL` is unused.
 
-### Add an ecosystem project
-1. Add logo(s) to `public/ecosystem/` — for dark/light variants name them `<Project>_square_dark.png` and `<Project>_square_light.png`
-2. Add an entry to the `projects` array in `components/home/EcosystemSection.tsx` (use `logoDark`/`logoLight` for dual-logo projects, `logo` for single-image)
-3. Add an entry to the `ecosystemProjects` array in `app/projects/page.tsx`
-4. Add the link to the Ecosystem children array in `data/navigation.ts`
+### Add a project
+1. Add logo(s) to `public/projects/` (pillar) or `public/ecosystem/` (ecosystem listing) — for dark/light variants name them `<Project>_square_dark.png` and `<Project>_square_light.png`
+2. **Pillar project:** add an entry to `pillarProjects` in `data/projects.ts` — powers `/projects` ("Open Mining Stack") and the home `StackSection` cards
+3. **Ecosystem listing:** add an entry to `ecosystemProjects` in `data/community.ts` — rendered on `/community` (use `logoDark`/`logoLight` for dual-logo projects, `logo` for single-image)
+4. Add the link to the header/footer arrays in `data/navigation.ts` if it needs a nav entry
 
 ### Update mining pool address
 Search for `pool.256foundation.org` — it appears as static strings in `app/donate/page.tsx` and `app/telehash/page.tsx`.

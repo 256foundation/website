@@ -5,18 +5,19 @@ Written so a fresh session (or a different agent) can resume with zero chat hist
 Read this together with [`docs/ui-work-log.md`](./ui-work-log.md) (the running UI log)
 and the repo root [`CLAUDE.md`](../CLAUDE.md).
 
-Last updated: 2026-10-01
+Last updated: 2026-10-02
 
 ---
 
 ## TL;DR current state
 
-- **All work is merged to `main`.** No open PRs. Local `ui/edits-round5` == `origin/main`
-  (`16fe1bb`, the merge of PR #25).
-- **PRs #24 and #25 were both merged.**
-  - #24: community page + Our Work stub + nav consolidation + supporters→Donate + canon sweep.
-  - #25: Our Work dedicated hero photo.
-- Nothing is in flight. The next unit of work should branch fresh off `main`.
+- **Open PRs on the current stack (merge in order):** [#32](https://github.com/256foundation/website/pull/32)
+  (round 12 design-system pass) → [#33](https://github.com/256foundation/website/pull/33)
+  (round 13 mission/footer) → [#34](https://github.com/256foundation/website/pull/34)
+  (round 14 home overhaul). All target `main` and are stacked.
+- Earlier merged: #20, #21, #24, #25, #26, #27, #28, #30, #31. Rounds 3 and 4 had no PR.
+- Branch stack: `ui/edits-round12 → ui/edits-round13 → ui/edits-round14`. Branch the next
+  round off the top of the stack while PRs are open.
 - Dev server: `npm run dev` → http://localhost:3000.
 
 ---
@@ -89,8 +90,9 @@ All five are complete and merged.
 - Hero accent word is `text-[#c084d8]`. Full-bleed hero pattern per `CLAUDE.md` →
   "Current UI state".
 - Logo `dark`/`light` naming = artwork for light/dark backgrounds respectively.
-- Home page left structurally as-is except stale-language scrub; the full home overhaul
-  comes later.
+- Home page overhauled in round 14: the 8-beat page (thesis hero → problem → stack → proof
+  → funding band → community → latest → shared closer). Section components live in
+  `components/home/`. The closer keeps `id="contact"` so old `/#contact` links still land.
 
 ---
 
@@ -109,7 +111,7 @@ in `data/community.ts` — add or reorder there.
 - Our Work hero: `public/our-work-hero.webp` (from supplied `our-work-hero.jpg`,
   converted to 1920px WebP)
 - Other hero art: `public/projects/open-mining-stack.webp`,
-  `public/mission-background.webp`, `public/grants-hero-background.webp`
+  `public/mission-hero.webp`, `public/grants-hero-background.webp`, `public/home-hero.webp`
 - Brand logos: `public/logos/256-logo-{horizontal,secondary,vertical}-{dark,light}.png`
 
 Image workflow used this round: `sharp` resize to max width 1920, `webp({quality: 82,
@@ -120,7 +122,7 @@ effort: 6})`, then wire into the page. Convert staged JPEGs and delete the sourc
 ## Working workflow (per edit)
 
 1. Make the edit.
-2. `npm run lint` (expect 0 errors, 7 `<img>` warnings) and `npm test` (expect all pass).
+2. `npm run lint` (expect 0 errors, a few `<img>` warnings) and `npm test` (expect all pass).
 3. Kill the dev server (`pkill -f "next dev"; pkill -f "next-server"`) — a concurrent
    `next build` conflicts on `.next`.
 4. `npm run build` — must stay green.
@@ -133,8 +135,9 @@ the root layout provides `<main>`, so avoid accidental `main > main`.
 
 ## Open items / next steps
 
-- **Home page overhaul** — home still has its old `CommunitySection` + `EcosystemSection`
-  (language-scrubbed); planned rework comes next.
+- **Home page asset gap** — the Development Kit hero is a square `public/home-hero.webp`
+  (`devkit_hero.jpeg` converted); a landscape crop would tighten the desktop hero. Everything
+  else on home is shipped.
 - **`/our-work` copy** is a first pass — dial in copy and art later.
 - **Grants "Apply for a Grant" button** links the Typeform form
   (`https://form.typeform.com/to/oqyJAntF`, new tab). Core Projects "Calls currently
@@ -143,7 +146,8 @@ the root layout provides `<main>`, so avoid accidental `main > main`.
   and linked as maintainer; (2) verify "revision three" against the actual repo state.
 - **Square / circular logo variants** in `Logo.tsx` still point at old brand files.
 - `ARCHITECTURE.md` / `SPEC.md` are intentionally stale (banner at top).
-- Next round should branch fresh off `main`.
+- **Next round should branch off the top of the branch stack** (`ui/edits-round14` while the
+  PRs are open) so it does not miss the in-flight rounds.
 
 ---
 
