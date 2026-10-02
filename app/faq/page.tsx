@@ -2,6 +2,7 @@ import { generatePageMetadata } from '@/lib/metadata'
 import { faqItems } from '@/data/faq'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import DecorativeBg from '@/components/ui/DecorativeBg'
+import PageCTA from '@/components/shared/PageCTA'
 import type { FAQItem } from '@/types'
 
 export const metadata = generatePageMetadata({
@@ -98,6 +99,12 @@ export default function FAQPage() {
           </SectionWrapper>
         )
       })}
+
+      <PageCTA
+        kicker="Still Have Questions?"
+        title="Ask us directly."
+        body="If the answer isn't here, send us a note. We read everything that comes in."
+      />
     </>
   )
 }

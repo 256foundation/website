@@ -6,6 +6,7 @@ import CopyButton from '@/components/ui/CopyButton'
 import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS } from '@/data/donate'
 import { supporters } from '@/data/supporters'
 import SupporterShowcase from '@/components/home/SupporterShowcase'
+import PageCTA from '@/components/shared/PageCTA'
 
 export const metadata = generatePageMetadata({
   title: 'Donate',
@@ -229,6 +230,13 @@ export default function DonatePage() {
       <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
         <SupporterShowcase supporters={supporters} />
       </SectionWrapper>
+
+      <PageCTA
+        kicker="Questions About Donating?"
+        title="Large gifts, on-chain, or something else."
+        body="If you want to give in a way that isn't covered here, or you'd like to talk it through first, get in touch."
+        donateLabel="Donate →"
+      />
     </>
   )
 }

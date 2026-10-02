@@ -9,6 +9,7 @@ import CommunityProjects from '@/components/community/CommunityProjects'
 import TelehashFeature from '@/components/community/TelehashFeature'
 import ListenAndLearn from '@/components/community/ListenAndLearn'
 import GetInvolved from '@/components/community/GetInvolved'
+import PageCTA from '@/components/shared/PageCTA'
 
 export const revalidate = 3600
 
@@ -55,6 +56,13 @@ export default async function CommunityPage() {
       </SectionWrapper>
 
       <GetInvolved />
+
+      <PageCTA
+        kicker="Back the Builders"
+        title="Fund the people behind the stack."
+        body="Donations keep core contributors and community programs moving. If you'd rather give time than money, we'll help you find a way in."
+        donateLabel="Donate →"
+      />
     </>
   )
 }

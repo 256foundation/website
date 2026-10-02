@@ -58,7 +58,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="name" className="block font-mono text-gray-600 dark:text-gray-400 text-xs mb-2 uppercase tracking-wide">
-            Name / Alias
+            Name / Nym
           </label>
           <input
             id="name"
@@ -93,7 +93,7 @@ export default function ContactForm() {
           id="message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="How can we help?"
+          placeholder="What's up?"
           required
           rows={5}
           className={inputClass}

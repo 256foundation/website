@@ -137,7 +137,7 @@ export default function MobileNav({ items, isOpen, onClose }: MobileNavProps) {
                 Forum
               </a>
               <Link
-                href="/#contact"
+                href="/contact"
                 onClick={onClose}
                 className="flex items-center justify-center gap-1.5 px-3 py-2.5 border border-gray-300 dark:border-[#3f3f3f] text-gray-700 dark:text-gray-200 font-mono text-xs rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:bg-[#3b1445]/10 transition-all"
               >

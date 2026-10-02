@@ -5,6 +5,7 @@ import { founders, board } from '@/data/team'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 import TeamMemberCard from '@/components/shared/TeamMemberCard'
+import PageCTA from '@/components/shared/PageCTA'
 
 export const metadata = generatePageMetadata({
   title: 'Mission',
@@ -166,6 +167,13 @@ export default function MissionPage() {
           ))}
         </div>
       </SectionWrapper>
+
+      <PageCTA
+        kicker="Support the Mission"
+        title="Help us keep every layer open."
+        body="We take money from anyone and influence from no one. Fund the work, or reach out and get involved."
+        donateLabel="Donate →"
+      />
     </>
   )
 }

@@ -19,11 +19,17 @@ export default function Footer() {
               <Logo height={52} />
             </div>
             <p className="text-gray-500 dark:text-gray-500 text-sm leading-relaxed mt-3 max-w-xs">
-              Building the open-source Bitcoin mining ecosystem.
+              Open-Sourcing Bitcoin Mining
             </p>
             <p className="font-mono text-gray-400 dark:text-gray-700 text-xs mt-4">
               A 501(c)(3) nonprofit organization
             </p>
+            <a
+              href="mailto:contact@256foundation.org"
+              className="inline-block font-mono text-gray-500 dark:text-gray-500 text-xs mt-2 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors duration-150"
+            >
+              contact@256foundation.org
+            </a>
 
             {/* Primary actions */}
             <div className="flex items-center gap-3 mt-6">
@@ -34,7 +40,7 @@ export default function Footer() {
                 Donate
               </Link>
               <Link
-                href="/#contact"
+                href="/contact"
                 className="inline-flex items-center justify-center px-5 py-2.5 border border-gray-300 dark:border-[#3f3f3f] text-gray-700 dark:text-gray-200 font-mono font-bold text-sm rounded-none hover:border-[#3b1445] dark:hover:border-[#5c2070] hover:text-gray-900 dark:hover:text-white hover:bg-[#3b1445]/10 transition-all duration-200"
               >
                 Contact

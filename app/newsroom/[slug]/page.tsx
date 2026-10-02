@@ -92,12 +92,18 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
         <PostBody content={content} />
 
         {/* Footer divider */}
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-[#1f1f1f]">
+        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-[#1f1f1f] flex flex-wrap items-center justify-between gap-3">
           <Link
             href="/newsroom"
             className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline"
           >
             ← Back to Newsroom
+          </Link>
+          <Link
+            href="/contact"
+            className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline"
+          >
+            Questions? Get in touch →
           </Link>
         </div>
       </div>
