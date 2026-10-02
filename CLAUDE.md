@@ -24,7 +24,7 @@ all content lives in TypeScript files under `data/` and MDX under `content/`.
 ```bash
 npm install       # install deps (Node 20 LTS+ required — uses AbortSignal.timeout)
 npm run dev       # dev server → http://localhost:3000
-npm run build     # production build (prerenders 19 routes; makes live network calls)
+npm run build     # production build (prerenders ~23 routes; makes live network calls)
 npm start         # serve the production build
 npm run lint      # ESLint (next lint)
 npm test          # Node built-in test runner over tests/*.test.mjs
@@ -55,8 +55,11 @@ Static-first with hourly ISR for pages that show live external data. Verified ro
 
 | Route | Render | Notes |
 |-------|--------|-------|
-| `/` | Static + ISR (`revalidate = 3600`) | fetches Substack, forum, GitHub org events |
-| `/mission` | Static | mission statement, photo-framed narrative, principles, team |
+| `/` | Static + ISR (`revalidate = 3600`) | 8-beat home; fetches Substack, POD256, forum, and GitHub org events for the live Latest + Community beats |
+| `/mission` | Static | photo hero, four-beat numbered narrative, two-statement vision, team |
+| `/community` | Static | channels, ecosystem listings, Telehash feature, live Substack/POD256 cards |
+| `/our-work` | Static | eight-section outline; light first-pass copy |
+| `/contact` | Static | shared `ContactForm` + general email |
 | `/grants` | Static | two programs — Core Projects / General Grant (`#grant-programs`); funding log (`#funding-announcements`) |
 | `/grants/announcements` | Static | archive of every `grant-announcement` newsroom post |
 | `/donate`, `/faq`, `/telehash` | Static | pure data-file content |
@@ -79,7 +82,7 @@ app/            App Router pages (see route map above) + globals.css, robots.ts,
 components/
   ui/           primitives (Button, Card, Badge, SectionWrapper, PCBBackground, …)
   layout/       Header, Footer, MobileNav, NavDropdown, AnnouncementBanner, TelehashExtensionDetector
-  home/         home-page sections (Hero, DonateCards, StayUpdated, HashrateLeaderboard, ContactForm, …)
+  home/         home-page sections (HomeHero, ProblemSection, StackSection, ProofSection, FundingBand, CommunitySection, LatestUpdates, plus ContactForm/SupporterShowcase/HashrateLeaderboard used elsewhere)
   projects/     Open Mining Stack sections (StackSubNav, StackLayerSection, ActivityBadges)
   grants/       funding log (FundingAnnouncements, GrantAnnouncementCard)
   newsroom/     PostCard, NewsroomIndex (category filter), PostBody (MDXRemote wrapper)
@@ -105,8 +108,10 @@ structure are in [`types/index.ts`](types/index.ts).
 | `data/navigation.ts` | header nav + dropdowns (`topNav`) and footer links |
 | `data/projects.ts` | the 4 pillar projects (`pillarProjects`): tagline, problem, key specs/features, architect, GitHub + forum URLs — powers `/projects` ("Open Mining Stack") |
 | `data/supporters.ts` | supporter logos by tier (`supporters`) |
+| `data/community.ts` | community channels, carousel photos, ecosystem listings, close blocks — powers `/community` |
+| `data/ourWork.ts` | `/our-work` section content |
 | `data/team.ts` | `founders` + `board` |
-| `data/stats.ts` | `siteStats` (BTC raised, blocks found, grantees) |
+| `data/stats.ts` | `siteStats` (BTC raised, blocks found, grantees) — unused since the round-14 home rebuild |
 | `data/telehash.ts` | `teleHashEvents`, `nextEventDate`/`nextEventDetails` (countdown) |
 | `data/faq.ts` | `faqItems` (categorized Q&A) |
 | `data/donate.ts` | on-chain `BITCOIN_ADDRESS` + `LIGHTNING_ADDRESS` |
@@ -119,7 +124,7 @@ structure are in [`types/index.ts`](types/index.ts).
 Posts tagged `grant-announcement` additionally carry optional `project`, `program`
 (`core` | `general`), and `term`, and feed the `/grants` funding log. Parsed by
 [`lib/newsroom.ts`](lib/newsroom.ts); sorted newest-first; the newest post
-auto-surfaces on the home page. Article images go in `public/newsroom/<slug>/`.
+auto-surfaces in the home page Latest beat. Article images go in `public/newsroom/<slug>/`.
 
 ---
 
@@ -146,6 +151,10 @@ renders. GitHub/forum/Substack fetches use `next: { revalidate: 3600 }`.
 
 Contact form (`components/home/ContactForm.tsx`) POSTs **directly to Formspree**
 (`formspree.io/f/xkndjepy`) client-side — no server route.
+
+[`lib/useReducedMotion.ts`](lib/useReducedMotion.ts) — client `prefers-reduced-motion` hook
+(`useSyncExternalStore`); used by `Reveal` and `ScrollProgress` so both honor reduced motion
+without a setState-in-effect.
 
 ---
 
@@ -200,7 +209,7 @@ avoid (Resend, Hashdash, Typeform) so they don't creep back in.
 
 ---
 
-## Current UI state (as of 2026-09-30)
+## Current UI state (as of 2026-10-02)
 
 Read [`docs/ui-work-log.md`](docs/ui-work-log.md) for the running log of UI revisions,
 decisions, and open items. Durable facts a fresh session must know:
@@ -210,13 +219,14 @@ decisions, and open items. Durable facts a fresh session must know:
   (plus legacy `square`/`circular`). `dark` = dark/purple artwork for light backgrounds;
   `light` = white artwork for dark backgrounds. **Header + mobile drawer use `secondary`;
   hero + footer use `horizontal`.** Favicon is `app/icon.png`.
-- **Header nav order:** Mission · Mining Stack · Grants · Newsroom · Ecosystem · Community
-  (no Home item — the logo links home).
+- **Header nav order:** Mission · Our Work · Mining Stack · Grants · Community · Newsroom
+  (no Home item — the logo links home). Footer Foundation column mirrors it.
 - **`/projects` is named "Open Mining Stack"** on-page; the nav label is just
   **"Mining Stack"**. Hero is a full-bleed photo (`public/projects/open-mining-stack.webp`).
-- **`/mission`** is restructured: mission-statement hero, a photo band
-  (`public/mission-background.webp`) framed by thin info bars, a subtle "Principles"
-  filler, then Founders/Board with `SectionKicker` labels (defined in the page).
+- **`/mission`** is restructured: a full-bleed photo hero (`public/mission-hero.webp`),
+  a four-beat numbered story narrative, and a two-statement vision typographically
+  enlarged. Founders/Board follow. The narrative copy answers *why*; the home links here
+  for depth.
 - **`/grants`** programs are named **Core Projects Program** (we scope) and **General
   Grant Program** (you scope); `/grants#grant-programs` is the anchor.
 - **`/grants` funding log:** bottom section `#funding-announcements`, fed by newsroom
@@ -226,10 +236,22 @@ decisions, and open items. Durable facts a fresh session must know:
   `tests/grant-announcements.test.mjs`.
 - **Hero title accent:** the accent word in a hero H1 is `text-[#c084d8]` (e.g. "Mining
   Stack", "Open-Source").
+- **Home (`/`) is an 8-beat page** (round 14): `HomeHero` (thesis H1, full-bleed Development
+  Kit shot `public/home-hero.webp`, mirrored so the hardware sits right, static PCB, no
+  rotating tagline, header logo only) → `ProblemSection` → `StackSection` (four layers →
+  `/projects#slug`) → `ProofSection` (block `881423` + block-find video) → `FundingBand` →
+  `CommunitySection` (photo + live forum/GitHub strips) → `LatestUpdates` (one
+  newsroom/POD256/Substack card) → shared `PageCTA`. The closer keeps `id="contact"` so old
+  `/#contact` links land. Copy answers *why/who*; no em dashes, ban-list clean; ~6 desktop
+  screens.
+- **Motion:** `components/ui/Reveal.tsx` fades a section in once (IntersectionObserver) and
+  is fully readable with animations off; `components/layout/ScrollProgress.tsx` is the thin
+  header progress line; both read `lib/useReducedMotion.ts`. No parallax, no rotating
+  elements on home.
 - **Full-bleed hero pattern:** `next/image` `fill` + `object-cover` inside a `relative
-  overflow-hidden` section, two `bg-gradient-*` overlay divs, `SectionWrapper` with
-  `flex min-h-[560px] lg:min-h-[640px] items-center`, contents in a centered `max-w-2xl`
-  with left-aligned text.
+  overflow-hidden` section, the shared `HeroScrim` (left-to-right + top-to-bottom dark
+  gradients), contents in a centered `max-w-7xl` container with a left-aligned `max-w-2xl`
+  block. Home hero uses `min-h-[92vh] lg:min-h-screen`.
 
 ---
 

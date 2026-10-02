@@ -17,6 +17,10 @@
 >   `dash.256f.org`, and additionally resolves Nostr display names via Primal.
 > - **Primary deployment is Vercel**, not the self-hosted Proxmox LXC described here
 >   (Proxmox remains a documented option in the README).
+> - **Home page redesigned (round 14)** to an 8-beat page; the `Home/*` section list later in
+>   this file is superseded by `components/home/*` (see `CLAUDE.md` → "Current UI state").
+> - **`/mission` and all main-page heroes changed (round 13):** shared `HeroScrim`, mission
+>   photo hero + numbered narrative.
 
 ---
 
