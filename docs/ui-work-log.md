@@ -282,6 +282,11 @@ Gave the home Community beat its own photo instead of reusing `/community/hero-0
   `HeroScrim`. The speaker is dead-center, so narrow/mobile `object-cover` crops to a clean
   portrait of him instead of slicing someone in half. Looks intentional at any aspect ratio.
 
+CTA consistency pass on home: the mission, our-work, mining-stack and grants links were
+already boxed buttons, but the Latest beat's "All updates →" was a bare text link. It now uses
+the same `Button variant="outlined" size="sm"`, so every in-content link to a main page on the
+home page is the same control (photo overlays stay `onDark`).
+
 ---
 
 ## Decisions / conventions locked
