@@ -1,143 +1,185 @@
-const communities = [
-  {
-    label: 'Forum',
-    description: 'Technical discussion & support',
-    href: 'https://forum.256foundation.org',
-    external: true,
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Group Chat',
-    description: 'Real-time community chat',
-    href: 'https://t.me/the256foundation',
-    external: true,
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'X / Twitter',
-    description: 'News & announcements',
-    href: 'https://x.com/256FOUNDATION',
-    external: true,
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.727-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Nostr',
-    description: 'Censorship-resistant feed',
-    href: 'https://primal.net/p/nprofile1qqsqhk42dz0exfcsln4yqmdkjys0nvd7dqndgacpsa7w7pt7njq2uuss2u9cq',
-    external: true,
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="10" />
-        <path strokeLinecap="round" d="M8 12h8M12 8v8" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Newsletter',
-    description: 'Assembling Freedom Newsletter on Substack',
-    href: 'https://256foundation.substack.com',
-    external: true,
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-      </svg>
-    ),
-  },
-  {
-    label: 'POD256',
-    description: 'The 256 Foundation podcast',
-    href: 'https://www.pod256.org',
-    external: true,
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Developer Calls',
-    description: 'Dedicated time with lead maintainers',
-    href: 'https://forum.256foundation.org/upcoming-events/',
-    external: true,
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Hashdash',
-    description: 'Live pool & hashrate dashboard',
-    href: 'https://dash.256f.org',
-    external: true,
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-      </svg>
-    ),
-  },
-]
+import Image from 'next/image'
+import Link from 'next/link'
+import SectionWrapper from '@/components/ui/SectionWrapper'
+import HeroScrim from '@/components/ui/HeroScrim'
+import Eyebrow from '@/components/ui/Eyebrow'
+import Button from '@/components/ui/Button'
+import { forumTopicUrl, timeAgo } from '@/lib/discourse'
+import type { ForumTopic } from '@/lib/discourse'
+import type { GitHubEvent } from '@/lib/github'
 
-export default function CommunitySection() {
+const eventTypeLabel: Record<string, string> = {
+  PushEvent: 'push',
+  PullRequestEvent: 'PR',
+  PullRequestReviewEvent: 'review',
+  IssuesEvent: 'issue',
+  ReleaseEvent: 'release',
+  CreateEvent: 'create',
+}
+
+interface CommunitySectionProps {
+  forumTopics: ForumTopic[]
+  orgEvents?: GitHubEvent[]
+}
+
+/**
+ * Community beat: a full-bleed photo making the group real, then the live
+ * forum + GitHub strips that show it working. One primary destination,
+ * /community.
+ */
+export default function CommunitySection({ forumTopics, orgEvents = [] }: CommunitySectionProps) {
   return (
-    <div>
-      <div className="flex items-center gap-3 mb-10">
-        <div className="w-1 h-4 bg-[#3b1445]" />
-        <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">Community</span>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        <div className="lg:col-span-3">
-          <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl leading-tight uppercase">
-            Join the<br />Network
-          </h2>
-          <p className="text-gray-500 text-sm mt-3 leading-relaxed">
-            Connect with builders, miners, and advocates worldwide.
-          </p>
-        </div>
-
-        <div className="lg:col-span-9">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {communities.map((c) => {
-              const inner = (
-                <div className="group flex flex-col items-center text-center gap-3 p-5 bg-gray-50 dark:bg-[#0d0d0d] border border-gray-200 dark:border-[#1f1f1f] rounded-none hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:bg-white dark:hover:bg-[#242424] transition-all duration-200 cursor-pointer h-full">
-                  <div className="text-gray-500 group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
-                    {c.icon}
-                  </div>
-                  <div>
-                    <div className="font-mono font-bold text-gray-700 dark:text-gray-200 text-sm group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
-                      {c.label}
-                    </div>
-                    <div className="text-gray-500 dark:text-gray-400 text-xs mt-0.5 leading-relaxed">{c.description}</div>
-                  </div>
-                </div>
-              )
-
-              return c.external ? (
-                <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer">
-                  {inner}
-                </a>
-              ) : (
-                <a key={c.label} href={c.href}>
-                  {inner}
-                </a>
-              )
-            })}
+    <>
+      {/* Photo strip */}
+      <section className="relative flex min-h-[60vh] items-center overflow-hidden">
+        <Image
+          src="/community/hero-01.webp"
+          alt="The 256 Foundation community at work"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <HeroScrim />
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-2xl">
+            <Eyebrow onDark className="mb-5">
+              Community
+            </Eyebrow>
+            <h2 className="font-display font-bold text-white text-2xl sm:text-3xl lg:text-4xl uppercase leading-tight">
+              A community, in code and out of it.
+            </h2>
+            <p className="mt-4 text-gray-200 text-base sm:text-lg leading-relaxed max-w-xl">
+              The forum is where the work gets argued out. The group chat is where it starts.
+              Builders, miners, and advocates, worldwide.
+            </p>
+            <div className="mt-7">
+              <Button variant="onDark" size="lg" href="/community">
+                Join the community →
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* Live activity strips */}
+      <SectionWrapper size="tight">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Forum */}
+          <div className="border border-gray-200 dark:border-[#1f1f1f] bg-gray-50 dark:bg-[#1a1a1a]">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200 dark:border-[#1f1f1f]">
+              <div className="flex items-center gap-2">
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-[#00FF41]"
+                  style={{ boxShadow: '0 0 6px #00FF41' }}
+                />
+                <span className="font-mono text-gray-600 dark:text-gray-400 text-xs uppercase tracking-widest">
+                  Live Forum Activity
+                </span>
+              </div>
+              <a
+                href="https://forum.256foundation.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline transition-colors"
+              >
+                Visit Forum →
+              </a>
+            </div>
+            <div className="divide-y divide-gray-100 dark:divide-[#141414]">
+              {forumTopics.length === 0 ? (
+                <div className="px-5 py-3">
+                  <span className="font-mono text-gray-400 dark:text-gray-600 text-xs">
+                    No recent topics.
+                  </span>
+                </div>
+              ) : (
+                forumTopics.map((topic) => (
+                  <a
+                    key={topic.id}
+                    href={forumTopicUrl(topic.slug, topic.id)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 px-5 py-2.5 hover:bg-white dark:hover:bg-[#111] transition-colors group"
+                  >
+                    <span className="flex-1 font-mono text-gray-700 dark:text-gray-300 text-xs truncate group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors min-w-0">
+                      {topic.title}
+                    </span>
+                    <span className="font-mono text-gray-400 dark:text-gray-600 text-xs whitespace-nowrap shrink-0">
+                      {topic.replyCount} {topic.replyCount === 1 ? 'reply' : 'replies'}
+                    </span>
+                    <span className="font-mono text-gray-400 dark:text-gray-600 text-xs whitespace-nowrap shrink-0 w-14 text-right">
+                      {timeAgo(topic.lastPostedAt)}
+                    </span>
+                  </a>
+                ))
+              )}
+            </div>
+          </div>
+
+          {/* GitHub */}
+          <div className="border border-gray-200 dark:border-[#1f1f1f] bg-gray-50 dark:bg-[#1a1a1a]">
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200 dark:border-[#1f1f1f]">
+              <div className="flex items-center gap-2">
+                <span
+                  className="w-1.5 h-1.5 rounded-full bg-[#00FF41]"
+                  style={{ boxShadow: '0 0 6px #00FF41' }}
+                />
+                <span className="font-mono text-gray-600 dark:text-gray-400 text-xs uppercase tracking-widest">
+                  Live GitHub Activity
+                </span>
+              </div>
+              <a
+                href="https://github.com/256foundation"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs hover:underline transition-colors"
+              >
+                View org →
+              </a>
+            </div>
+            <div className="divide-y divide-gray-100 dark:divide-[#141414]">
+              {orgEvents.length === 0 ? (
+                <div className="px-5 py-3">
+                  <span className="font-mono text-gray-400 dark:text-gray-600 text-xs">
+                    No recent activity.{' '}
+                    <a
+                      href="https://github.com/256foundation"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
+                    >
+                      View on GitHub →
+                    </a>
+                  </span>
+                </div>
+              ) : (
+                orgEvents.map((event) => (
+                  <a
+                    key={event.id}
+                    href={event.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-5 py-2.5 hover:bg-white dark:hover:bg-[#111] transition-colors group"
+                  >
+                    <span className="font-mono text-[9px] uppercase tracking-widest px-1.5 py-0.5 border border-[#3b1445]/30 dark:border-[#5c2070]/40 text-[#3b1445] dark:text-[#c084d8] shrink-0">
+                      {eventTypeLabel[event.type] ?? event.type}
+                    </span>
+                    <span className="font-mono text-gray-400 dark:text-gray-600 text-xs shrink-0">
+                      {event.repo}
+                    </span>
+                    <span className="flex-1 font-mono text-gray-700 dark:text-gray-300 text-xs truncate group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors min-w-0">
+                      {event.description}
+                    </span>
+                    <span className="font-mono text-gray-400 dark:text-gray-600 text-xs whitespace-nowrap shrink-0 w-14 text-right">
+                      {timeAgo(event.createdAt)}
+                    </span>
+                  </a>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      </SectionWrapper>
+    </>
   )
 }

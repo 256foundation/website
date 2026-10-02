@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import NavDropdown from './NavDropdown'
 import MobileNav from './MobileNav'
+import ScrollProgress from './ScrollProgress'
 import TelehashExtensionDetector from './TelehashExtensionDetector'
 import { topNav } from '@/data/navigation'
 import Logo from '@/components/ui/Logo'
@@ -115,6 +116,7 @@ export default function Header() {
             </div>
           </div>
         </div>
+        <ScrollProgress />
       </header>
 
       <MobileNav

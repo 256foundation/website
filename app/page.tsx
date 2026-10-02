@@ -4,92 +4,79 @@ import { fetchForumTopics } from '@/lib/discourse'
 import { fetchOrgEvents } from '@/lib/github'
 import { fetchPodcastEpisodes } from '@/lib/pod256'
 import { generatePageMetadata } from '@/lib/metadata'
-import { siteStats } from '@/data/stats'
 import { teleHashEvents } from '@/data/telehash'
-import SectionWrapper from '@/components/ui/SectionWrapper'
-import HeroSection from '@/components/home/HeroSection'
-import DonateCards from '@/components/home/DonateCards'
-import WhySection from '@/components/home/WhySection'
-import ProjectsSection from '@/components/home/ProjectsSection'
-import BlocksFound from '@/components/home/BlocksFound'
-import StayUpdated from '@/components/home/StayUpdated'
-import ApplySection from '@/components/home/ApplySection'
+import Reveal from '@/components/ui/Reveal'
+import PageCTA from '@/components/shared/PageCTA'
+import HomeHero from '@/components/home/HomeHero'
+import ProblemSection from '@/components/home/ProblemSection'
+import StackSection from '@/components/home/StackSection'
+import ProofSection from '@/components/home/ProofSection'
+import FundingBand from '@/components/home/FundingBand'
 import CommunitySection from '@/components/home/CommunitySection'
-import EcosystemSection from '@/components/home/EcosystemSection'
-import FAQSection from '@/components/home/FAQSection'
-import ContactForm from '@/components/home/ContactForm'
-import SectionHeader from '@/components/ui/SectionHeader'
-import DecorativeBg from '@/components/ui/DecorativeBg'
+import LatestUpdates from '@/components/home/LatestUpdates'
 
 export const revalidate = 3600
 
 export const metadata = generatePageMetadata({
   title: '256 Foundation',
   description:
-    'Building the open-source Bitcoin mining ecosystem. We fund developers creating open-source Bitcoin mining hardware and software.',
+    'Bitcoin mining will be open-source, or Bitcoin remains permissioned. The 256 Foundation funds and builds the open-source Bitcoin mining stack.',
   path: '/',
 })
 
+const DIVIDER = 'border-t border-gray-200 dark:border-[#1f1f1f]'
+
 export default async function Home() {
   const [posts, forumTopics, orgEvents, episodes] = await Promise.all([
-    fetchSubstackPosts(2),
-    fetchForumTopics(6),
-    fetchOrgEvents('256foundation', 8),
-    fetchPodcastEpisodes(2),
+    fetchSubstackPosts(1),
+    fetchForumTopics(5),
+    fetchOrgEvents('256foundation', 6),
+    fetchPodcastEpisodes(1),
   ])
-  // Newest first. The "Updates" column is a date-ordered feed, so a featured
-  // post must not jump a newer one here.
-  const newsroomPosts = getAllPostsByDate().slice(0, 2)
+  // Newest first. One card, so a featured post must not jump a newer one here.
+  const newsroomPost = getAllPostsByDate()[0]
   const firstEvent = teleHashEvents.find((e) => e.blockFound)
 
   return (
     <>
-      <HeroSection />
+      <HomeHero />
 
-      <SectionWrapper>
-        <DonateCards />
-      </SectionWrapper>
+      <Reveal className={DIVIDER}>
+        <ProblemSection />
+      </Reveal>
 
-      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <WhySection />
-      </SectionWrapper>
+      <Reveal className={DIVIDER}>
+        <StackSection />
+      </Reveal>
 
-      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <ProjectsSection forumTopics={forumTopics} orgEvents={orgEvents} />
-      </SectionWrapper>
+      <Reveal className={DIVIDER}>
+        <ProofSection videoUrl={firstEvent?.videoUrl} />
+      </Reveal>
 
-      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <BlocksFound stats={siteStats} videoUrl={firstEvent?.videoUrl} />
-      </SectionWrapper>
+      <Reveal className={DIVIDER}>
+        <FundingBand />
+      </Reveal>
 
-      <SectionWrapper id="updates" className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <StayUpdated posts={posts} newsroomPosts={newsroomPosts} episodes={episodes} />
-      </SectionWrapper>
+      <Reveal className={DIVIDER}>
+        <CommunitySection forumTopics={forumTopics} orgEvents={orgEvents} />
+      </Reveal>
 
-      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <ApplySection />
-      </SectionWrapper>
+      <Reveal className={DIVIDER}>
+        <LatestUpdates newsroomPost={newsroomPost} post={posts[0]} episode={episodes[0]} />
+      </Reveal>
 
-      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <CommunitySection />
-      </SectionWrapper>
-
-      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <EcosystemSection />
-      </SectionWrapper>
-
-      <SectionWrapper className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <FAQSection />
-      </SectionWrapper>
-
-      <SectionWrapper id="contact" decorative className="border-t border-gray-200 dark:border-[#1f1f1f]">
-        <DecorativeBg glowPosition="50% 100%" gridOpacity={0.05} />
-        <SectionHeader
-          title="Contact Us"
-          subtitle="Have a question or want to get involved? We'd love to hear from you."
-        />
-        <ContactForm />
-      </SectionWrapper>
+      <div id="contact">
+        <Reveal>
+          <PageCTA
+            align="center"
+            kicker="Get Involved"
+            title="Help us keep every layer open."
+            body="Money from anyone. Influence from no one. Every layer of Bitcoin mining, open for good."
+            donateLabel="Fund the work →"
+            contactLabel="Get in touch →"
+          />
+        </Reveal>
+      </div>
     </>
   )
 }

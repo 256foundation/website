@@ -23,12 +23,13 @@ Last updated: 2026-10-02
 | `ui/edits-round10` | [#30](https://github.com/256foundation/website/pull/30) | Dedicated `/contact` page + site-wide contextual contact links | merged |
 | `ui/edits-round11` | [#31](https://github.com/256foundation/website/pull/31) | `/donate` + `/telehash` relayout, neutral code style, FAQ hero CTA, footer cleanup | merged |
 | `ui/edits-round12` | [#32](https://github.com/256foundation/website/pull/32) | Design-system continuity pass: shared Eyebrow / TextLink / Panel, on-dark buttons, one PageCTA, surface + spacing tokens, badge routing, green → status-only | open (branched off `ui/edits-round11`) |
-| `ui/edits-round13` | — | (new round) | open (branched off `ui/edits-round12`) |
+| `ui/edits-round13` | [#33](https://github.com/256foundation/website/pull/33) | Mission narrative rework (photo hero, numbered story beats, large two-point vision), shared `HeroScrim` across main-page heroes, footer logo matches header, Elsewhere link reorder | open (branched off `ui/edits-round12`) |
+| `ui/edits-round14` | [#34](https://github.com/256foundation/website/pull/34) | Homepage overhaul: 8-beat rebuild (thesis hero, problem, stack, proof, funding band, community, latest, shared closer); `Reveal` + scroll-progress client utilities; dead home components pruned | open (branched off `ui/edits-round13`) |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
 Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run lint` +
-`npm test` must stay green (lint has 6 pre-existing `<img>` warnings, 0 errors).
+`npm test` must stay green (lint has a few pre-existing `<img>` warnings, 0 errors).
 
 ---
 
@@ -221,6 +222,44 @@ New tokens: `lib/tokens.ts` — three surfaces (`default`, `raised`, `tinted`).
   that was green (hero chips, hardware tags, grant arrows, success states, banner tag,
   newsletter) is purple.
 
+### Round 13 — `ui/edits-round13` (PR #33) — mission narrative
+
+- `/mission` hero photo band, narrative recast as four numbered story beats, vision recast
+  as two large display statements.
+- Shared `HeroScrim` extracted and applied to the mission/our-work/grants/projects/community
+  heroes. Footer logo switched to the `secondary` variant to match the header; Elsewhere
+  reordered (GitHub, Forum, Group Chat, Events Calendar, Hashdash, POD256, Newsletter,
+  X / Twitter, Nostr).
+
+### Round 14 — `ui/edits-round14` — homepage overhaul
+
+Rebuilt the home from the 8-beat outline. The page is now: thesis hero → the problem →
+the stack → the proof → funding band → community → latest → shared closer. Copy answers
+why/who; destination pages answer how.
+
+- **Hero:** the thesis is the H1 ("Bitcoin mining will be open-source, or Bitcoin remains
+  permissioned."). Full-bleed Development Kit shot (`public/home-hero.webp`, mirrored so
+  the hardware sits right), static PCB texture, no rotating tagline, header logo only,
+  scroll cue. Two CTAs: See our work / Fund the work.
+- **Problem:** two centered statements, link to `/mission`.
+- **Stack:** four layer cards → `/projects#slug`, "Together, the four form the Development
+  Kit." → `/projects`. (`StackSection` replaces `ProjectsSection` on home.)
+- **Proof:** giant `881423` + block copy beside the existing block-find video → `/our-work`.
+- **Funding:** compact tinted band + grants CTA (no full screen).
+- **Community:** full-bleed photo + live forum and GitHub strips (folded in here) → `/community`.
+- **Latest:** one live card each from the newsroom, POD256, and Substack → `/newsroom`.
+- **Closer:** shared `PageCTA`, centered. Keeps `id="contact"` so old `/#contact` links land.
+- **New client utilities:** `components/ui/Reveal.tsx` (one-time fade, readable with motion
+  off), `components/layout/ScrollProgress.tsx` (purple line in the header, no easing under
+  reduced motion), `lib/useReducedMotion.ts`.
+- **Removed from home:** contact form section, mission essay, ecosystem essays, supporters
+  wall, FAQ, hashrate leaderboard, duplicate project essays. Ten now-dead `components/home`
+  files deleted (`HeroSection`, `WhySection`, `BlocksFound`, `StayUpdated`, `ApplySection`,
+  `DonateCards`, `EcosystemSection`, `FAQSection`, `ProjectsSection`, `RotatingTagline`;
+  `HashrateLeaderboard` stays for `/donate`).
+- **Copy:** zero em dashes, ban-list clean (no "cycle"/"pillar"/amounts). Page is ~5.9
+  desktop screens.
+
 ---
 
 ## Decisions / conventions locked
@@ -267,8 +306,9 @@ New tokens: `lib/tokens.ts` — three surfaces (`default`, `raised`, `tinted`).
   revision number the repo does not support.
 - **Square / circular logo variants** in `Logo.tsx` still point at the old brand files;
   replace if new assets exist.
-- Home page still has its old `CommunitySection` + `EcosystemSection` (language-scrubbed);
-  the planned home overhaul comes after this and Our Work.
+- Home page overhauled in round 14 (8-beat rebuild). Remaining home asset gap: a landscape
+  crop of the Development Kit hero; the current square `public/home-hero.webp` works with
+  the scrim.
 - `ARCHITECTURE.md` / `SPEC.md` remain intentionally stale (banner at top).
 
 ---
