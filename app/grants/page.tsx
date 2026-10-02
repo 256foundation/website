@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { generatePageMetadata } from '@/lib/metadata'
 import { getGrantAnnouncements } from '@/lib/newsroom'
 import SectionWrapper from '@/components/ui/SectionWrapper'
@@ -95,29 +94,13 @@ export default function GrantsPage() {
               Two programs fund open-source Bitcoin mining: the Core Projects Program for work we
               scope, and the General Grant Program for work you scope.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <Link
-                href="#grant-programs"
-                className="group border border-white/20 bg-black/35 backdrop-blur-sm p-5 hover:border-[#c084d8]/60 hover:bg-black/50 transition-colors"
-              >
-                <div className="font-display font-bold text-white uppercase mb-1 group-hover:text-[#c084d8] transition-colors">
-                  Apply for a Grant
-                </div>
-                <div className="font-mono text-xs text-gray-300">
-                  Core projects or one of your own
-                </div>
-              </Link>
-        <Link
-          href="#funding-announcements"
-          className="group border border-white/20 bg-black/35 backdrop-blur-sm p-5 hover:border-[#c084d8]/60 hover:bg-black/50 transition-colors"
-        >
-          <div className="font-display font-bold text-white uppercase mb-1 group-hover:text-[#c084d8] transition-colors">
-            Funding announcements
-          </div>
-          <div className="font-mono text-xs text-gray-300">
-            See what we&apos;ve already funded
-          </div>
-        </Link>
+            <div className="flex flex-wrap gap-3">
+              <Button variant="primary" size="lg" href="#grant-programs">
+                Apply for a grant →
+              </Button>
+              <Button variant="onDarkOutlined" size="lg" href="#funding-announcements">
+                See what we&apos;ve funded →
+              </Button>
             </div>
           </div>
         </SectionWrapper>

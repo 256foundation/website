@@ -31,7 +31,7 @@ export default async function CommunityPage() {
       <CommunityHeroCarousel
         photos={communityHeroPhotos}
         kicker="Community"
-        headline={<>The stack doesn&apos;t <span className="text-[#c084d8]">build</span> itself</>}
+        headline={<>The industry doesn&apos;t <span className="text-[#c084d8]">build</span> itself</>}
         sub="Open-source needs more than code. Review, teaching, forums, dev calls, community niches, and an ecosystem around every project. This is where that work happens and how to be part of it."
         ctaLabel="Join the forum →"
         ctaHref="https://forum.256foundation.org"
