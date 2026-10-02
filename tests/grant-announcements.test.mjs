@@ -76,7 +76,8 @@ function readFrontmatter(file) {
 }
 
 function field(frontmatter, key) {
-  return frontmatter.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+?)["']?\\s*$`, 'm'))?.[1]
+  const match = frontmatter.match(new RegExp(`^${key}:\\s*(.+?)\\s*$`, 'm'))
+  return match?.[1].replace(/^["']|["']$/g, '')
 }
 
 test('every grant announcement declares a valid program and supported fields', () => {
@@ -105,7 +106,7 @@ test('the Libre Board announcement carries the agreed frontmatter', () => {
   assert.equal(field(fm, 'category'), 'grant-announcement')
   assert.equal(field(fm, 'project'), 'Libre Board')
   assert.equal(field(fm, 'program'), 'core')
-  assert.equal(field(fm, 'term'), 'Four months, September to December')
+  assert.equal(field(fm, 'term'), '2026 term, reactivated September')
 })
 
 test('feature copy carries no banned vocabulary, amounts, or em dashes', () => {
