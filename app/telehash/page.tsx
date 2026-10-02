@@ -43,100 +43,108 @@ const participationSteps = [
 export default function TelehashPage() {
   return (
     <>
-      {/* Hero */}
+      {/* Hero + event status */}
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
-        <div className="max-w-3xl">
-          <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
-            Telehash
-          </p>
-          <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
-            Mine for the Mission
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-4">
-            Telehash is the 256 Foundation&apos;s occasional fundraising event: held a few times a
-            year, the team gathers in person and livestreams as the global Bitcoin mining community
-            points their hashrate to our Hydrapool instance running in solo mining mode.
-          </p>
-          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-            If a block is found during the stream, all block reward proceeds go directly to the
-            foundation to fund more open-source Bitcoin mining development. On our very first
-            Telehash, we found a block — raising the initial ~$300,000 that launched the organization.
-          </p>
-        </div>
-      </SectionWrapper>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-start">
+          <div className="max-w-2xl">
+            <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-4">
+              Telehash
+            </p>
+            <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-6">
+              Mine for the Mission
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-4">
+              Telehash is the 256 Foundation&apos;s occasional fundraising event: held a few times a
+              year, the team gathers in person and livestreams as the global Bitcoin mining community
+              points their hashrate to our Hydrapool instance running in solo mining mode.
+            </p>
+            <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+              If a block is found during the stream, all block reward proceeds go directly to the
+              foundation to fund more open-source Bitcoin mining development. On our very first
+              Telehash, we found a block — raising the initial ~$300,000 that launched the organization.
+            </p>
+          </div>
 
-      {/* Countdown */}
-      <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
-        <div className="max-w-2xl mx-auto">
-          {nextEventDate && (
-            <div className="mb-6">
-              <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-3">
-                Next Event
-              </p>
-              <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-4">
-                {nextEventDetails.name}
-              </h2>
-              <div className="flex flex-wrap gap-x-6 gap-y-1 font-mono text-sm text-gray-600 dark:text-gray-400 mb-4">
-                <span className="flex items-center gap-1.5">
-                  <svg className="w-3.5 h-3.5 shrink-0 text-[#3b1445] dark:text-[#c084d8]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  {nextEventDetails.displayDate}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <svg className="w-3.5 h-3.5 shrink-0 text-[#3b1445] dark:text-[#c084d8]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  {nextEventDetails.displayTime}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <svg className="w-3.5 h-3.5 shrink-0 text-[#3b1445] dark:text-[#c084d8]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  {nextEventDetails.location} · {nextEventDetails.address}
-                </span>
+          {/* Event status — next event, countdown, or a no-event flag */}
+          <div className="space-y-4">
+            {nextEventDate && (
+              <div>
+                <p className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-widest uppercase mb-3">
+                  Next Event
+                </p>
+                <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-4">
+                  {nextEventDetails.name}
+                </h2>
+                <div className="flex flex-wrap gap-x-6 gap-y-1 font-mono text-sm text-gray-600 dark:text-gray-400 mb-4">
+                  <span className="flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 shrink-0 text-[#3b1445] dark:text-[#c084d8]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    {nextEventDetails.displayDate}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 shrink-0 text-[#3b1445] dark:text-[#c084d8]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {nextEventDetails.displayTime}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5 shrink-0 text-[#3b1445] dark:text-[#c084d8]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    {nextEventDetails.location} · {nextEventDetails.address}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2 mb-2">
+                  {nextEventDetails.inPerson && (
+                    <span className="font-mono text-xs px-2 py-0.5 border border-[#3b1445]/40 dark:border-[#5c2070]/40 text-[#3b1445] dark:text-[#c084d8] bg-[#3b1445]/10 dark:bg-[#5c2070]/10">In Person</span>
+                  )}
+                  {nextEventDetails.online && (
+                    <span className="font-mono text-xs px-2 py-0.5 border border-[#3b1445]/40 dark:border-[#5c2070]/40 text-[#3b1445] dark:text-[#c084d8] bg-[#3b1445]/10 dark:bg-[#5c2070]/10">Online</span>
+                  )}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2 mb-2">
-                {nextEventDetails.inPerson && (
-                  <span className="font-mono text-xs px-2 py-0.5 border border-[#3b1445]/40 dark:border-[#5c2070]/40 text-[#3b1445] dark:text-[#c084d8] bg-[#3b1445]/10 dark:bg-[#5c2070]/10">In Person</span>
-                )}
-                {nextEventDetails.online && (
-                  <span className="font-mono text-xs px-2 py-0.5 border border-[#3b1445]/40 dark:border-[#5c2070]/40 text-[#3b1445] dark:text-[#c084d8] bg-[#3b1445]/10 dark:bg-[#5c2070]/10">Online</span>
-                )}
+            )}
+            <CountdownTimer targetDate={nextEventDate} endDate={nextEventEndDate} />
+            {nextEventDate && (
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={nextEventDetails.meetupUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#3b1445] text-white font-mono font-bold text-sm px-5 py-2.5 hover:bg-[#2d0f36] transition-colors shadow-[0_0_20px_rgba(59,20,69,0.35)] hover:shadow-[0_0_28px_rgba(59,20,69,0.5)]"
+                >
+                  RSVP on Meetup →
+                </a>
+                <a
+                  href="https://dash.256f.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-gray-200 dark:border-[#1f1f1f] text-gray-600 dark:text-gray-400 font-mono text-sm px-5 py-2.5 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
+                >
+                  View Hashdash →
+                </a>
+                <a
+                  href="https://x.com/256FOUNDATION"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-gray-200 dark:border-[#1f1f1f] text-gray-600 dark:text-gray-400 font-mono text-sm px-5 py-2.5 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
+                >
+                  Follow on X for updates
+                </a>
               </div>
-            </div>
-          )}
-          <CountdownTimer targetDate={nextEventDate} endDate={nextEventEndDate} />
-          {nextEventDate && (
-            <div className="mt-4 flex flex-wrap gap-3">
-              <a
-                href={nextEventDetails.meetupUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#3b1445] text-white font-mono font-bold text-sm px-5 py-2.5 hover:bg-[#2d0f36] transition-colors shadow-[0_0_20px_rgba(59,20,69,0.35)] hover:shadow-[0_0_28px_rgba(59,20,69,0.5)]"
-              >
-                RSVP on Meetup →
-              </a>
-              <a
-                href="https://dash.256f.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-gray-200 dark:border-[#1f1f1f] text-gray-600 dark:text-gray-400 font-mono text-sm px-5 py-2.5 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
-              >
-                View Hashdash →
-              </a>
-              <a
-                href="https://x.com/256FOUNDATION"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-gray-200 dark:border-[#1f1f1f] text-gray-600 dark:text-gray-400 font-mono text-sm px-5 py-2.5 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors"
-              >
-                Follow on X for updates
-              </a>
-            </div>
-          )}
+            )}
+            <a
+              href="https://forum.256foundation.org/upcoming-events/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[#3b1445] dark:text-[#c084d8] text-sm hover:underline inline-block"
+            >
+              View Events Calendar →
+            </a>
+          </div>
         </div>
       </SectionWrapper>
 
