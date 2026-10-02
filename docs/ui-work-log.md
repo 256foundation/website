@@ -21,7 +21,7 @@ Last updated: 2026-10-01
 | `ui/edits-round8` | [#28](https://github.com/256foundation/website/pull/28) | Footer Contact button beside Donate | merged |
 | `ui/edits-round9` | [#29](https://github.com/256foundation/website/pull/29) | Contact form: label "Name / Nym", message placeholder "What's up?" | open |
 | `ui/edits-round10` | [#30](https://github.com/256foundation/website/pull/30) | Dedicated `/contact` page + site-wide contextual contact links | open |
-| `ui/edits-round11` | — | `/donate` relayout: action above the fold, compact hero, neutral code style | open (branched off `ui/edits-round10`) |
+| `ui/edits-round11` | [#31](https://github.com/256foundation/website/pull/31) | `/donate` + `/telehash` relayout, neutral code style, FAQ hero CTA, footer cleanup | open |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
