@@ -62,7 +62,7 @@ export default function DonatePage() {
             <Eyebrow className="mb-4">Donate</Eyebrow>
             <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl leading-tight uppercase mb-5">
               Fund the open-source{' '}
-              <span className="text-[#3b1445] dark:text-[#c084d8]">mining stack</span>.
+              <span className="text-[#3b1445] dark:text-[#c084d8]">mining stack</span>
             </h1>
             <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg leading-relaxed max-w-lg">
               The 256 Foundation is a 501(c)(3) nonprofit funding the core contributors building

@@ -59,7 +59,7 @@ export default function OurWorkPage() {
             </Eyebrow>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-5">
               We are commoditizing the{' '}
-              <span className="block text-[#c084d8]">Bitcoin mining stack.</span>
+              <span className="block text-[#c084d8]">Bitcoin mining stack</span>
             </h1>
             <p className="text-gray-200 text-lg leading-relaxed mb-8">{ourWorkHero.line}</p>
             <div className="flex flex-wrap gap-3">

@@ -89,7 +89,7 @@ export default function GrantsPage() {
           <div className="max-w-2xl">
             <Eyebrow onDark className="mb-4">Grants</Eyebrow>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white uppercase mb-5">
-              Funding <span className="text-[#c084d8]">Open-Source</span> Mining
+              <span className="text-[#c084d8]">Funding</span> Open-Source Mining
             </h1>
             <p className="text-gray-200 text-lg leading-relaxed mb-8">
               Two programs fund open-source Bitcoin mining: the Core Projects Program for work we
