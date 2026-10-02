@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import Image from 'next/image'
 
 interface Worker {
   identity: string
@@ -38,9 +39,12 @@ function Avatar({ src, name }: { src?: string | null; name: string }) {
     <div className="w-7 h-7 rounded-full flex-shrink-0 overflow-hidden bg-[#3b1445]/20 border border-[#3b1445]/30 flex items-center justify-center relative">
       <span className="font-mono text-[10px] text-[#c084d8] select-none">{initial}</span>
       {src && (
-        <img
+        <Image
           src={src}
           alt={name}
+          width={28}
+          height={28}
+          unoptimized
           className="absolute inset-0 w-full h-full object-cover"
           onError={(e) => { e.currentTarget.style.display = 'none' }}
         />

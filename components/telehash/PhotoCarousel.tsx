@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 interface PhotoCarouselProps {
   photos: string[]
@@ -27,13 +28,14 @@ export default function PhotoCarousel({ photos, eventName }: PhotoCarouselProps)
           )
           if (distance > 1) return null
           return (
-            <img
+            <Image
               key={src}
               src={src}
               alt={`${eventName} photo ${i + 1}`}
+              fill
+              sizes="(max-width: 1024px) 100vw, 1024px"
               loading={i === 0 ? 'eager' : 'lazy'}
-              decoding="async"
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+              className={`object-cover transition-opacity duration-300 ${
                 i === index ? 'opacity-100' : 'opacity-0 pointer-events-none'
               }`}
             />

@@ -1,6 +1,7 @@
 'use client'
 
 import type { Supporter } from '@/types'
+import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import TextLink from '@/components/ui/TextLink'
 import HashrateLeaderboard from './HashrateLeaderboard'
@@ -72,18 +73,20 @@ export default function SupporterShowcase({ supporters }: SupporterShowcaseProps
                     className="group flex flex-col items-center gap-2 text-center"
                   >
                     <div
-                      className={`${config.imgSize} bg-white dark:bg-[#1e1028]
+                      className={`relative ${config.imgSize} bg-white dark:bg-[#1e1028]
                         border border-gray-200 dark:border-[#1f1f1f] flex items-center justify-center p-3
                         group-hover:border-[#3b1445]/50 dark:group-hover:border-[#5c2070]/50
                         group-hover:shadow-[0_0_20px_rgba(59,20,69,0.12)]
                         transition-all duration-300`}
                     >
-                      <img
+                      <Image
                         src={s.image}
                         alt={s.name}
-                        className="w-full h-full object-contain transition-all duration-300"
+                        fill
+                        sizes="160px"
+                        className="object-contain transition-all duration-300"
                         onError={(e) => {
-                          const el = e.target as HTMLImageElement
+                          const el = e.currentTarget
                           el.style.display = 'none'
                           const parent = el.parentElement
                           if (parent) {
