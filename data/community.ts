@@ -6,8 +6,8 @@ import type { CommunityChannel, CommunityProject } from '@/types'
  * the array in order.
  */
 export const communityHeroPhotos: string[] = [
-  '/community/hero-01.webp',
   '/community/hero-02.webp',
+  '/community/hero-01.webp',
   '/community/hero-03.webp',
   '/community/hero-04.webp',
   '/community/hero-05.webp',
