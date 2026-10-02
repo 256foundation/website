@@ -164,6 +164,8 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   a contact path: secondary Contact buttons on `/our-work`, `/projects`, `/community`,
   `/telehash`, and newsroom articles; a shared contextual `PageCTA` closer on `/mission`,
   `/faq`, `/newsroom`, `/grants`, `/grants/announcements`, and `/donate`.
+- **Our Work close:** the Linux Foundation line breaks onto its own line, and the primary
+  button is relabeled **"Support with a Donation →"**.
 
 ---
 

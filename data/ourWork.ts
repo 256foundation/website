@@ -91,7 +91,10 @@ export const ourWorkPrograms = {
 
 export const ourWorkClose = {
   kicker: 'The Long Game',
-  line: 'The best one-line description of our role: the Linux Foundation of Bitcoin Mining.',
+  line: [
+    'The best one-line description of our role:',
+    'the Linux Foundation of Bitcoin Mining.',
+  ],
   body:
     'Commoditizing an industry is long and expensive, and core contributors deserve multi-year funding to see it through.',
 }

@@ -214,14 +214,18 @@ export default function OurWorkPage() {
       <SectionWrapper className="max-w-3xl mx-auto text-center">
         <SectionKicker centered>{ourWorkClose.kicker}</SectionKicker>
         <p className="font-display text-gray-900 dark:text-white text-xl sm:text-2xl leading-snug uppercase mb-5">
-          {ourWorkClose.line}
+          {ourWorkClose.line.map((line) => (
+            <span key={line} className="block">
+              {line}
+            </span>
+          ))}
         </p>
         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xl mx-auto mb-8">
           {ourWorkClose.body}
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Button variant="primary" size="lg" href="/donate">
-            Become a supporter →
+            Support with a Donation →
           </Button>
           <Button variant="outlined" size="lg" href="/contact">
             Get in touch →
