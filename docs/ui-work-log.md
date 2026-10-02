@@ -189,6 +189,8 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
   a **View Events Calendar** link sits in the hero. The standalone countdown section is gone.
 - The telehash hero event status is a **full-height panel** (anchored header, centered message,
   bottom "View Events Calendar" bar) rather than a floating box, so it fills the hero cleanly.
+- **FAQ hero** now has a right-side "General Questions" panel with **Get in touch** (/contact)
+  and **Visit the Forum** links, mirroring the telehash panel treatment.
 
 ---
 
