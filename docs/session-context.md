@@ -11,13 +11,14 @@ Last updated: 2026-10-02
 
 ## TL;DR current state
 
-- **Open PRs on the current stack (merge in order):** [#32](https://github.com/256foundation/website/pull/32)
-  (round 12 design-system pass) → [#33](https://github.com/256foundation/website/pull/33)
-  (round 13 mission/footer) → [#34](https://github.com/256foundation/website/pull/34)
-  (round 14 home overhaul). All target `main` and are stacked.
+- **Merged to `main`:** [#32](https://github.com/256foundation/website/pull/32) (round 12
+  design-system pass), [#33](https://github.com/256foundation/website/pull/33) (round 13
+  mission/footer), [#34](https://github.com/256foundation/website/pull/34) (round 14 home
+  overhaul). The branch stack `ui/edits-round12 → round13 → round14` is merged.
+- **Open:** [#35](https://github.com/256foundation/website/pull/35) — docs sync for round 14
+  (CLAUDE/README/session-context/ARCHITECTURE), on `ui/edits-round14`.
 - Earlier merged: #20, #21, #24, #25, #26, #27, #28, #30, #31. Rounds 3 and 4 had no PR.
-- Branch stack: `ui/edits-round12 → ui/edits-round13 → ui/edits-round14`. Branch the next
-  round off the top of the stack while PRs are open.
+- Branch the next round fresh off `main`.
 - Dev server: `npm run dev` → http://localhost:3000.
 
 ---
@@ -146,8 +147,7 @@ the root layout provides `<main>`, so avoid accidental `main > main`.
   and linked as maintainer; (2) verify "revision three" against the actual repo state.
 - **Square / circular logo variants** in `Logo.tsx` still point at old brand files.
 - `ARCHITECTURE.md` / `SPEC.md` are intentionally stale (banner at top).
-- **Next round should branch off the top of the branch stack** (`ui/edits-round14` while the
-  PRs are open) so it does not miss the in-flight rounds.
+- **Next round should branch fresh off `main`** (rounds 12-14 are merged).
 
 ---
 
