@@ -100,7 +100,7 @@ export default function TelehashPage() {
               </div>
               <div className="flex flex-wrap gap-2 mb-2">
                 {nextEventDetails.inPerson && (
-                  <span className="font-mono text-xs px-2 py-0.5 border border-[#00FF41]/40 text-[#00FF41] bg-[#00FF41]/10">In Person</span>
+                  <span className="font-mono text-xs px-2 py-0.5 border border-[#3b1445]/40 dark:border-[#5c2070]/40 text-[#3b1445] dark:text-[#c084d8] bg-[#3b1445]/10 dark:bg-[#5c2070]/10">In Person</span>
                 )}
                 {nextEventDetails.online && (
                   <span className="font-mono text-xs px-2 py-0.5 border border-[#3b1445]/40 dark:border-[#5c2070]/40 text-[#3b1445] dark:text-[#c084d8] bg-[#3b1445]/10 dark:bg-[#5c2070]/10">Online</span>
@@ -156,7 +156,7 @@ export default function TelehashPage() {
               </div>
               <h3 className="font-display font-bold text-gray-900 dark:text-white text-sm uppercase mb-2">{s.title}</h3>
               {s.code && (
-                <code className="block bg-[#2d0f36] dark:bg-[#2d0f36] border border-[#5c2070]/50 rounded-none px-3 py-2 font-mono text-[#00FF41] text-xs mt-2 mb-2 break-all">
+                <code className="block bg-gray-100 dark:bg-[#1f1f1f] border border-gray-200 dark:border-[#2a2a2a] rounded-none px-3 py-2 font-mono text-gray-800 dark:text-gray-100 text-[11px] mt-2 mb-2 break-all">
                   {s.code}
                 </code>
               )}
