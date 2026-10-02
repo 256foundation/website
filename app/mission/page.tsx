@@ -3,6 +3,7 @@ import { generatePageMetadata } from '@/lib/metadata'
 import { founders, board } from '@/data/team'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Eyebrow from '@/components/ui/Eyebrow'
+import HeroScrim from '@/components/ui/HeroScrim'
 import TeamMemberCard from '@/components/shared/TeamMemberCard'
 import PageCTA from '@/components/shared/PageCTA'
 
@@ -41,9 +42,7 @@ export default function MissionPage() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div aria-hidden="true" className="absolute inset-0 bg-black/45" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/30" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/35" />
+        <HeroScrim />
 
         <SectionWrapper className="relative z-10 flex min-h-[560px] lg:min-h-[640px] items-center">
           <div className="max-w-4xl">

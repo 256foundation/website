@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Eyebrow from '@/components/ui/Eyebrow'
+import HeroScrim from '@/components/ui/HeroScrim'
 import Button from '@/components/ui/Button'
 
 interface CommunityHeroCarouselProps {
@@ -94,8 +95,7 @@ export default function CommunityHeroCarousel({
       </div>
 
       {/* Contrast overlays so the copy stays legible over any frame */}
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/25" />
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+      <HeroScrim />
 
       <SectionWrapper className="relative z-10 flex min-h-[560px] lg:min-h-[640px] items-center">
         <div className="max-w-2xl">
