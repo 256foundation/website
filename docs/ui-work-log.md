@@ -29,7 +29,8 @@ Last updated: 2026-10-02
 | `ui/edits-round15` | — | Home polish: clean favicon from the header `secondary` mark (theme-aware `app/icon.svg`, `app/favicon.ico` + `app/apple-icon.png` fallbacks, replaces off-brand `app/icon.png`); dedicated home Community photo (`public/home-community.webp`, conference panel) instead of reusing a `/community` carousel shot; home CTA consistency (Latest beat's "All updates →" now the shared outlined `Button` like every other main-page link) | [#36](https://github.com/256foundation/website/pull/36) |
 | `chore/housekeeping` | [#37](https://github.com/256foundation/website/pull/37) | Repo hygiene: prune merged branches, drop unused assets, move the Discourse prompt into `docs/`, non-breaking `npm audit fix` | merged |
 | `chore/image-weight` | [#38](https://github.com/256foundation/website/pull/38) | Cut shipped raster weight ~13MB → ~1.5MB: convert oversized project/ecosystem/supporter art to right-sized WebP (`scripts/optimize-art.mjs`), re-encode logos + OG to compressed palette PNG | merged |
-| `chore/perf-pass` | — | Round 2 of image/perf: re-run newsroom optimizer, convert telehash photos to WebP, and mount only 3 frames in the `/community` hero carousel instead of all 8 | PR opens now |
+| `chore/perf-pass` | [#39](https://github.com/256foundation/website/pull/39) | Round 2 of image/perf: re-run newsroom optimizer, convert telehash photos to WebP, and mount only 3 frames in the `/community` hero carousel instead of all 8 | merged |
+| `chore/img-nextimage` | — | Convert the last 5 raw `<img>` tags to `next/image` (lint now clean), tighten newsroom optimizer to 1440px/q78, align `deviceSizes` to 1440 | PR opens now |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 

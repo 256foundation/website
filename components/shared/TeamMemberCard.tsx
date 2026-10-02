@@ -1,6 +1,7 @@
 'use client'
 
 import type { TeamMember } from '@/types'
+import Image from 'next/image'
 
 interface TeamMemberCardProps {
   member: TeamMember
@@ -23,9 +24,11 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
       <div className="flex items-start gap-4 mb-4">
         {/* Avatar */}
         <div className="relative w-14 h-14 shrink-0">
-          <img
+          <Image
             src={member.headshot}
             alt={member.name}
+            width={56}
+            height={56}
             className="w-14 h-14 rounded-full object-cover border border-gray-200 dark:border-[#1f1f1f] transition-all duration-300"
             onError={(e) => {
               const target = e.currentTarget
