@@ -3,6 +3,7 @@ import { generatePageMetadata } from '@/lib/metadata'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 import NewsroomIndex from '@/components/newsroom/NewsroomIndex'
+import PageCTA from '@/components/shared/PageCTA'
 
 export const dynamic = 'force-static'
 
@@ -19,22 +20,30 @@ export default function NewsroomPage() {
   const posts = getAllPostsByDate()
 
   return (
-    <SectionWrapper className="min-h-[60vh]">
-      <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-1 h-4 bg-[#3b1445]" />
-        <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
-          256 Foundation
-        </span>
-      </div>
-      <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl uppercase mb-2">
-        Newsroom
-      </h1>
-      <p className="text-gray-500 dark:text-gray-400 text-sm mb-10">
-        Announcements, perspectives, and updates from the 256 Foundation team.
-      </p>
+    <>
+      <SectionWrapper className="min-h-[60vh]">
+        <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-1 h-4 bg-[#3b1445]" />
+          <span className="font-mono text-[#3b1445] dark:text-[#c084d8] text-xs tracking-[0.2em] uppercase">
+            256 Foundation
+          </span>
+        </div>
+        <h1 className="font-display font-bold text-gray-900 dark:text-white text-3xl sm:text-4xl uppercase mb-2">
+          Newsroom
+        </h1>
+        <p className="text-gray-500 dark:text-gray-400 text-sm mb-10">
+          Announcements, perspectives, and updates from the 256 Foundation team.
+        </p>
 
-      <NewsroomIndex posts={posts} />
-    </SectionWrapper>
+        <NewsroomIndex posts={posts} />
+      </SectionWrapper>
+
+      <PageCTA
+        kicker="Writing About Us?"
+        title="Get the story straight from the source."
+        body="Questions on a post, an announcement, or the foundation itself — reach out and we'll help."
+      />
+    </>
   )
 }

@@ -23,6 +23,7 @@ export const footerResourcesLinks: NavItem[] = [
   { label: 'Grant announcements', href: '/grants/announcements' },
   { label: 'Telehash', href: '/telehash' },
   { label: 'FAQ', href: '/faq' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export const footerCommunityLinks: NavItem[] = [

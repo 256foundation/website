@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { communityClose } from '@/data/community'
 
 export default function GetInvolved() {
@@ -45,6 +46,16 @@ export default function GetInvolved() {
             </div>
           ))}
         </div>
+
+        <p className="mt-10 text-gray-500 dark:text-gray-400 text-sm font-mono">
+          Not sure where you fit?{' '}
+          <Link
+            href="/contact"
+            className="text-[#3b1445] dark:text-[#c084d8] hover:underline"
+          >
+            Get in touch →
+          </Link>
+        </p>
       </div>
     </section>
   )

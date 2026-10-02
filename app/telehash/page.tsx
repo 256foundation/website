@@ -1,6 +1,7 @@
 import { generatePageMetadata } from '@/lib/metadata'
 import { teleHashEvents, nextEventDate, nextEventEndDate, nextEventDetails } from '@/data/telehash'
 import SectionWrapper from '@/components/ui/SectionWrapper'
+import Button from '@/components/ui/Button'
 import TeleHashEventCard from '@/components/telehash/TeleHashEventCard'
 import CountdownTimer from '@/components/telehash/CountdownTimer'
 import SubstackEmbed from '@/components/shared/SubstackEmbed'
@@ -209,6 +210,14 @@ export default function TelehashPage() {
             View Events Calendar →
           </a>
           <SubstackEmbed />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button variant="primary" size="lg" href="/donate">
+              Donate →
+            </Button>
+            <Button variant="outlined" size="lg" href="/contact">
+              Get in touch →
+            </Button>
+          </div>
         </div>
       </SectionWrapper>
     </>

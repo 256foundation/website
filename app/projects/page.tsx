@@ -151,6 +151,9 @@ export default async function OpenMiningStackPage() {
             <Button variant="primary" size="lg" href="/donate">
               Donate →
             </Button>
+            <Button variant="outlined" size="lg" href="/contact">
+              Get in touch →
+            </Button>
             <Button variant="outlined" size="lg" href="https://github.com/256foundation" external>
               GitHub Org
             </Button>

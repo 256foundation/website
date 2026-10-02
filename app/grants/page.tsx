@@ -4,6 +4,7 @@ import { generatePageMetadata } from '@/lib/metadata'
 import { getGrantAnnouncements } from '@/lib/newsroom'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import FundingAnnouncements from '@/components/grants/FundingAnnouncements'
+import PageCTA from '@/components/shared/PageCTA'
 
 export const metadata = generatePageMetadata({
   title: 'Grants',
@@ -236,6 +237,13 @@ export default function GrantsPage() {
         title="Funding announcements"
         posts={previewAnnouncements}
         showViewAll={allAnnouncements.length > ANNOUNCEMENT_PREVIEW_LIMIT}
+      />
+
+      <PageCTA
+        kicker="Not Sure Where To Start?"
+        title="Tell us what you want to build."
+        body="If you can't tell which program fits, or you want to discuss a larger or longer commitment, get in touch. We'll help you find the right door."
+        donateLabel="Fund a grant →"
       />
     </>
   )

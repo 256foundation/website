@@ -219,9 +219,14 @@ export default function OurWorkPage() {
         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xl mx-auto mb-8">
           {ourWorkClose.body}
         </p>
-        <Button variant="primary" size="lg" href="/donate">
-          Become a supporter →
-        </Button>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button variant="primary" size="lg" href="/donate">
+            Become a supporter →
+          </Button>
+          <Button variant="outlined" size="lg" href="/contact">
+            Get in touch →
+          </Button>
+        </div>
       </SectionWrapper>
     </>
   )
