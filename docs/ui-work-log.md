@@ -347,7 +347,7 @@ home page is the same control (photo overlays stay `onDark`).
 - Favicon: `app/icon.svg` (theme-aware), `app/favicon.ico`, `app/apple-icon.png`
   (built from `public/logos/256-logo-secondary-{dark,light}.png`)
 - Hero art: `public/projects/open-mining-stack.webp`,
-  `public/mission-background.webp`, `public/grants-hero-background.webp`,
+  `public/mission-hero.webp`, `public/grants-hero-background.webp`,
   `public/our-work-hero.webp`, `public/home-hero.webp`, `public/home-community.webp`
 - Community hero carousel: `public/community/hero-0*.webp`
 - Project marks: `public/projects/*`

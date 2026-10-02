@@ -274,5 +274,5 @@ decisions, and open items. Durable facts a fresh session must know:
   recipes.
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) / [`SPEC.md`](SPEC.md) — original design intent
   (see stale-warning banners at their tops).
-- `discourse-header-prompt.md` — one-off prompt for matching the Discourse forum header
+- `docs/discourse-header-prompt.md` — one-off prompt for matching the Discourse forum header
   to the site header; not part of the app build.
