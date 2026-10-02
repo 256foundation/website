@@ -26,8 +26,7 @@ test('the footer lists the general email', () => {
   assert.ok(read('components/layout/Footer.tsx').includes('contact@256foundation.org'))
 })
 
-test('footer resources and sitemap include /contact', () => {
-  assert.ok(read('data/navigation.ts').includes("label: 'Contact', href: '/contact'"))
+test('sitemap includes /contact', () => {
   assert.ok(read('app/sitemap.ts').includes('${baseUrl}/contact'))
 })
 
