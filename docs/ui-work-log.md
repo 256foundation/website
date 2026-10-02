@@ -21,7 +21,7 @@ Last updated: 2026-10-01
 | `ui/edits-round8` | [#28](https://github.com/256foundation/website/pull/28) | Footer Contact button beside Donate | merged |
 | `ui/edits-round9` | [#29](https://github.com/256foundation/website/pull/29) | Contact form: label "Name / Nym", message placeholder "What's up?" | open |
 | `ui/edits-round10` | [#30](https://github.com/256foundation/website/pull/30) | Dedicated `/contact` page + site-wide contextual contact links | open |
-| `ui/edits-round11` | — | (new round) | open (branched off `ui/edits-round10`) |
+| `ui/edits-round11` | — | `/donate` relayout: action above the fold, compact hero, neutral code style | open (branched off `ui/edits-round10`) |
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
@@ -168,6 +168,19 @@ Dev server: `npm run dev` → http://localhost:3000. `npm run build` + `npm run 
 - **Our Work close:** the Linux Foundation line breaks onto its own line, and the primary
   button is relabeled **"Support with a Donation →"**.
 - **Community close:** added a PageCTA after Get Involved (Donate + Get in touch); it had none.
+
+### Round 11 — `ui/edits-round11` — `/donate` relayout
+- **Hero compacted** (`tight`) into two columns: short "Fund the open-source mining stack."
+  copy on the left, and a **"Give in seconds"** action box on the right with the Zaprite
+  button and Card / On-chain / Lightning chips — so the primary action is above the fold.
+- **501(c)(3) note moved low**, to a single compact line after the hashrate section, instead
+  of its own full-height band near the top.
+- Renamed "Donate with Money" → folded into the hero; direct-address section trimmed to one line.
+- **Hashrate copy trimmed** to one paragraph.
+- **Code blocks rethemed** from dark purple + neon green to neutral `gray-100 dark:#1f1f1f`
+  with gray text; `CopyButton` rethemed from green to gray/purple.
+- Shared **`ZAPRITE_URL`** constant added to `data/donate.ts`; `/donate` and the home
+  `DonateCards` now read it (removes the hardcoded/`#`-fallback mismatch).
 
 ---
 
