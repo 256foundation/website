@@ -12,7 +12,7 @@ interface PageCTAProps {
   donateLabel?: string
   /** Secondary action label; defaults to a contact prompt. */
   contactLabel?: string
-  /** Layout alignment. Centered is used by marketing-page closers. */
+  /** Layout alignment. Centered is the sitewide default so every page ends on the same note. */
   align?: 'left' | 'center'
   /** Extra actions rendered alongside the defaults (e.g. GitHub, Forum). */
   extra?: ReactNode
@@ -31,7 +31,7 @@ export default function PageCTA({
   body,
   donateLabel = 'Fund the work →',
   contactLabel = 'Get in touch →',
-  align = 'left',
+  align = 'center',
   extra,
   footnote,
 }: PageCTAProps) {
