@@ -1,0 +1,92 @@
+---
+title: "Ember One: our first grant builds the miner from the chip up"
+seoTitle: "Ember One: our first grant"
+date: "2024-11-18"
+author: "256 Foundation"
+category: "grant-announcement"
+project: "Ember One"
+program: "core"
+term: "Six months, November 2024 to April 2025"
+excerpt: "The 256 Foundation's first grant funds an open-source Bitcoin mining hashboard, built from the chip up and published for anyone to build."
+coverImage: "/newsroom/ember-one-first-grant/cover.webp"
+ogImage: "/newsroom/ember-one-first-grant/cover.webp"
+featured: false
+---
+
+The 256 Foundation has made its first grant.
+
+It funds six months of engineering on something nobody has tried: an open-source reference
+design for a Bitcoin mining hashboard, the board that holds a series of ASIC chips and performs the hashing operation.
+
+The reference design will be published for anyone to build.
+
+Its name is Ember One.
+
+## Why a Hashboard
+
+Bitmain and other vendors make the chips: extremely advanced silicon dedicated to mining Bitcoin as efficiently as possible. It's a massive undertaking to develop an ASIC, and these companies are very good at it.
+
+Unlike the rest of the silicon industry, this same handful of companies don't sell their chips to builders. They make the boards and the firmware, and put them inside complete machines, the mining systems you already know. They publish no datasheets, documentation, or repair manuals.
+
+In every other chip industry, manufacturers provide reference designs: the blueprints that show how to talk to a chip, what voltages and frequencies it wants, how its pins connect. Arduino, Raspberry Pi, TI, AMD, Intel all do it. This is exactly how third parties and new companies build products on the vendor's advanced chips. And it's what leads to more chip sales for the silicon manufacturers.
+
+After Bitcoin mining evolved from general-purpose computing (CPUs and GPUs, which had a healthy ecosystem of silicon vendors and reference designs), the new ASIC status quo never opened up to that level of maturity.
+
+The leading manufacturers simply set a new status quo for competitive Bitcoin mining chips, and then closed the door. As a result, nobody can build on their chips. Closed source all the way down, in the industry that secures what is supposed to be an open and permissionless monetary system.
+
+Ember One is the open answer at the hashboard layer. A blueprint for how to build and talk to a series of ASIC mining chips, like all modern, competitive Bitcoin miners.
+
+The project exists to do what the vendors will not: perform the reverse engineering required to learn how to talk to a string of ASIC chips, then put them into a fully open-source reference design that the rest of the world can use as a starting point to build upon and modify.
+
+## What It Is
+
+The project starts with a specific, common chip: the Bitmain BM1362 from the S19 J-Pro ASIC. The plan is to
+reverse-engineer it: desolder the chips, read their electrical connections under a microscope,
+document every path, and publish a modular hashboard design using 12 chips, drawing roughly 100 watts and producing two to four terahash.
+
+This project is open and GPL-licensed. The design files will be made public. Anyone can read them, copy them, strip them down, or build something the original designers never imagined.
+
+This is a reference design, not a product. The Foundation does not manufacture or sell it.
+Publishing the design is the whole point: it means a hashboard stops being something only an
+incumbent can make.
+
+The intention is to build additional Ember One versions to serve as reference designs for ASIC chips from other vendors and miner models.
+
+## Who Is Building It
+
+The lead engineer is Skot. If the name is familiar, that is because he instigated [Bitaxe](https://bitaxe.org), the open single-chip desktop miner that proved a brand-new chip could be documented and run entirely on open source.
+
+Notably, Ember One is different from Bitaxe.
+
+Bitaxe squeezed the hashboard and the control board onto one small PCB via an ESP32 microcontroller. It serves as the single-chip step towards a fully open source hashboard. Ember One is the next step: a multi-chip hashboard with a string of ASICs in series, much like how larger industrial machines are designed. This is intentional, as dialing in voltages and frequencies for a string of chips is a different beast than a single-chip Bitaxe.
+
+If the Bitaxe teaches you how to talk to one chip, Ember One teaches you how to talk to a bunch of them.
+
+Econoalchemist is the project manager for this grant, running six months, through April, with the option to renew at the end of the term.
+
+## What Six Months Buys
+
+Reverse engineering, a test board, and a published design.
+
+Nothing about this is glamorous. It is exacting work: identify the components, order
+them, lay out a board, bring it up, test every part of it, fix what breaks, and write it all down
+for the next person. The deliverable at the end is a validated design and the documentation to
+build from it. Not a box you can buy, but the blueprint source that lets anyone make one.
+
+## The First Layer
+
+Ember One is the first project the Foundation has ever funded. It is the smallest possible version
+of the plan: find the layer that is most closed, and open it.
+
+A hashboard is one layer of a mining system. The firmware that drives the chips, the control board
+that runs it, and the pool that hands out the work are others. Ember One is where the Foundation
+starts. It will not be where it stops.
+
+**Follow the design as it is published →** [github.com/256foundation/emberone00-pcb](https://github.com/256foundation/emberone00-pcb)
+
+**Support the mission →** [256foundation.org/donate](https://256foundation.org/donate)
+
+---
+
+*The 256 Foundation is a 501(c)(3) nonprofit funding open-source Bitcoin mining.
+[Become a supporter →](/donate)*
