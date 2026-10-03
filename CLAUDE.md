@@ -122,7 +122,8 @@ structure are in [`types/index.ts`](types/index.ts).
 `category` is one of five: `perspective`, `foundation-news`, `project-update`,
 `highlight`, `grant-announcement` (display names in `categoryLabel()`, `lib/newsroomMeta.ts`).
 Posts tagged `grant-announcement` additionally carry optional `project`, `program`
-(`core` | `general`), and `term`, and feed the `/grants` funding log. Parsed by
+(`core` | `general`), and `term` (format `<Duration>, <Month Year> to <Month Year>`),
+and feed the `/grants` funding log. Parsed by
 [`lib/newsroom.ts`](lib/newsroom.ts); sorted newest-first; the newest post
 auto-surfaces in the home page Latest beat. Article images go in `public/newsroom/<slug>/`.
 

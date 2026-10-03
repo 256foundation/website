@@ -716,7 +716,7 @@ ogImage: "/newsroom/[post-slug]/og.png"          # optional — used for social 
 # grant-announcement only, all optional — feed the /grants funding log:
 project: "Libre Board"
 program: "core"             # core | general
-term: "Four months, September to December"
+term: "Four months, September 2026 to December 2026"  # "<Duration>, <Month Year> to <Month Year>"
 ---
 
 Article body in Markdown...
@@ -724,7 +724,7 @@ Article body in Markdown...
 
 Parsed by `lib/newsroom.ts` at build time. Posts are sorted newest-first. The most recent post is surfaced in the home page Latest beat.
 
-Posts with `category: grant-announcement` additionally appear, newest first, in the `/grants` funding log (`#funding-announcements`, max 6) and its `/grants/announcements` archive. Grants *received* from third parties (HRF, MARA) are `foundation-news`, not announcements. The log never shows a dollar amount, and its copy avoids "cycle"/"wave"/"round", "pillar", retired program names, and em dashes; `tests/grant-announcements.test.mjs` enforces this.
+Posts with `category: grant-announcement` additionally appear, newest first, in the `/grants` funding log (`#funding-announcements`, max 6) and its `/grants/announcements` archive. Grants *received* from third parties (HRF, MARA) are `foundation-news`, not announcements. The log never shows a dollar amount, and its copy avoids "cycle"/"wave"/"round", "pillar", retired program names, and em dashes; `tests/grant-announcements.test.mjs` enforces this. Every `term` must use the same funding-timeline format, `<Duration>, <Month Year> to <Month Year>` (for example `Four months, September 2026 to December 2026`), so the log's timeline stays uniform — also enforced by that test.
 
 ---
 

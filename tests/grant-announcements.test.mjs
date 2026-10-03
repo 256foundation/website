@@ -106,7 +106,30 @@ test('the Libre Board announcement carries the agreed frontmatter', () => {
   assert.equal(field(fm, 'category'), 'grant-announcement')
   assert.equal(field(fm, 'project'), 'Libre Board')
   assert.equal(field(fm, 'program'), 'core')
-  assert.equal(field(fm, 'term'), '2026 term, reactivated September')
+  assert.equal(field(fm, 'term'), 'Four months, September 2026 to December 2026')
+})
+
+// The funding-timeline framework every grant announcement's `term` must follow:
+// "<Duration>, <Month Year> to <Month Year>". Keeps the grants log's timeline
+// uniform across posts instead of each author formatting the span their own way.
+const TERM_FORMAT = /^[A-Z][a-z]+ months?, [A-Z][a-z]+ \d{4} to [A-Z][a-z]+ \d{4}$/
+
+test('every grant-announcement term follows the funding-timeline format', () => {
+  if (!fs.existsSync(CONTENT_DIR)) return
+  const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith('.mdx'))
+
+  for (const file of files) {
+    const fm = readFrontmatter(file)
+    if (field(fm, 'category') !== 'grant-announcement') continue
+
+    const term = field(fm, 'term')
+    if (term === undefined) continue
+    assert.match(
+      term,
+      TERM_FORMAT,
+      `${file}: term ${JSON.stringify(term)} must read "<Duration>, <Month Year> to <Month Year>"`,
+    )
+  }
 })
 
 test('feature copy carries no banned vocabulary, amounts, or em dashes', () => {
