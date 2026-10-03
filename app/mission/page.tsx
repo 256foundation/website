@@ -22,10 +22,10 @@ const principles = [
   },
   {
     lead: 'No obligation to capture value.',
-    body: 'Our non-profit structure removes the incentive to capture value — which is why we can be the neutral home for the ecosystem’s shared dependencies, and never compete with the builders and companies that contribute.',
+    body: 'Our non-profit structure removes the incentive to capture value, which is why we can be the neutral home for the ecosystem’s shared dependencies, and never compete with the builders and companies that contribute.',
   },
   {
-    lead: 'We started the projects — we don’t own them, and we don’t sell them.',
+    lead: 'We started the projects, we don’t own them, and we don’t sell them.',
     body: 'Every core project and grant we fund is released under a recognized open-source licence, no exceptions.',
   },
 ]
@@ -41,7 +41,7 @@ const narrative = [
   },
   {
     lead: 'To open it, you need the recipes.',
-    body: 'A miner is four building blocks: a hashboard, a control board, firmware, and a pool. The knowledge to build each was locked away.',
+    body: 'A miner is four unique building blocks: a hashboard, a control board, firmware, and a pool. The knowledge to build each was locked away.',
   },
   {
     lead: 'So we wrote them down.',
@@ -52,7 +52,7 @@ const narrative = [
 export default function MissionPage() {
   return (
     <>
-      {/* Hero — full-bleed image with overlaid mission statement (matches Our Work / Grants) */}
+      {/* Hero, full-bleed image with overlaid mission statement (matches Our Work / Grants) */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]">
         <Image
           src="/mission-hero.webp"
@@ -70,7 +70,7 @@ export default function MissionPage() {
             <h1 className="font-display font-bold text-white text-2xl sm:text-3xl lg:text-4xl leading-tight uppercase">
               To <span className="text-[#c084d8]">decentralize</span> Bitcoin mining by building,
               funding and stewarding <span className="text-[#c084d8]">open-source</span> alternatives
-              to every closed layer of the <span className="text-[#c084d8]">mining stack</span> — so
+              to every closed layer of the <span className="text-[#c084d8]">mining stack</span>, so
               that the technology Bitcoin depends on cannot be owned, switched off, or permissioned
               by anyone
             </h1>
@@ -78,7 +78,7 @@ export default function MissionPage() {
         </SectionWrapper>
       </section>
 
-      {/* Narrative — numbered story beats that lead into the Vision */}
+      {/* Narrative, numbered story beats that lead into the Vision */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl space-y-10">
           {narrative.map((point, i) => (
@@ -98,7 +98,7 @@ export default function MissionPage() {
         </div>
       </SectionWrapper>
 
-      {/* Vision — two large statements */}
+      {/* Vision, two large statements */}
       <SectionWrapper className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-4xl">
           <Eyebrow className="mb-6">Our Vision</Eyebrow>
@@ -114,7 +114,7 @@ export default function MissionPage() {
         </div>
       </SectionWrapper>
 
-      {/* Principles — subtle filler */}
+      {/* Principles, subtle filler */}
       <SectionWrapper tight className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="max-w-3xl">
           <Eyebrow className="mb-4">Principles</Eyebrow>
@@ -151,7 +151,13 @@ export default function MissionPage() {
       <PageCTA
         kicker="Support the Mission"
         title="Help us keep every layer open."
-        body="We take money from anyone and influence from no one. Fund the work, or reach out and get involved."
+        body={
+          <>
+            We take money from anyone and influence from no one.
+            <br />
+            Fund the work, or reach out and get involved.
+          </>
+        }
         donateLabel="Donate →"
       />
     </>

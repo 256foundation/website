@@ -11,7 +11,7 @@ type BannerLinkProps = {
   className?: string
 }
 
-/** Declared at module scope — defining this inside the render remounted the
+/** Declared at module scope, defining this inside the render remounted the
  *  banner contents on every render and reset their state. */
 function BannerLink({ href, external, children, className }: BannerLinkProps) {
   if (external) {
@@ -74,11 +74,11 @@ export default function AnnouncementBanner() {
               {label}
             </span>
 
-            {/* Message — static on desktop, scrolling ticker on mobile */}
+            {/* Message, static on desktop, scrolling ticker on mobile */}
             <span className="overflow-hidden flex-1 min-w-0">
               <span className="banner-marquee font-mono text-xs text-white whitespace-nowrap group-hover:text-[#c084d8] transition-colors">
                 {message}
-                {/* Duplicate for seamless mobile loop — hidden on sm+ */}
+                {/* Duplicate for seamless mobile loop, hidden on sm+ */}
                 <span className="ml-16 sm:hidden" aria-hidden="true">{message}</span>
               </span>
             </span>

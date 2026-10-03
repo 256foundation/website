@@ -63,7 +63,7 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
         {/* Author */}
         <p className="font-mono text-gray-400 text-xs mb-8">By {meta.author}</p>
 
-        {/* Cover image — sized to its own aspect ratio, so covers as different
+        {/* Cover image, sized to its own aspect ratio, so covers as different
             as a 3:1 banner and a 3:2 photo both render full-width uncropped. */}
         {meta.coverImage && (
           <div className="w-full mb-10 overflow-hidden border border-gray-200 dark:border-[#1f1f1f]">

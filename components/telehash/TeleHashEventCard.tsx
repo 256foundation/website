@@ -111,7 +111,7 @@ export default function TeleHashEventCard({ event }: TeleHashEventCardProps) {
         </div>
       )}
 
-      {/* Contributor leaderboard — collapsible */}
+      {/* Contributor leaderboard, collapsible */}
       {event.leaderboard && event.leaderboard.length > 0 && (
         <div className="p-6 border-t border-gray-200 dark:border-[#1f1f1f]">
           <LeaderboardTable entries={event.leaderboard} />

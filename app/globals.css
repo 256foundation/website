@@ -5,7 +5,7 @@
 
 /* ── Brand design tokens ─────────────────────────────────────── */
 @theme {
-  /* Primary accent — purple replaces orange entirely */
+  /* Primary accent, purple replaces orange entirely */
   --color-brand-purple:        #3b1445;
   --color-brand-purple-dark:   #2d0f36;
   --color-brand-purple-light:  #5c2070;
@@ -14,14 +14,14 @@
   /* Terminal / status */
   --color-brand-green:         #00FF41;
 
-  /* Surfaces — dark mode */
+  /* Surfaces, dark mode */
   --color-brand-dark:          #1a1a1a;
-  --color-brand-deep:          #13091a;   /* deep purple-tinted dark — header/footer */
+  --color-brand-deep:          #13091a;   /* deep purple-tinted dark, header/footer */
   --color-brand-surface:       #242424;
   --color-brand-surface-deep:  #1e1028;   /* purple-tinted card surface */
   --color-brand-border:        #1f1f1f;
 
-  /* Surfaces — light mode */
+  /* Surfaces, light mode */
   --color-brand-light-bg:      #ffffff;
   --color-brand-light-surface: #f5f5f5;
   --color-brand-light-border:  #e5e5e5;
@@ -33,7 +33,7 @@
 }
 
 /* ── Project brand typefaces ─────────────────────────────────── */
-/* Bridge Officer (Iconian Fonts) — Mujina wordmark. */
+/* Bridge Officer (Iconian Fonts), Mujina wordmark. */
 @font-face {
   font-family: 'Bridge Officer';
   src: url('/fonts/bridge-officer.woff2') format('woff2');
@@ -156,7 +156,7 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  /* #3b1445 on the #1a1a1a page background is ~1.4:1 — effectively invisible.
+  /* #3b1445 on the #1a1a1a page background is ~1.4:1, effectively invisible.
      Use the dark-mode accent instead. */
   :focus-visible {
     outline-color: #c084d8;
@@ -201,12 +201,12 @@ body {
 
 /* ── Logo utilities ──────────────────────────────────────────── */
 
-/* White silhouette — for dark backgrounds */
+/* White silhouette, for dark backgrounds */
 .logo-invert {
   filter: brightness(0) invert(1);
 }
 
-/* Metallic shimmer — echoes the logo's chrome/bevel effect */
+/* Metallic shimmer, echoes the logo's chrome/bevel effect */
 .text-metallic {
   background: linear-gradient(160deg, #ffffff 0%, #a0a0a0 35%, #ffffff 55%, #707070 100%);
   -webkit-background-clip: text;
@@ -226,7 +226,7 @@ body {
 
 /* main padding: just the fixed header height (4rem).
    When the TeleHash extension is active it adds its own body margin-top (115px),
-   so the body is already shifted — we must NOT add --ext-offset here again. */
+   so the body is already shifted, we must NOT add --ext-offset here again. */
 .site-main {
   padding-top: 4rem;
 }

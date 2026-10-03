@@ -79,7 +79,7 @@ export default function StackLayerSection({ project, index, layerLabel, repoMeta
 
             {/* Architect */}
             <p className="font-mono text-xs text-gray-500 dark:text-gray-400 mb-8">
-              <span className="text-gray-400 dark:text-gray-600">Funded by 256 · Core Architect &amp; Lead Maintainer — </span>
+              <span className="text-gray-400 dark:text-gray-600">Funded by 256 · Core Architect &amp; Lead Maintainer, </span>
               <span className="text-gray-900 dark:text-white">{project.architect.name}</span>{' '}
               <a
                 href={project.architect.x}

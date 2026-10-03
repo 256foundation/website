@@ -34,7 +34,7 @@ export async function fetchFeedXml(url: string, attempts = 3): Promise<string | 
       // 404/410 and friends will not fix themselves; 429 and 5xx might.
       if (res.status < 500 && res.status !== 429) return null
     } catch {
-      // Timeout or network error — worth another go.
+      // Timeout or network error, worth another go.
     }
 
     if (attempt < attempts) {

@@ -6,13 +6,13 @@ interface DecorativeBgProps {
   vignette?: boolean
   gridOpacity?: number
   glowOpacity?: number
-  /** CSS position string — e.g. '50% 0%' (top-center), '50% 100%' (bottom-center), '100% 50%' (right-center) */
+  /** CSS position string, e.g. '50% 0%' (top-center), '50% 100%' (bottom-center), '100% 50%' (right-center) */
   glowPosition?: string
   className?: string
 }
 
 /**
- * Composable decorative background — lower-intensity version of the hero's
+ * Composable decorative background, lower-intensity version of the hero's
  * three-layer treatment (PCB grid + purple radial glow + vignette edge fade).
  * Always static (not animated); place as first child inside a `relative overflow-hidden` container.
  */

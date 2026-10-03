@@ -35,7 +35,7 @@ export default function LeaderboardTable({ entries }: LeaderboardTableProps) {
             Official Results
           </span>
           <span className="font-mono text-[10px] text-[#3b1445]/60 dark:text-[#c084d8]/60">
-            — {entries.length} contributors
+            · {entries.length} contributors
           </span>
         </div>
         <div className="flex items-center gap-2">

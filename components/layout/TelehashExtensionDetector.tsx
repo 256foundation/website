@@ -21,7 +21,7 @@ export default function TelehashExtensionDetector() {
     }
 
     apply()
-    // Extension may inject slightly after DOMContentLoaded — check again shortly
+    // Extension may inject slightly after DOMContentLoaded, check again shortly
     const t = setTimeout(apply, 400)
     return () => clearTimeout(t)
   }, [])

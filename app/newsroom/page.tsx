@@ -39,7 +39,7 @@ export default function NewsroomPage() {
       <PageCTA
         kicker="Writing About Us?"
         title="Get the story straight from the source."
-        body="Questions on a post, an announcement, or the foundation itself — reach out and we'll help."
+        body="Questions on a post, an announcement, or the foundation itself. Reach out and we'll help."
       />
     </>
   )

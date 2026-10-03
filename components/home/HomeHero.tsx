@@ -35,7 +35,8 @@ export default function HomeHero() {
             or Bitcoin remains permissioned
           </h1>
           <p className="mt-5 text-gray-200 text-lg leading-relaxed max-w-xl">
-            We&apos;re building the open-source Bitcoin mining stack.
+            We&apos;re building the open-source <br className="sm:hidden" />
+            Bitcoin mining stack.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button variant="onDark" size="lg" href="/our-work">

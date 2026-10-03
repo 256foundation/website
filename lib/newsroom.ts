@@ -36,7 +36,7 @@ function toPost(slug: string, data: Record<string, unknown>): NewsroomPost {
     title: String(data.title ?? ''),
     date: String(data.date ?? ''),
     author: String(data.author ?? '256 Foundation'),
-    // Validated, not cast — a typo'd category used to fall through silently.
+    // Validated, not cast, a typo'd category used to fall through silently.
     // An unrecognized value lands in the neutral news bucket rather than
     // misfiling a grant announcement into the grants log.
     category: isNewsroomCategory(data.category) ? data.category : 'foundation-news',
@@ -55,7 +55,7 @@ function toPost(slug: string, data: Record<string, unknown>): NewsroomPost {
  * Featured posts sort first, then everything by date descending. Without a
  * featured post this is identical to plain date-descending order.
  *
- * Mirrored by tests/newsroom-featured.test.mjs — keep the two in step.
+ * Mirrored by tests/newsroom-featured.test.mjs, keep the two in step.
  */
 export function comparePosts(a: NewsroomPost, b: NewsroomPost): number {
   const aFeatured = a.featured === true
@@ -98,7 +98,7 @@ export function getLatestPost(): NewsroomPost | null {
 /**
  * Funding announcements, newest first, for the grants-page log and its
  * archive. Sorted by date alone rather than reusing `getAllPosts()`, whose
- * order pins `featured` posts to the top — a featured announcement should not
+ * order pins `featured` posts to the top, a featured announcement should not
  * jump ahead of a newer one in the log.
  */
 export function getGrantAnnouncements(limit?: number): NewsroomPost[] {

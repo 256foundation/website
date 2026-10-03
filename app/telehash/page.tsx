@@ -15,7 +15,7 @@ import DecorativeBg from '@/components/ui/DecorativeBg'
 export const metadata = generatePageMetadata({
   title: 'Telehash',
   description:
-    'Telehash is the 256 Foundation\'s occasional livestream fundraising event — point your hashrate to our pool for a chance to find a Bitcoin block live on stream.',
+    'Telehash is the 256 Foundation\'s occasional livestream fundraising event: point your hashrate to our pool for a chance to find a Bitcoin block live on stream.',
   path: '/telehash',
   ogImage: '/og/og-telehash.png',
 })
@@ -66,11 +66,11 @@ export default function TelehashPage() {
             <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
               If a block is found during the stream, all block reward proceeds go directly to the
               foundation to fund more open-source Bitcoin mining development. On our very first
-              Telehash, we found a block — raising the initial ~$300,000 that launched the organization.
+              Telehash, we found a block, raising the initial ~$300,000 that launched the organization.
             </p>
           </div>
 
-          {/* Event status panel — fills the hero height, anchored header + CTA */}
+          {/* Event status panel, fills the hero height, anchored header + CTA */}
           <Panel
             label={nextEventDate ? 'Next Event' : 'Event Status'}
             fullHeight
@@ -145,7 +145,7 @@ export default function TelehashPage() {
           How to Participate
         </h2>
         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-2xl mb-8">
-          Username and workername can be anything you want. Use a website URL, X handle, or Nostr npub as your username — your profile pic or favicon will show up on the leaderboard.
+          Username and workername can be anything you want. Use a website URL, X handle, or Nostr npub as your username: your profile pic or favicon will show up on the leaderboard.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
           {participationSteps.map((s) => (

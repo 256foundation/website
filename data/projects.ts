@@ -3,7 +3,7 @@ import type { PillarProject } from '@/types'
 /**
  * The four layers of the open mining stack, ordered silicon → pool:
  * hash board, control board, firmware, pool. Each entry backs one section of
- * /projects ("Open Mining Stack"). Kept intentionally lean — the standalone
+ * /projects ("Open Mining Stack"). Kept intentionally lean, the standalone
  * deep-dive pages were retired in favor of each project's dedicated site.
  */
 export const pillarProjects: PillarProject[] = [
@@ -13,11 +13,11 @@ export const pillarProjects: PillarProject[] = [
     name: 'Ember One',
     tagline: 'Open-source Bitcoin mining hash board reference design',
     description:
-      'A fully open-source hardware reference design for a Bitcoin mining hash board — the foundational blueprint that miners, researchers, and companies can build upon.',
+      'A fully open-source hardware reference design for a Bitcoin mining hash board, the foundational blueprint that miners, researchers, and companies can build upon.',
     whyNecessary:
       'Mining chips ship with no datasheets, no pinouts, no voltages or frequencies, and no way to buy the chips on their own. To build on competitive silicon you buy a full machine, desolder the chips, and reverse-engineer how to talk to them.',
     whatItDoes:
-      'Ember One publishes the whole recipe — open PCB files, bill of materials, and firmware interface spec. It teaches the industry how ASICs chain in series and how a standalone hash board pairs with a separate control board, then lets you scale one design from a bench build to a rack.',
+      'Ember One publishes the whole recipe: open PCB files, bill of materials, and firmware interface spec. It teaches the industry how ASICs chain in series and how a standalone hash board pairs with a separate control board, then lets you scale one design from a bench build to a rack.',
     keySpecs: [
       { label: 'Power', value: '~100W' },
       { label: 'Input Voltage', value: '12–24V DC' },
@@ -116,11 +116,11 @@ export const pillarProjects: PillarProject[] = [
     name: 'Hydrapool',
     tagline: 'One-click deployable open-source Bitcoin mining pool',
     description:
-      'A fully open-source mining pool built as a platform: payout and accounting logic are plug-ins, not hard-coded — deployed with a single command.',
+      'A fully open-source mining pool built as a platform: payout and accounting logic are plug-ins, not hard-coded, and deploy with a single command.',
     whyNecessary:
-      'The pool is the server side of mining, and it is concentrated. Pools can filter which transactions get mined, custody your payouts, and hide the accounting — and there’s no permissionless way to aggregate hashrate without trusting an operator.',
+      'The pool is the server side of mining, and it is concentrated. Pools can filter which transactions get mined, custody your payouts, and hide the accounting, and there’s no permissionless way to aggregate hashrate without trusting an operator.',
     whatItDoes:
-      'Like WordPress for pools: the core is a platform and payouts are plug-ins — solo, PPLNS, and more (Lightning, Ark) on the same core, all non-custodial from the coinbase. A P2Pool V2 path goes further, to pooling with no operator to trust at all.',
+      'Like WordPress for pools: the core is a platform and payouts are plug-ins: solo, PPLNS, and more (Lightning, Ark) on the same core, all non-custodial from the coinbase. A P2Pool V2 path goes further, to pooling with no operator to trust at all.',
     keySpecs: [
       { label: 'Language', value: 'Rust' },
       { label: 'License', value: 'AGPLv3' },
@@ -129,7 +129,7 @@ export const pillarProjects: PillarProject[] = [
     ],
     keyFeatures: [
       'One-command Docker deploy',
-      'Plugin payout logic — solo, PPLNS, more',
+      'Plugin payout logic: solo, PPLNS, more',
       'Non-custodial coinbase payouts',
       'P2Pool V2 path (pool without an operator)',
       'Prometheus + Grafana monitoring',

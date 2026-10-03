@@ -7,7 +7,7 @@ import ContactForm from '@/components/home/ContactForm'
 export const metadata = generatePageMetadata({
   title: 'Contact',
   description:
-    "Get in touch with the 256 Foundation. Questions about our grants, donations, or the open-source Bitcoin mining stack — we'd love to hear from you.",
+    "Get in touch with the 256 Foundation. Questions about our grants, donations, or the open-source Bitcoin mining stack. We'd love to hear from you.",
   path: '/contact',
 })
 

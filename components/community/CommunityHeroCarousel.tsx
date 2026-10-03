@@ -76,7 +76,7 @@ export default function CommunityHeroCarousel({
         touchX.current = null
       }}
     >
-      {/* Rotating photo layer — crossfades under the copy. Mount only the
+      {/* Rotating photo layer, crossfades under the copy. Mount only the
           current frame and its two neighbours so /community loads 3 hero
           images instead of 8. */}
       <div aria-hidden="true" className="absolute inset-0">

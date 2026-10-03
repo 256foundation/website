@@ -8,7 +8,7 @@ import type { NewsroomCategory } from '@/types'
  */
 
 /**
- * The frontmatter category vocabulary — the runtime twin of the
+ * The frontmatter category vocabulary, the runtime twin of the
  * `NewsroomCategory` union, used to validate authored values. Mirrored by
  * tests/newsroom-featured.test.mjs, which reads it off the real posts.
  */
@@ -51,7 +51,7 @@ export function categoryLabel(category: NewsroomCategory): string {
  * formatting it in the viewer's local zone shifts it a day earlier anywhere
  * west of UTC. Formatting in UTC pins it back to the authored calendar date.
  *
- * Mirrored by tests/newsroom-date.test.mjs — keep the two in step.
+ * Mirrored by tests/newsroom-date.test.mjs, keep the two in step.
  */
 export function formatPostDate(dateStr: string): string {
   if (!dateStr) return ''

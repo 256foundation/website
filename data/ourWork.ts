@@ -9,7 +9,7 @@ export const ourWorkHero = {
   kicker: 'Our Work',
   headline: 'We are commoditizing the Bitcoin mining stack.',
   line:
-    'The 256 Foundation is a 501(c)(3) nonprofit funding the open-source stack, because a company cannot do this and a closed industry will not.',
+    'The 256 Foundation is a 501(c)(3) nonprofit funding the open-source stack, because a company is not incentivized to do this and a closed industry will not.',
 }
 
 export const ourWorkThesis = {
@@ -17,21 +17,21 @@ export const ourWorkThesis = {
   quote: 'Bitcoin mining will be open-source, or Bitcoin remains permissioned.',
   body: [
     'Every mature industry eventually runs on commoditized inputs: recipes anyone can read, use, and improve. Open source is the final form of a mature industry. Aluminum has its process, servers have Linux, and the web runs on TCP and HTTP.',
-    'Bitcoin mining has not arrived there yet. A company is the wrong vehicle to take it there, because a company has an edge to protect. As a nonprofit, we have nothing to protect: success means anyone can compete with our work.',
+    'Bitcoin mining has not arrived there yet. A company is the wrong vehicle to take it there, because a company has an edge to protect. As a nonprofit, we have nothing to protect: success means anyone can use, fork, build upon and compete with our work.',
   ],
 }
 
 export const ourWorkStatusQuo = {
   kicker: 'The Status Quo',
-  intro: 'A modern miner is four building blocks, and each one is closed or concentrated.',
+  intro: 'A modern miner is four unique building blocks, and each one is closed or concentrated.',
   blocks: [
     {
       title: 'Hash board',
-      body: 'Mining chips ship with no datasheets, no pinouts, and no way to buy them on their own.',
+      body: 'Mining chips ship in systems with no datasheets, no pinouts, and no way to buy them on their own. The hashboard is a mystery.',
     },
     {
       title: 'Control board',
-      body: 'The board that runs the machine silently decides what a miner is allowed to be.',
+      body: 'The board that runs the machine silently decides what a miner is allowed to be, with locked bootloaders and limited I/O.',
     },
     {
       title: 'Firmware',
@@ -39,7 +39,7 @@ export const ourWorkStatusQuo = {
     },
     {
       title: 'Pool',
-      body: 'The server side of mining is concentrated, and trusting an operator is the only way to aggregate hashrate.',
+      body: 'The server side of mining is concentrated and opaque, and trusting an operator is the only way to aggregate hashrate.',
     },
   ],
   ending:
