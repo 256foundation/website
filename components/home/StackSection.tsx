@@ -22,7 +22,7 @@ export default function StackSection() {
           It takes the recipes.
         </h2>
         <p className="text-gray-500 dark:text-gray-400 text-sm sm:text-base mt-3">
-          A miner is four building blocks. We open-sourced all four.
+          A miner is four unique building blocks. We open-sourced all four.
         </p>
       </div>
 

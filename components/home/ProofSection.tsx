@@ -42,7 +42,7 @@ export default function ProofSection({ videoUrl }: ProofSectionProps) {
               They run.
             </p>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              In 2026, miners around the world pointed hashrate at our pool and found Bitcoin block
+              In 2025, miners around the world pointed hashrate at our pool and found Bitcoin block
               881423. Nine months later, our four projects ran together as a complete open-source
               mining kit. Real work, in public.
             </p>

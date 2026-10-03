@@ -19,7 +19,7 @@ export const metadata = generatePageMetadata({
   path: '/donate',
 })
 
-/** Neutral code chip — matches the light gray/purple page instead of a dark terminal. */
+/** Neutral code chip, matches the light gray/purple page instead of a dark terminal. */
 const codeClass =
   'block bg-gray-100 dark:bg-[#1f1f1f] border border-gray-200 dark:border-[#2a2a2a] rounded-none px-3 py-2 font-mono text-gray-800 dark:text-gray-100 text-[11px] mb-3 break-all'
 
@@ -36,7 +36,7 @@ const hashrateSteps = [
     title: 'Set your Stratum Username',
     code: 'username.workername',
     description:
-      'Username and workername can be anything. Use a website URL, X handle, or Nostr npub — your profile pic or favicon will show up on the leaderboard.',
+      'Username and workername can be anything. Use a website URL, X handle, or Nostr npub: your profile pic or favicon will show up on the leaderboard.',
   },
   {
     step: '03',
@@ -54,7 +54,7 @@ const hashrateSteps = [
 export default function DonatePage() {
   return (
     <>
-      {/* Hero + primary action — Zaprite button above the fold */}
+      {/* Hero + primary action, Zaprite button above the fold */}
       <SectionWrapper decorative size="hero" className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
@@ -101,7 +101,7 @@ export default function DonatePage() {
         </div>
       </SectionWrapper>
 
-      {/* Other ways to give — direct on-chain / Lightning */}
+      {/* Other ways to give, direct on-chain / Lightning */}
       <SectionWrapper id="direct" className="scroll-mt-[130px] border-b border-gray-200 dark:border-[#1f1f1f]">
         <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-3">
           Send Bitcoin Directly
@@ -146,7 +146,7 @@ export default function DonatePage() {
         </h2>
         <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-8 max-w-2xl">
           Point your miner at our Hydrapool instance. If we find a block, all proceeds go to the
-          foundation — it costs you only electricity. During{' '}
+          foundation: it costs you only electricity. During{' '}
           <TextLink href="/telehash">Telehash events</TextLink>{' '}
           the whole community points hashrate together for a chance to find a block live on stream.
         </p>
@@ -185,7 +185,7 @@ export default function DonatePage() {
         </div>
       </SectionWrapper>
 
-      {/* Supporters — logos and the live hashrate leaderboard */}
+      {/* Supporters, logos and the live hashrate leaderboard */}
       <SectionWrapper>
         <SupporterShowcase supporters={supporters} />
       </SectionWrapper>

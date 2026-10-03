@@ -2,7 +2,7 @@ import type { CommunityChannel, CommunityProject } from '@/types'
 
 /**
  * Hero carousel photos for /community. Real community shots, re-encoded to
- * 1920px WebP in /public/community. Add or reorder here — the carousel cycles
+ * 1920px WebP in /public/community. Add or reorder here, the carousel cycles
  * the array in order.
  */
 export const communityHeroPhotos: string[] = [

@@ -12,13 +12,13 @@ export const faqItems: FAQItem[] = [
     category: 'foundation',
     question: 'Who founded the 256 Foundation and when?',
     answer:
-      'The 256 Foundation was founded in February 2024 by @bitkite and @econoalchemist — two longtime Bitcoin advocates with deep roots in the open-source and self-sovereignty communities.',
+      'The 256 Foundation was founded in February 2024 by @bitkite and @econoalchemist, two longtime Bitcoin advocates with deep roots in the open-source and self-sovereignty communities.',
   },
   {
     category: 'foundation',
     question: 'What does my donation fund?',
     answer:
-      'The 256 Foundation directly funds core contributors building the open-source Bitcoin mining infrastructure we deem critically important — Mujina firmware, Libre Board, Hydrapool, and the Ember One hashboard. No board member is compensated.',
+      'The 256 Foundation directly funds core contributors building the open-source Bitcoin mining infrastructure we deem critically important: Mujina firmware, Libre Board, Hydrapool, and the Ember One hashboard. No board member is compensated.',
   },
   {
     category: 'foundation',
@@ -55,7 +55,7 @@ export const faqItems: FAQItem[] = [
     category: 'donations',
     question: 'What is TeleHash and how does it relate to donations?',
     answer:
-      'TeleHash is the 256 Foundation\'s occasional fundraising event — held a few times a year, in person, and livestreamed. We run our Hydrapool instance in solo mining mode and invite the global community to point their hashrate to our pool for a chance at a solo block. The first TeleHash event found one, raising the initial BTC that seeded the four core projects.',
+      'TeleHash is the 256 Foundation\'s occasional fundraising event, held a few times a year, in person, and livestreamed. We run our Hydrapool instance in solo mining mode and invite the global community to point their hashrate to our pool for a chance at a solo block. The first TeleHash event found one, raising the initial BTC that seeded the four core projects.',
   },
 
   // ── Grants ────────────────────────────────────────────────────
@@ -63,7 +63,7 @@ export const faqItems: FAQItem[] = [
     category: 'grants',
     question: 'How are funds distributed?',
     answer:
-      'Donations are currently prioritized toward the four core projects — Ember One, Mujina, Libre Board, and Hydrapool. These are Foundation-defined initiatives we are fully committed to funding. When excess funding is available beyond those commitments, the board opens the General Grant Program for community-submitted projects. Applicants are selected through an evaluation and interview process and awarded fair-market value for their work. You can find a record of all funded projects on the Grants page.',
+      'Donations are currently prioritized toward the four core projects: Ember One, Mujina, Libre Board, and Hydrapool. These are Foundation-defined initiatives we are fully committed to funding. When excess funding is available beyond those commitments, the board opens the General Grant Program for community-submitted projects. Applicants are selected through an evaluation and interview process and awarded fair-market value for their work. You can find a record of all funded projects on the Grants page.',
   },
   {
     category: 'grants',
@@ -119,13 +119,13 @@ export const faqItems: FAQItem[] = [
     category: 'projects',
     question: 'What is Open Source Miners United (OSMU)?',
     answer:
-      'OSMU (osmu.wiki) is a community of developers, engineers, and builders creating open-source Bitcoin mining hardware and software — including well-known projects like Bitaxe, NerdAxe, AxeOS, and others. OSMU is a community project supported by the 256 Foundation ecosystem.',
+      'OSMU (osmu.wiki) is a community of developers, engineers, and builders creating open-source Bitcoin mining hardware and software, including well-known projects like Bitaxe, NerdAxe, AxeOS, and others. OSMU is a community project supported by the 256 Foundation ecosystem.',
   },
   {
     category: 'projects',
     question: 'What is Hashrate Heatpunks?',
     answer:
-      'Hashrate Heatpunks (heatpunks.org) is a community united by the idea that Bitcoin mining heat is a product, not a problem. Their mission is to marry the Bitcoin mining and heating sectors — bringing mining back into homes and businesses as a source of productive heat. They are part of the broader ecosystem supported by the 256 Foundation.',
+      'Hashrate Heatpunks (heatpunks.org) is a community united by the idea that Bitcoin mining heat is a product, not a problem. Their mission is to marry the Bitcoin mining and heating sectors, bringing mining back into homes and businesses as a source of productive heat. They are part of the broader ecosystem supported by the 256 Foundation.',
   },
 
   // ── Technical ─────────────────────────────────────────────────
@@ -139,12 +139,12 @@ export const faqItems: FAQItem[] = [
     category: 'technical',
     question: 'Why does open-source Bitcoin mining matter?',
     answer:
-      'Bitcoin\'s security model depends on decentralized mining. When mining hardware and software is controlled by a single proprietary vendor, that vendor gains enormous leverage over the network — they can block miners from certain pools, enforce software updates, or deny competitors access to hardware. Open-source mining removes these single points of control and ensures that anyone can participate in securing Bitcoin without permission from a hardware monopoly.',
+      'Bitcoin\'s security model depends on decentralized mining. When mining hardware and software is controlled by a single proprietary vendor, that vendor gains enormous leverage over the network, they can block miners from certain pools, enforce software updates, or deny competitors access to hardware. Open-source mining removes these single points of control and ensures that anyone can participate in securing Bitcoin without permission from a hardware monopoly.',
   },
   {
     category: 'technical',
     question: 'What problem is the 256 Foundation solving?',
     answer:
-      'One large, antagonistic Bitcoin mining hardware company has achieved dominant market share in both hardware and firmware, blocking innovation and collaboration. This centralization is a long-term threat to Bitcoin\'s decentralization. The 256 Foundation funds the open-source alternatives that dismantle this monopoly — making the entire Bitcoin mining stack accessible, auditable, and free.',
+      'One large, antagonistic Bitcoin mining hardware company has achieved dominant market share in both hardware and firmware, blocking innovation and collaboration. This centralization is a long-term threat to Bitcoin\'s decentralization. The 256 Foundation funds the open-source alternatives that dismantle this monopoly, making the entire Bitcoin mining stack accessible, auditable, and free.',
   },
 ]

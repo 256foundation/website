@@ -92,7 +92,7 @@ export async function fetchOrgEvents(org: string, count = 8): Promise<GitHubEven
   try {
     // Match the home page's revalidate (3600). The page-level revalidate
     // already caps how often the data fetcher runs, so a shorter value here
-    // is wasted — it would never actually run more often than 1 hour.
+    // is wasted, it would never actually run more often than 1 hour.
     const res = await fetch(
       `https://api.github.com/orgs/${org}/events?per_page=30`,
       { ...REVALIDATE, headers: buildHeaders() },
@@ -114,7 +114,7 @@ export async function fetchOrgEvents(org: string, count = 8): Promise<GitHubEven
 
       let description = ''
 
-      // Note: unauthenticated org events API returns minimal payloads —
+      // Note: unauthenticated org events API returns minimal payloads,
       // no commit messages, no PR titles. Build descriptions from what's available.
       if (type === 'PushEvent') {
         const ref = (payload.ref as string | undefined)?.replace('refs/heads/', '') ?? 'main'
@@ -169,7 +169,7 @@ export async function fetchOrgRepos(org: string): Promise<GitHubOrgRepo[]> {
     const data = await res.json() as Record<string, unknown>[]
 
     return data
-      .filter((r) => !r.fork) // exclude forks — only repos owned by the org
+      .filter((r) => !r.fork) // exclude forks, only repos owned by the org
       .map((r) => ({
         name: r.name as string,
         description: (r.description as string | null) ?? null,

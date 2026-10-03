@@ -18,7 +18,7 @@ export default function PhotoCarousel({ photos, eventName }: PhotoCarouselProps)
 
   return (
     <div className="bg-black select-none">
-      {/* Main image — only render current ± 1 to avoid loading every photo
+      {/* Main image, only render current ± 1 to avoid loading every photo
           on mount. Adjacent slides preload so prev/next feels instant. */}
       <div className="relative aspect-video overflow-hidden">
         {photos.map((src, i) => {

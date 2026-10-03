@@ -34,7 +34,7 @@ export async function fetchPodcastEpisodes(count = 3): Promise<PodcastEpisode[]>
     return items.slice(0, count).map((item: unknown) => {
       const i = item as Record<string, unknown>
 
-      // Titles arrive as "124. Mining Forks, ..." — the number is already in
+      // Titles arrive as "124. Mining Forks, ...", the number is already in
       // itunes:episode, so strip the duplicate prefix rather than print it twice.
       const rawTitle = decodeEntities(String(i.title ?? 'Untitled'))
       const title = rawTitle.replace(/^\s*\d+\.\s*/, '')

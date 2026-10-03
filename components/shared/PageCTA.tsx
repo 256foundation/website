@@ -7,7 +7,7 @@ interface PageCTAProps {
   /** Small uppercase label above the heading. */
   kicker?: string
   title: string
-  body?: string
+  body?: ReactNode
   /** Primary action label; defaults to a donate prompt. */
   donateLabel?: string
   /** Secondary action label; defaults to a contact prompt. */

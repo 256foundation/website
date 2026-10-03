@@ -1,3 +1,5 @@
+import { decodeEntities } from '@/lib/html'
+
 export interface ForumTopic {
   id: number
   title: string
@@ -26,13 +28,13 @@ export async function fetchForumTopics(count = 6): Promise<ForumTopic[]> {
       .slice(0, count)
       .map((t) => ({
         id: t.id as number,
-        title: t.title as string,
+        title: decodeEntities(t.title as string),
         slug: t.slug as string,
         postsCount: t.posts_count as number,
         replyCount: t.reply_count as number,
         lastPostedAt: t.last_posted_at as string,
         imageUrl: (t.image_url as string | null) ?? null,
-        excerpt: (t.excerpt as string | null) ?? null,
+        excerpt: t.excerpt ? decodeEntities(t.excerpt as string) : null,
       }))
   } catch {
     return []
@@ -57,13 +59,13 @@ export async function fetchProjectForumTopics(
       .slice(0, count)
       .map((t) => ({
         id: t.id as number,
-        title: t.title as string,
+        title: decodeEntities(t.title as string),
         slug: t.slug as string,
         postsCount: t.posts_count as number,
         replyCount: t.reply_count as number,
         lastPostedAt: t.last_posted_at as string,
         imageUrl: (t.image_url as string | null) ?? null,
-        excerpt: (t.excerpt as string | null) ?? null,
+        excerpt: t.excerpt ? decodeEntities(t.excerpt as string) : null,
       }))
   } catch {
     return []

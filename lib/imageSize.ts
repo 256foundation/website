@@ -10,7 +10,7 @@ import path from 'path'
  * whichever image does not match, so the post page needs real dimensions to
  * size each cover to its own ratio.
  *
- * Parses PNG/JPEG/WebP headers directly — the repo takes no new dependencies,
+ * Parses PNG/JPEG/WebP headers directly, the repo takes no new dependencies,
  * and only the first few dozen bytes are needed. Returns null for anything
  * unreadable or unrecognized; callers fall back to a fixed box.
  */

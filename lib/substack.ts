@@ -25,7 +25,7 @@ export async function fetchSubstackPosts(count = 3): Promise<SubstackPost[]> {
     return items.slice(0, count).map((item: unknown) => {
       const i = item as Record<string, unknown>
 
-      // Extract cover image — try enclosure first, then parse first <img> from content
+      // Extract cover image, try enclosure first, then parse first <img> from content
       let image: string | undefined
       const enclosure = i['enclosure'] as Record<string, string> | undefined
       if (enclosure?.['@_url']) {

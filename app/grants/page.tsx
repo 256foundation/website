@@ -73,7 +73,7 @@ export default function GrantsPage() {
 
   return (
     <>
-      {/* Hero — full-bleed image with overlaid copy (matches Open Mining Stack) */}
+      {/* Hero, full-bleed image with overlaid copy (matches Open Mining Stack) */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]">
         <Image
           src="/grants-hero-background.webp"
@@ -147,7 +147,7 @@ export default function GrantsPage() {
         </div>
       </SectionWrapper>
 
-      {/* What we fund — subtle filler */}
+      {/* What we fund, subtle filler */}
       <SectionWrapper tight className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>

@@ -1,15 +1,15 @@
 export interface Announcement {
-  /** Unique key — change this whenever you cycle to a new announcement so previously-dismissed users see the new one */
+  /** Unique key, change this whenever you cycle to a new announcement so previously-dismissed users see the new one */
   id: string
-  /** Short badge label — e.g. "EVENT", "NEW", "GRANT" */
+  /** Short badge label, e.g. "EVENT", "NEW", "GRANT" */
   label: string
   /** Main banner copy */
   message: string
-  /** Link destination — internal path ("/telehash") or full external URL */
+  /** Link destination, internal path ("/telehash") or full external URL */
   href: string
-  /** Set true for external URLs — opens in new tab */
+  /** Set true for external URLs, opens in new tab */
   external?: boolean
-  /** ISO date string — banner auto-hides after this date/time */
+  /** ISO date string, banner auto-hides after this date/time */
   expiresAt?: string
 }
 

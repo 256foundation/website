@@ -25,7 +25,7 @@ import PageCTA from '@/components/shared/PageCTA'
 export const metadata = generatePageMetadata({
   title: 'Our Work',
   description:
-    'We are commoditizing the Bitcoin mining stack. The 256 Foundation funds the open-source stack, because a company cannot do this and a closed industry will not.',
+    'We are commoditizing the Bitcoin mining stack. The 256 Foundation funds the open-source stack, because a company is not incentivized to do this and a closed industry will not.',
   path: '/our-work',
   ogImage: '/og/og-our-work.png',
 })
@@ -41,7 +41,7 @@ const projectLines: Record<string, string> = {
 export default function OurWorkPage() {
   return (
     <>
-      {/* Hero — full-bleed image with overlaid copy */}
+      {/* Hero, full-bleed image with overlaid copy */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]">
         <Image
           src="/our-work-hero.webp"

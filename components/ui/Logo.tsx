@@ -45,7 +45,7 @@ const LOGO_ASSETS: Record<LogoVariant, LogoAsset> = {
 interface LogoProps {
   variant?: LogoVariant
   height?: number
-  /** @deprecated — logo now auto-switches based on prefers-color-scheme */
+  /** @deprecated, logo now auto-switches based on prefers-color-scheme */
   dark?: boolean
   /** @deprecated */
   inverted?: boolean
@@ -56,7 +56,7 @@ interface LogoProps {
 
 /**
  * Renders the correct logo variant for light/dark mode automatically via
- * a <picture> element — the browser picks dark or light source natively.
+ * a <picture> element, the browser picks dark or light source natively.
  * External className (e.g. "hidden sm:block") is applied to <picture> so
  * responsive visibility works without conflicting with internal display classes.
  */

@@ -31,7 +31,7 @@ const layerLabels: Record<string, string> = {
 
 /** One-line computing analogy per layer, used in the overview index. */
 const layerTransitions: Record<string, string> = {
-  'ember-one': 'Where hashrate is produced — the GPU of a miner.',
+  'ember-one': 'Where hashrate is produced: the GPU of a miner.',
   'libre-board': 'The motherboard. Schedules power, cooling, and network.',
   mujina: 'The operating system. What actually runs the machine.',
   hydrapool: 'The network. Where work becomes blocks and payouts.',
@@ -56,7 +56,7 @@ export default async function OpenMiningStackPage() {
 
   return (
     <main>
-      {/* Hero — full-bleed image with overlaid copy */}
+      {/* Hero, full-bleed image with overlaid copy */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]">
         <Image
           src="/projects/open-mining-stack.webp"
@@ -81,7 +81,7 @@ export default async function OpenMiningStackPage() {
               Bitcoin mining will be open-source, or Bitcoin stays permissioned
             </p>
             <p className="text-gray-200 text-lg leading-relaxed">
-              Mining began open — general-purpose CPUs, open operating systems, off-the-shelf
+              Mining began open: general-purpose CPUs, open operating systems, off-the-shelf
               chips. It matured into a closed stack a handful of vendors control. These are the
               four domain-specific building blocks a modern miner is made of, and the open
               replacement for each.
@@ -94,10 +94,10 @@ export default async function OpenMiningStackPage() {
       <section className="bg-gray-50 dark:bg-[#1a1a1a] border-b border-gray-200 dark:border-[#1f1f1f]">
         <SectionWrapper>
           <p className="text-gray-500 dark:text-gray-400 text-sm max-w-2xl mb-8">
-            Every mature industry runs on commoditized, open inputs — recipes anyone can read, use,
+            Every mature industry runs on commoditized, open inputs: recipes anyone can read, use,
             and improve. Bitcoin mining doesn&apos;t, yet. Four layers make a miner and run the
             network, and each one is undocumented, closed, or concentrated. Open one layer and close
-            another and you have rebuilt the cage — so we open all four, and give the work away.
+            another and you have rebuilt the cage, so we open all four, and give the work away.
           </p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 dark:bg-[#1f1f1f]">
             {pillarProjects.map((p, i) => (
@@ -141,7 +141,7 @@ export default async function OpenMiningStackPage() {
         align="center"
         kicker="Fund the Stack"
         title="Together, a Permissionless Development Kit"
-        body="An open hash board on an open control board running open firmware, mining to an open pool. Four independent projects that combine into one open-source mining development kit — free for anyone to study, fork, manufacture, and build a business on."
+        body="An open hash board on an open control board running open firmware, mining to an open pool. Four independent projects that combine into one open-source mining development kit, free for anyone to study, fork, manufacture, and build a business on."
         donateLabel="Donate →"
         extra={
           <>

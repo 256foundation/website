@@ -85,7 +85,7 @@ interface PrometheusResponse {
 // ─── Route handler ────────────────────────────────────────────────────────────
 export async function GET() {
   try {
-    // 5-second timeout per upstream call — fail fast instead of holding the
+    // 5-second timeout per upstream call, fail fast instead of holding the
     // serverless function open until the platform timeout kills it.
     const poolFetch = (q: string) =>
       fetch(`${POOL_BASE}?query=${q}`, {

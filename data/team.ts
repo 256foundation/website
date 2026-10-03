@@ -5,7 +5,7 @@ export const founders: TeamMember[] = [
     name: 'Bitkite',
     handle: '@bitkite',
     role: 'Co-Founder',
-    bio: 'Co-founder of Bitcoin Park — a community-supported campus in Nashville and Austin focused on grassroots freedom tech adoption — where he has spent years running world-class events at the intersection of Bitcoin, energy, and AI. Bitkite brings a builder\'s conviction that an abundant future depends on decentralized infrastructure, community and education — not just institutions.',
+    bio: 'Co-founder of Bitcoin Park, a community-supported campus in Nashville and Austin focused on grassroots freedom tech adoption, where he has spent years running world-class events at the intersection of Bitcoin, energy, and AI. Bitkite brings a builder\'s conviction that an abundant future depends on decentralized infrastructure, community and education, not just institutions.',
     headshot: '/team/bitkite.jpg',
     links: {
       x: 'https://x.com/bitkite',
@@ -15,7 +15,7 @@ export const founders: TeamMember[] = [
     name: 'Econoalchemist',
     handle: '@econoalchemist',
     role: 'Co-Founder & Project Manager',
-    bio: 'Bitcoin educator, technical writer, and co-host of the POD256 podcast. Econoalchemist has spent years producing comprehensive, free guides on Bitcoin self-custody, privacy, home mining, and censorship resistance — bridging deep technical knowledge with practical accessibility. He brings the same conviction that Bitcoin infrastructure must be open and sovereign to everything the 256 Foundation builds.',
+    bio: 'Bitcoin educator, technical writer, and co-host of the POD256 podcast. Econoalchemist has spent years producing comprehensive, free guides on Bitcoin self-custody, privacy, home mining, and censorship resistance, bridging deep technical knowledge with practical accessibility. He brings the same conviction that Bitcoin infrastructure must be open and sovereign to everything the 256 Foundation builds.',
     headshot: '/team/econoalchemist.jpg',
     links: {
       x: 'https://x.com/econoalchemist',

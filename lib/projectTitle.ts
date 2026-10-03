@@ -5,7 +5,7 @@ import type { PillarProject } from '@/types'
  *
  * Projects with a `titleFont` use their own brand typeface. The Bridge Officer
  * webfont is a lowercase-only subset (glyphs: a i j m n u), so those titles must
- * render lowercase — `uppercase` would silently fall back to font-display for
+ * render lowercase, `uppercase` would silently fall back to font-display for
  * every character. Everything else keeps the standard uppercase display face.
  */
 export function projectTitleFontClasses(project: Pick<PillarProject, 'titleFont'>): string {

@@ -163,7 +163,7 @@ export default function HashrateLeaderboard() {
                 {/* Avatar */}
                 <Avatar src={w.picture} name={w.displayName} />
 
-                {/* Identity — flex-1 on mobile, fixed width on sm+ */}
+                {/* Identity, flex-1 on mobile, fixed width on sm+ */}
                 {w.isNpub ? (
                   <a
                     href={`https://primal.net/p/${w.identity}`}
@@ -179,7 +179,7 @@ export default function HashrateLeaderboard() {
                   </span>
                 )}
 
-                {/* Relative bar — hidden on mobile */}
+                {/* Relative bar, hidden on mobile */}
                 <div className="hidden sm:block flex-1 h-1.5 bg-gray-200 dark:bg-[#2a2a2a] rounded-none overflow-hidden">
                   <div
                     className="h-full bg-[#00FF41]/60 rounded-none transition-all duration-700"
@@ -192,7 +192,7 @@ export default function HashrateLeaderboard() {
                   {formatHashrate(w.hashrate)}
                 </span>
 
-                {/* Percentage — hidden on mobile */}
+                {/* Percentage, hidden on mobile */}
                 <span className="hidden sm:inline font-mono text-gray-400 dark:text-gray-600 text-xs flex-shrink-0 w-8 text-right">
                   {pct}%
                 </span>

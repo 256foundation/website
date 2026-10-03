@@ -10,7 +10,7 @@ interface SectionWrapperProps {
   size?: SpacingSize
   /** @deprecated Use `size="tight"`. */
   tight?: boolean
-  /** Adds `relative overflow-hidden` — required when using DecorativeBg as a child */
+  /** Adds `relative overflow-hidden`, required when using DecorativeBg as a child */
   decorative?: boolean
 }
 

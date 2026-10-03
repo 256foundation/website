@@ -33,7 +33,7 @@ export default function ListenAndLearn({ newsroomPost, posts, episodes }: Listen
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Newsroom — matches the home page Latest beat */}
+        {/* Newsroom, matches the home page Latest beat */}
         {newsroomPost && (
           <Link
             href={`/newsroom/${newsroomPost.slug}`}
