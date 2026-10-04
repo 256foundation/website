@@ -84,9 +84,9 @@ export const pillarProjects: PillarProject[] = [
     description:
       'Actively maintained open-source mining firmware, a drop-in replacement for proprietary firmware on existing hardware and a standard for new open designs.',
     whyNecessary:
-      'Firmware is the operating system of a miner, and it is unauditable. You cannot verify it is not skimming hashrate, phoning home, or holding a remote kill switch.',
+      'Firmware is the operating system of a miner. Closed options are un-auditable, unmodifiable and take license fees. You cannot verify they aren\'t skimming hashrate, phoning home, or holding a remote kill switch.',
     whatItDoes:
-      'Mujina is the Linux-kernel project of mining firmware: open, reproducible, and forkable, with per-chip power control and no dev fee. It standardizes the layer everything else depends on, and gives operators source they can actually trust.',
+      'Mujina is the Linux-kernel project of mining firmware: open, reproducible, and forkable, with per-chip power control and no dev fee. It standardizes the layer everything else depends on, and gives operators source they can actually verify.',
     keySpecs: [
       { label: 'Language', value: 'Rust' },
       { label: 'License', value: 'GPLv3' },
