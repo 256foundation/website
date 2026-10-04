@@ -45,7 +45,7 @@ export default function ConnectGrid() {
         </span>
       </div>
       <h2 className="font-display font-bold text-gray-900 dark:text-white text-2xl sm:text-3xl uppercase mb-3">
-        Where the community lives
+        Where the 256 Community lives
       </h2>
       <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xl mb-10">
         Six doors, one community. Each one links out to where the conversation actually happens.

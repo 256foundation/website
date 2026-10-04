@@ -3,12 +3,13 @@ import type { CommunityChannel, CommunityProject } from '@/types'
 /**
  * Hero carousel photos for /community. Real community shots, re-encoded to
  * 1920px WebP in /public/community. Add or reorder here, the carousel cycles
- * the array in order.
+ * the array in order. `hero-03` is held out of the rotation: it is a literal
+ * Telehash livestream frame, used as the TelehashFeature card background so the
+ * reader sees what an event looks like while the pointer to /telehash sits on it.
  */
 export const communityHeroPhotos: string[] = [
   '/community/hero-02.webp',
   '/community/hero-01.webp',
-  '/community/hero-03.webp',
   '/community/hero-04.webp',
   '/community/hero-05.webp',
   '/community/hero-06.webp',
@@ -16,7 +17,10 @@ export const communityHeroPhotos: string[] = [
   '/community/hero-08.webp',
 ]
 
-/** Where the community lives. Every card links out; the page does not mirror content. */
+/** Stream frame behind the /community Telehash feature. */
+export const telehashFeaturePhoto = '/community/hero-03.webp'
+
+/** Where the 256 community lives. Every card links out; the page does not mirror content. */
 export const communityChannels: CommunityChannel[] = [
   {
     label: 'Forum',
@@ -50,7 +54,7 @@ export const communityChannels: CommunityChannel[] = [
   },
   {
     label: 'Hashdash',
-    description: 'Live pool and hashrate dashboard.',
+    description: 'Our donation pool and gamified dashboard.',
     href: 'https://dash.256f.org',
     external: true,
   },
