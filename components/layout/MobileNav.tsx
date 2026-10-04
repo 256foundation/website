@@ -149,7 +149,7 @@ export default function MobileNav({ items, isOpen, onClose }: MobileNavProps) {
               onClick={onClose}
               className="block w-full text-center bg-[#3b1445] text-white font-mono font-bold py-3 rounded-none hover:bg-[#2d0f36] transition-colors"
             >
-              ⚡ Donate
+              Donate
             </a>
           </div>
         </nav>
