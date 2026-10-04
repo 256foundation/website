@@ -54,7 +54,7 @@ export const communityChannels: CommunityChannel[] = [
   },
   {
     label: 'Hashdash',
-    description: 'Live pool and hashrate dashboard.',
+    description: 'Our donation pool and gamified dashboard.',
     href: 'https://dash.256f.org',
     external: true,
   },
