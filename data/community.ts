@@ -20,7 +20,7 @@ export const communityHeroPhotos: string[] = [
 /** Stream frame behind the /community Telehash feature. */
 export const telehashFeaturePhoto = '/community/hero-03.webp'
 
-/** Where the community lives. Every card links out; the page does not mirror content. */
+/** Where the 256 community lives. Every card links out; the page does not mirror content. */
 export const communityChannels: CommunityChannel[] = [
   {
     label: 'Forum',
