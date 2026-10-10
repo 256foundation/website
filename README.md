@@ -667,6 +667,7 @@ GitHub API is called unauthenticated by default (60 req/hr limit). Set `GITHUB_T
 5. **Dark mode is the primary experience** — optimize dark first, light is fully supported
 6. **Borders over shadows** — depth via `#1f1f1f` borders, not box shadows
 7. **Arrow symbols** — use `→` (`&rarr;`) for directional UI, not chevrons
+8. **No em dashes in copy** — use commas, colons, or parentheses; feed text is normalized in `lib/html.ts`
 
 ### Decorative Elements
 

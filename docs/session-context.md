@@ -5,19 +5,17 @@ Written so a fresh session (or a different agent) can resume with zero chat hist
 Read this together with [`docs/ui-work-log.md`](./ui-work-log.md) (the running UI log)
 and the repo root [`CLAUDE.md`](../CLAUDE.md).
 
-Last updated: 2026-10-02
+Last updated: 2026-10-10
 
 ---
 
 ## TL;DR current state
 
-- **Merged to `main`:** [#32](https://github.com/256foundation/website/pull/32) (round 12
-  design-system pass), [#33](https://github.com/256foundation/website/pull/33) (round 13
-  mission/footer), [#34](https://github.com/256foundation/website/pull/34) (round 14 home
-  overhaul). The branch stack `ui/edits-round12 → round13 → round14` is merged.
-- **Open:** [#35](https://github.com/256foundation/website/pull/35) — docs sync for round 14
-  (CLAUDE/README/session-context/ARCHITECTURE), on `ui/edits-round14`.
-- Earlier merged: #20, #21, #24, #25, #26, #27, #28, #30, #31. Rounds 3 and 4 had no PR.
+- **Everything is merged; no open PRs.** Recent rounds: content/design pass #36–#41,
+  Ember One first grant announcement + funding-timeline format #42, site-wide em dash
+  sweep + copy tweaks #43, community tweaks (Telehash background, heading, Hashdash copy,
+  mobile nav) #44, grants grant-log link #45, Mujina firmware copy #46.
+- Earlier merged: #20, #21, #24–#28, #30–#35. Rounds 3 and 4 had no PR.
 - Branch the next round fresh off `main`.
 - Dev server: `npm run dev` → http://localhost:3000.
 
@@ -84,6 +82,10 @@ All five are complete and merged.
   `Working Group Program`, `Community Program`. No per-project amounts.
 - **Grant-announcement copy rules:** no "cycle" / "wave" / "round"; no "pillar" /
   "maintainer retainer" / "adoption phase"; no retired program names; **no em dashes**.
+- **No em dashes anywhere in rendered copy** (site-wide, not just grant copy). Use commas,
+  colons, or parentheses; external feed text is normalized in `lib/html.ts`.
+- **Grant `term` format:** `<Duration>, <Month Year> to <Month Year>` (e.g.
+  `Four months, September 2026 to December 2026`), enforced by a test.
 - Retired vocabulary replaced site-wide (`pillar projects` → `core projects`,
   "under our umbrella" → "we serve", etc.); `tests/community.test.mjs` guards it.
 - Telehash happens **a few times a year** (not annually/semi-annually). Use the real
@@ -102,7 +104,8 @@ All five are complete and merged.
 Crossfade (~6s), hover-pause, reduced-motion static, swipe on touch, subtle arrows
 flanking centered dots, manual nav resets the autoplay timer. Photos are real community
 shots in `public/community/hero-0*.webp` (1920px WebP), listed in `communityHeroPhotos`
-in `data/community.ts` — add or reorder there.
+in `data/community.ts` — add or reorder there. `hero-03` is held out of the rotation and
+used as the Telehash feature card background (`telehashFeaturePhoto`).
 
 ---
 
@@ -158,3 +161,9 @@ the root layout provides `<main>`, so avoid accidental `main > main`.
 - #23 Community page (superseded by #24) — closed
 - #24 Community page, Our Work stub, nav consolidation, copy polish — merged
 - #25 Our Work hero photo — merged
+- #36–#41 Home polish, image perf passes, housekeeping, docs sync — merged
+- #42 Ember One first grant announcement + funding-timeline format — merged
+- #43 Content tweaks + full em dash sweep — merged
+- #44 Community: Telehash background, heading, nav tweaks — merged
+- #45 Grants: link the funded grant log from the announcements section — merged
+- #46 Projects: tighten Mujina firmware copy — merged
