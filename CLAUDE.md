@@ -140,6 +140,8 @@ renders. GitHub/forum/Substack fetches use `next: { revalidate: 3600 }`.
 - [`lib/discourse.ts`](lib/discourse.ts) — Discourse forum (`forum.256foundation.org`):
   latest topics + per-project category topics; plus `forumTopicUrl` / `timeAgo` helpers.
 - [`lib/substack.ts`](lib/substack.ts) — parses the Substack RSS feed for post cards.
+- [`lib/html.ts`](lib/html.ts) — `decodeEntities()` + tag-strip for feed text; also folds
+  em dashes (named or numeric) to commas so external copy matches the site's no-em-dash rule.
 - [`lib/newsroomMeta.ts`](lib/newsroomMeta.ts) — `fs`-free slice of the newsroom module
   (category vocabulary/labels, `formatPostDate`). Client components import this, not
   `lib/newsroom.ts`, which imports Node `fs` and fails the webpack client build.
@@ -174,6 +176,9 @@ the rules that matter when writing UI:
    — **not a toggle**. The `dark:` variant is remapped to that media query via
    `@custom-variant`, so there is no `.dark` class and no theme switcher. Style both modes.
 7. Use `→` (`&rarr;`) for directional UI, not chevrons.
+8. **No em dashes in rendered copy** — use commas, colons, or parentheses. External feed
+   text is normalized to a comma in `lib/html.ts` (`decodeEntities`) so third-party posts
+   match; the only literal em dash left in source is the `mdash` entity mapping there.
 
 ---
 
@@ -210,7 +215,7 @@ avoid (Resend, Hashdash, Typeform) so they don't creep back in.
 
 ---
 
-## Current UI state (as of 2026-10-02)
+## Current UI state (as of 2026-10-10)
 
 Read [`docs/ui-work-log.md`](docs/ui-work-log.md) for the running log of UI revisions,
 decisions, and open items. Durable facts a fresh session must know:
@@ -237,7 +242,13 @@ decisions, and open items. Durable facts a fresh session must know:
   "round", no retired program names, no em dashes. Empty state ships. Tests:
   `tests/grant-announcements.test.mjs`.
 - **Hero title accent:** the accent word in a hero H1 is `text-[#c084d8]` (e.g. "Mining
-  Stack", "Open-Source").
+  Stack", "Open-Source"). Main-page hero H1s carry **no trailing period**.
+- **OpenGraph cards:** `public/og/og-*.png` (home + every footer Foundation/Resources page),
+  regenerated with `npm run og` (`scripts/generate-og.mjs`; brand TTFs in `assets/fonts/`, the
+  script mirrors them into `~/Library/Fonts` for librsvg). `generatePageMetadata` defaults to
+  `og-home.png`; each page passes its own `ogImage`; newsroom posts use their featured image.
+- **Closers:** `components/shared/PageCTA.tsx` centers by default, so every page ends on the
+  same note.
 - **Home (`/`) is an 8-beat page** (round 14): `HomeHero` (thesis H1, full-bleed Development
   Kit shot `public/home-hero.webp`, mirrored so the hardware sits right, static PCB, no
   rotating tagline, header logo only) → `ProblemSection` → `StackSection` (four layers →
