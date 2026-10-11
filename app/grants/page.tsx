@@ -62,7 +62,7 @@ const whatWeDontFund = [
 ]
 
 /** How many announcements the on-page log previews before it links to the archive. */
-const ANNOUNCEMENT_PREVIEW_LIMIT = 6
+const ANNOUNCEMENT_PREVIEW_LIMIT = 5
 
 /** General Grant Program application form. Core Projects calls are still closed. */
 const GENERAL_GRANT_APPLICATION_URL = 'https://form.typeform.com/to/oqyJAntF'
