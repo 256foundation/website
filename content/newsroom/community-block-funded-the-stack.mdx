@@ -1,0 +1,99 @@
+---
+title: "256 community solo-mines a block, funding the start of the open mining stack"
+seoTitle: "256 community solo-mines a block, funding the start of the open mining stack"
+date: "2025-04-05"
+author: "256 Foundation"
+category: "grant-announcement"
+project: "Mujina, Libre Board, Hydrapool"
+program: "core"
+term: "Nine months, April 2025 to January 2026"
+excerpt: "A solo block mined by our community funds three new grants, one for each remaining layer of an open-source Bitcoin mining stack."
+coverImage: "/newsroom/community-block-funded-the-stack/cover.webp"
+ogImage: "/newsroom/community-block-funded-the-stack/cover.webp"
+featured: false
+---
+
+On January 29, 2025, the 256 Foundation held its first Telehash, an eight-hour livestream built as a playful nod to the telethon fundraisers of the 1980s, with Bitcoin hashrate standing in for the phone bank.
+
+The idea was simple. Supporters pointed their own miners at a solo pool for the length of the stream. If a block fell during the event, the whole reward would go to the Foundation.
+
+At its peak, the crowd pointed about one exahash per second at that pool. That was roughly 0.13% of the 779 EH/s securing the network that day.
+
+Then, against the odds, it happened.
+
+**Block 881423.**
+
+The golden nonce was found by [Megawatt](https://x.com/megawatthq), an Indiana Bitcoin mining company that had thrown its hashrate in with everyone else. The coinbase paid 3.14 bitcoin, around $326,000 at the time, straight to a nonprofit whose entire purpose is opening up Bitcoin mining. ([See the block →](https://mempool.space/block/881423))
+
+**Watch the moment it was found →** [vimeo.com/1185734750](https://vimeo.com/1185734750?fl=pl&fe=vl)
+
+To Megawatt, and to every one of those supporters who lent a few hours of electricity that day: thank you. You did more than fund a nonprofit. On the first ever attempt at a brand-new way to fund open mining, you proved the model.
+
+Those funds bought the Foundation the thing grants rarely buy: time to plan. Over the next two months, the team architected the rest of the stack, scoped each project, and found the right people to build it.
+
+Today it becomes three grants.
+
+## What the Block Funds
+
+Today, April 5, the anniversary of Executive Order 6102, the Foundation kickstarts the remaining three layers of the open mining stack. Each grant builds directly on Ember One, the open hashboard reference design announced in November.
+
+**[Mujina](https://mujina.org) is the open operating system of a miner.** Firmware is the layer that talks to the chips, and today it is closed. You cannot audit it, prove it is not skimming your hashrate, or stop it from phoning home to a license server for permission to mine. Mujina is a fully open Linux application, licensed GPLv3, built to run on any miner, from a Bitaxe on a desk to a three-phase rack in a data center. Call it the Linux kernel of Bitcoin mining: one mainline, standard place for the industry to build and contribute.
+
+**[Libre Board](https://libreboard.org) is the open motherboard.** Every miner has a control board that runs the software and quietly decides what the machine is allowed to be. The ones shipping today are proprietary and built for one environment. No Wi-Fi at a remote site, no display, no flow sensor, no loading your own firmware. Libre Board is the open reference design instead: every interface you could want, an unlocked bootloader, and a copyleft hardware license, deliberately built so any product can scale it down to exactly what it needs.
+
+**[Hydrapool](https://hydrapool.org) is the open pool.** The pool is the server side. It hands out work, receives shares, and settles who earned what. Today it is concentrated and closed, so you cannot verify your own payout and the operator custodies your funds. Hydrapool is pool software you stand up in one command, with payouts written into the coinbase so miners are paid directly and the operator never touches the money. It is the WordPress of mining pools, where accounting and payouts are plugins.
+
+They join **Ember One**, the open hashboard reference design funded in November and running through this month.
+
+## Why the Full Stack
+
+A miner is more than a hashboard with ASIC chips on it. It is layers: the hashboard that guesses, the firmware that drives it, the control board that runs the software, and the pool that hands out work and settles who earned what. Ember One aims at the first layer. These three grants open the rest.
+
+This is also what makes the stack more than a Bitaxe. The Bitaxe is brilliant, but it is a single chip with the hashboard and the control board fused onto one board. It teaches you how to talk to one chip. It does not teach you how to run a string of chips in series, the way every competitive, scalable miner is actually built, or how a group of hashboards talk to a separate controller. The open stack is the toolkit for building a real miner, at any size.
+
+Open one layer and leave the rest closed, and the job is only half done. Closed firmware can lie about shares or hide a backdoor on the device. A closed control board can refuse to run the software of your choice. A closed pool decides whether you can verify your own payout. The Foundation's answer is the same at every layer: publish it, license it to stay open, and let anyone build on it.
+
+Do that across all four and something bigger is possible. Anyone can build a miner of any shape and size, run it on their own terms, and check the math. Not just a machine for a data center. Any machine.
+
+## Who Is Building It
+
+Each grant was scoped by the Foundation and the project's maintainer, then approved by the board. The maintainers are public and so are the terms.
+
+**Mujina, built by [Ryan Kuester](https://x.com/ryankuester).** Nine months, through January 2026. The scope is a Rust, GPLv3 mining application on Linux, a Stratum V1 client with DATUM compatibility, support for Ember One hashboards along with the Raspberry Pi CM5 and Libre Board, an HTTP API, a command-line interface, a status dashboard, plus testing and documentation.
+
+**Libre Board, built by [Schnitzel](https://x.com/Schnitzel).** Six months, through October 2025. The scope is an open control board on a Raspberry Pi Compute Module, with a USB hub, fan and NVMe support, dual 100-pin connectors, Ethernet, HDMI, a 40-pin header, a MIPI touchscreen port, and 12 to 24 volt DC input.
+
+**Hydrapool, built by [Jungly](https://x.com/jungly).** Six months, through October 2025. The scope is pool software for Linux with scalable share storage and accounting, solo and PPLNS/Tides payouts paid directly from the coinbase, zero-downtime upgrades, a read-only dashboard, and setup documentation.
+
+Every project is a reference design or an open codebase. The Foundation does not sell anything. What it funds, it publishes, and the designs and code stay open under copyleft licenses. Nobody has to ask permission to use them.
+
+## The Community Did It
+
+The block was not a grant application. It was a few hours of donated electricity, from a crowd, on a livestream. The reward far exceeded the cost of contributing, and most of those contributors will never hit a block again.
+
+That is the point. Telehash showed how many people want an open mining stack: large miners tired of dev fees and vendors who ignore them, and home miners who just want to use a machine in a way the manufacturer never intended. It showed how low the barrier is. You already own the hardware, you point it at a pool, you go back to your day. It showed a Bitcoin truth too, that mining is luck as much as horsepower, and a crowd with a little hashrate can get lucky.
+
+The eight-hour stream was worth having regardless of outcome: a day to walk through what we are building, take calls, and spread the word about open mining. Telehash is not our core fundraising strategy, and it does not need to be. It was a cool thing we wanted to try. It worked on the first attempt.
+
+## Keep It Running
+
+Ember One is already underway and runs through this month. The other three start now.
+
+One block, mined by a community, is funding the rest of the stack.
+
+## Learn More
+
+Each project publishes its designs, code, and progress in public.
+
+- **Ember One**, the open hashboard reference design: [emberone.org](https://emberone.org)
+- **Libre Board**, the open control board reference design: [libreboard.org](https://libreboard.org)
+- **Mujina**, the open mining firmware: [mujina.org](https://mujina.org)
+- **Hydrapool**, the open mining pool: [hydrapool.org](https://hydrapool.org)
+
+**Follow the work →** [github.com/256foundation](https://github.com/256foundation)
+
+**Support the mission →** [256foundation.org/donate](https://256foundation.org/donate)
+
+---
+
+*The 256 Foundation is a 501(c)(3) nonprofit funding open-source Bitcoin mining. [Become a supporter →](/donate)*
