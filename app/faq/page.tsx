@@ -6,6 +6,8 @@ import Eyebrow from '@/components/ui/Eyebrow'
 import Panel from '@/components/ui/Panel'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 import PageCTA from '@/components/shared/PageCTA'
+import JsonLd from '@/components/shared/JsonLd'
+import { faqJsonLd } from '@/lib/agentSeo'
 import { surface } from '@/lib/tokens'
 import type { FAQItem } from '@/types'
 
@@ -47,6 +49,7 @@ export default function FAQPage() {
 
   return (
     <>
+      <JsonLd data={faqJsonLd()} />
       {/* Hero */}
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />

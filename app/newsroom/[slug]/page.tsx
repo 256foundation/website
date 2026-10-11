@@ -3,10 +3,12 @@ import Image from 'next/image'
 import { getAllPosts, getPostBySlug, formatPostDate, categoryLabel } from '@/lib/newsroom'
 import { generatePageMetadata } from '@/lib/metadata'
 import { getLocalImageSize } from '@/lib/imageSize'
+import { postJsonLd } from '@/lib/agentSeo'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import TextLink from '@/components/ui/TextLink'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 import PostBody from '@/components/newsroom/PostBody'
+import JsonLd from '@/components/shared/JsonLd'
 
 export const dynamic = 'force-static'
 
@@ -36,6 +38,7 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
 
   return (
     <SectionWrapper>
+      <JsonLd data={postJsonLd(meta)} />
       <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
       <div className="max-w-2xl mx-auto">
         {/* Back link */}
