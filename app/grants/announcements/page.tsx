@@ -1,6 +1,6 @@
 import TextLink from '@/components/ui/TextLink'
 import { generatePageMetadata } from '@/lib/metadata'
-import { getGrantAnnouncements } from '@/lib/newsroom'
+import { getGrantLogEntries } from '@/lib/grantLog'
 import FundingAnnouncements from '@/components/grants/FundingAnnouncements'
 import PageCTA from '@/components/shared/PageCTA'
 
@@ -13,13 +13,13 @@ export const metadata = generatePageMetadata({
 })
 
 export default function GrantAnnouncementsArchivePage() {
-  const announcements = getGrantAnnouncements()
+  const announcements = getGrantLogEntries()
 
   return (
     <>
       <FundingAnnouncements
         title="All funding announcements"
-        posts={announcements}
+        entries={announcements}
         backLink={
           <TextLink href="/grants#funding-announcements">← Back to Grants</TextLink>
         }

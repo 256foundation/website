@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
-import type { NewsroomPost } from '@/types'
+import type { GrantLogEntry } from '@/lib/grantLog'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import GrantAnnouncementCard from '@/components/grants/GrantAnnouncementCard'
 
 interface FundingAnnouncementsProps {
-  posts: NewsroomPost[]
+  entries: GrantLogEntry[]
   title: string
   id?: string
   className?: string
@@ -16,21 +16,22 @@ interface FundingAnnouncementsProps {
 }
 
 /**
- * The funding log. Newest first, no amounts, no skeleton loaders. The sub-line
- * points to the full grant log and to the newsroom, unless this is the archive
- * itself, which links only to the newsroom. When the log is empty it renders an
- * intentional empty state and drops both links so the empty state carries the
- * only one.
+ * The funding log. Newest first, no amounts, no skeleton loaders. Entries come
+ * from getGrantLogEntries(), so a multi-grant announcement renders one card
+ * per project. The sub-line points to the full grant log and to the newsroom,
+ * unless this is the archive itself, which links only to the newsroom. When
+ * the log is empty it renders an intentional empty state and drops both links
+ * so the empty state carries the only one.
  */
 export default function FundingAnnouncements({
-  posts,
+  entries,
   title,
   id,
   className = '',
   showViewAll = false,
   backLink,
 }: FundingAnnouncementsProps) {
-  const isEmpty = posts.length === 0
+  const isEmpty = entries.length === 0
   const isArchive = Boolean(backLink)
   const linkClass = 'text-[#3b1445] dark:text-[#c084d8] hover:underline'
 
@@ -80,8 +81,8 @@ export default function FundingAnnouncements({
       ) : (
         <>
           <div className="flex flex-col gap-4">
-            {posts.map((post) => (
-              <GrantAnnouncementCard key={post.slug} post={post} />
+            {entries.map((entry) => (
+              <GrantAnnouncementCard key={entry.key} entry={entry} />
             ))}
           </div>
           {showViewAll && (

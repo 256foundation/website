@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { generatePageMetadata } from '@/lib/metadata'
-import { getGrantAnnouncements } from '@/lib/newsroom'
+import { getGrantLogEntries } from '@/lib/grantLog'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Eyebrow from '@/components/ui/Eyebrow'
 import HeroScrim from '@/components/ui/HeroScrim'
@@ -68,7 +68,7 @@ const ANNOUNCEMENT_PREVIEW_LIMIT = 6
 const GENERAL_GRANT_APPLICATION_URL = 'https://form.typeform.com/to/oqyJAntF'
 
 export default function GrantsPage() {
-  const allAnnouncements = getGrantAnnouncements()
+  const allAnnouncements = getGrantLogEntries()
   const previewAnnouncements = allAnnouncements.slice(0, ANNOUNCEMENT_PREVIEW_LIMIT)
 
   return (
@@ -200,7 +200,7 @@ export default function GrantsPage() {
         id="funding-announcements"
         className="scroll-mt-[130px]"
         title="Funding announcements"
-        posts={previewAnnouncements}
+        entries={previewAnnouncements}
         showViewAll={allAnnouncements.length > ANNOUNCEMENT_PREVIEW_LIMIT}
       />
 
