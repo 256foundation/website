@@ -1,0 +1,84 @@
+---
+title: "The 2026 cycle opens: the open mining stack gets back to work"
+seoTitle: "The 2026 cycle opens: the open mining stack gets back to work"
+date: "2026-04-01"
+author: "256 Foundation"
+category: "grant-announcement"
+project: "Mujina, Libre Board, Hydrapool"
+program: "core"
+term: "Six months, April 2026 to September 2026"
+excerpt: "The 2026 terms open with three funded segments on Mujina, Libre Board, and Hydrapool. Anything a segment doesn't finish goes into the extensions."
+coverImage: "/newsroom/2026-cycle-opens/cover.webp"
+ogImage: "/newsroom/2026-cycle-opens/cover.webp"
+featured: false
+---
+
+In 2025, the 256 Foundation ran its first full grant cycle: four core projects, one for each layer of the Bitcoin mining stack, funded largely by early supporters and by a solo block the community mined at the first Telehash. Every one of those terms concluded with substantial progress.
+
+Today the 256 Foundation announces 2026 grant terms for three of the four core projects, beginning April 1: [Mujina](https://mujina.org), the open firmware, on a six-month committed term through September; [Libre Board](https://libreboard.org), the open control board, and [Hydrapool](https://hydrapool.org), the open pool, on three-month committed terms.
+
+The segments are shorter than any of us would like, and the scopes are tighter for it. Each term carries a specific, fundable set of deliverables, while the rest of each project's twelve-month plan is written down, prioritized, and waiting on funding. That is the honest shape of our donation-funded roadmap, ensuring progress continues and positioning us to move when more arrives.
+
+Each project picks up where it left off.
+
+Ember One, the open hashboard reference design, is the exception. It currently has no 2026 term due to funding constraints.
+
+## Where the Last Cycle Ended
+
+The 2025 terms closed in sequence, and each one ended with something to show. Ember One's term ended in April with the first official release of the hashboard design, confirmed working on real hardware at 100 watts, and the design has since iterated through two more revisions to a v5 release candidate. Libre Board's and Hydrapool's terms closed in October. Libre Board went from a blank KiCad project to a fully traced, DRC-clean six-layer control board across two revisions. Hydrapool rebuilt its Stratum server from the ground up in Rust, proved it against more than thirty different kinds of miners, and cut its first mainnet releases that winter. Mujina's term closed in January with the firmware driving real hashboards.
+
+Then came the demonstration that settled whether any of this works. On January 21, the day before the Nashville Energy and Mining Summit, all four projects ran together as one complete system at Telehash #3: three Ember One hashboards driven by Libre Board, running Mujina, pointed at a self-hosted Hydrapool, configured as a "liquid cooled" system that was able to heat water like a sous vide. The developers were up until one in the morning the night before the event getting it stable, and the demonstration day was a huge success.
+
+That demo answered "does this actually work?" What it could not answer was who pays for the next step. So the early 2026 winter went to planning: mapping the next terms, milestones, and goals against what funding could actually carry. The proposals were drafted and revised through February and finalized in March, and the board set April 1 as the day all three begin.
+
+## What Restarts
+
+Three grants, in priority order, each picking up where its last term ended. For each project: the twelve-month plan first, then what the first funded segment takes on. Anything that segment doesn't finish goes into the extensions, funding dependent.
+
+### Mujina, the firmware, first
+
+Mujina gets the longest committed term because firmware is the keystone of the whole effort. It is the only layer that can reach machines that already exist. A new control board needs new hardware; an open firmware can drop onto the Antminers, Whatsminers, and other rigs already humming in the world today, and onto the open reference hardware next to them. Open firmware is the shortest path from a closed industry to an open one, and it is why the Foundation treats Mujina as our crown jewel.
+
+Here is what is on the 2026 roadmap for Mujina. Continued support for Ember One hashboards. Continued support for Libre Board. First support for an industrial miner like the S19 series. A mature HTTP API, command-line interface, and terminal interface. Stratum v1.5 (a properly documented version of SV1) and SV2 support, as a companion to Hydrapool's work on the same protocols. The start of flashable OS images via an installer application, so a machine can boot straight into Mujina. And the unglamorous permanence that makes open software usable: the testing and documentation that invite contributions, a status dashboard opened to community contributors, the channels that keep users and developers talking, and the writing, podcasts, and conference talks that carry the project beyond our own walls.
+
+The committed six months take on that list in priority order, starting from a codebase that already works: a Stratum v1 client tested against live pools, a scheduler that keeps boards and shares in line, per-chip drivers for the BM13xx family, support for Bitaxe Gamma and the Ember One 00, and a CPU backend that mines on any Linux machine with no mining hardware attached.
+
+### Libre Board, toward a validated revision
+
+A control board dictates what a miner is allowed to be and what it can connect to. Libre Board exists so that reference is published instead of proprietary. Its 2025 term took the design from a blank KiCad project to a fully traced, DRC-clean six-layer board across two revisions, and a working prototype has already been demonstrated on real hardware alongside Mujina. What it has not produced yet is the validation that turns a working board into a reference anyone can build and manufacture at scale with confidence.
+
+The twelve-month plan aims straight at that gap. Revision three gets carried all the way to a production-grade, electrically reliable board suitable for continuous operation. Hardware documentation with build and bring-up guides makes the board accessible to builders, developers, and researchers. Compute-module de-risking across ARM and RISC-V, with a published compatibility matrix, ends the dependence on a single supply chain. A touchscreen display reference establishes a known-working on-device UI. A heat-reuse and sensor integration reference turns Libre Board into the control brain of a heat-aware mining build. And, as a stretch, an extension board adds eight hashboard ports and eight fan controllers, scaling Libre Board from a single experimental build to a dense multi-hashboard system.
+
+The committed three months take on the front of that work: fully test revisions one and two with all of their components and features, evaluate and select voltage regulators built for sustained mining workloads, fix the regulation issues that have been the board's weak point, validate power stability across the full 12 to 24 volt input range, and bring revision three to the point of fabrication with the schematics, PCB layout, and bill of materials updated to match.
+
+### Hydrapool, easier to run
+
+Hydrapool spent its 2025 term turning a ground-up Rust rewrite into something anyone could install: numbered releases, a shell installer, Debian packages, Docker images, and Grafana dashboards, all public before the term closed. In January it held up under the live load of the demonstration.
+
+The twelve-month plan adds a payout plugin architecture, so accounting and coinbase construction become components a developer can swap instead of one hard-coded policy, and payout experiments stop requiring a fork. Builds of Umbrel and Start9 packages, so standing up a pool becomes a one-click decision. It writes the documentation Stratum v1.5 that SV1 has never had. The extension segments go further: score-based payouts built for farms running thousands of workers, production-grade telemetry and tracing, metrics that scale to pools with tens of thousands of workers, and a graphical installer for everyone the command line leaves out.
+
+The committed three months fund the front of that list: the payout plugin architecture, ongoing maintenance, and the Stratum v1.5 documentation. When the segment closes, payouts are a plugin interface, a pool is a one-click install, and the stratum protocol is specified.
+
+## How the Terms Are Built
+
+All three grants are opportunistic twelve-month plans structured the same way: a short first segment of committed funding today, and the rest contingent on additional funding. Mujina's committed segment is six months, through September. Libre Board's and Hydrapool's are three months. At the end of each first segment, the Foundation evaluates funding and decides how much of the remaining plan continues. Work a segment doesn't finish is not dropped. It moves into the extension segments, which begin when more funding lands.
+
+Every term includes active project management alongside the builder. The builders are the same lead maintainers who carried these projects through 2025: [Ryan Kuester](https://x.com/ryankuester) on Mujina, [Michael "Schnitzel" Schmid](https://x.com/Schnitzel) on Libre Board, and [Kulpreet "Jungly" Singh](https://x.com/jungly) on Hydrapool. Each of them helped architect these projects from concept to the defined structures they are today, and each continues as its lead maintainer.
+
+The committed segments are the promise. The rest is scoped, prioritized, and waiting.
+
+## None of This Is Finished
+
+Nothing in this stack is done, and nothing in it should be. Linux is never finished. Ember One will never be finished as long as vendors keep shipping new ASIC chips that deserve reference designs. Libre Board moves at the pace of the interfaces and I/O standards miners actually need. Hydrapool is software: once it is polished, there is maintenance, and then the next feature. All four projects need active work, and none of them is close to polished yet.
+
+That is the honest state of the stack, and it is why these terms are built to extend. What the Foundation can fund today is committed. What comes next is written down and waiting.
+
+We need funding for all of it, Ember One included, and it is the reason Ember One sits this cycle out. The distance between here and a new status quo for the mining industry is not a breakthrough. It is maintainer time, and we are not stopping until open source is the industry's default.
+
+**Read the code and contribute →** [github.com/256foundation](https://github.com/256foundation)
+
+**Support the mission →** [256foundation.org/donate](https://256foundation.org/donate)
+
+---
+
+*The 256 Foundation is a 501(c)(3) nonprofit funding open-source Bitcoin mining. [Become a supporter →](/donate)*
