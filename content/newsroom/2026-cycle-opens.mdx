@@ -15,9 +15,9 @@ featured: false
 
 In 2025, the 256 Foundation ran its first full grant cycle: four core projects, one for each layer of the Bitcoin mining stack, funded largely by early supporters and by a solo block the community mined at the first Telehash. Every one of those terms concluded with substantial progress.
 
-Today the 256 Foundation announces 2026 grant terms for three of the four core projects, beginning April 1: [Mujina](https://mujina.org), the open firmware, on a six-month committed term through September; [Libre Board](https://libreboard.org), the open control board, and [Hydrapool](https://hydrapool.org), the open pool, on three-month committed terms.
+Today the 256 Foundation announces 2026 grant terms for three of the four core projects, beginning April 1 and running through December: [Mujina](https://mujina.org), the open firmware, on a six-month committed segment through September; [Libre Board](https://libreboard.org), the open control board, and [Hydrapool](https://hydrapool.org), the open pool, on three-month committed segments.
 
-The segments are shorter than any of us would like, and the scopes are tighter for it. Each term carries a specific, fundable set of deliverables, while the rest of each project's twelve-month plan is written down, prioritized, and waiting on funding. That is the honest shape of our donation-funded roadmap, ensuring progress continues and positioning us to move when more arrives.
+The segments are shorter than any of us would like, and the scopes are tighter for it. Each term carries a specific, fundable set of deliverables, while the rest of each project's 2026 plan is written down, prioritized, and waiting on funding. That is the honest shape of our donation-funded roadmap, ensuring progress continues and positioning us to move when more arrives.
 
 Each project picks up where it left off.
 
@@ -33,7 +33,7 @@ That demo answered "does this actually work?" What it could not answer was who p
 
 ## What Restarts
 
-Three grants, in priority order, each picking up where its last term ended. For each project: the twelve-month plan first, then what the first funded segment takes on. Anything that segment doesn't finish goes into the extensions, funding dependent.
+Three grants, in priority order, each picking up where its last term ended. For each project: the 2026 plan first, then what the first funded segment takes on. Anything that segment doesn't finish goes into the extensions, funding dependent.
 
 ### Mujina, the firmware, first
 
@@ -47,7 +47,7 @@ The committed six months take on that list in priority order, starting from a co
 
 A control board dictates what a miner is allowed to be and what it can connect to. Libre Board exists so that reference is published instead of proprietary. Its 2025 term took the design from a blank KiCad project to a fully traced, DRC-clean six-layer board across two revisions, and a working prototype has already been demonstrated on real hardware alongside Mujina. What it has not produced yet is the validation that turns a working board into a reference anyone can build and manufacture at scale with confidence.
 
-The twelve-month plan aims straight at that gap. Revision three gets carried all the way to a production-grade, electrically reliable board suitable for continuous operation. Hardware documentation with build and bring-up guides makes the board accessible to builders, developers, and researchers. Compute-module de-risking across ARM and RISC-V, with a published compatibility matrix, ends the dependence on a single supply chain. A touchscreen display reference establishes a known-working on-device UI. A heat-reuse and sensor integration reference turns Libre Board into the control brain of a heat-aware mining build. And, as a stretch, an extension board adds eight hashboard ports and eight fan controllers, scaling Libre Board from a single experimental build to a dense multi-hashboard system.
+The 2026 plan aims straight at that gap. Revision three gets carried all the way to a production-grade, electrically reliable board suitable for continuous operation. Hardware documentation with build and bring-up guides makes the board accessible to builders, developers, and researchers. Compute-module de-risking across ARM and RISC-V, with a published compatibility matrix, ends the dependence on a single supply chain. A touchscreen display reference establishes a known-working on-device UI. A heat-reuse and sensor integration reference turns Libre Board into the control brain of a heat-aware mining build. And, as a stretch, an extension board adds eight hashboard ports and eight fan controllers, scaling Libre Board from a single experimental build to a dense multi-hashboard system.
 
 The committed three months take on the front of that work: fully test revisions one and two with all of their components and features, evaluate and select voltage regulators built for sustained mining workloads, fix the regulation issues that have been the board's weak point, validate power stability across the full 12 to 24 volt input range, and bring revision three to the point of fabrication with the schematics, PCB layout, and bill of materials updated to match.
 
@@ -55,13 +55,13 @@ The committed three months take on the front of that work: fully test revisions 
 
 Hydrapool spent its 2025 term turning a ground-up Rust rewrite into something anyone could install: numbered releases, a shell installer, Debian packages, Docker images, and Grafana dashboards, all public before the term closed. In January it held up under the live load of the demonstration.
 
-The twelve-month plan adds a payout plugin architecture, so accounting and coinbase construction become components a developer can swap instead of one hard-coded policy, and payout experiments stop requiring a fork. Builds of Umbrel and Start9 packages, so standing up a pool becomes a one-click decision. It writes the documentation Stratum v1.5 that SV1 has never had. The extension segments go further: score-based payouts built for farms running thousands of workers, production-grade telemetry and tracing, metrics that scale to pools with tens of thousands of workers, and a graphical installer for everyone the command line leaves out.
+The 2026 plan adds a payout plugin architecture, so accounting and coinbase construction become components a developer can swap instead of one hard-coded policy, and payout experiments stop requiring a fork. Builds of Umbrel and Start9 packages, so standing up a pool becomes a one-click decision. It writes the documentation Stratum v1.5 that SV1 has never had. The extension segments go further: score-based payouts built for farms running thousands of workers, production-grade telemetry and tracing, metrics that scale to pools with tens of thousands of workers, and a graphical installer for everyone the command line leaves out.
 
 The committed three months fund the front of that list: the payout plugin architecture, ongoing maintenance, and the Stratum v1.5 documentation. When the segment closes, payouts are a plugin interface, a pool is a one-click install, and the stratum protocol is specified.
 
 ## How the Terms Are Built
 
-All three grants are opportunistic twelve-month plans structured the same way: a short first segment of committed funding today, and the rest contingent on additional funding. Mujina's committed segment is six months, through September. Libre Board's and Hydrapool's are three months. At the end of each first segment, the Foundation evaluates funding and decides how much of the remaining plan continues. Work a segment doesn't finish is not dropped. It moves into the extension segments, which begin when more funding lands.
+All three grants are opportunistic 2026 terms structured the same way: each runs through December, with a short first segment of committed funding today and the rest contingent on additional funding. Mujina's committed segment is six months, through September. Libre Board's and Hydrapool's are three months. At the end of each first segment, the Foundation evaluates funding and decides how much of the remaining term continues. Work a segment doesn't finish is not dropped. It moves into the extension segments, which begin when more funding lands.
 
 Every term includes active project management alongside the builder. The builders are the same lead maintainers who carried these projects through 2025: [Ryan Kuester](https://x.com/ryankuester) on Mujina, [Michael "Schnitzel" Schmid](https://x.com/Schnitzel) on Libre Board, and [Kulpreet "Jungly" Singh](https://x.com/jungly) on Hydrapool. Each of them helped architect these projects from concept to the defined structures they are today, and each continues as its lead maintainer.
 
