@@ -1,0 +1,99 @@
+---
+title: "Additional Funding Extends Mujina's 2026 Term Through December: Flashable Images and an Installer Are Next"
+seoTitle: "Additional funding extends Mujina's 2026 term through December"
+date: "2026-10-01"
+author: "256 Foundation"
+category: "grant-announcement"
+project: "Mujina"
+program: "core"
+term: "Three months, October 2026 to December 2026"
+excerpt: "Additional funding extends Mujina's 2026 term through December without a pause. The final stretch: S19j Pro and S19k Pro polish, flashable OS images, and the installer that boots a miner straight into open firmware."
+coverImage: "/newsroom/mujina-term-extension/cover.webp"
+ogImage: "/newsroom/mujina-term-extension/cover.webp"
+featured: false
+---
+
+By the end of the year, an Antminer S19j Pro should boot straight into open firmware.
+
+The 256 Foundation is announcing additional funding that extends [Mujina](https://mujina.org)'s 2026 term through December, and the final stretch is aimed at exactly that: flashable OS images and an installer application, the item the April roadmap outlined and the community has been working toward all year. Mujina is the Foundation's open-source mining firmware, part of the Core Projects Program.
+
+The original 2026 grant announcement committed six months, running April 1 through September 30, with the possibility for extension, contingent on securing additional funding for the Foundation. We're happy to announce that extension, funding an additional stretch: three months, October through December 2026. It picks up the work exactly where September left off.
+
+---
+
+## The Gap
+
+**Mujina is the open operating system of a miner.**
+
+Firmware is the layer that talks to the chips. On essentially every miner shipping today, that layer is closed. You cannot audit it. You cannot prove it is not skimming your hashrate or phoning home to a license server for permission to mine. And when the machine cannot do what you need, there is no recourse: you cannot read the code, change it, or build on it.
+
+You bought the hardware. Someone else controls the software.
+
+It does not have to be that way. Mujina is one open codebase, GPL-licensed and written in Rust, built to run any hashboard from any vendor on any control board, from a Bitaxe on a desk to a three-phase rack in a data center. Read every line. Change what you like. Pay no dev fee. Own your firmware.
+
+One codebase for hardware from any vendor, maintained in the open by the people who use it. That is the project.
+
+## What the First Half of 2026 Delivered
+
+The first six months left a public record. Everything below is merged and live in the repository today:
+
+- **Open governance, for real.** Mujina's first improvement proposal, MIP-0001, was drafted and merged in public on September 27. Contribution rules are written down. Every change runs through automated checks.
+- **A tougher mining core.** Smarter difficulty handling. Thermal safety in the board monitor. Fault detection for fans and voltage regulators. Strict limits on what a pool connection will accept.
+- **A hardened supply chain.** Build tools pinned, dependencies locked and audited regularly, new package versions held through a cooling-off period. When the arrayref supply-chain attack moved through the Rust ecosystem in August, the project published its finding: not affected.
+- **Chips documented to the bit.** The BM13xx protocol notes grew into a chip reference for the chips inside the S19 series. The first part of a reworked multi-chip driver merged in late August.
+- **Stewardship of a sibling.** The community Bitaxe firmware bitaxe-raw stalled. Its successor, RHAP-D, moved into the Foundation's GitHub organization, and Mujina now runs on Bitaxe.
+- **A front door for users.** mujina.org became real documentation in July, starting with a guide to setting up a Bitaxe Gamma.
+- **New names on the commits.** Jayr, Brett Rowan, Michael Schmid, Susan Githaiga, and Jeremiah Jacob landed code this term, most of them for the first time. Forks of the repository more than doubled since April, from 23 to 48. Dev calls run biweekly in public; ten people joined the September 28 call.
+- **The S19 story moved.** In June, keegreil posted Mujina running on an S19XP's control board. In August, the RY3T demonstration drove one S19j Pro board and two S19k Pro boards, 280 chips, on a single control board at 136.70 TH/s.
+
+## What the Extension Funds
+
+This is not a new term. It is the same 2026 term, funded through its final three months, October through December, with three priorities:
+
+- **S19j Pro and S19k Pro support, polished to reference quality.** These are the machines that many fleets actually run. The summer demonstration proved the approach on a stock control board. This stretch finishes, tests, and documents it.
+- **Flashable OS images and an installer application.** The experience miners already know: Raspberry Pi Imager for a single-board computer, the Braiins and LuxOS installers for a miner. Pick the image, press a button to flash it, boot into Mujina.
+- **Then a wider hardware net.** Easier flashing brings more users, and more users bring more data, more feedback, more contributors, and more proof of what open firmware does. With that flywheel turning, support expands to more modern and efficient ASIC miners.
+
+The stretch opens with a full review queue, none of it merged yet: Stratum V2 support from Jayr with guidance from Ryan and Plebhash, the companion to Hydrapool's protocol work the April roadmap called for. BZM2 ASIC support from recklessnode, built on the protocol notes johnny9 published in February. The MIP-0001 configuration system. A native Windows port for Bitaxe mining. Cross-compilation for lightweight Linux systems.
+
+None of it is merged yet. The record above is what landed. The queue is what anyone can watch land next.
+
+The term is renewable. There is plenty of work to be done.
+
+## Who Is Building It
+
+Mujina is designed and maintained by [Ryan Kuester](https://x.com/ryankuester), the project's architect from the start. He wrote the scheduler, the Stratum client, and the per-chip driver work the 2025 term proved out, and he has carried the 2026 term's engineering since April. Skot, who instigated Bitaxe, put it in writing in April: "Make no mistake, what you are looking at here is the future of Bitcoin mining firmware; Mujina. Versatile, customizable, open source freedom."
+
+The Foundation funds the work. The scope is a joint product: the extension's priorities were drafted by the Foundation and Ryan together and approved by the board, and the roadmap is reviewed in public at the biweekly dev calls, which the Foundation attends and anyone can join. Ryan sets the technical direction. The Foundation makes sure the work is paid for, in public, under an open license, with the code staying in the commons.
+
+Eco ([Econoalchemist](https://x.com/econoalchemist)) is the project manager for this grant, keeping the work on schedule and on mission.
+
+## What's Next
+
+The goal is concrete. By the end of the stretch, an owner of an Antminer S19j Pro or S19k Pro should be able to put Mujina on the machine the way they would put any maintained firmware on it: download the image, flash it from the installer, boot, and mine.
+
+Development happens in public. GitHub is for code: issues, pull requests, and the [repository](https://github.com/256foundation/mujina) itself. The forum is for everything else: the [Mujina category](https://forum.256foundation.org/c/mujina/7) is where newcomers ask how to get started, get help with an install, and share testing and user-experience feedback. Dev-call notes live on the [project wiki](https://github.com/256foundation/mujina/wiki), and user documentation lives at [mujina.org](https://mujina.org).
+
+## Keep It Running
+
+There is a lot of development left in Mujina. The hardware compatibility matrix ahead is massive: more machines, more features, more pools. Additional funding is what keeps the momentum.
+
+We are looking for larger, longer commitments too. They let the Foundation promise a grantee a full, uninterrupted term, so an engineer can plan months ahead and build without wondering whether the next segment will be funded. Mujina just lived that stability. Every project in the program should get to.
+
+**Donate →** [Become a supporter](/donate) · **Discuss a larger commitment →** [Get in touch](/contact)
+
+## Get Involved
+
+**Get help and give feedback →** [forum.256foundation.org/c/mujina/7](https://forum.256foundation.org/c/mujina/7)
+
+**Run the firmware →** [mujina.org](https://mujina.org) · [github.com/256foundation/mujina](https://github.com/256foundation/mujina)
+
+**Follow the work →** biweekly dev calls, announced on the [forum](https://forum.256foundation.org/c/mujina/7) and in GitHub Discussions
+
+**Fund the work →** [Become a supporter](/donate)
+
+Mujina is community open source. The firmware already runs on real machines. This stretch builds the door that gets it onto more of them. If you write Rust, the review queue is open. If you run miners, the S19 series is the frontier. If you build products, the code is sitting there to use. No grant required.
+
+---
+
+*The 256 Foundation is a 501(c)(3) nonprofit directly funding the core contributors building the open-source Bitcoin mining stack. [Become a supporter →](/donate)*
