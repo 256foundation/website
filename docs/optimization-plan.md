@@ -8,7 +8,9 @@ sites ship with. Written to be executed in small, independently reviewable
 phases, each with its own verification.
 
 Owner: Tyler. Status: P0–P1 landed on this branch (see `docs/ui-work-log.md` →
-Round 18); P2 (CSP enforcement, a11y sweep, OG compression, host canonicalization) open.
+Round 18); remaining P2: enforce the CSP (currently report-only), full a11y audit,
+www→apex canonicalization at the proxy. Shipped `public/` bytes are now ~6.1 MB
+(OG cards palette-quantized), ahead of the <6.5 MB target.
 
 > Read [`CLAUDE.md`](../CLAUDE.md) first for how the codebase actually works.
 > This file adds only the optimization workstream on top of the existing
