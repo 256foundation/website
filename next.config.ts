@@ -7,6 +7,55 @@ const nextConfig: NextConfig = {
   // Strip the X-Powered-By: Next.js response header for a slightly smaller
   // payload and less framework fingerprinting.
   poweredByHeader: false,
+  // Gzip/Deflate text responses at the Node layer. A reverse proxy in front of
+  // the container should prefer brotli + HTTP/2 (see README deployment notes).
+  compress: true,
+
+  // Response headers. Two concerns:
+  //
+  // 1. Caching. `public/` files and hashed build assets are content-stable, so
+  //    they get a year of immutable caching. Without this Next serves public/
+  //    with `max-age=0`, so every navigation revalidates heroes, logos, OG
+  //    cards and fonts that never change. HTML/ISR routes keep Next defaults
+  //    (only the security block below matches them).
+  // 2. Security. Baseline hardening headers applied to every response.
+  async headers() {
+    return [
+      {
+        // Any file with a static-asset extension, anywhere in the site.
+        source: "/:all*(webp|avif|png|jpg|jpeg|svg|ico|gif|woff2|woff|ttf)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        // Hashed JS/CSS chunks; the filename changes when the bytes change.
+        source: "/_next/static/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        // Everything: baseline security headers. HTML/ISR caching is left to
+        // Next so `revalidate` keeps working exactly as before.
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+        ],
+      },
+    ];
+  },
 
   // The four standalone pillar project pages were collapsed into the single
   // /projects "Open Mining Stack" page. Their dedicated project sites are the
