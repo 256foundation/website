@@ -4,7 +4,7 @@ Running log of website UI revision rounds, decisions, and open follow-ups. **Rea
 first in a fresh session** so nothing lives only in chat history. For the fuller
 round-5 pickup context, see [`docs/session-context.md`](./session-context.md).
 
-Last updated: 2026-10-10
+Last updated: 2026-10-14
 
 ---
 
@@ -404,3 +404,31 @@ home page is the same control (photo overlays stay `onDark`).
 - OpenGraph cards: `public/og/og-*.png`, regenerated with `npm run og`
   (`scripts/generate-og.mjs`; brand TTFs live in `assets/fonts/` and the script
   mirrors them into `~/Library/Fonts` so librsvg can render the card text)
+
+---
+
+### Round 18 — `perf/optimization-2026` — site optimization (no visual change)
+
+Full plan and guardrails: [`docs/optimization-plan.md`](./optimization-plan.md). Behavior,
+delivery, and metadata only; no redesign.
+
+- **Delivery/caching (P0):** `next.config.ts` `headers()` gives static assets and hashed
+  chunks year-long `immutable` caching, plus baseline security headers (HSTS, nosniff,
+  Referrer-Policy, Permissions-Policy, COOP) on every response. HTML/ISR caching untouched.
+- **CI (P0):** `.github/workflows/ci.yml` runs lint, tests, a production build, and a
+  Lighthouse budget (`lighthouserc.json`, `npm run lhci`) on PRs.
+- **Images (P1):** `scripts/optimize-art.mjs` now covers community heroes, root hero art
+  and team headshots, and re-encodes existing WebP in place; newsroom quality 78→74;
+  community capped at 1600px. Shipped `public/` bytes: **8.2 MB → 6.5 MB**. Team headshots
+  converted to WebP; raw card-logos got `loading=lazy`/`decoding=async`.
+- **SEO (P1):** site-wide JSON-LD `@graph` (NGO + WebSite, `@id`-linked), BreadcrumbList
+  across interior pages, ItemList on `/projects`, Person list on `/mission`, richer
+  NewsArticle; `app/manifest.ts`, branded `not-found.tsx`/`error.tsx`, viewport/themeColor;
+  removed a nested `<main>`.
+- **Agent surfaces (P1):** `Accept: text/markdown` content negotiation (`middleware.ts`),
+  `Link rel="llms"`, `/.well-known/{security,ai}.txt`, `dc:creator` + `content:encoded`
+  in RSS.
+- **Perf/security (P1):** `@next/bundle-analyzer` + `npm run analyze`; report-only CSP.
+
+New scripts: `npm run analyze`, `npm run lhci`, `npm run optimize:art`.
+

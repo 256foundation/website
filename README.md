@@ -80,10 +80,8 @@ website-256F/
 │   │   ├── Reveal.tsx          # "use client" — one-time fade-in, reduced-motion safe
 │   │   ├── Logo.tsx
 │   │   ├── SectionWrapper.tsx
-│   │   ├── SectionHeader.tsx
 │   │   ├── DecorativeBg.tsx
-│   │   ├── PCBBackground.tsx
-│   │   └── ExternalLink.tsx
+│   │   └── PCBBackground.tsx
 │   ├── layout/                 # Header, Footer, Navigation
 │   │   ├── Header.tsx
 │   │   ├── Footer.tsx
@@ -119,7 +117,6 @@ website-256F/
 │   │   └── GitHubActivitySection.tsx   # Per-project GitHub repo activity feed
 │   ├── shared/                 # Cross-page shared components
 │   │   ├── TeamMemberCard.tsx
-│   │   ├── Timeline.tsx
 │   │   ├── NewsletterSignup.tsx
 │   │   └── SubstackEmbed.tsx
 │   └── telehash/               # TeleHash-specific components
@@ -198,7 +195,31 @@ npm run build     # compile for production
 npm start         # run production server
 npm run lint      # run ESLint (next lint)
 npm test          # run the Node test suite (node --test tests/)
+npm run analyze   # bundle treemap (ANALYZE=true next build)
+npm run lhci      # Lighthouse budget check (lighthouserc.json)
+npm run optimize:images   # re-encode newsroom art to right-sized WebP
+npm run optimize:art      # re-encode brand/hero/team art to right-sized WebP
 ```
+
+### Performance, caching & security
+
+The app sets its own cache and security headers in [`next.config.ts`](next.config.ts): a
+year of `immutable` caching for `public/` assets and hashed chunks (neutralizing Next's
+`max-age=0` default for `public/`), baseline hardening headers, a report-only CSP, and
+`Accept: text/markdown` content negotiation via [`middleware.ts`](middleware.ts). HTML/ISR
+caching is left to Next so `revalidate` keeps working.
+
+**Behind a reverse proxy**, the proxy should:
+
+- terminate TLS and serve **HTTP/2 and HTTP/3**, with **brotli** enabled (the Node layer
+  only gzips);
+- preserve the app's `Cache-Control` and `Vary` headers;
+- mount a persistent volume at `.next/cache/images` so the image optimizer's transcoded
+  variants survive container replacement (the Dockerfile chowns it for the runtime user).
+
+Agent/machine-readable surfaces: `/llms.txt`, `/llms-full.txt`,
+`/newsroom/<slug>/llms.txt`, `/rss.xml`, `/.well-known/security.txt`,
+`/.well-known/ai.txt`, JSON-LD, and the markdown negotiation above.
 
 ---
 

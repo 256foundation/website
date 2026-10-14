@@ -86,9 +86,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${barlowCondensed.variable} ${spaceMono.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col bg-white dark:bg-[#1a1a1a] text-gray-800 dark:text-gray-100 font-sans antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[2147483647] focus:bg-white focus:text-[#3a1445] focus:px-4 focus:py-2 focus:border focus:border-[#3a1445] font-mono text-sm rounded-none"
+        >
+          Skip to content
+        </a>
         <JsonLd data={siteGraphJsonLd()} />
         <Header />
-        <main className="flex-1 site-main">
+        <main id="main-content" className="flex-1 site-main">
           <AnnouncementBanner />
           {children}
         </main>

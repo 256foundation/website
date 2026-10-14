@@ -7,7 +7,8 @@ for AI agents to consume, and hardened against the defaults that most static
 sites ship with. Written to be executed in small, independently reviewable
 phases, each with its own verification.
 
-Owner: Tyler. Status: planned. Update this file as phases land.
+Owner: Tyler. Status: P0–P1 landed on this branch (see `docs/ui-work-log.md` →
+Round 18); P2 (CSP enforcement, a11y sweep, OG compression, host canonicalization) open.
 
 > Read [`CLAUDE.md`](../CLAUDE.md) first for how the codebase actually works.
 > This file adds only the optimization workstream on top of the existing
