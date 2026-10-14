@@ -13,6 +13,8 @@ function ProjectCard({ project }: { project: CommunityProject }) {
         <img
           src={project.logoLight}
           alt={project.name}
+          loading="lazy"
+          decoding="async"
           className="h-12 w-auto object-contain"
         />
       </picture>

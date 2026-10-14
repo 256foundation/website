@@ -29,7 +29,7 @@ export const board: TeamMember[] = [
     handle: '@tylerkstevens',
     role: 'President of the Board',
     bio: 'Mechanical engineer, founder of Exergy, and author of the industry reference guide on Bitcoin mining heat reuse. Tyler instigated the Hashrate Heatpunks community and has focused his career at the intersection of Bitcoin and energy. He now leads the 256 Foundation in its effort to build the open-source Bitcoin mining ecosystem.',
-    headshot: '/team/tyler-stevens.jpg',
+    headshot: '/team/tyler-stevens.webp',
     links: {
       x: 'https://x.com/tylerkstevens',
     },
@@ -39,7 +39,7 @@ export const board: TeamMember[] = [
     handle: '@skot9000',
     role: 'Secretary of the Board',
     bio: 'Electrical engineer with years of embedded systems experience, Skot instigated the Bitaxe project - the first open-source Bitcoin ASIC miner. His efforts sparked the Open Source Miners United community and ultimately helped influence the formation of the 256 Foundation and the architecture for the Ember One project.',
-    headshot: '/team/skot.jpg',
+    headshot: '/team/skot.webp',
     links: {
       x: 'https://x.com/skot9000',
     },

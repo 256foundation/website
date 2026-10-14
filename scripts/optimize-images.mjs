@@ -25,7 +25,7 @@ const REFERENCE_DIRS = ['content', 'data', 'components', 'app', 'lib']
 const RASTER = new Set(['.png', '.jpg', '.jpeg'])
 
 const MAX_WIDTH = 1440
-const QUALITY = 78
+const QUALITY = 74
 
 /** Every file we touched: `/newsroom/...` before, and the `/newsroom/...webp` after. */
 const rewrites = new Map()
