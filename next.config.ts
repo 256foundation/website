@@ -15,12 +15,16 @@ const UMAMI_ORIGIN = (() => {
   }
 })();
 
+// `unsafe-eval` is only needed by the dev bundler (webpack eval-source-map);
+// the production bundle does not eval.
+const IS_DEV = process.env.NODE_ENV !== "production";
+
 // Enforced CSP. Permissive enough to cover Next's inline bootstrap, the Vimeo
 // block-find embed, the Substack embed, Formspree and Umami, so it ships as a
 // hard policy rather than report-only. Tighten toward nonces later if desired.
 const CSP = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://substackapi.com${UMAMI_ORIGIN ? ` ${UMAMI_ORIGIN}` : ""}`,
+  `script-src 'self' 'unsafe-inline'${IS_DEV ? " 'unsafe-eval'" : ""} https://substackapi.com${UMAMI_ORIGIN ? ` ${UMAMI_ORIGIN}` : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://i.ytimg.com https://img.youtube.com https://i.vimeocdn.com https://assets.podhome.fm https://substackcdn.com https://substack-post-media.s3.amazonaws.com https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com",
   "font-src 'self' data:",
