@@ -1,0 +1,5 @@
+Contact: mailto:contact@256foundation.org
+Expires: 2027-12-31T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://256foundation.org/.well-known/security.txt
+Policy: https://256foundation.org/faq

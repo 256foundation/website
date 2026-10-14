@@ -259,6 +259,8 @@ export function buildRssXml(): string {
 
   const items = posts.map((post) => {
     const url = postUrl(post)
+    const body = getPostBySlug(post.slug)?.content.trim() ?? post.excerpt
+    const cdata = body.replace(/]]>/g, ']]&gt;')
     return [
       '    <item>',
       `        <title>${escapeXml(post.title)}</title>`,
@@ -266,7 +268,9 @@ export function buildRssXml(): string {
       `        <guid isPermaLink="true">${url}</guid>`,
       `        <pubDate>${postDate(post).toUTCString()}</pubDate>`,
       `        <description>${escapeXml(post.excerpt)}</description>`,
+      `        <dc:creator>${escapeXml(post.author)}</dc:creator>`,
       `        <category>${escapeXml(categoryLabel(post.category))}</category>`,
+      `        <content:encoded><![CDATA[${cdata}]]></content:encoded>`,
       '    </item>',
     ].join('\n')
   })
@@ -275,7 +279,7 @@ export function buildRssXml(): string {
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+    '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">',
     '    <channel>',
     `        <title>${escapeXml(`${SITE_NAME} Newsroom`)}</title>`,
     `        <link>${siteBaseUrl()}/newsroom</link>`,

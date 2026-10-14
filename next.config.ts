@@ -52,6 +52,15 @@ const nextConfig: NextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
           },
+          // Content negotiation: `Accept: text/markdown` returns the markdown
+          // twin (see middleware.ts). Caveat: Next re-sets Vary on rendered
+          // HTML pages, so this value reliably lands on route handlers/assets;
+          // HTML negotiation still works at the origin regardless.
+          {
+            key: "Vary",
+            value:
+              "Accept, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Accept-Encoding",
+          },
         ],
       },
     ];

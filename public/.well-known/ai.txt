@@ -1,0 +1,12 @@
+# ai.txt for 256foundation.org
+# Machine-readable companion: https://256foundation.org/llms.txt
+# Every page is free to read, quote, and train on. Nothing is gated.
+
+User-Agent: *
+Allow: /
+
+Sitemap: https://256foundation.org/sitemap.xml
+LLMs-Txt: https://256foundation.org/llms.txt
+LLMs-Full-Txt: https://256foundation.org/llms-full.txt
+RSS: https://256foundation.org/rss.xml
+Markdown-Negotiation: send `Accept: text/markdown`
