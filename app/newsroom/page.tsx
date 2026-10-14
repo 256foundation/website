@@ -5,6 +5,8 @@ import DecorativeBg from '@/components/ui/DecorativeBg'
 import Eyebrow from '@/components/ui/Eyebrow'
 import NewsroomIndex from '@/components/newsroom/NewsroomIndex'
 import PageCTA from '@/components/shared/PageCTA'
+import JsonLd from '@/components/shared/JsonLd'
+import { breadcrumbJsonLd } from '@/lib/agentSeo'
 
 export const dynamic = 'force-static'
 
@@ -23,6 +25,7 @@ export default function NewsroomPage() {
 
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: 'Newsroom', path: '/newsroom' }])} />
       <SectionWrapper className="min-h-[60vh]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
         <Eyebrow className="mb-4">256 Foundation</Eyebrow>

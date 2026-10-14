@@ -9,6 +9,8 @@ import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
 import FundingAnnouncements from '@/components/grants/FundingAnnouncements'
 import PageCTA from '@/components/shared/PageCTA'
+import JsonLd from '@/components/shared/JsonLd'
+import { breadcrumbJsonLd } from '@/lib/agentSeo'
 
 export const metadata = generatePageMetadata({
   title: 'Grants',
@@ -73,6 +75,7 @@ export default function GrantsPage() {
 
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: 'Grants', path: '/grants' }])} />
       {/* Hero, full-bleed image with overlaid copy (matches Open Mining Stack) */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]">
         <Image

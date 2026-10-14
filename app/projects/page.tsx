@@ -11,6 +11,8 @@ import TextLink from '@/components/ui/TextLink'
 import PageCTA from '@/components/shared/PageCTA'
 import StackSubNav from '@/components/projects/StackSubNav'
 import StackLayerSection from '@/components/projects/StackLayerSection'
+import JsonLd from '@/components/shared/JsonLd'
+import { breadcrumbJsonLd, projectsItemListJsonLd } from '@/lib/agentSeo'
 
 export const revalidate = 3600
 
@@ -55,7 +57,11 @@ export default async function OpenMiningStackPage() {
   )
 
   return (
-    <main>
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([{ name: 'Mining Stack', path: '/projects' }])}
+      />
+      <JsonLd data={projectsItemListJsonLd()} />
       {/* Hero, full-bleed image with overlaid copy */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]">
         <Image
@@ -159,6 +165,6 @@ export default async function OpenMiningStackPage() {
           </TextLink>
         }
       />
-    </main>
+    </>
   )
 }

@@ -316,11 +316,16 @@ export function organizationJsonLd(): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'NGO',
+    '@id': `${siteBaseUrl()}/#organization`,
     name: SITE_NAME,
     url: siteBaseUrl(),
-    logo: `${siteBaseUrl()}/logos/256-logo-horizontal-light.png`,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteBaseUrl()}/logos/256-logo-horizontal-light.png`,
+    },
     description: SITE_SUMMARY,
     foundingDate: '2024-02',
+    taxID: '99-1662333',
     nonprofitStatus: '501c3',
     sameAs: [
       'https://github.com/256foundation',
@@ -331,29 +336,112 @@ export function organizationJsonLd(): Record<string, unknown> {
   }
 }
 
+/**
+ * Site-wide schema graph, emitted once from the layout. Nodes reference each
+ * other by `@id` so crawlers resolve one entity instead of a pile of repeated
+ * Organization blobs. Per-page nodes (WebPage, NewsArticle, FAQPage, ...) are
+ * emitted by their page and link back to `#organization` / `#website`.
+ */
+export function siteGraphJsonLd(): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      organizationJsonLd(),
+      {
+        '@type': 'WebSite',
+        '@id': `${siteBaseUrl()}/#website`,
+        url: siteBaseUrl(),
+        name: SITE_NAME,
+        description: SITE_SUMMARY,
+        publisher: { '@id': `${siteBaseUrl()}/#organization` },
+        inLanguage: 'en-US',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${siteBaseUrl()}/newsroom?q={search_term_string}`,
+          },
+          'query-input': 'required name=search_term_string',
+        },
+      },
+    ],
+  }
+}
+
+/** BreadcrumbList for an interior page. `trail` excludes the home crumb. */
+export function breadcrumbJsonLd(
+  trail: { name: string; path: string }[],
+): Record<string, unknown> {
+  const items = [{ name: 'Home', path: '/' }, ...trail]
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: `${siteBaseUrl()}${item.path}`,
+    })),
+  }
+}
+
+/** ItemList of the four core projects, for /projects. */
+export function projectsItemListJsonLd(): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Open Mining Stack',
+    itemListElement: pillarProjects.map((project, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: project.name,
+      description: project.tagline,
+      url: `${siteBaseUrl()}/projects#${project.slug}`,
+    })),
+  }
+}
+
+/** Founders and board as Person nodes, for /mission. */
+export function teamJsonLd(): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Founders and Board',
+    itemListElement: [...founders, ...board].map((member, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Person',
+        name: member.name,
+        jobTitle: member.role,
+        image: member.headshot ? `${siteBaseUrl()}${member.headshot}` : undefined,
+        sameAs: Object.values(member.links).filter(Boolean),
+        worksFor: { '@id': `${siteBaseUrl()}/#organization` },
+      },
+    })),
+  }
+}
+
 /** NewsArticle schema for a newsroom post page. */
 export function postJsonLd(post: NewsroomPost): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
+    '@id': `${postUrl(post)}#article`,
     headline: post.title,
     description: post.excerpt,
     datePublished: post.date,
     dateModified: post.date,
     isAccessibleForFree: true,
+    articleSection: categoryLabel(post.category),
+    ...(post.project ? { about: post.project } : {}),
     author: { '@type': 'Organization', name: post.author, url: siteBaseUrl() },
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: siteBaseUrl(),
-      logo: { '@type': 'ImageObject', url: `${siteBaseUrl()}/logos/256-logo-horizontal-light.png` },
-    },
+    publisher: { '@id': `${siteBaseUrl()}/#organization` },
     mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl(post) },
-    ...(post.ogImage ?? post.coverImage
-      ? { image: `${siteBaseUrl()}${post.ogImage ?? post.coverImage}` }
-      : {}),
+    image: `${siteBaseUrl()}${post.ogImage ?? post.coverImage ?? '/og/og-newsroom.png'}`,
   }
 }
+
 
 /** FAQPage schema for /faq. */
 export function faqJsonLd(): Record<string, unknown> {

@@ -11,6 +11,8 @@ import TelehashFeature from '@/components/community/TelehashFeature'
 import ListenAndLearn from '@/components/community/ListenAndLearn'
 import GetInvolved from '@/components/community/GetInvolved'
 import PageCTA from '@/components/shared/PageCTA'
+import JsonLd from '@/components/shared/JsonLd'
+import { breadcrumbJsonLd } from '@/lib/agentSeo'
 
 export const revalidate = 3600
 
@@ -31,6 +33,7 @@ export default async function CommunityPage() {
 
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: 'Community', path: '/community' }])} />
       <CommunityHeroCarousel
         photos={communityHeroPhotos}
         kicker="Community"

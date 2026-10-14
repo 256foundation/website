@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { getAllPosts, getPostBySlug, formatPostDate, categoryLabel } from '@/lib/newsroom'
 import { generatePageMetadata } from '@/lib/metadata'
 import { getLocalImageSize } from '@/lib/imageSize'
-import { postJsonLd } from '@/lib/agentSeo'
+import { postJsonLd, breadcrumbJsonLd } from '@/lib/agentSeo'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import TextLink from '@/components/ui/TextLink'
 import DecorativeBg from '@/components/ui/DecorativeBg'
@@ -39,6 +39,12 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
   return (
     <SectionWrapper>
       <JsonLd data={postJsonLd(meta)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Newsroom', path: '/newsroom' },
+          { name: meta.title, path: `/newsroom/${slug}` },
+        ])}
+      />
       <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
       <div className="max-w-2xl mx-auto">
         {/* Back link */}
