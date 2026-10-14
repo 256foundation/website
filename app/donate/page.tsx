@@ -11,6 +11,8 @@ import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS, ZAPRITE_URL } from '@/data/donate'
 import { supporters } from '@/data/supporters'
 import SupporterShowcase from '@/components/home/SupporterShowcase'
 import PageCTA from '@/components/shared/PageCTA'
+import JsonLd from '@/components/shared/JsonLd'
+import { breadcrumbJsonLd } from '@/lib/agentSeo'
 
 export const metadata = generatePageMetadata({
   title: 'Donate',
@@ -54,6 +56,7 @@ const hashrateSteps = [
 export default function DonatePage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: 'Donate', path: '/donate' }])} />
       {/* Hero + primary action, Zaprite button above the fold */}
       <SectionWrapper decorative size="hero" className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />

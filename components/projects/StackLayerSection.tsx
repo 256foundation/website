@@ -64,7 +64,7 @@ export default function StackLayerSection({ project, index, layerLabel, repoMeta
 
             <div className="space-y-5 mb-8">
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                <span className="font-mono text-[11px] uppercase tracking-widest text-gray-400 dark:text-gray-600 block mb-1.5">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-gray-500 dark:text-gray-400 block mb-1.5">
                   The closed problem
                 </span>
                 {project.whyNecessary}
@@ -79,7 +79,7 @@ export default function StackLayerSection({ project, index, layerLabel, repoMeta
 
             {/* Architect */}
             <p className="font-mono text-xs text-gray-500 dark:text-gray-400 mb-8">
-              <span className="text-gray-400 dark:text-gray-600">Funded by 256 · Core Architect &amp; Lead Maintainer, </span>
+              <span className="text-gray-500 dark:text-gray-400">Funded by 256 · Core Architect &amp; Lead Maintainer, </span>
               <span className="text-gray-900 dark:text-white">{project.architect.name}</span>{' '}
               <a
                 href={project.architect.x}
@@ -134,7 +134,7 @@ export default function StackLayerSection({ project, index, layerLabel, repoMeta
 
           {/* Specs + features */}
           <div className="lg:col-span-5">
-            <p className="font-mono text-gray-400 dark:text-gray-600 text-[11px] tracking-widest uppercase mb-3">
+            <p className="font-mono text-gray-500 dark:text-gray-400 text-[11px] tracking-widest uppercase mb-3">
               Key Specifications
             </p>
             <div className="grid grid-cols-2 gap-3 mb-8">
@@ -146,14 +146,14 @@ export default function StackLayerSection({ project, index, layerLabel, repoMeta
                   <div className="font-mono font-bold text-[#3b1445] dark:text-[#c084d8] text-sm leading-tight mb-1.5">
                     {spec.value}
                   </div>
-                  <div className="font-mono text-gray-400 dark:text-gray-600 text-[10px] uppercase tracking-widest">
+                  <div className="font-mono text-gray-500 dark:text-gray-400 text-[10px] uppercase tracking-widest">
                     {spec.label}
                   </div>
                 </div>
               ))}
             </div>
 
-            <p className="font-mono text-gray-400 dark:text-gray-600 text-[11px] tracking-widest uppercase mb-3">
+            <p className="font-mono text-gray-500 dark:text-gray-400 text-[11px] tracking-widest uppercase mb-3">
               Key Features
             </p>
             <ul className="space-y-2">

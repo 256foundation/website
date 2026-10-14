@@ -10,3 +10,6 @@ npm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 /.openchamber/
+/.lighthouseci/
+# Local agent/session context docs (not committed).
+/docs/local/

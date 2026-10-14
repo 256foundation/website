@@ -11,6 +11,8 @@ import TeleHashEventCard from '@/components/telehash/TeleHashEventCard'
 import CountdownTimer from '@/components/telehash/CountdownTimer'
 import SubstackEmbed from '@/components/shared/SubstackEmbed'
 import DecorativeBg from '@/components/ui/DecorativeBg'
+import JsonLd from '@/components/shared/JsonLd'
+import { breadcrumbJsonLd } from '@/lib/agentSeo'
 
 export const metadata = generatePageMetadata({
   title: 'Telehash',
@@ -49,6 +51,7 @@ const participationSteps = [
 export default function TelehashPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: 'Telehash', path: '/telehash' }])} />
       {/* Hero + event status */}
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />

@@ -78,7 +78,7 @@ Root layout ([`app/layout.tsx`](app/layout.tsx)) wraps everything with `Header` 
 ## Layout of the code
 
 ```
-app/            App Router pages (see route map above) + globals.css, robots.ts, sitemap.ts
+app/            App Router pages (see route map above) + globals.css, robots.ts, sitemap.ts, manifest.ts
 components/
   ui/           primitives (Button, Card, Badge, SectionWrapper, PCBBackground, …)
   layout/       Header, Footer, MobileNav, NavDropdown, AnnouncementBanner, TelehashExtensionDetector
@@ -86,7 +86,7 @@ components/
   projects/     Open Mining Stack sections (StackSubNav, StackLayerSection, ActivityBadges)
   grants/       funding log (FundingAnnouncements, GrantAnnouncementCard)
   newsroom/     PostCard, NewsroomIndex (category filter), PostBody (MDXRemote wrapper)
-  shared/       TeamMemberCard, Timeline, NewsletterSignup, SubstackEmbed
+  shared/       TeamMemberCard, NewsletterSignup, SubstackEmbed
   telehash/     CountdownTimer, LeaderboardTable, PhotoCarousel, TeleHashEventCard
 data/           ★ site content as typed TS — edit here, not in components
 content/newsroom/*.mdx   newsroom articles (frontmatter + markdown body)
@@ -158,6 +158,22 @@ Contact form (`components/home/ContactForm.tsx`) POSTs **directly to Formspree**
 [`lib/useReducedMotion.ts`](lib/useReducedMotion.ts) — client `prefers-reduced-motion` hook
 (`useSyncExternalStore`); used by `Reveal` and `ScrollProgress` so both honor reduced motion
 without a setState-in-effect.
+
+---
+
+## Delivery, caching, and agent surfaces
+
+- [`next.config.ts`](next.config.ts) `headers()` sets year-long `immutable` caching on
+  public assets + hashed chunks, baseline security headers, an **enforcing CSP**, and
+  `Vary: Accept`; `compress: true` (the proxy handles brotli/HTTP3 — see README).
+- [`middleware.ts`](middleware.ts) does `Accept: text/markdown` content negotiation
+  (`/` → `/llms.txt`, `/newsroom/<slug>` → the post's raw markdown) and sets a
+  `rel="llms"` Link header. Machine surfaces also include `/llms.txt`,
+  `/llms-full.txt`, `/newsroom/<slug>/llms.txt`, `/rss.xml`, `/.well-known/ai.txt`,
+  `/.well-known/security.txt`, and the JSON-LD `@graph` in [`lib/agentSeo.ts`](lib/agentSeo.ts).
+- [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs lint, tests, build, and a
+  Lighthouse budget (`lighthouserc.json`) on PRs. See
+  [`docs/optimization-plan.md`](docs/optimization-plan.md) for the plan and status.
 
 ---
 

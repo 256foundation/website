@@ -9,7 +9,10 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "node --test tests/",
+    "lhci": "lhci autorun",
+    "analyze": "ANALYZE=true next build",
     "optimize:images": "node scripts/optimize-images.mjs",
+    "optimize:art": "node scripts/optimize-art.mjs",
     "og": "node scripts/generate-og.mjs"
   },
   "keywords": [],
@@ -25,6 +28,8 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.14.0",
+    "@next/bundle-analyzer": "^15.5.28",
     "@tailwindcss/postcss": "^4.2.2",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",

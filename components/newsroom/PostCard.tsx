@@ -32,7 +32,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
             {categoryLabel(post.category)}
           </span>
           {post.date && (
-            <time className="font-mono text-gray-400 text-xs">
+            <time className="font-mono text-gray-500 dark:text-gray-400 text-xs">
               {formatPostDate(post.date)}
             </time>
           )}

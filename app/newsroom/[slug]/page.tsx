@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { getAllPosts, getPostBySlug, formatPostDate, categoryLabel } from '@/lib/newsroom'
 import { generatePageMetadata } from '@/lib/metadata'
 import { getLocalImageSize } from '@/lib/imageSize'
-import { postJsonLd } from '@/lib/agentSeo'
+import { postJsonLd, breadcrumbJsonLd } from '@/lib/agentSeo'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import TextLink from '@/components/ui/TextLink'
 import DecorativeBg from '@/components/ui/DecorativeBg'
@@ -39,6 +39,12 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
   return (
     <SectionWrapper>
       <JsonLd data={postJsonLd(meta)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Newsroom', path: '/newsroom' },
+          { name: meta.title, path: `/newsroom/${slug}` },
+        ])}
+      />
       <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} vignette={false} />
       <div className="max-w-2xl mx-auto">
         {/* Back link */}
@@ -52,7 +58,7 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
             {categoryLabel(meta.category)}
           </span>
           {meta.date && (
-            <time className="font-mono text-gray-400 text-xs">
+            <time className="font-mono text-gray-500 dark:text-gray-400 text-xs">
               {formatPostDate(meta.date)}
             </time>
           )}
@@ -64,7 +70,7 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
         </h1>
 
         {/* Author */}
-        <p className="font-mono text-gray-400 text-xs mb-8">By {meta.author}</p>
+        <p className="font-mono text-gray-500 dark:text-gray-400 text-xs mb-8">By {meta.author}</p>
 
         {/* Cover image, sized to its own aspect ratio, so covers as different
             as a 3:1 banner and a 3:2 photo both render full-width uncropped. */}

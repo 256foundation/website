@@ -3,6 +3,8 @@ import SectionWrapper from '@/components/ui/SectionWrapper'
 import DecorativeBg from '@/components/ui/DecorativeBg'
 import Eyebrow from '@/components/ui/Eyebrow'
 import ContactForm from '@/components/home/ContactForm'
+import JsonLd from '@/components/shared/JsonLd'
+import { breadcrumbJsonLd } from '@/lib/agentSeo'
 
 export const metadata = generatePageMetadata({
   title: 'Contact',
@@ -14,6 +16,7 @@ export const metadata = generatePageMetadata({
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: 'Contact', path: '/contact' }])} />
       {/* Hero */}
       <SectionWrapper decorative className="border-b border-gray-200 dark:border-[#1f1f1f]">
         <DecorativeBg glowPosition="50% 0%" gridOpacity={0.07} />

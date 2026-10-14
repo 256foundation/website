@@ -3,6 +3,8 @@ import { generatePageMetadata } from '@/lib/metadata'
 import { getGrantLogEntries } from '@/lib/grantLog'
 import FundingAnnouncements from '@/components/grants/FundingAnnouncements'
 import PageCTA from '@/components/shared/PageCTA'
+import JsonLd from '@/components/shared/JsonLd'
+import { breadcrumbJsonLd } from '@/lib/agentSeo'
 
 export const metadata = generatePageMetadata({
   title: 'All funding announcements',
@@ -17,6 +19,12 @@ export default function GrantAnnouncementsArchivePage() {
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Grants', path: '/grants' },
+          { name: 'Funding announcements', path: '/grants/announcements' },
+        ])}
+      />
       <FundingAnnouncements
         title="All funding announcements"
         entries={announcements}

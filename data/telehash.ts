@@ -7,7 +7,7 @@ export const teleHashEvents: TeleHashEvent[] = [
     blockFound: true,
     btcRaised: 3.146,
     blockUrl: 'https://mempool.space/block/0000000000000000000269d52c24ea451225613aab095d90d771d4e29aa96cdd',
-    videoUrl: 'https://player.vimeo.com/video/1185734750?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1',
+    videoUrl: 'https://player.vimeo.com/video/1185734750?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&dnt=1',
     summary:
       'The inaugural TeleHash event was a landmark moment for the 256 Foundation. Over 8 hours of livestreaming, the global mining community rallied behind the foundation, pointing their hashrate to our Hydrapool instance. Against the odds, we found a Bitcoin block, raising the initial ~$300,000 USD that seeded the four core projects.',
   },

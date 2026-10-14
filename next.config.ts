@@ -1,4 +1,44 @@
 import type { NextConfig } from "next";
+import bundleAnalyzer from "@next/bundle-analyzer";
+
+/** `npm run analyze` opens a treemap of the client/server bundles. */
+const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === "true" });
+
+/** Origin of the self-hosted Umami script, when configured. */
+const UMAMI_ORIGIN = (() => {
+  const raw = process.env.NEXT_PUBLIC_UMAMI_URL;
+  if (!raw) return "";
+  try {
+    return new URL(raw).origin;
+  } catch {
+    return "";
+  }
+})();
+
+// `unsafe-eval` is only needed by the dev bundler (webpack eval-source-map);
+// the production bundle does not eval.
+const IS_DEV = process.env.NODE_ENV !== "production";
+
+// Enforced CSP. Permissive enough to cover Next's inline bootstrap, the Vimeo
+// block-find embed, the Substack embed, Formspree and Umami, so it ships as a
+// hard policy rather than report-only. Tighten toward nonces later if desired.
+const CSP = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${IS_DEV ? " 'unsafe-eval'" : ""} https://substackapi.com${UMAMI_ORIGIN ? ` ${UMAMI_ORIGIN}` : ""}`,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https://i.ytimg.com https://img.youtube.com https://i.vimeocdn.com https://assets.podhome.fm https://substackcdn.com https://substack-post-media.s3.amazonaws.com https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com",
+  "font-src 'self' data:",
+  `connect-src 'self' https://formspree.io https://substackapi.com${UMAMI_ORIGIN ? ` ${UMAMI_ORIGIN}` : ""}`,
+  "media-src 'self' https://serve.podhome.fm",
+  "frame-src https://player.vimeo.com https://www.youtube.com https://www.youtube-nocookie.com https://256foundation.substack.com",
+  "form-action 'self' https://formspree.io",
+  "frame-ancestors 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "manifest-src 'self'",
+  "worker-src 'self' blob:",
+  "upgrade-insecure-requests",
+].join("; ");
 
 const nextConfig: NextConfig = {
   // Emit a self-contained server bundle so the site can run as a small
@@ -7,6 +47,65 @@ const nextConfig: NextConfig = {
   // Strip the X-Powered-By: Next.js response header for a slightly smaller
   // payload and less framework fingerprinting.
   poweredByHeader: false,
+  // Gzip/Deflate text responses at the Node layer. A reverse proxy in front of
+  // the container should prefer brotli + HTTP/2 (see README deployment notes).
+  compress: true,
+
+  // Response headers. Two concerns:
+  //
+  // 1. Caching. `public/` files and hashed build assets are content-stable, so
+  //    they get a year of immutable caching. Without this Next serves public/
+  //    with `max-age=0`, so every navigation revalidates heroes, logos, OG
+  //    cards and fonts that never change. HTML/ISR routes keep Next defaults
+  //    (only the security block below matches them).
+  // 2. Security. Baseline hardening headers applied to every response.
+  async headers() {
+    return [
+      {
+        // Any file with a static-asset extension, anywhere in the site.
+        source: "/:all*(webp|avif|png|jpg|jpeg|svg|ico|gif|woff2|woff|ttf)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        // Hashed JS/CSS chunks; the filename changes when the bytes change.
+        source: "/_next/static/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        // Everything: baseline security headers. HTML/ISR caching is left to
+        // Next so `revalidate` keeps working exactly as before.
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+          // Content negotiation: `Accept: text/markdown` returns the markdown
+          // twin (see middleware.ts). Caveat: Next re-sets Vary on rendered
+          // HTML pages, so this value reliably lands on route handlers/assets;
+          // HTML negotiation still works at the origin regardless.
+          {
+            key: "Vary",
+            value:
+              "Accept, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Accept-Encoding",
+          },
+          { key: "Content-Security-Policy", value: CSP },
+        ],
+      },
+    ];
+  },
 
   // The four standalone pillar project pages were collapsed into the single
   // /projects "Open Mining Stack" page. Their dedicated project sites are the
@@ -49,4 +148,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

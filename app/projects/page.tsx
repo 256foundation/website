@@ -11,6 +11,8 @@ import TextLink from '@/components/ui/TextLink'
 import PageCTA from '@/components/shared/PageCTA'
 import StackSubNav from '@/components/projects/StackSubNav'
 import StackLayerSection from '@/components/projects/StackLayerSection'
+import JsonLd from '@/components/shared/JsonLd'
+import { breadcrumbJsonLd, projectsItemListJsonLd } from '@/lib/agentSeo'
 
 export const revalidate = 3600
 
@@ -55,7 +57,11 @@ export default async function OpenMiningStackPage() {
   )
 
   return (
-    <main>
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd([{ name: 'Mining Stack', path: '/projects' }])}
+      />
+      <JsonLd data={projectsItemListJsonLd()} />
       {/* Hero, full-bleed image with overlaid copy */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]">
         <Image
@@ -106,7 +112,7 @@ export default async function OpenMiningStackPage() {
                 href={`#${p.slug}`}
                 className="group bg-white dark:bg-[#1a1a1a] p-5 hover:bg-gray-50 dark:hover:bg-[#242424] transition-colors"
               >
-                <div className="font-mono text-[11px] tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-2">
+                <div className="font-mono text-[11px] tracking-widest uppercase text-gray-500 dark:text-gray-400 mb-2">
                   {String(i + 1).padStart(2, '0')} / {layerLabels[p.slug]}
                 </div>
                 <div className="font-display font-bold text-gray-900 dark:text-white uppercase group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">
@@ -159,6 +165,6 @@ export default async function OpenMiningStackPage() {
           </TextLink>
         }
       />
-    </main>
+    </>
   )
 }

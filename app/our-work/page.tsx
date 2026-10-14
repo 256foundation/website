@@ -16,6 +16,8 @@ import Button from '@/components/ui/Button'
 import Eyebrow from '@/components/ui/Eyebrow'
 import HeroScrim from '@/components/ui/HeroScrim'
 import PageCTA from '@/components/shared/PageCTA'
+import JsonLd from '@/components/shared/JsonLd'
+import { breadcrumbJsonLd } from '@/lib/agentSeo'
 
 /**
  * First-pass /our-work. Every section of the agreed outline is present but
@@ -41,6 +43,7 @@ const projectLines: Record<string, string> = {
 export default function OurWorkPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: 'Our Work', path: '/our-work' }])} />
       {/* Hero, full-bleed image with overlaid copy */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]">
         <Image

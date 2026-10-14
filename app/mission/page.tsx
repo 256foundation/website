@@ -6,6 +6,8 @@ import Eyebrow from '@/components/ui/Eyebrow'
 import HeroScrim from '@/components/ui/HeroScrim'
 import TeamMemberCard from '@/components/shared/TeamMemberCard'
 import PageCTA from '@/components/shared/PageCTA'
+import JsonLd from '@/components/shared/JsonLd'
+import { breadcrumbJsonLd, teamJsonLd } from '@/lib/agentSeo'
 
 export const metadata = generatePageMetadata({
   title: 'Mission',
@@ -52,6 +54,8 @@ const narrative = [
 export default function MissionPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd([{ name: 'Mission', path: '/mission' }])} />
+      <JsonLd data={teamJsonLd()} />
       {/* Hero, full-bleed image with overlaid mission statement (matches Our Work / Grants) */}
       <section className="relative overflow-hidden border-b border-gray-200 dark:border-[#1f1f1f]">
         <Image

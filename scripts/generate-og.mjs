@@ -131,7 +131,7 @@ fs.mkdirSync(outDir, { recursive: true })
 
 for (const { file, render } of configs) {
   const svg = render()
-  await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toFile(path.join(outDir, file))
+  await sharp(Buffer.from(svg)).png({ compressionLevel: 9, palette: true, quality: 92, effort: 8 }).toFile(path.join(outDir, file))
   console.log(`  ${file}`)
 }
 console.log(`\nWrote ${configs.length} OpenGraph cards to public/og/`)

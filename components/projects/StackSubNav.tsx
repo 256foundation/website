@@ -61,7 +61,7 @@ export default function StackSubNav({ layers }: Props) {
                       : 'border-transparent text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-gray-200',
                   ].join(' ')}
                 >
-                  <span className="text-gray-300 dark:text-gray-700">{String(layer.index).padStart(2, '0')}</span>
+                  <span className="text-gray-500 dark:text-gray-400">{String(layer.index).padStart(2, '0')}</span>
                   {layer.label}
                 </a>
               </li>

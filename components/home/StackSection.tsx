@@ -44,7 +44,13 @@ export default function StackSection() {
               <div className="flex h-20 items-center justify-center py-2">
                 {logoSrc ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={logoSrc} alt={project.name} className="max-h-16 max-w-full object-contain" />
+                  <img
+                    src={logoSrc}
+                    alt={project.name}
+                    loading="lazy"
+                    decoding="async"
+                    className="max-h-16 max-w-full object-contain"
+                  />
                 ) : (
                   <div className="flex h-14 w-14 items-center justify-center bg-[#3b1445]/10 font-mono text-xl font-bold text-[#3b1445] dark:text-[#c084d8]">
                     {project.name.slice(0, 2).toUpperCase()}

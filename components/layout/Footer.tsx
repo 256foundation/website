@@ -18,15 +18,15 @@ export default function Footer() {
             <div className="mb-3">
               <Logo variant="secondary" height={52} />
             </div>
-            <p className="text-gray-500 dark:text-gray-500 text-sm leading-relaxed mt-3 max-w-xs">
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mt-3 max-w-xs">
               Open-Sourcing Bitcoin Mining
             </p>
-            <p className="font-mono text-gray-400 dark:text-gray-700 text-xs mt-4">
+            <p className="font-mono text-gray-500 dark:text-gray-400 text-xs mt-4">
               A 501(c)(3) nonprofit organization
             </p>
             <a
               href="mailto:contact@256foundation.org"
-              className="inline-block font-mono text-gray-500 dark:text-gray-500 text-xs mt-2 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors duration-150"
+              className="inline-block font-mono text-gray-600 dark:text-gray-400 text-xs mt-2 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors duration-150"
             >
               contact@256foundation.org
             </a>
@@ -52,16 +52,16 @@ export default function Footer() {
           <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-10">
             {/* Foundation links */}
             <div className="min-w-0">
-              <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
+              <h2 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
                 <span className="w-1 h-3 bg-[#3b1445] dark:bg-[#5c2070] inline-block flex-shrink-0" />
                 Foundation
-              </h3>
+              </h2>
               <ul className="space-y-3">
                 {footerFoundationLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
+                      className="text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
                     >
                       <span className="w-0 group-hover:w-3 h-px bg-[#3b1445] transition-all duration-200 overflow-hidden" />
                       {link.label}
@@ -73,16 +73,16 @@ export default function Footer() {
 
             {/* Resources, supplemental on-site pages */}
             <div className="min-w-0">
-              <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
+              <h2 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
                 <span className="w-1 h-3 border border-[#3b1445] dark:border-[#5c2070] inline-block flex-shrink-0" />
                 Resources
-              </h3>
+              </h2>
               <ul className="space-y-3">
                 {footerResourcesLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
+                      className="text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
                     >
                       <span className="w-0 group-hover:w-3 h-px bg-[#3b1445] transition-all duration-200 overflow-hidden" />
                       {link.label}
@@ -94,10 +94,10 @@ export default function Footer() {
 
             {/* Elsewhere, external channels */}
             <div className="min-w-0">
-              <h3 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
+              <h2 className="font-display font-bold text-gray-900 dark:text-white text-xs mb-5 uppercase tracking-[0.15em] flex items-center gap-2">
                 <span className="w-1 h-3 bg-[#3b1445] dark:bg-[#5c2070] inline-block flex-shrink-0" />
                 Elsewhere
-              </h3>
+              </h2>
               <ul className="space-y-3">
                 {footerCommunityLinks.map((link) => (
                   <li key={link.href}>
@@ -105,7 +105,7 @@ export default function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-500 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
+                      className="text-gray-500 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm font-mono transition-colors duration-150 group flex items-center gap-1.5"
                     >
                       <span className="w-0 group-hover:w-3 h-px bg-[#3b1445] transition-all duration-200 overflow-hidden" />
                       {link.label}
@@ -122,10 +122,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-gray-200 dark:border-[#3b1445]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="font-mono text-gray-400 dark:text-gray-700 text-xs">
+          <p className="font-mono text-gray-500 dark:text-gray-400 text-xs">
             &copy; 2024&ndash;{year} 256 Foundation. All rights reserved.
           </p>
-          <div className="flex items-center gap-1 font-mono text-xs text-gray-400 dark:text-gray-700">
+          <div className="flex items-center gap-1 font-mono text-xs text-gray-500 dark:text-gray-400">
             <span className="w-1.5 h-1.5 rounded-full bg-[#00FF41]" style={{ boxShadow: '0 0 4px #00FF41' }} />
             <span>Open source. Always.</span>
           </div>
