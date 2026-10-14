@@ -1,4 +1,40 @@
 import type { NextConfig } from "next";
+import bundleAnalyzer from "@next/bundle-analyzer";
+
+/** `npm run analyze` opens a treemap of the client/server bundles. */
+const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === "true" });
+
+/** Origin of the self-hosted Umami script, when configured. */
+const UMAMI_ORIGIN = (() => {
+  const raw = process.env.NEXT_PUBLIC_UMAMI_URL;
+  if (!raw) return "";
+  try {
+    return new URL(raw).origin;
+  } catch {
+    return "";
+  }
+})();
+
+// Report-only first: permissive enough to cover Next's inline bootstrap, the
+// Vimeo block-find embed, the Substack embed, Formspree and Umami. Promote to
+// an enforcing `Content-Security-Policy` once the console is clean in prod.
+const CSP = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline' https://substackapi.com${UMAMI_ORIGIN ? ` ${UMAMI_ORIGIN}` : ""}`,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https://i.ytimg.com https://img.youtube.com https://i.vimeocdn.com https://assets.podhome.fm https://substackcdn.com https://substack-post-media.s3.amazonaws.com https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com",
+  "font-src 'self' data:",
+  `connect-src 'self' https://formspree.io https://substackapi.com${UMAMI_ORIGIN ? ` ${UMAMI_ORIGIN}` : ""}`,
+  "media-src 'self' https://serve.podhome.fm",
+  "frame-src https://player.vimeo.com https://www.youtube.com https://www.youtube-nocookie.com https://256foundation.substack.com",
+  "form-action 'self' https://formspree.io",
+  "frame-ancestors 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "manifest-src 'self'",
+  "worker-src 'self' blob:",
+  "upgrade-insecure-requests",
+].join("; ");
 
 const nextConfig: NextConfig = {
   // Emit a self-contained server bundle so the site can run as a small
@@ -61,6 +97,7 @@ const nextConfig: NextConfig = {
             value:
               "Accept, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Accept-Encoding",
           },
+          { key: "Content-Security-Policy-Report-Only", value: CSP },
         ],
       },
     ];
@@ -107,4 +144,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);
