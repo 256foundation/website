@@ -7,11 +7,14 @@ for AI agents to consume, and hardened against the defaults that most static
 sites ship with. Written to be executed in small, independently reviewable
 phases, each with its own verification.
 
-Owner: Tyler. Status: P0–P1 landed on this branch (see `docs/ui-work-log.md` →
-Round 18); remaining P2: full a11y audit beyond the LHCI pages and
-www→apex canonicalization at the proxy. The CSP is enforced (permissive, no
-nonces) rather than report-only. Shipped `public/` bytes are now ~6.1 MB
+Owner: Tyler. Status: **merged to `main` in PR #56** (branch `perf/optimization-2026`).
+Delivered: P0 + P1 (delivery/caching, security headers, enforced CSP, PR CI + Lighthouse
+budget, image pipeline, SEO/schema, agent surfaces, a11y fixes). The CSP is enforced
+(permissive, no nonces) rather than report-only. Shipped `public/` bytes are ~6.1 MB
 (OG cards palette-quantized), ahead of the <6.5 MB target.
+
+Remaining (P2 / out of repo): full a11y audit beyond the four LHCI pages; `www`→apex 308
+and brotli + HTTP/2-3 at the reverse proxy; persistent volume at `.next/cache/images`.
 
 > Read [`CLAUDE.md`](../CLAUDE.md) first for how the codebase actually works.
 > This file adds only the optimization workstream on top of the existing

@@ -38,8 +38,9 @@ Last updated: 2026-10-14
 | `content/community-updates` | [#44](https://github.com/256foundation/website/pull/44) | Community: Telehash card now uses the livestream frame as its background (pulled from the hero rotation); heading "Where the 256 Community lives"; Hashdash described as the donation pool + gamified dashboard; mobile-menu Donate drops the lightning bolt | merged |
 | `content/grants-announcements-link` | [#45](https://github.com/256foundation/website/pull/45) | Grants: the funding-announcements sub-line now links the funded grant log (`/grants/announcements`) as well as the newsroom | merged |
 | `content/projects-firmware-copy` | [#46](https://github.com/256foundation/website/pull/46) | Projects: sharpen the Mujina firmware closed-problem / open-answer copy | merged |
+| `perf/optimization-2026` | [#56](https://github.com/256foundation/website/pull/56) | Site optimization (see Round 18): immutable asset + security headers, enforced CSP, PR CI + Lighthouse budget, image weight 8.2MB → 6.1MB, JSON-LD `@graph` + breadcrumbs + manifest/404, agent markdown negotiation + `.well-known`, contrast/heading a11y fixes, dead-code prune | merged |
 
-**All of the above are merged; no open PRs as of 2026-10-10.** The five `content/*` + `newsroom/*` remote branches and four stale local branches (upstream `gone`) are merged but not yet deleted.
+**All of the above are merged; no open PRs as of 2026-10-14.** The five `content/*` + `newsroom/*` remote branches and four stale local branches (upstream `gone`) are merged but not yet deleted.
 
 Merge order for the earlier stack was #20 → #21 → `ui/edits-round3`; all three are merged, so `ui/edits-round5` now bases on `main`.
 
@@ -407,7 +408,7 @@ home page is the same control (photo overlays stay `onDark`).
 
 ---
 
-### Round 18 — `perf/optimization-2026` — site optimization (no visual change)
+### Round 18 — `perf/optimization-2026` — site optimization (no visual change) — **merged, PR [#56](https://github.com/256foundation/website/pull/56)**
 
 Full plan and guardrails: [`docs/optimization-plan.md`](./optimization-plan.md). Behavior,
 delivery, and metadata only; no redesign.

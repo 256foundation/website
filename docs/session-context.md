@@ -5,16 +5,22 @@ Written so a fresh session (or a different agent) can resume with zero chat hist
 Read this together with [`docs/ui-work-log.md`](./ui-work-log.md) (the running UI log)
 and the repo root [`CLAUDE.md`](../CLAUDE.md).
 
-Last updated: 2026-10-10
+Last updated: 2026-10-14
 
 ---
 
 ## TL;DR current state
 
-- **Everything is merged; no open PRs.** Recent rounds: content/design pass #36–#41,
-  Ember One first grant announcement + funding-timeline format #42, site-wide em dash
-  sweep + copy tweaks #43, community tweaks (Telehash background, heading, Hashdash copy,
-  mobile nav) #44, grants grant-log link #45, Mujina firmware copy #46.
+- **Everything is merged; no open PRs.** Most recent round: a site optimization pass
+  (`perf/optimization-2026`, PR #56) — delivery/caching + security headers, enforced CSP,
+  PR CI with a Lighthouse budget, image weight cut 8.2MB → 6.1MB, deeper SEO/JSON-LD,
+  agent markdown negotiation + `.well-known` surfaces, and a11y contrast/heading fixes.
+  Full detail in [`docs/ui-work-log.md`](./ui-work-log.md) → Round 18 and
+  [`docs/optimization-plan.md`](./optimization-plan.md).
+- Prior rounds: content/design pass #36–#41, Ember One first grant announcement +
+  funding-timeline format #42, site-wide em dash sweep + copy tweaks #43, community tweaks
+  (Telehash background, heading, Hashdash copy, mobile nav) #44, grants grant-log link #45,
+  Mujina firmware copy #46.
 - Earlier merged: #20, #21, #24–#28, #30–#35. Rounds 3 and 4 had no PR.
 - Branch the next round fresh off `main`.
 - Dev server: `npm run dev` → http://localhost:3000.
@@ -167,3 +173,4 @@ the root layout provides `<main>`, so avoid accidental `main > main`.
 - #44 Community: Telehash background, heading, nav tweaks — merged
 - #45 Grants: link the funded grant log from the announcements section — merged
 - #46 Projects: tighten Mujina firmware copy — merged
+- #56 Site optimization 2026 (delivery/caching, images, SEO, agents, a11y, CI) — merged
