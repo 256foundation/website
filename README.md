@@ -205,7 +205,7 @@ npm run optimize:art      # re-encode brand/hero/team art to right-sized WebP
 
 The app sets its own cache and security headers in [`next.config.ts`](next.config.ts): a
 year of `immutable` caching for `public/` assets and hashed chunks (neutralizing Next's
-`max-age=0` default for `public/`), baseline hardening headers, a report-only CSP, and
+`max-age=0` default for `public/`), baseline hardening headers, an enforcing CSP, and
 `Accept: text/markdown` content negotiation via [`middleware.ts`](middleware.ts). HTML/ISR
 caching is left to Next so `revalidate` keeps working.
 

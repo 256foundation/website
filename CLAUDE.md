@@ -164,7 +164,7 @@ without a setState-in-effect.
 ## Delivery, caching, and agent surfaces
 
 - [`next.config.ts`](next.config.ts) `headers()` sets year-long `immutable` caching on
-  public assets + hashed chunks, baseline security headers, a **report-only CSP**, and
+  public assets + hashed chunks, baseline security headers, an **enforcing CSP**, and
   `Vary: Accept`; `compress: true` (the proxy handles brotli/HTTP3 — see README).
 - [`middleware.ts`](middleware.ts) does `Accept: text/markdown` content negotiation
   (`/` → `/llms.txt`, `/newsroom/<slug>` → the post's raw markdown) and sets a

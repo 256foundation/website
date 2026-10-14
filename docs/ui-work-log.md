@@ -428,7 +428,7 @@ delivery, and metadata only; no redesign.
 - **Agent surfaces (P1):** `Accept: text/markdown` content negotiation (`middleware.ts`),
   `Link rel="llms"`, `/.well-known/{security,ai}.txt`, `dc:creator` + `content:encoded`
   in RSS.
-- **Perf/security (P1):** `@next/bundle-analyzer` + `npm run analyze`; report-only CSP.
+- **Perf/security (P1):** `@next/bundle-analyzer` + `npm run analyze`; enforcing CSP.
 
 New scripts: `npm run analyze`, `npm run lhci`, `npm run optimize:art`.
 

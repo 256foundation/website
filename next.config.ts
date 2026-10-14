@@ -15,9 +15,9 @@ const UMAMI_ORIGIN = (() => {
   }
 })();
 
-// Report-only first: permissive enough to cover Next's inline bootstrap, the
-// Vimeo block-find embed, the Substack embed, Formspree and Umami. Promote to
-// an enforcing `Content-Security-Policy` once the console is clean in prod.
+// Enforced CSP. Permissive enough to cover Next's inline bootstrap, the Vimeo
+// block-find embed, the Substack embed, Formspree and Umami, so it ships as a
+// hard policy rather than report-only. Tighten toward nonces later if desired.
 const CSP = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline' https://substackapi.com${UMAMI_ORIGIN ? ` ${UMAMI_ORIGIN}` : ""}`,
@@ -33,6 +33,7 @@ const CSP = [
   "object-src 'none'",
   "manifest-src 'self'",
   "worker-src 'self' blob:",
+  "upgrade-insecure-requests",
 ].join("; ");
 
 const nextConfig: NextConfig = {
@@ -96,7 +97,7 @@ const nextConfig: NextConfig = {
             value:
               "Accept, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Accept-Encoding",
           },
-          { key: "Content-Security-Policy-Report-Only", value: CSP },
+          { key: "Content-Security-Policy", value: CSP },
         ],
       },
     ];
