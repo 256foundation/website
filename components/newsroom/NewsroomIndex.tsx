@@ -39,6 +39,7 @@ export default function NewsroomIndex({ posts }: NewsroomIndexProps) {
 
   return (
     <>
+      <h2 className="sr-only">Posts</h2>
       <div role="group" aria-label="Filter by category" className="flex flex-wrap gap-2 mb-8">
         <button
           type="button"

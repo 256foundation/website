@@ -88,7 +88,7 @@ export default function CommunitySection({ forumTopics, orgEvents = [] }: Commun
             <div className="divide-y divide-gray-100 dark:divide-[#141414]">
               {forumTopics.length === 0 ? (
                 <div className="px-5 py-3">
-                  <span className="font-mono text-gray-400 dark:text-gray-600 text-xs">
+                  <span className="font-mono text-gray-500 dark:text-gray-400 text-xs">
                     No recent topics.
                   </span>
                 </div>
@@ -104,10 +104,10 @@ export default function CommunitySection({ forumTopics, orgEvents = [] }: Commun
                     <span className="flex-1 font-mono text-gray-700 dark:text-gray-300 text-xs truncate group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors min-w-0">
                       {topic.title}
                     </span>
-                    <span className="font-mono text-gray-400 dark:text-gray-600 text-xs whitespace-nowrap shrink-0">
+                    <span className="font-mono text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap shrink-0">
                       {topic.replyCount} {topic.replyCount === 1 ? 'reply' : 'replies'}
                     </span>
-                    <span className="font-mono text-gray-400 dark:text-gray-600 text-xs whitespace-nowrap shrink-0 w-14 text-right">
+                    <span className="font-mono text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap shrink-0 w-14 text-right">
                       {timeAgo(topic.lastPostedAt)}
                     </span>
                   </a>
@@ -140,7 +140,7 @@ export default function CommunitySection({ forumTopics, orgEvents = [] }: Commun
             <div className="divide-y divide-gray-100 dark:divide-[#141414]">
               {orgEvents.length === 0 ? (
                 <div className="px-5 py-3">
-                  <span className="font-mono text-gray-400 dark:text-gray-600 text-xs">
+                  <span className="font-mono text-gray-500 dark:text-gray-400 text-xs">
                     No recent activity.{' '}
                     <a
                       href="https://github.com/256foundation"
@@ -164,13 +164,13 @@ export default function CommunitySection({ forumTopics, orgEvents = [] }: Commun
                     <span className="font-mono text-[9px] uppercase tracking-widest px-1.5 py-0.5 border border-[#3b1445]/30 dark:border-[#5c2070]/40 text-[#3b1445] dark:text-[#c084d8] shrink-0">
                       {eventTypeLabel[event.type] ?? event.type}
                     </span>
-                    <span className="font-mono text-gray-400 dark:text-gray-600 text-xs shrink-0">
+                    <span className="font-mono text-gray-500 dark:text-gray-400 text-xs shrink-0">
                       {event.repo}
                     </span>
                     <span className="flex-1 font-mono text-gray-700 dark:text-gray-300 text-xs truncate group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors min-w-0">
                       {event.description}
                     </span>
-                    <span className="font-mono text-gray-400 dark:text-gray-600 text-xs whitespace-nowrap shrink-0 w-14 text-right">
+                    <span className="font-mono text-gray-500 dark:text-gray-400 text-xs whitespace-nowrap shrink-0 w-14 text-right">
                       {timeAgo(event.createdAt)}
                     </span>
                   </a>

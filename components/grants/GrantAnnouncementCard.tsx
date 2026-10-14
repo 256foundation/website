@@ -34,7 +34,7 @@ export default function GrantAnnouncementCard({ entry }: GrantAnnouncementCardPr
       className="group block bg-gray-50 dark:bg-[#1a1a1a] border border-gray-200 dark:border-[#1f1f1f] rounded-none p-6 hover:border-[#3b1445]/50 dark:hover:border-[#5c2070]/50 hover:shadow-[0_0_24px_rgba(59,20,69,0.1)] transition-all duration-200"
     >
       {entry.date && (
-        <time className="block font-mono text-gray-400 text-xs mb-2">{formatPostDate(entry.date)}</time>
+        <time className="block font-mono text-gray-500 dark:text-gray-400 text-xs mb-2">{formatPostDate(entry.date)}</time>
       )}
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mb-3">

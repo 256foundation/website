@@ -193,7 +193,7 @@ export default function HashrateLeaderboard() {
                 </span>
 
                 {/* Percentage, hidden on mobile */}
-                <span className="hidden sm:inline font-mono text-gray-400 dark:text-gray-600 text-xs flex-shrink-0 w-8 text-right">
+                <span className="hidden sm:inline font-mono text-gray-500 dark:text-gray-400 text-xs flex-shrink-0 w-8 text-right">
                   {pct}%
                 </span>
               </div>

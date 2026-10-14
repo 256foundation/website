@@ -58,7 +58,7 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
             {categoryLabel(meta.category)}
           </span>
           {meta.date && (
-            <time className="font-mono text-gray-400 text-xs">
+            <time className="font-mono text-gray-500 dark:text-gray-400 text-xs">
               {formatPostDate(meta.date)}
             </time>
           )}
@@ -70,7 +70,7 @@ export default async function NewsroomPostPage({ params }: { params: Promise<{ s
         </h1>
 
         {/* Author */}
-        <p className="font-mono text-gray-400 text-xs mb-8">By {meta.author}</p>
+        <p className="font-mono text-gray-500 dark:text-gray-400 text-xs mb-8">By {meta.author}</p>
 
         {/* Cover image, sized to its own aspect ratio, so covers as different
             as a 3:1 banner and a 3:2 photo both render full-width uncropped. */}

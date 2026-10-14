@@ -112,7 +112,7 @@ export default async function OpenMiningStackPage() {
                 href={`#${p.slug}`}
                 className="group bg-white dark:bg-[#1a1a1a] p-5 hover:bg-gray-50 dark:hover:bg-[#242424] transition-colors"
               >
-                <div className="font-mono text-[11px] tracking-widest uppercase text-gray-400 dark:text-gray-600 mb-2">
+                <div className="font-mono text-[11px] tracking-widest uppercase text-gray-500 dark:text-gray-400 mb-2">
                   {String(i + 1).padStart(2, '0')} / {layerLabels[p.slug]}
                 </div>
                 <div className="font-display font-bold text-gray-900 dark:text-white uppercase group-hover:text-[#3b1445] dark:group-hover:text-[#c084d8] transition-colors">

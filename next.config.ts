@@ -33,7 +33,6 @@ const CSP = [
   "object-src 'none'",
   "manifest-src 'self'",
   "worker-src 'self' blob:",
-  "upgrade-insecure-requests",
 ].join("; ");
 
 const nextConfig: NextConfig = {
