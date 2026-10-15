@@ -61,8 +61,8 @@ minutes, the full policy set (only the key public ones below).
 |---|---|---|
 | `/transparency` page itself | The whole point | New route + content |
 | Transparency report | "Not done" | A definition on the page, plus either a first edition or a clearly-marked "first edition forthcoming" slot |
-| Articles of Incorporation | Already public at Secretary of State | Link the state record (state + entity search URL needed, see decisions) |
-| IRS determination letter | Required on request | Link an IRS lookup, and/or host the letter PDF under `public/` |
+| Articles of Incorporation | Not listed | Dropped from the page; filed with the TN Secretary of State (control no. 001512457) |
+| IRS determination letter | Required on request | Link the IRS-hosted letter PDF (`apps.irs.gov/pub/epostcard/dl/FinalLetter_99-1662333_...pdf`) |
 | Form 990 lookup | A public EIN lookup showing every 990 filed | External link, EIN 99-1662333 (ProPublica Nonprofit Explorer or IRS Tax Exempt Organization Search) |
 | Six key public policies | Planned, not yet written; Outline has no Policies collection | Blank category until they exist (see §2a) |
 
@@ -82,11 +82,11 @@ repo is accessible via `gh`. It settles the unknowns:
   (`/doc/the-board-...`) bounces the public to a sign-in page, so any
   `docs.256foundation.org/doc/...` link is a login prompt, not a readable doc.
   Worth opening the policy collection to public sharing before linking it.
-- **Filing state is Tennessee** (`finance/filings-and-compliance.md`). Articles of
-  Incorporation and the IRS determination letter are *not yet recovered into the
-  formation package* (tasks `#377`/`#442`), so the page links the public records
-  (TN Secretary of State business search; ProPublica reproduces the determination
-  record) and notes the originals are available on request.
+- **Filing state is Tennessee** (`finance/filings-and-compliance.md`). The IRS
+  determination letter is *not yet recovered into the formation package*
+  (tasks `#377`/`#442`), so the page links the IRS-hosted PDF. The Articles of
+  Incorporation are filed with the TN Secretary of State (control no. 001512457)
+  but are not listed on the page. The agency copies remain available on request.
 - **Form 990 lookup:** ProPublica Nonprofit Explorer for EIN 99-1662333
   (`projects.propublica.org/nonprofits/organizations/991662333`). FY2024 filed;
   FY2025 extension approved, not yet filed.
@@ -126,7 +126,7 @@ Priorities: **P0** = do first. **P1** = needed to ship a complete page.
 
 ### C. Document + policy links — P1 (depends on decisions)
 
-- Articles of Incorporation, IRS determination letter, Form 990 lookup wired as
+- IRS determination letter, Form 990 lookup wired as
   external links with a clear "public record" label.
 - The six policies: each row points at wherever the policy lives (on-site page,
   hosted PDF, or external). If hosted on-site, decide one home (see decisions).
@@ -198,10 +198,8 @@ markdown inside it. Everything else is a `TextLink` or `Link` in existing copy.
    Tyler is drafting it and will drop it in.
 3. **Nav:** footer `Resources` only. Top nav stays locked at six items.
 4. **Form 990:** ProPublica Nonprofit Explorer, EIN 99-1662333.
-5. **Articles + determination letter:** link the Tennessee Secretary of State
-   business search for the Articles; link ProPublica for the determination
-   record, with the originals noted as available on request until recovered.
-   Host a letter PDF later if desired.
+5. **Determination letter:** link the IRS-hosted determination letter PDF. The
+   Articles of Incorporation are not listed. The agency copies are on request.
 6. **No amount, no em dashes.** Restated nowhere; the Form 990 owns the numbers.
 
 ---

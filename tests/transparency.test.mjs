@@ -71,6 +71,15 @@ test('the money link is the Form 990 lookup, not a restated figure', () => {
   assert.ok(/Form 990 lookup/.test(source))
 })
 
+test('the Foundation determination letter points at the IRS-hosted PDF', () => {
+  const source = read(DATA)
+  assert.ok(
+    source.includes('apps.irs.gov/pub/epostcard/dl/FinalLetter_99-1662333_THE256FOUNDATION'),
+    'IRS determination letter should be the IRS-hosted PDF',
+  )
+  assert.ok(!source.includes('Articles of Incorporation'), 'Articles should be dropped from the page')
+})
+
 test('the Reports category is present but empty', () => {
   const source = read(DATA)
   const reports = source.split("title: 'Reports'")[1]
