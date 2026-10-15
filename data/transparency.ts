@@ -17,8 +17,9 @@ export const EIN = '99-1662333'
 
 export const PROPUBLICA_URL = `https://projects.propublica.org/nonprofits/organizations/${EIN.replace('-', '')}`
 
-/** Tennessee Secretary of State business registry, where the Articles are filed. */
-export const TN_SOS_URL = 'https://tncab.tnsos.gov/'
+/** The IRS-hosted copy of the Foundation's determination letter (501(c)(3) grant). */
+export const IRS_DETERMINATION_LETTER_URL =
+  'https://apps.irs.gov/pub/epostcard/dl/FinalLetter_99-1662333_THE256FOUNDATION_04232024_00.pdf'
 
 export const transparencyIntro = {
   eyebrow: 'Transparency',
@@ -33,8 +34,7 @@ export const transparencyCategories: TransparencyCategory[] = [
     items: [
       { label: 'Mission', href: '/mission' },
       { label: 'Board of Directors', href: '/mission#board' },
-      { label: 'Articles of Incorporation', href: TN_SOS_URL, external: true },
-      { label: 'IRS determination letter', href: PROPUBLICA_URL, external: true },
+      { label: 'IRS determination letter', href: IRS_DETERMINATION_LETTER_URL, external: true },
       { label: 'Form 990 lookup', href: PROPUBLICA_URL, external: true },
     ],
   },
