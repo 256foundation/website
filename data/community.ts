@@ -29,9 +29,9 @@ export const communityChannels: CommunityChannel[] = [
     external: true,
   },
   {
-    label: 'Developer Calls',
-    description: 'Dedicated time with lead maintainers.',
-    href: 'https://forum.256foundation.org/upcoming-events/',
+    label: 'Dev Calls and other Events',
+    description: 'Live calls and community events, all on one calendar.',
+    href: 'https://events.256foundation.org',
     external: true,
   },
   {

@@ -30,7 +30,7 @@ export const footerCommunityLinks: NavItem[] = [
   { label: 'GitHub', href: 'https://github.com/256foundation', external: true },
   { label: 'Forum', href: 'https://forum.256foundation.org', external: true },
   { label: 'Group Chat', href: 'https://t.me/the256foundation', external: true },
-  { label: 'Events Calendar', href: 'https://forum.256foundation.org/upcoming-events/', external: true },
+  { label: 'Events Calendar', href: 'https://events.256foundation.org', external: true },
   { label: 'Hashdash', href: 'https://dash.256f.org', external: true },
   { label: 'POD256', href: 'https://www.pod256.org', external: true },
   { label: 'Newsletter', href: 'https://256foundation.substack.com', external: true },

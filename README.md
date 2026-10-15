@@ -615,7 +615,7 @@ GitHub API is called unauthenticated by default (60 req/hr limit). Set `GITHUB_T
 | Telegram | `https://t.me/the256foundation` |
 | Nostr | `https://primal.net/p/nprofile1qqsqhk42dz0exfcsln4yqmdkjys0nvd7dqndgacpsa7w7pt7njq2uuss2u9cq` |
 | Forum | `https://forum.256foundation.org` |
-| Events Calendar | `https://forum.256foundation.org/upcoming-events/` |
+| Events Calendar | `https://events.256foundation.org` |
 | Newsletter (Substack) | `https://256foundation.substack.com` |
 | POD256 Podcast | `https://www.pod256.org` |
 

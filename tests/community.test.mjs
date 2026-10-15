@@ -46,7 +46,7 @@ test('sitemap lists /community and /our-work', () => {
 
 test('connect grid is exactly the six agreed channels', () => {
   const source = read(COMMUNITY_DATA)
-  for (const label of ['Forum', 'Developer Calls', 'Group Chat', 'Nostr', 'X / Twitter', 'Hashdash']) {
+  for (const label of ['Forum', 'Dev Calls and other Events', 'Group Chat', 'Nostr', 'X / Twitter', 'Hashdash']) {
     assert.ok(source.includes(`label: '${label}'`), `missing channel ${label}`)
   }
 })
