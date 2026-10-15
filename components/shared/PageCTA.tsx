@@ -10,8 +10,12 @@ interface PageCTAProps {
   body?: ReactNode
   /** Primary action label; defaults to a donate prompt. */
   donateLabel?: string
+  /** Primary action target; defaults to the donate page. */
+  donateHref?: string
   /** Secondary action label; defaults to a contact prompt. */
   contactLabel?: string
+  /** Secondary action target; defaults to the contact page. */
+  contactHref?: string
   /** Layout alignment. Centered is the sitewide default so every page ends on the same note. */
   align?: 'left' | 'center'
   /** Extra actions rendered alongside the defaults (e.g. GitHub, Forum). */
@@ -30,7 +34,9 @@ export default function PageCTA({
   title,
   body,
   donateLabel = 'Fund the work →',
+  donateHref = '/donate',
   contactLabel = 'Get in touch →',
+  contactHref = '/contact',
   align = 'center',
   extra,
   footnote,
@@ -58,10 +64,10 @@ export default function PageCTA({
           </p>
         )}
         <div className={['flex flex-wrap gap-3', centered ? 'justify-center' : ''].filter(Boolean).join(' ')}>
-          <Button variant="primary" size="lg" href="/donate">
+          <Button variant="primary" size="lg" href={donateHref}>
             {donateLabel}
           </Button>
-          <Button variant="outlined" size="lg" href="/contact">
+          <Button variant="outlined" size="lg" href={contactHref}>
             {contactLabel}
           </Button>
           {extra}

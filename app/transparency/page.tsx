@@ -35,6 +35,9 @@ export default function TransparencyPage() {
           <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
             {transparencyIntro.body}
           </p>
+          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+            {transparencyIntro.note}
+          </p>
         </div>
       </SectionWrapper>
 
@@ -79,9 +82,11 @@ export default function TransparencyPage() {
       </SectionWrapper>
 
       <PageCTA
-        kicker="Go Deeper"
-        title="Read the record, then the story."
-        body="The filings and policies above are the standing documents. The grants timeline and the newsroom carry the running account."
+        kicker="Learn More"
+        title="Questions? Start at the FAQ."
+        body="The FAQ answers common questions about the Foundation. If it does not answer yours, you can always reach out on the contact page."
+        donateLabel="Read the FAQ →"
+        donateHref="/faq"
       />
     </>
   )

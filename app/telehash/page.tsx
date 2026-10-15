@@ -77,7 +77,7 @@ export default function TelehashPage() {
           <Panel
             label={nextEventDate ? 'Next Event' : 'Event Status'}
             fullHeight
-            footer={{ label: 'View Events Calendar', href: 'https://forum.256foundation.org/upcoming-events/', external: true }}
+            footer={{ label: 'View Events Calendar', href: 'https://events.256foundation.org', external: true }}
             status={
               nextEventDate ? (
                 <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
@@ -193,12 +193,12 @@ export default function TelehashPage() {
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-sm mb-5">
             Telehash dates, live podcast recordings, and developer calls are all posted to the
-            foundation&apos;s events calendar on the forum. It&apos;s the best single place to follow
+            foundation&apos;s events calendar. It&apos;s the best single place to follow
             for upcoming events.
           </p>
           <Button
             variant="outlined"
-            href="https://forum.256foundation.org/upcoming-events/"
+            href="https://events.256foundation.org"
             external
             className="mb-6"
           >
