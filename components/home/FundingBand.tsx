@@ -1,6 +1,5 @@
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Button from '@/components/ui/Button'
-import TextLink from '@/components/ui/TextLink'
 import { surface } from '@/lib/tokens'
 
 /**
@@ -25,9 +24,6 @@ export default function FundingBand() {
             <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
               Grants for open-source Bitcoin mining work. Money from anyone, influence from no one.
             </p>
-            <TextLink href="/transparency" arrow className="mt-3">
-              How the money is recorded
-            </TextLink>
           </div>
           <div className="shrink-0">
             <Button variant="primary" href="/grants">

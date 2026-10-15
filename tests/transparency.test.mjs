@@ -112,12 +112,11 @@ test('the FAQ points at the public record from the tax and disclosure answers', 
   assert.ok(links.length >= 3, 'expected the tax, disclosure, and EIN answers to link /transparency')
 })
 
-test('the donate, grants, mission and home touches link the public record', () => {
+test('the donate, grants and mission touches link the public record', () => {
   for (const rel of [
     'app/donate/page.tsx',
     'components/grants/FundingAnnouncements.tsx',
     'app/mission/page.tsx',
-    'components/home/FundingBand.tsx',
   ]) {
     assert.ok(read(rel).includes('/transparency'), `${rel} does not link /transparency`)
   }

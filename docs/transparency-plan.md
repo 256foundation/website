@@ -176,7 +176,7 @@ below is **done** in this branch except the ad hoc newsroom asides.
 | Grants funding log | "Every grant we've funded", no amounts | done ("the Form 990 owns the figures") |
 | FAQ, "What does the 256 Foundation do?" | prints the EIN | done (`related` link) |
 | Mission, Principles | "Money from anyone, influence from no one" | done |
-| Home, FundingBand | money beat | done |
+| Home, FundingBand | money beat | removed, read as clutter |
 | Newsroom / grant posts | "how is this funded" asides | candidate, ad hoc |
 
 Mechanism: FAQ answers are plain strings (JSON-LD reads them verbatim), so links
