@@ -5,6 +5,7 @@ import SectionWrapper from '@/components/ui/SectionWrapper'
 import Eyebrow from '@/components/ui/Eyebrow'
 import HeroScrim from '@/components/ui/HeroScrim'
 import TeamMemberCard from '@/components/shared/TeamMemberCard'
+import TextLink from '@/components/ui/TextLink'
 import PageCTA from '@/components/shared/PageCTA'
 import JsonLd from '@/components/shared/JsonLd'
 import { breadcrumbJsonLd, teamJsonLd } from '@/lib/agentSeo'
@@ -129,6 +130,9 @@ export default function MissionPage() {
               </p>
             ))}
           </div>
+          <TextLink href="/transparency" arrow className="mt-6">
+            See the public record
+          </TextLink>
         </div>
       </SectionWrapper>
 
@@ -143,7 +147,7 @@ export default function MissionPage() {
       </SectionWrapper>
 
       {/* Board */}
-      <SectionWrapper>
+      <SectionWrapper id="board" className="scroll-mt-[130px]">
         <Eyebrow className="mb-4">Board</Eyebrow>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           {board.map((member) => (

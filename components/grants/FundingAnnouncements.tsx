@@ -59,6 +59,10 @@ export default function FundingAnnouncements({
                 <Link href="/newsroom" className={linkClass}>
                   see more updates on our newsroom →
                 </Link>
+                {' or '}
+                <Link href="/transparency" className={linkClass}>
+                  see the public record →
+                </Link>
               </>
             )}
           </>

@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button'
 import Eyebrow from '@/components/ui/Eyebrow'
 import Panel from '@/components/ui/Panel'
 import DecorativeBg from '@/components/ui/DecorativeBg'
+import TextLink from '@/components/ui/TextLink'
 import PageCTA from '@/components/shared/PageCTA'
 import JsonLd from '@/components/shared/JsonLd'
 import { faqJsonLd, breadcrumbJsonLd } from '@/lib/agentSeo'
@@ -129,6 +130,15 @@ export default function FAQPage() {
                       {item.answer.split('\n\n').map((para, j) => (
                         <p key={j}>{para}</p>
                       ))}
+                      {item.related && (
+                        <div className="flex flex-wrap gap-x-5 gap-y-2 pt-1">
+                          {item.related.map((r) => (
+                            <TextLink key={r.href} href={r.href} arrow>
+                              {r.label}
+                            </TextLink>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </details>
                 ))}

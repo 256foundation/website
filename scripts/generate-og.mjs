@@ -125,6 +125,7 @@ const configs = [
   { file: 'og-grant-announcements.png', render: () => page({ kicker: 'Newsroom', title: 'Grant Announcements', subtitle: 'What the Foundation has funded.' }) },
   { file: 'og-telehash.png', render: () => page({ kicker: '256 Foundation', title: 'Telehash', subtitle: 'Mine for the mission.' }) },
   { file: 'og-faq.png', render: () => page({ kicker: '256 Foundation', title: 'FAQ', subtitle: 'How the Foundation works.' }) },
+  { file: 'og-transparency.png', render: () => page({ kicker: '256 Foundation', title: 'Transparency', subtitle: 'The public record, in one place.' }) },
 ]
 
 fs.mkdirSync(outDir, { recursive: true })

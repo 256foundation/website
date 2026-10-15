@@ -71,6 +71,9 @@ export default function DonatePage() {
               The 256 Foundation is a 501(c)(3) nonprofit funding the core contributors building
               open-source Bitcoin mining infrastructure. Every donation goes straight to the stack.
             </p>
+            <TextLink href="/transparency" arrow className="mt-4">
+              See the public record
+            </TextLink>
           </div>
 
           <Panel label="Give in seconds">

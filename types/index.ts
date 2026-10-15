@@ -154,6 +154,26 @@ export interface FAQItem {
   question: string
   answer: string
   category: 'foundation' | 'donations' | 'grants' | 'projects' | 'technical'
+  /** Optional contextual links rendered under the answer (e.g. the public record). */
+  related?: { label: string; href: string }[]
+}
+
+// ── Transparency ──────────────────────────────────────────────
+/** One link in a transparency category. Label only; no annotations. */
+export interface TransparencyLink {
+  label: string
+  href: string
+  external?: boolean
+}
+
+/**
+ * A category on /transparency: a heading and its links. `note` carries a short
+ * muted line when a category has no links yet (e.g. the report not published).
+ */
+export interface TransparencyCategory {
+  title: string
+  items: TransparencyLink[]
+  note?: string
 }
 
 // ── Substack ──────────────────────────────────────────────────
