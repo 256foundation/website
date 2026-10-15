@@ -159,17 +159,20 @@ export interface FAQItem {
 }
 
 // ── Transparency ──────────────────────────────────────────────
-/**
- * One entry on /transparency: either a document that is already public or a
- * policy governing how outsiders interact. Every entry has an href; nothing is
- * listed without somewhere to send the reader.
- */
-export interface TransparencyItem {
-  title: string
-  description: string
+/** One link in a transparency category. Label only; no annotations. */
+export interface TransparencyLink {
+  label: string
   href: string
   external?: boolean
-  /** Short muted line under the description, e.g. availability status. */
+}
+
+/**
+ * A category on /transparency: a heading and its links. `note` carries a short
+ * muted line when a category has no links yet (e.g. the report not published).
+ */
+export interface TransparencyCategory {
+  title: string
+  items: TransparencyLink[]
   note?: string
 }
 

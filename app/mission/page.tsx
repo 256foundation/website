@@ -147,7 +147,7 @@ export default function MissionPage() {
       </SectionWrapper>
 
       {/* Board */}
-      <SectionWrapper>
+      <SectionWrapper id="board" className="scroll-mt-[130px]">
         <Eyebrow className="mb-4">Board</Eyebrow>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           {board.map((member) => (

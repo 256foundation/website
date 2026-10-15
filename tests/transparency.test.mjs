@@ -1,6 +1,6 @@
-// Tests for the /transparency page: the page and data file exist, every record
-// and policy has an href, the footer/sitemap wire-up is present, security.txt
-// points at the responsible-disclosure policy, and the copy rules hold.
+// Tests for the /transparency page: it exists, is a handful of categories of
+// links, every link has a destination, nothing is invented, the footer/sitemap
+// wires are present, and the cross-links and copy rules hold.
 //
 // Node 20 cannot import the TypeScript source, so these read the real files off
 // disk (same approach as tests/community.test.mjs).
@@ -18,6 +18,8 @@ const NAV = 'data/navigation.ts'
 const SITEMAP = 'app/sitemap.ts'
 const SECURITY = 'public/.well-known/security.txt'
 
+const CATEGORIES = ['Foundation', 'Grants', 'Policies', 'Reports']
+
 const POLICY_TITLES = [
   'Conflicts of Interest',
   'Privacy Policy',
@@ -27,62 +29,53 @@ const POLICY_TITLES = [
   'Gift Acceptance and Restricted Funds',
 ]
 
-const RECORD_TITLES = [
-  'Mission',
-  'Articles of Incorporation',
-  'IRS determination letter',
-  'Form 990 lookup',
-  'Project grants timeline',
-]
-
 test('the transparency page and data file exist', () => {
   assert.ok(exists(PAGE), `${PAGE} is missing`)
   assert.ok(exists(DATA), `${DATA} is missing`)
 })
 
 test('footer Resources links /transparency', () => {
-  const nav = read(NAV)
-  assert.ok(/label: 'Transparency', href: '\/transparency'/.test(nav))
+  assert.ok(/label: 'Transparency', href: '\/transparency'/.test(read(NAV)))
 })
 
 test('sitemap lists /transparency', () => {
   assert.ok(read(SITEMAP).includes('${baseUrl}/transparency'))
 })
 
-test('every public-record item is present and has an href', () => {
+test('the page is categories with the expected headings', () => {
   const source = read(DATA)
-  const records = source.split('transparencyRecords')[1].split('transparencyPolicies')[0]
-  for (const title of RECORD_TITLES) {
-    assert.ok(records.includes(`title: '${title}'`), `missing record ${title}`)
+  for (const title of CATEGORIES) {
+    assert.ok(source.includes(`title: '${title}'`), `missing category ${title}`)
   }
-  const hrefs = records.match(/href:/g) ?? []
-  const titles = records.match(/title:/g) ?? []
-  assert.equal(hrefs.length, titles.length, 'a record title has no href')
 })
 
-test('exactly the six key policies, each with an href', () => {
+test('every transparency link has an href', () => {
   const source = read(DATA)
-  const policies = source.split('transparencyPolicies')[1].split('transparencyReport')[0]
+  const hrefs = source.match(/href:/g) ?? []
+  const labels = source.match(/label:/g) ?? []
+  assert.equal(hrefs.length, labels.length, 'a link label has no href')
+})
+
+test('the Policies category is exactly the six key policies', () => {
+  const source = read(DATA)
+  const policies = source.split("title: 'Policies'")[1].split("title: 'Reports'")[0]
   for (const title of POLICY_TITLES) {
-    assert.ok(policies.includes(`title: '${title}'`), `missing policy ${title}`)
+    assert.ok(policies.includes(`label: '${title}'`), `missing policy ${title}`)
   }
-  const hrefs = policies.match(/href:/g) ?? []
-  const titles = policies.match(/title:/g) ?? []
-  assert.equal(hrefs.length, titles.length, 'a policy title has no href')
-  assert.equal(titles.length, 6, 'policy list should be exactly the six key policies')
+  assert.equal((policies.match(/label:/g) ?? []).length, 6)
 })
 
 test('the money link is the Form 990 lookup, not a restated figure', () => {
   const source = read(DATA)
   assert.ok(source.includes('projects.propublica.org/nonprofits/organizations/'))
-  assert.ok(source.includes("'99-1662333'") || source.includes('991662333'))
   assert.ok(/Form 990 lookup/.test(source))
 })
 
-test('the transparency report is defined on the page', () => {
+test('the Reports category is present but empty', () => {
   const source = read(DATA)
-  assert.ok(/transparencyReport/.test(source))
-  assert.ok(/in progress/i.test(source), 'report should carry an in-progress status')
+  const reports = source.split("title: 'Reports'")[1]
+  assert.ok(/items: \[\]/.test(reports), 'Reports should have no links yet')
+  assert.ok(/in progress/i.test(reports), 'Reports should carry an in-progress note')
 })
 
 test('security.txt points at the responsible-disclosure policy, not the FAQ', () => {
@@ -119,12 +112,13 @@ test('the FAQ points at the public record from the tax and disclosure answers', 
   assert.ok(links.length >= 3, 'expected the tax, disclosure, and EIN answers to link /transparency')
 })
 
-test('the donate and grants pages link the public record', () => {
-  assert.ok(read('app/donate/page.tsx').includes('/transparency'))
-  assert.ok(read('components/grants/FundingAnnouncements.tsx').includes('/transparency'))
-})
-
-test('the mission and home funding band link the public record', () => {
-  assert.ok(read('app/mission/page.tsx').includes('/transparency'))
-  assert.ok(read('components/home/FundingBand.tsx').includes('/transparency'))
+test('the donate, grants, mission and home touches link the public record', () => {
+  for (const rel of [
+    'app/donate/page.tsx',
+    'components/grants/FundingAnnouncements.tsx',
+    'app/mission/page.tsx',
+    'components/home/FundingBand.tsx',
+  ]) {
+    assert.ok(read(rel).includes('/transparency'), `${rel} does not link /transparency`)
+  }
 })
