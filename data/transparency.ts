@@ -24,8 +24,8 @@ export const IRS_DETERMINATION_LETTER_URL =
 export const transparencyIntro = {
   eyebrow: 'Transparency',
   title: 'Transparency',
-  body:
-    'The 256 Foundation is a 501(c)(3) public charity, EIN 99-1662333. Everything below is already public, or already available on request, gathered in one place. On money, the filed Form 990 is the source of truth.',
+  body: 'The 256 Foundation is a 501(c)(3) public charity, EIN 99-1662333.',
+  note: 'See our transparency documents below.',
 }
 
 export const transparencyCategories: TransparencyCategory[] = [
