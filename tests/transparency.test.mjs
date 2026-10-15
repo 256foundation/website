@@ -56,13 +56,13 @@ test('every transparency link has an href', () => {
   assert.equal(hrefs.length, labels.length, 'a link label has no href')
 })
 
-test('the Policies category is exactly the six key policies', () => {
+test('the Policies and Reports categories are present but empty', () => {
   const source = read(DATA)
-  const policies = source.split("title: 'Policies'")[1].split("title: 'Reports'")[0]
-  for (const title of POLICY_TITLES) {
-    assert.ok(policies.includes(`label: '${title}'`), `missing policy ${title}`)
+  for (const title of ['Policies', 'Reports']) {
+    const body = source.split(`title: '${title}'`)[1].split('},')[0]
+    assert.ok(/items: \[\]/.test(body), `${title} should have no links yet`)
+    assert.ok(/note:/.test(body), `${title} should carry an in-progress note`)
   }
-  assert.equal((policies.match(/label:/g) ?? []).length, 6)
 })
 
 test('the money link is the Form 990 lookup, not a restated figure', () => {

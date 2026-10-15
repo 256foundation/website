@@ -64,22 +64,24 @@ minutes, the full policy set (only the key public ones below).
 | Articles of Incorporation | Already public at Secretary of State | Link the state record (state + entity search URL needed, see decisions) |
 | IRS determination letter | Required on request | Link an IRS lookup, and/or host the letter PDF under `public/` |
 | Form 990 lookup | A public EIN lookup showing every 990 filed | External link, EIN 99-1662333 (ProPublica Nonprofit Explorer or IRS Tax Exempt Organization Search) |
-| Six key public policies | Adopted, canon lives in Outline | Link each from the page (see §2a) |
+| Six key public policies | Planned, not yet written; Outline has no Policies collection | Blank category until they exist (see §2a) |
 
 ### 2a. Canon sources (resolved)
 
 The private [`256foundation/organization-spec`](https://github.com/256foundation/organization-spec)
 repo is accessible via `gh`. It settles the unknowns:
 
-- **The six policies are adopted and published.** Canon is the Outline Policies
-  collection at `docs.256foundation.org`; the page links each doc rather than
-  duplicating it (so policy text stays single-source). Stable URLs:
-  - Conflicts of Interest: `/doc/conflicts-of-interest-policy-gQ1dmH2N9B`
-  - Privacy Policy: `/doc/privacy-policy-1IHWpfXC4v`
-  - Responsible Disclosure: `/doc/responsible-disclosure-policy-PCfyFQb2N7`
-  - Code of Conduct: `/doc/code-of-conduct-policy-SMD9JitR6V`
-  - Whistleblower: `/doc/whistleblower-policy-i5kwa0Hibd`
-  - Gift Acceptance and Restricted Funds: `/doc/gift-acceptance-and-restricted-funds-policy-JVf1JC73SN`
+- **The six policies are not published yet, so the page does not link them.**
+  The org spec still records "no written organizational policies exist" and dates
+  most drafts to Sep/Oct tasks; the last Outline export has no Policies collection.
+  When they land they go in Outline under `docs.256foundation.org`. The six planned,
+  in case the names return:
+  - Conflicts of Interest, Privacy Policy, Responsible Disclosure, Code of Conduct,
+    Whistleblower, Gift Acceptance and Restricted Funds
+- **Outline is login-gated for anonymous visitors.** Even a known-good doc
+  (`/doc/the-board-...`) bounces the public to a sign-in page, so any
+  `docs.256foundation.org/doc/...` link is a login prompt, not a readable doc.
+  Worth opening the policy collection to public sharing before linking it.
 - **Filing state is Tennessee** (`finance/filings-and-compliance.md`). Articles of
   Incorporation and the IRS determination letter are *not yet recovered into the
   formation package* (tasks `#377`/`#442`), so the page links the public records

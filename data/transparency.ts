@@ -47,38 +47,8 @@ export const transparencyCategories: TransparencyCategory[] = [
   },
   {
     title: 'Policies',
-    items: [
-      {
-        label: 'Conflicts of Interest',
-        href: 'https://docs.256foundation.org/doc/conflicts-of-interest-policy-gQ1dmH2N9B',
-        external: true,
-      },
-      {
-        label: 'Privacy Policy',
-        href: 'https://docs.256foundation.org/doc/privacy-policy-1IHWpfXC4v',
-        external: true,
-      },
-      {
-        label: 'Responsible Disclosure',
-        href: 'https://docs.256foundation.org/doc/responsible-disclosure-policy-PCfyFQb2N7',
-        external: true,
-      },
-      {
-        label: 'Code of Conduct',
-        href: 'https://docs.256foundation.org/doc/code-of-conduct-policy-SMD9JitR6V',
-        external: true,
-      },
-      {
-        label: 'Whistleblower',
-        href: 'https://docs.256foundation.org/doc/whistleblower-policy-i5kwa0Hibd',
-        external: true,
-      },
-      {
-        label: 'Gift Acceptance and Restricted Funds',
-        href: 'https://docs.256foundation.org/doc/gift-acceptance-and-restricted-funds-policy-JVf1JC73SN',
-        external: true,
-      },
-    ],
+    items: [],
+    note: 'Not published yet.',
   },
   {
     title: 'Reports',

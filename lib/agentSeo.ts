@@ -206,7 +206,7 @@ export function buildLlmsFullTxt(): string {
   out.push(`- IRS determination letter: available on request; the exempt-status record is public at ${PROPUBLICA_URL}.`)
   out.push(`- Form 990 lookup: every annual information return the Foundation files, at ${PROPUBLICA_URL}. The filed 990 is the source of truth for all figures.`)
   out.push(`- Project grants timeline: ${siteBaseUrl()}/grants/announcements. Per-project grant amounts are never published.`)
-  out.push(`- Key public policies (not the full set): Conflicts of Interest, Privacy, Responsible Disclosure, Code of Conduct, Whistleblower, and Gift Acceptance and Restricted Funds. Each is published in the Foundation's policy collection at https://docs.256foundation.org/.`)
+  out.push(`- Key public policies: not yet published. They will live in the Foundation's Outline workspace at https://docs.256foundation.org/, which currently requires a login.`)
   out.push(`- Transparency report: the narrative account of the Foundation and its grantees, distinct from the transparency page. First edition in progress.`)
   out.push('')
 
