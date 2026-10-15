@@ -123,3 +123,8 @@ test('the donate and grants pages link the public record', () => {
   assert.ok(read('app/donate/page.tsx').includes('/transparency'))
   assert.ok(read('components/grants/FundingAnnouncements.tsx').includes('/transparency'))
 })
+
+test('the mission and home funding band link the public record', () => {
+  assert.ok(read('app/mission/page.tsx').includes('/transparency'))
+  assert.ok(read('components/home/FundingBand.tsx').includes('/transparency'))
+})

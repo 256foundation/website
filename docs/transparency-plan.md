@@ -164,8 +164,8 @@ Priorities: **P0** = do first. **P1** = needed to ship a complete page.
 ### H. Cross-links from the rest of the site — P1
 
 A page nobody can reach from the money and legal touchpoints is half-wired. Ranked
-by how directly the surrounding copy already claims the public record; the top
-four are **done** in this branch.
+by how directly the surrounding copy already claims the public record; every row
+below is **done** in this branch except the ad hoc newsroom asides.
 
 | Where | The existing line that begs for it | Status |
 |---|---|---|
@@ -175,8 +175,8 @@ four are **done** in this branch.
 | Donate hero | "501(c)(3) nonprofit" and the money framing | done (`See the public record`) |
 | Grants funding log | "Every grant we've funded", no amounts | done ("the Form 990 owns the figures") |
 | FAQ, "What does the 256 Foundation do?" | prints the EIN | done (`related` link) |
-| Mission, Principles | "Money from anyone, influence from no one" | candidate |
-| Home, FundingBand | money beat | candidate |
+| Mission, Principles | "Money from anyone, influence from no one" | done |
+| Home, FundingBand | money beat | done |
 | Newsroom / grant posts | "how is this funded" asides | candidate, ad hoc |
 
 Mechanism: FAQ answers are plain strings (JSON-LD reads them verbatim), so links
