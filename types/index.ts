@@ -156,6 +156,21 @@ export interface FAQItem {
   category: 'foundation' | 'donations' | 'grants' | 'projects' | 'technical'
 }
 
+// ── Transparency ──────────────────────────────────────────────
+/**
+ * One entry on /transparency: either a document that is already public or a
+ * policy governing how outsiders interact. Every entry has an href; nothing is
+ * listed without somewhere to send the reader.
+ */
+export interface TransparencyItem {
+  title: string
+  description: string
+  href: string
+  external?: boolean
+  /** Short muted line under the description, e.g. availability status. */
+  note?: string
+}
+
 // ── Substack ──────────────────────────────────────────────────
 export interface SubstackPost {
   title: string

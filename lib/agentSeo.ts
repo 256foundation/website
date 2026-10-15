@@ -7,6 +7,7 @@ import { founders, board } from '@/data/team'
 import { supporters } from '@/data/supporters'
 import { siteStats } from '@/data/stats'
 import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS, ZAPRITE_URL } from '@/data/donate'
+import { PROPUBLICA_URL } from '@/data/transparency'
 import type { NewsroomPost } from '@/types'
 
 /**
@@ -80,6 +81,7 @@ export function buildLlmsTxt(): string {
   lines.push(`- [Projects](${base}/projects): The four core projects with full technical narratives.`)
   lines.push(`- [Grants](${base}/grants): The two grant programs and how a grant runs.`)
   lines.push(`- [Funding log](${base}/grants/announcements): Every grant announcement, newest first.`)
+  lines.push(`- [Transparency](${base}/transparency): The public record: incorporation, IRS status, Form 990 lookup, grants timeline, and the key public policies.`)
   lines.push(`- [FAQ](${base}/faq): Who we are, how donations and grants work, and technical questions.`)
   lines.push(`- [Telehash](${base}/telehash): Our livestream mining fundraiser. Telehash #1 found block 881423.`)
   lines.push(`- [Community](${base}/community): Forum, events, and ecosystem projects.`)
@@ -193,6 +195,19 @@ export function buildLlmsFullTxt(): string {
   for (const entry of getGrantLogEntries()) {
     out.push(`- ${formatPostDate(entry.date)}: ${entry.project}, ${entry.program === 'general' ? 'General Grant Program' : 'Core Projects Program'}${entry.term ? `, ${entry.term}` : ''}. Announcement: ${siteBaseUrl()}/newsroom/${entry.slug}. ${entry.excerpt ?? ''}`)
   }
+  out.push('')
+
+  // Transparency
+  out.push('## Transparency')
+  out.push('')
+  out.push(`Entity: 256 Foundation, EIN 99-1662333, a 501(c)(3) public charity incorporated in Tennessee. Public record: ${siteBaseUrl()}/transparency.`)
+  out.push('')
+  out.push(`- Articles of Incorporation: filed with the Tennessee Secretary of State; the record is public at https://tncab.tnsos.gov/ and the original is available on request.`)
+  out.push(`- IRS determination letter: available on request; the exempt-status record is public at ${PROPUBLICA_URL}.`)
+  out.push(`- Form 990 lookup: every annual information return the Foundation files, at ${PROPUBLICA_URL}. The filed 990 is the source of truth for all figures.`)
+  out.push(`- Project grants timeline: ${siteBaseUrl()}/grants/announcements. Per-project grant amounts are never published.`)
+  out.push(`- Key public policies (not the full set): Conflicts of Interest, Privacy, Responsible Disclosure, Code of Conduct, Whistleblower, and Gift Acceptance and Restricted Funds. Each is published in the Foundation's policy collection at https://docs.256foundation.org/.`)
+  out.push(`- Transparency report: the narrative account of the Foundation and its grantees, distinct from the transparency page. First edition in progress.`)
   out.push('')
 
   // FAQ
