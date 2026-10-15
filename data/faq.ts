@@ -19,6 +19,7 @@ export const faqItems: FAQItem[] = [
     question: 'What does my donation fund?',
     answer:
       'The 256 Foundation directly funds core contributors building the open-source Bitcoin mining infrastructure we deem critically important: Mujina firmware, Libre Board, Hydrapool, and the Ember One hashboard. No board member is compensated.',
+    related: [{ label: 'See the public record', href: '/transparency' }],
   },
   {
     category: 'foundation',
@@ -32,6 +33,7 @@ export const faqItems: FAQItem[] = [
     question: 'Are donations tax deductible?',
     answer:
       'Yes, all donations to the 256 Foundation are tax-deductible as allowed by law. Our Tax ID number is 99-1662333. No products or services are exchanged in return for donations. We recommend consulting with a tax professional to determine the exact deductibility of your contribution and to ensure compliance with all relevant laws and guidelines.',
+    related: [{ label: 'IRS determination letter and Form 990', href: '/transparency' }],
   },
   {
     category: 'donations',
@@ -70,6 +72,7 @@ export const faqItems: FAQItem[] = [
     question: 'Are grant awards given in bitcoin or fiat?',
     answer:
       'Grant awards are given to recipients based on their preferred method, either bitcoin or fiat. We accept donations in fiat or bitcoin. For security reasons, the exact dollar (or sat) amounts awarded to individual recipients are kept confidential. In accordance with IRS requirements, annual tax disclosures are available for public inspection.',
+    related: [{ label: 'Read the public record', href: '/transparency' }],
   },
   {
     category: 'grants',

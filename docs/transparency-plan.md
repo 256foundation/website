@@ -161,6 +161,30 @@ Priorities: **P0** = do first. **P1** = needed to ship a complete page.
 - Move the relevant session/context notes into `docs/session-context.md`
   conventions once shipped.
 
+### H. Cross-links from the rest of the site — P1
+
+A page nobody can reach from the money and legal touchpoints is half-wired. Ranked
+by how directly the surrounding copy already claims the public record; the top
+four are **done** in this branch.
+
+| Where | The existing line that begs for it | Status |
+|---|---|---|
+| FAQ, "Are donations tax deductible?" | prints the Tax ID and points at the IRS | done (`related` link) |
+| FAQ, "Are grant awards given in bitcoin or fiat?" | "annual tax disclosures are available for public inspection" | done (`related` link) |
+| Footer brand column | "A 501(c)(3) nonprofit organization" | done (now a link) |
+| Donate hero | "501(c)(3) nonprofit" and the money framing | done (`See the public record`) |
+| Grants funding log | "Every grant we've funded", no amounts | done ("the Form 990 owns the figures") |
+| FAQ, "What does the 256 Foundation do?" | prints the EIN | done (`related` link) |
+| Mission, Principles | "Money from anyone, influence from no one" | candidate |
+| Home, FundingBand | money beat | candidate |
+| Newsroom / grant posts | "how is this funded" asides | candidate, ad hoc |
+
+Mechanism: FAQ answers are plain strings (JSON-LD reads them verbatim), so links
+ride a new optional `FAQItem.related` field rendered under the answer rather than
+markdown inside it. Everything else is a `TextLink` or `Link` in existing copy.
+`tests/transparency.test.mjs` guards the footer and sitemap wires; the FAQ
+`related` links are covered by the type and a manual check.
+
 ---
 
 ## 4. Resolved decisions

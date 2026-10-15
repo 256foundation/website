@@ -106,3 +106,20 @@ test('no retired vocabulary in the transparency copy', () => {
     assert.ok(!pattern.test(source), `${DATA}: matches retired ${pattern}`)
   }
 })
+
+// ── Cross-links from the rest of the site ─────────────────────────────────────
+
+test('the footer 501(c)(3) line links the public record', () => {
+  assert.ok(read('components/layout/Footer.tsx').includes('href="/transparency"'))
+})
+
+test('the FAQ points at the public record from the tax and disclosure answers', () => {
+  const faq = read('data/faq.ts')
+  const links = faq.match(/href: '\/transparency'/g) ?? []
+  assert.ok(links.length >= 3, 'expected the tax, disclosure, and EIN answers to link /transparency')
+})
+
+test('the donate and grants pages link the public record', () => {
+  assert.ok(read('app/donate/page.tsx').includes('/transparency'))
+  assert.ok(read('components/grants/FundingAnnouncements.tsx').includes('/transparency'))
+})

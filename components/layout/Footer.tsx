@@ -21,9 +21,12 @@ export default function Footer() {
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mt-3 max-w-xs">
               Open-Sourcing Bitcoin Mining
             </p>
-            <p className="font-mono text-gray-500 dark:text-gray-400 text-xs mt-4">
+            <Link
+              href="/transparency"
+              className="block font-mono text-gray-500 dark:text-gray-400 text-xs mt-4 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors duration-150"
+            >
               A 501(c)(3) nonprofit organization
-            </p>
+            </Link>
             <a
               href="mailto:contact@256foundation.org"
               className="inline-block font-mono text-gray-600 dark:text-gray-400 text-xs mt-2 hover:text-[#3b1445] dark:hover:text-[#c084d8] transition-colors duration-150"

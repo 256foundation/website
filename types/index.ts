@@ -154,6 +154,8 @@ export interface FAQItem {
   question: string
   answer: string
   category: 'foundation' | 'donations' | 'grants' | 'projects' | 'technical'
+  /** Optional contextual links rendered under the answer (e.g. the public record). */
+  related?: { label: string; href: string }[]
 }
 
 // ── Transparency ──────────────────────────────────────────────

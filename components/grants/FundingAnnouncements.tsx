@@ -59,6 +59,10 @@ export default function FundingAnnouncements({
                 <Link href="/newsroom" className={linkClass}>
                   see more updates on our newsroom →
                 </Link>
+                {' No amounts are published; '}
+                <Link href="/transparency" className={linkClass}>
+                  the Form 990 owns the figures →
+                </Link>
               </>
             )}
           </>
