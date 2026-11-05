@@ -118,7 +118,7 @@ export const pillarProjects: PillarProject[] = [
     description:
       'A fully open-source mining pool built as a platform: payout and accounting logic are plug-ins, not hard-coded, and deploy with a single command.',
     whyNecessary:
-      'The pool is the server side of mining, and it is concentrated. Pools can filter which transactions get mined, custody your payouts, and hide the accounting, and there’s no permissionless way to aggregate hashrate without trusting an operator.',
+      'The pool is the server side of mining, and it is concentrated. Pools can filter which transactions get mined, custody your payouts, and control the accounting. Permissionless participation doesn’t necessarily mean independently verifiable rewards.',
     whatItDoes:
       'Like WordPress for pools: the core is a platform and payouts are plug-ins. Built for solo and PPLNS pooling, with direct coinbase payouts and extensible payout logic. Hydrapool aims to let you inspect and run the bookkeeper. Related P2Pool V2 work aims to remove the single authoritative bookkeeper.',
     keySpecs: [
