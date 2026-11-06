@@ -118,9 +118,9 @@ export const pillarProjects: PillarProject[] = [
     description:
       'A fully open-source mining pool built as a platform: payout and accounting logic are plug-ins, not hard-coded, and deploy with a single command.',
     whyNecessary:
-      'The pool is the server side of mining, and it is concentrated. Pools can filter which transactions get mined, custody your payouts, and hide the accounting, and there’s no permissionless way to aggregate hashrate without trusting an operator.',
+      'The pool is the server side of mining, and it is concentrated. Pools can filter which transactions get mined, custody your payouts, and control the accounting. Permissionless participation doesn’t necessarily mean independently verifiable rewards.',
     whatItDoes:
-      'Like WordPress for pools: the core is a platform and payouts are plug-ins: solo, PPLNS, and more (Lightning, Ark) on the same core, all non-custodial from the coinbase. A P2Pool V2 path goes further, to pooling with no operator to trust at all.',
+      'Like WordPress for pools: the core is a platform and payouts are plug-ins. Built for solo and PPLNS pooling, with direct coinbase payouts and extensible payout logic. Hydrapool aims to let you inspect and run the bookkeeper. Related P2Pool V2 work aims to remove the single authoritative bookkeeper.',
     keySpecs: [
       { label: 'Language', value: 'Rust' },
       { label: 'License', value: 'AGPLv3' },
@@ -131,7 +131,7 @@ export const pillarProjects: PillarProject[] = [
       'One-command Docker deploy',
       'Plugin payout logic: solo, PPLNS, more',
       'Non-custodial coinbase payouts',
-      'P2Pool V2 path (pool without an operator)',
+      'P2Pool V2 direction: peer-validated share accounting',
       'Prometheus + Grafana monitoring',
       'Live at pool.256foundation.org:3333',
     ],

@@ -39,7 +39,7 @@ export const ourWorkStatusQuo = {
     },
     {
       title: 'Pool',
-      body: 'The server side of mining is concentrated and opaque, and trusting an operator is the only way to aggregate hashrate.',
+      body: 'The server side of mining is concentrated and opaque, and most pooled hashrate depends on an operator’s accounting and payment decisions.',
     },
   ],
   ending:
