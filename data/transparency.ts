@@ -50,7 +50,6 @@ export const transparencyCategories: TransparencyCategory[] = [
     title: 'Policies',
     items: [
       { label: 'Responsible Disclosure Policy', href: disclosurePolicy.path },
-      { label: 'Responsible Disclosure Policy (PDF)', href: disclosurePolicy.pdfPath, file: true },
     ],
   },
   {

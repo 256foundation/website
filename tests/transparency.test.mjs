@@ -38,6 +38,14 @@ test('footer Resources links /transparency', () => {
   assert.ok(/label: 'Transparency', href: '\/transparency'/.test(read(NAV)))
 })
 
+test('the footer does not link the disclosure policy or its PDF', () => {
+  for (const rel of [NAV, 'components/layout/Footer.tsx']) {
+    const source = read(rel)
+    assert.ok(!source.includes('/security/disclosure-policy'), rel)
+    assert.ok(!source.includes('responsible-disclosure-policy.pdf'), rel)
+  }
+})
+
 test('sitemap lists /transparency', () => {
   assert.ok(read(SITEMAP).includes('${baseUrl}/transparency'))
 })
@@ -56,13 +64,14 @@ test('every transparency link has an href', () => {
   assert.equal(hrefs.length, labels.length, 'a link label has no href')
 })
 
-test('the Policies category links the responsible disclosure policy and its PDF', () => {
+test('the Policies category links the disclosure policy page once, not the PDF', () => {
   const source = read(DATA)
   const policies = source.split("title: 'Policies'")[1].split("title: 'Reports'")[0]
+  const labels = policies.match(/Responsible Disclosure Policy/g) ?? []
+  assert.equal(labels.length, 1)
   assert.ok(policies.includes('disclosurePolicy.path'), 'policy page link missing')
-  assert.ok(policies.includes('disclosurePolicy.pdfPath'), 'policy PDF link missing')
-  assert.ok(policies.includes('file: true'), 'PDF should be a file link, not a client route')
-  assert.ok(policies.includes('Responsible Disclosure Policy'))
+  assert.ok(!policies.includes('disclosurePolicy.pdfPath'), 'PDF should not be linked from Transparency')
+  assert.ok(!policies.includes('file: true'))
   assert.ok(!/items: \[\]/.test(policies))
 })
 
