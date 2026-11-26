@@ -1,4 +1,5 @@
 import type { TransparencyCategory } from '@/types'
+import { disclosurePolicy } from '@/data/disclosurePolicy'
 
 /**
  * /transparency content. Deliberately plain: a short intro and a handful of
@@ -47,8 +48,9 @@ export const transparencyCategories: TransparencyCategory[] = [
   },
   {
     title: 'Policies',
-    items: [],
-    note: 'Not published yet.',
+    items: [
+      { label: 'Responsible Disclosure Policy', href: disclosurePolicy.path },
+    ],
   },
   {
     title: 'Reports',

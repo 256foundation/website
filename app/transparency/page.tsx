@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { generatePageMetadata } from '@/lib/metadata'
 import { transparencyIntro, transparencyCategories } from '@/data/transparency'
+import type { TransparencyLink } from '@/types'
 import SectionWrapper from '@/components/ui/SectionWrapper'
 import Eyebrow from '@/components/ui/Eyebrow'
 import DecorativeBg from '@/components/ui/DecorativeBg'
@@ -18,6 +19,38 @@ export const metadata = generatePageMetadata({
 
 const linkClass =
   'text-gray-600 dark:text-gray-400 hover:text-[#3b1445] dark:hover:text-[#c084d8] text-sm transition-colors duration-150'
+
+function CategoryLink({ item }: { item: TransparencyLink }) {
+  if (item.external) {
+    return (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${linkClass} inline-flex items-center gap-1.5`}
+      >
+        {item.label}
+        <svg aria-hidden="true" className="w-2.5 h-2.5 opacity-50" viewBox="0 0 10 10" fill="currentColor">
+          <path d="M8 1H5V0h5v5H9V2L4 7l-.707-.707L8 1zM0 9V4h1v4h4v1H0z" />
+        </svg>
+      </a>
+    )
+  }
+
+  if (item.file) {
+    return (
+      <a href={item.href} className={linkClass}>
+        {item.label}
+      </a>
+    )
+  }
+
+  return (
+    <Link href={item.href} className={linkClass}>
+      {item.label}
+    </Link>
+  )
+}
 
 export default function TransparencyPage() {
   return (
@@ -53,23 +86,7 @@ export default function TransparencyPage() {
                 <ul className="space-y-2.5">
                   {category.items.map((item) => (
                     <li key={item.href}>
-                      {item.external ? (
-                        <a
-                          href={item.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`${linkClass} inline-flex items-center gap-1.5`}
-                        >
-                          {item.label}
-                          <svg aria-hidden="true" className="w-2.5 h-2.5 opacity-50" viewBox="0 0 10 10" fill="currentColor">
-                            <path d="M8 1H5V0h5v5H9V2L4 7l-.707-.707L8 1zM0 9V4h1v4h4v1H0z" />
-                          </svg>
-                        </a>
-                      ) : (
-                        <Link href={item.href} className={linkClass}>
-                          {item.label}
-                        </Link>
-                      )}
+                      <CategoryLink item={item} />
                     </li>
                   ))}
                 </ul>

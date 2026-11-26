@@ -38,6 +38,14 @@ test('footer Resources links /transparency', () => {
   assert.ok(/label: 'Transparency', href: '\/transparency'/.test(read(NAV)))
 })
 
+test('the footer does not link the disclosure policy or its PDF', () => {
+  for (const rel of [NAV, 'components/layout/Footer.tsx']) {
+    const source = read(rel)
+    assert.ok(!source.includes('/security/disclosure-policy'), rel)
+    assert.ok(!source.includes('responsible-disclosure-policy.pdf'), rel)
+  }
+})
+
 test('sitemap lists /transparency', () => {
   assert.ok(read(SITEMAP).includes('${baseUrl}/transparency'))
 })
@@ -56,13 +64,15 @@ test('every transparency link has an href', () => {
   assert.equal(hrefs.length, labels.length, 'a link label has no href')
 })
 
-test('the Policies and Reports categories are present but empty', () => {
+test('the Policies category links the disclosure policy page once, not the PDF', () => {
   const source = read(DATA)
-  for (const title of ['Policies', 'Reports']) {
-    const body = source.split(`title: '${title}'`)[1].split('},')[0]
-    assert.ok(/items: \[\]/.test(body), `${title} should have no links yet`)
-    assert.ok(/note:/.test(body), `${title} should carry an in-progress note`)
-  }
+  const policies = source.split("title: 'Policies'")[1].split("title: 'Reports'")[0]
+  const labels = policies.match(/Responsible Disclosure Policy/g) ?? []
+  assert.equal(labels.length, 1)
+  assert.ok(policies.includes('disclosurePolicy.path'), 'policy page link missing')
+  assert.ok(!policies.includes('disclosurePolicy.pdfPath'), 'PDF should not be linked from Transparency')
+  assert.ok(!policies.includes('file: true'))
+  assert.ok(!/items: \[\]/.test(policies))
 })
 
 test('the money link is the Form 990 lookup, not a restated figure', () => {
@@ -87,10 +97,14 @@ test('the Reports category is present but empty', () => {
   assert.ok(/in progress/i.test(reports), 'Reports should carry an in-progress note')
 })
 
-test('security.txt points at the responsible-disclosure policy, not the FAQ', () => {
+test('security.txt points at the disclosure policy page, not the FAQ', () => {
   const source = read(SECURITY)
-  assert.ok(source.includes('responsible-disclosure-policy'))
+  assert.match(source, /^Contact: mailto:security@256foundation\.org$/m)
+  assert.match(source, /^Expires: 2027-11-25T00:00:00\.000Z$/m)
+  assert.match(source, /^Preferred-Languages: en$/m)
+  assert.match(source, /^Policy: https:\/\/256foundation\.org\/security\/disclosure-policy$/m)
   assert.ok(!/^Policy: .*\/faq/m.test(source))
+  assert.ok(!source.includes('docs.256foundation.org'))
 })
 
 test('no em dashes in the transparency copy or page', () => {

@@ -8,6 +8,7 @@ import { supporters } from '@/data/supporters'
 import { siteStats } from '@/data/stats'
 import { BITCOIN_ADDRESS, LIGHTNING_ADDRESS, ZAPRITE_URL } from '@/data/donate'
 import { PROPUBLICA_URL } from '@/data/transparency'
+import { disclosurePolicy } from '@/data/disclosurePolicy'
 import type { NewsroomPost } from '@/types'
 
 /**
@@ -42,6 +43,29 @@ const SITE_BLURB =
 
 function absolute(path: string): string {
   return `${siteBaseUrl()}${path}`
+}
+
+/** Verbatim policy text for the full agent document, plus the page and PDF URLs. */
+function appendDisclosurePolicy(out: string[]): void {
+  out.push(`## ${disclosurePolicy.title}`)
+  out.push('')
+  out.push(disclosurePolicy.adopted)
+  out.push('')
+  out.push(`Page: ${absolute(disclosurePolicy.path)}`)
+  out.push(`PDF: ${absolute(disclosurePolicy.pdfPath)}`)
+  out.push('')
+  for (const section of disclosurePolicy.sections) {
+    out.push(`### ${section.heading}`)
+    out.push('')
+    for (const paragraph of section.paragraphs ?? []) {
+      out.push(paragraph)
+      out.push('')
+    }
+    if (section.list && section.list.length > 0) {
+      for (const item of section.list) out.push(`- ${item}`)
+      out.push('')
+    }
+  }
 }
 
 function postUrl(post: Pick<NewsroomPost, 'slug'>): string {
@@ -82,6 +106,7 @@ export function buildLlmsTxt(): string {
   lines.push(`- [Grants](${base}/grants): The two grant programs and how a grant runs.`)
   lines.push(`- [Funding log](${base}/grants/announcements): Every grant announcement, newest first.`)
   lines.push(`- [Transparency](${base}/transparency): The public record: incorporation, IRS status, Form 990 lookup, grants timeline, and the key public policies.`)
+  lines.push(`- [Responsible Disclosure Policy](${base}${disclosurePolicy.path}): ${disclosurePolicy.adopted}. PDF: ${base}${disclosurePolicy.pdfPath}.`)
   lines.push(`- [FAQ](${base}/faq): Who we are, how donations and grants work, and technical questions.`)
   lines.push(`- [Telehash](${base}/telehash): Our livestream mining fundraiser. Telehash #1 found block 881423.`)
   lines.push(`- [Community](${base}/community): Forum, events, and ecosystem projects.`)
@@ -205,9 +230,11 @@ export function buildLlmsFullTxt(): string {
   out.push(`- IRS determination letter: the IRS-hosted copy is at https://apps.irs.gov/pub/epostcard/dl/FinalLetter_99-1662333_THE256FOUNDATION_04232024_00.pdf.`)
   out.push(`- Form 990 lookup: every annual information return the Foundation files, at ${PROPUBLICA_URL}. The filed 990 is the source of truth for all figures.`)
   out.push(`- Project grants timeline: ${siteBaseUrl()}/grants/announcements. Per-project grant amounts are never published.`)
-  out.push(`- Key public policies: not yet published. They will live in the Foundation's Outline workspace at https://docs.256foundation.org/, which currently requires a login.`)
+  out.push(`- Responsible Disclosure Policy: ${absolute(disclosurePolicy.path)}. PDF: ${absolute(disclosurePolicy.pdfPath)}. ${disclosurePolicy.adopted}.`)
   out.push(`- Transparency report: the narrative account of the Foundation and its grantees, distinct from the transparency page. First edition in progress.`)
   out.push('')
+
+  appendDisclosurePolicy(out)
 
   // FAQ
   out.push('## FAQ')

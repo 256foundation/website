@@ -164,6 +164,8 @@ export interface TransparencyLink {
   label: string
   href: string
   external?: boolean
+  /** Same-origin file, such as a PDF. Rendered as a plain anchor, not a client route. */
+  file?: boolean
 }
 
 /**
